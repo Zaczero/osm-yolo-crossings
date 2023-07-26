@@ -1,4 +1,4 @@
-from math import cos, radians, sin
+from math import cos, radians, sin, tan
 from typing import NamedTuple, Self, Sequence
 
 import numpy as np
@@ -32,6 +32,13 @@ class Polygon2(NamedTuple):
             # translate
             p[0] -= params['tx']
             p[1] -= params['ty']
+
+            # shear
+            shear = -radians(params['shear'])
+            dx = p[0] - center_x
+            dy = p[1] - center_y
+            p[0] = dx - sin(shear) * dy + center_x
+            p[1] = cos(shear) * dy + center_y
 
             # scale
             dx = p[0] - center_x

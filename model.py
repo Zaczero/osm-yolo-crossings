@@ -53,22 +53,14 @@ def _setup_gpu():
         print(len(gpus), 'Physical GPUs,', len(logical_gpus), 'Logical GPUs')
 
 
-# def _split_x_y(dataset: Sequence[DatasetEntry]) -> tuple[np.ndarray, dict]:
-#     X = np.stack(tuple(map(lambda x: x.image, dataset)))
-#     y_boxes, y_classes = list(zip(*map(lambda x: x.boxes.array(), dataset)))
-#     return X, {
-#         'boxes': np.array(y_boxes, float),
-#         'classes': np.array(y_classes, int),
-#     }
-
-
 def _data_gen(dataset: Sequence[DatasetEntry], batch_size: int = _BATCH_SIZE, *, transform: bool = True) -> Generator[tuple[np.ndarray, dict], None, None]:
     if transform:
         datagen = ImageDataGenerator(
             width_shift_range=0.2,
             height_shift_range=0.2,
             rotation_range=180,
-            zoom_range=0.2,
+            shear_range=15,
+            zoom_range=0.3,
             channel_shift_range=0.25,
             fill_mode='constant',
             cval=0,
@@ -76,18 +68,20 @@ def _data_gen(dataset: Sequence[DatasetEntry], batch_size: int = _BATCH_SIZE, *,
             vertical_flip=True,
         )
 
-        # first yield all images without augmentation
-        if len(dataset) > batch_size:
-            yield from _data_gen(dataset, batch_size=batch_size, transform=False)
-
     else:
         datagen = ImageDataGenerator()
 
-    X_batch = []
-    y_batch = {
-        'boxes': [],
-        'classes': [],
-    }
+    if transform and len(dataset) < batch_size:
+        X_batch, y_batch = next(_data_gen(dataset, batch_size=len(dataset), transform=False))
+        X_batch = X_batch.tolist()
+        y_batch['boxes'] = y_batch['boxes'].tolist()
+        y_batch['classes'] = y_batch['classes'].tolist()
+    else:
+        X_batch = []
+        y_batch = {
+            'boxes': [],
+            'classes': [],
+        }
 
     while True:
         seed_ = random.randint(0, 2**31 - 1)
@@ -182,7 +176,7 @@ def create_model():
     test = tuple(chain(train[:5], test))
 
     model = keras_cv.models.YOLOV8Detector(
-        backbone=keras_cv.models.YOLOV8Backbone.from_preset('yolo_v8_m_backbone_coco'),
+        backbone=keras_cv.models.YOLOV8Backbone.from_preset('yolo_v8_s_backbone_coco'),
         num_classes=1,
         bounding_box_format='xywh',
     )
@@ -191,21 +185,27 @@ def create_model():
         box_loss='ciou',
         classification_loss='binary_crossentropy',
         optimizer=tf.optimizers.Adam(
-            learning_rate=0.002,
+            learning_rate=0.003,
             global_clipnorm=2.0,
         )
+        # optimizer=tf.optimizers.SGD(
+        #     learning_rate=0.1,
+        #     momentum=0.9,
+        #     nesterov=True,
+        #     clipnorm=2.0
+        # )
     )
 
     model_save_fix(model)
 
     callbacks_early = [
-        EarlyStopping('loss', patience=5, min_delta=0.4, verbose=1),
+        EarlyStopping('loss', patience=5, min_delta=0.3, verbose=1),
         TensorBoard(str(DATA_DIR / 'tensorboard' / datetime.now().strftime("%Y%m%d-%H%M%S")), histogram_freq=1),
     ]
 
     callbacks_late = [
         EarlyStopping(patience=20, min_delta=0.01, verbose=1),
-        ReduceLROnPlateau(factor=0.5, patience=8, min_delta=0.01, verbose=1),
+        ReduceLROnPlateau(factor=0.5, patience=10, min_delta=0.01, verbose=1),
         ModelCheckpoint(str(MODEL_PATH),
                         save_best_only=True, save_weights_only=True,
                         verbose=1, initial_value_threshold=2.5),
@@ -238,7 +238,7 @@ def create_model():
     exit()
 
     model = keras_cv.models.YOLOV8Detector(
-        backbone=keras_cv.models.YOLOV8Backbone.from_preset('yolo_v8_m_backbone_coco'),
+        backbone=keras_cv.models.YOLOV8Backbone.from_preset('yolo_v8_s_backbone_coco'),
         num_classes=1,
         bounding_box_format='xywh',
     )
