@@ -33,7 +33,7 @@ np.random.seed(SEED)
 _MIN_EDGE_DISTANCE = 0.1
 
 
-def _process_orto(model: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequence[LatLon]:
+def _process_orto(model: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequence[Box]:
     assert orto_img.shape[0] == orto_img.shape[1]
     num_subcells = int(orto_img.shape[0] / YOLO_MODEL_RESOLUTION)
     subcell_size_lat = cell.size.lat / num_subcells
@@ -88,10 +88,12 @@ def _process_orto(model: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Seq
                         _MIN_EDGE_DISTANCE < y_min_p < 1 - _MIN_EDGE_DISTANCE and
                         _MIN_EDGE_DISTANCE < y_max_p < 1 - _MIN_EDGE_DISTANCE
                     ):
-                        center = transform_px_to_rad(
-                            ((center_y, center_x),), box_cell,
+                        points = transform_px_to_rad(
+                            ((x_min, y_max), (x_max, y_min)), box_cell,
                             (YOLO_MODEL_RESOLUTION, YOLO_MODEL_RESOLUTION))[0]
-                        result.append(center)
+                        p1 = LatLon(points[0][0], points[0][1])
+                        p2 = LatLon(points[1][0], points[1][1])
+                        result.append(Box(p1, p2 - p1))
                         break
 
                     tx = center_x - YOLO_MODEL_RESOLUTION / 2
