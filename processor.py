@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 from skimage import (color, draw, exposure, filters, img_as_float,
                      img_as_ubyte, morphology, restoration, transform)
+from skimage.color.adapt_rgb import adapt_rgb, each_channel
 
 from box import Box
 from orto import fetch_orto
@@ -21,13 +22,35 @@ class ProcessPolygonResult(NamedTuple):
     overlay: np.ndarray
 
 
-def normalize_image(image: np.ndarray) -> np.ndarray:
-    save_image(image, 'normalize_0')
+@adapt_rgb(each_channel)
+def median_rgb(image: np.ndarray, *args, **kwargs) -> np.ndarray:
+    return filters.median(image, *args, **kwargs)
+
+
+def normalize_yolo_image(image: np.ndarray) -> np.ndarray:
+    save_image(image, 'normalize_yolo_0')
     image = img_as_ubyte(image[:, :, ::-1])
     image = cv2.fastNlMeansDenoisingColored(image, None, 3, 3, 7, 21)
     image = img_as_float(image[:, :, ::-1])
     image = filters.unsharp_mask(image, radius=10, amount=1.3, channel_axis=2)
-    save_image(image, 'normalize_1')
+    save_image(image, 'normalize_yolo_1')
+    return image
+
+
+def normalize_attrib_image(image: np.ndarray) -> np.ndarray:
+    save_image(image, 'normalize_attrib_0')
+    image = normalize_yolo_image(image)
+    # image = median_rgb(image, morphology.disk(3))
+
+    hsv: np.ndarray = color.rgb2hsv(image)
+    v_channel = hsv[:, :, 2]
+    p05 = np.percentile(v_channel, 5)
+    p95 = np.percentile(v_channel, 95)
+    v_channel = exposure.rescale_intensity(v_channel, in_range=(p05, p95))
+    hsv[:, :, 2] = v_channel
+    image = color.hsv2rgb(hsv)
+
+    save_image(image, 'normalize_attrib_1')
     return image
 
 
@@ -56,7 +79,7 @@ def process_polygon(polygon: Polygon, raw_img: np.ndarray | None = None) -> Proc
     mask_img = make_polygon_mask(polygon, image_box, orto_img.shape)
     save_image(mask_img, '2')
 
-    orto_img = normalize_image(orto_img)
+    orto_img = normalize_yolo_image(orto_img)
     save_image(orto_img, '3')
 
     mask_img_binary = mask_img[:, :] > 0.5
@@ -75,7 +98,7 @@ def process_polygon(polygon: Polygon, raw_img: np.ndarray | None = None) -> Proc
 def process_image(image: np.ndarray, mask: np.ndarray) -> np.ndarray:
     assert len(mask.shape) == 2, 'Mask must be grayscale'
     assert image.shape[:2] == mask.shape, 'Image and mask must have the same shape'
-    result = normalize_image(image)
+    result = normalize_yolo_image(image)
 
     # calculate the distance from each point in the mask to the nearest zero
     # distances = distance_transform_edt(mask_bold < 0.5)

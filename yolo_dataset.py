@@ -13,28 +13,28 @@ from skimage import draw, img_as_float, transform
 from skimage.io import imread
 
 from box import Box
-from config import (CACHE_DIR, CPU_COUNT, DATASET_DIR, IMAGES_DIR,
+from config import (CACHE_DIR, CPU_COUNT, IMAGES_DIR, YOLO_DATASET_DIR,
                     YOLO_MODEL_RESOLUTION)
 from db_grid import random_grid
 from latlon import LatLon
 from orto import FetchMode, fetch_orto
-from overpass import query_crossings
+from overpass import query_specific_crossings
 from polygon2 import Polygon2
-from processor import (ProcessPolygonResult, normalize_image, process_image,
-                       process_polygon)
+from processor import (ProcessPolygonResult, normalize_yolo_image,
+                       process_image, process_polygon)
 from transform_geo_px import transform_rad_to_px
 from utils import print_run_time, save_image
 from yolo_tuned_model import YoloTunedModel
 
 
-class DatasetLabel(NamedTuple):
+class YoloDatasetLabel(NamedTuple):
     polygons: Sequence[Polygon2]
     labels: Sequence[int]
 
 
-class DatasetEntry(NamedTuple):
+class YoloDatasetEntry(NamedTuple):
     id: str
-    labels: DatasetLabel
+    labels: YoloDatasetLabel
     image: np.ndarray
 
 
@@ -45,7 +45,7 @@ def _tag_to_label(tag: dict) -> int | None:
     raise ValueError(f'Unknown tag label: {tag["@label"]!r}')
 
 
-def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) -> DatasetEntry | None:
+def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) -> YoloDatasetEntry | None:
     cache_path = CACHE_DIR / f'DatasetEntry_{identifier}.pkl'
     if cache_path.is_file():
         return pickle.loads(cache_path.read_bytes())
@@ -56,7 +56,7 @@ def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) 
 
     image = imread(raw_path)
     image = img_as_float(image)
-    image = normalize_image(image)
+    image = normalize_yolo_image(image)
 
     polygons = []
     labels = []
@@ -69,13 +69,13 @@ def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) 
         polygons.append(Polygon2.from_str(p['@points']))
         labels.append(label)
 
-    entry = DatasetEntry(identifier, DatasetLabel(polygons, labels), image)
+    entry = YoloDatasetEntry(identifier, YoloDatasetLabel(polygons, labels), image)
     cache_path.write_bytes(pickle.dumps(entry, protocol=pickle.HIGHEST_PROTOCOL))
     return entry
 
 
-def iter_dataset() -> Iterable[DatasetEntry]:
-    cvat_annotation_paths = tuple(sorted(DATASET_DIR.rglob('annotations.xml')))
+def iter_yolo_dataset() -> Iterable[YoloDatasetEntry]:
+    cvat_annotation_paths = tuple(sorted(YOLO_DATASET_DIR.rglob('annotations.xml')))
     done = set()
 
     for i, p in enumerate(cvat_annotation_paths, 1):
@@ -83,7 +83,7 @@ def iter_dataset() -> Iterable[DatasetEntry]:
         cvat_dir = p.parent
         print(f'[DATASET][{dir_progress}] 📁 Iterating: {cvat_dir!r}')
 
-        cvat_annotations = xmltodict.parse(p.read_text(), force_list=('image', 'tag', 'attribute', 'box', 'polygon'))
+        cvat_annotations = xmltodict.parse(p.read_text(), force_list=('image', 'attribute', 'polygon'))
         cvat_annotations = cvat_annotations['annotations']['image']
 
         for j, annotation in enumerate(cvat_annotations, 1):
@@ -110,9 +110,7 @@ class ProcessCellResult(NamedTuple):
 
 
 def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[ProcessCellResult]:
-    print(f'[DATASET] 📦 Processing {cell!r}')
-
-    crossings = query_crossings(cell, historical=False)
+    crossings = query_specific_crossings(cell, "~'^(uncontrolled|marked|traffic_signals)$'", historical=False)
     if len(crossings) < 2:
         return []
 
@@ -152,7 +150,7 @@ def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[Proces
                 img_shape=subcell_orto_img.shape)
 
             subcell_overlay_img = subcell_orto_img.copy()
-            subcell_overlay_img = normalize_image(subcell_overlay_img)
+            subcell_overlay_img = normalize_yolo_image(subcell_overlay_img)
 
             for crossing, crossing_px in zip(subcell_crossings, subcell_crossings_px):
                 rr, cc = draw.disk(crossing_px, radius=6, shape=subcell_orto_img.shape[:2])
@@ -160,8 +158,8 @@ def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[Proces
                 rr, cc = draw.disk(crossing_px, radius=5, shape=subcell_orto_img.shape[:2])
                 subcell_overlay_img[rr, cc] = (1, 0, 1) if crossing.bicycle else (1, 0, 0)
 
-            save_image(subcell_orto_img, '2')
-            save_image(subcell_overlay_img, '3')
+            save_image(subcell_orto_img, 'dataset_yolo_1')
+            save_image(subcell_overlay_img, 'dataset_yolo_2')
 
             result.append(ProcessCellResult(
                 box=subcell,
@@ -169,10 +167,10 @@ def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[Proces
                 overlay=subcell_overlay_img,
             ))
 
-    return result
+    return tuple(result)
 
 
-def create_dataset(size: int) -> None:
+def create_yolo_dataset(size: int) -> None:
     cvat_annotations = {
         'annotations': {
             'version': '1.1',
@@ -181,9 +179,6 @@ def create_dataset(size: int) -> None:
     }
 
     cvat_image_annotations: list[dict] = cvat_annotations['annotations']['image']
-
-    # with print_run_time('Loading model'):
-    #     model = TunedModel()
 
     with Pool(CPU_COUNT) as pool:
         process_func = partial(_process_cell, must_contain_crossings=True)
@@ -199,9 +194,6 @@ def create_dataset(size: int) -> None:
             for result in chain.from_iterable(iterator):
                 unique_id = str(result.box).replace('.', '_')
 
-                # is_valid, proba = model.predict_single(model_input, threshold=0.5)
-                # label = 'good' if is_valid else 'bad'
-
                 raw_path = save_image(result.image, f'CVAT/images/{unique_id}', force=True)
                 raw_name = raw_path.name
                 raw_name_safe = raw_name.replace('.', '_')
@@ -215,14 +207,6 @@ def create_dataset(size: int) -> None:
                     '@name': f'images/{raw_name}',
                     '@height': result.image.shape[0],
                     '@width': result.image.shape[1],
-                    # 'tag': [{
-                    #     '@label': label,
-                    #     '@source': 'auto',
-                    #     'attribute': [{
-                    #         '@name': 'proba',
-                    #         '#text': f'{proba:.3f}'
-                    #     }]
-                    # }]
                 }
 
                 cvat_image_annotations.append(annotation)

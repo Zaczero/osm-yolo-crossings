@@ -13,13 +13,14 @@ from utils import http_headers
 
 class QueriedCrossing(NamedTuple):
     position: LatLon
+    tags: dict[str, str]
     bicycle: bool
 
 
-def _build_crossings_query(box: Box, timeout: int) -> str:
+def _build_specific_crossings_query(box: Box, timeout: int, specific: str) -> str:
     return (
         f'[out:json][timeout:{timeout}][bbox:{box}];'
-        f"nw[highway=crossing][crossing~'^(uncontrolled|marked|traffic_signals)$'];"
+        f'nw[highway=crossing][crossing{specific}];'
         f'out body center qt;'
     )
 
@@ -88,12 +89,12 @@ def _is_road(element: dict) -> bool:
 
 
 @retry(wait=wait_exponential(), stop=stop_after_attempt(5))
-def query_crossings(box: Box, *, historical: bool) -> Sequence[QueriedCrossing]:
+def query_specific_crossings(box: Box, specific: str, *, historical: bool) -> Sequence[QueriedCrossing]:
     result = []
 
     for years_ago in (0, 1, 2) if historical else (0,):
         timeout = 90
-        query = _build_crossings_query(box, timeout)
+        query = _build_specific_crossings_query(box, timeout, specific)
 
         if years_ago > 0:
             date = datetime.utcnow() - timedelta(days=365 * years_ago)
@@ -109,6 +110,7 @@ def query_crossings(box: Box, *, historical: bool) -> Sequence[QueriedCrossing]:
         for e in elements:
             result.append(QueriedCrossing(
                 position=LatLon(e['lat'], e['lon']),
+                tags=e.get('tags', {}),
                 bicycle=_is_bicycle(e)
             ))
 

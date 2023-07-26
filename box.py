@@ -9,7 +9,7 @@ class Box(NamedTuple):
     size: LatLon
 
     def __str__(self) -> str:
-        return f'{self.point.lat:.8f},{self.point.lon:.8f},{self.point.lat + self.size.lat:.8f},{self.point.lon + self.size.lon:.8f}'
+        return f'{self.point},{self.point + self.size}'
 
     def __contains__(self, point: LatLon) -> bool:
         return (
@@ -17,7 +17,7 @@ class Box(NamedTuple):
             self.point.lon <= point.lon <= self.point.lon + self.size.lon
         )
 
-    def extend(self, meters: float) -> Self:
+    def extend(self, *, meters: float) -> Self:
         extend_lat = meters_to_lat(meters)
         extend_lon = meters_to_lon(meters, self.point.lat)
 

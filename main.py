@@ -6,22 +6,23 @@ from typing import Sequence
 
 import numpy as np
 
+from attrib_dataset import create_attrib_dataset
 from box import Box
 # from check_on_osm import check_on_osm
 from config import (CPU_COUNT, DRY_RUN, SEED, SLEEP_AFTER_ONE_IMPORT,
                     YOLO_CONFIDENCE, YOLO_MODEL_RESOLUTION)
-from dataset import create_dataset
 # from db_added import filter_added, mark_added
 from db_grid import iter_grid
 from latlon import LatLon
 from openstreetmap import OpenStreetMap
 from orto import FetchMode, fetch_orto
 # from osm_change import create_buildings_change
-from processor import normalize_image
+from processor import normalize_yolo_image
 from transform_geo_px import transform_px_to_rad
 # from processor import process_image, process_polygon
 # from tuned_model import TunedModel
 from utils import index_box_centered, print_run_time, save_image
+from yolo_dataset import create_yolo_dataset
 from yolo_model import create_model
 from yolo_tuned_model import YoloTunedModel
 
@@ -106,7 +107,7 @@ def _process_orto(model: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Seq
                     box_cell = Box(box_cell.point + box_cell_translate, box_cell.size)
 
                     box_img = fetch_orto(box_cell, FetchMode.FAST, YOLO_MODEL_RESOLUTION)
-                    box_img = normalize_image(box_img)
+                    box_img = normalize_yolo_image(box_img)
 
                     pred = model.predict_single(box_img)
                     boxes, confidences = pred['boxes'], pred['confidence']
@@ -142,7 +143,7 @@ def main() -> None:
                 print('[CELL] ⏭️ Nothing to do: missing ortophoto')
                 continue
 
-            orto_img = normalize_image(orto_img)
+            orto_img = normalize_yolo_image(orto_img)
             crossings = _process_orto(yolo_model, cell, orto_img)
 
             # valid_buildings: list[ClassifiedBuilding] = []
@@ -207,4 +208,5 @@ if __name__ == '__main__':
     # create_dataset(1000)
     # process_dataset()
     # create_model()
-    main()
+    create_attrib_dataset(1000)
+    # main()

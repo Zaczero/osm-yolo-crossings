@@ -21,10 +21,10 @@ from sklearn.utils import class_weight
 from Xlib import X, display
 
 from config import DATA_DIR, SEED, YOLO_MODEL_PATH, YOLO_MODEL_RESOLUTION
-from dataset import DatasetEntry, iter_dataset
 from model_save_fix import model_save_fix
-from processor import normalize_image
+from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
+from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
 _BATCH_SIZE = 32
 _STEPS_PER_EPOCH = 10
@@ -40,7 +40,7 @@ def _setup_gpu():
         print(len(gpus), 'Physical GPUs,', len(logical_gpus), 'Logical GPUs')
 
 
-def _data_gen(dataset: Sequence[DatasetEntry], batch_size: int = _BATCH_SIZE, *, transform: bool = True) -> Generator[tuple[np.ndarray, dict], None, None]:
+def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE, *, transform: bool = True) -> Generator[tuple[np.ndarray, dict], None, None]:
     if transform:
         datagen = ImageDataGenerator(
             width_shift_range=0.2,
@@ -127,7 +127,7 @@ def create_model():
 
     # dataset_iterator = iter_dataset()
     # dataset = tuple(next(dataset_iterator) for _ in range(100))
-    dataset = tuple(iter_dataset())
+    dataset = tuple(iter_yolo_dataset())
 
     train, test = train_test_split(dataset,
                                    test_size=0.3,
@@ -211,7 +211,7 @@ def create_model():
             img = Image.frombytes('RGB', (800, 800), I.data, 'raw', 'BGRX')
             screenshot = np.asarray(img)
             screenshot = transform.resize(screenshot, (YOLO_MODEL_RESOLUTION, YOLO_MODEL_RESOLUTION, 3))
-            screenshot = normalize_image(screenshot)
+            screenshot = normalize_yolo_image(screenshot)
             pred = model.predict(screenshot[np.newaxis, ...])
             frame = draw_predictions(screenshot, pred, 0)
 

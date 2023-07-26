@@ -65,12 +65,22 @@ IMAGES_DIR.mkdir(exist_ok=True)
 DATASET_DIR = Path('dataset')
 DATASET_DIR.mkdir(exist_ok=True)
 
+YOLO_DATASET_DIR = DATASET_DIR / 'YOLO'
+YOLO_DATASET_DIR.mkdir(exist_ok=True)
+
+ATTRIB_DATASET_DIR = DATASET_DIR / 'ATTRIB'
+ATTRIB_DATASET_DIR.mkdir(exist_ok=True)
+
 MODEL_DIR = Path('model')
 MODEL_DIR.mkdir(exist_ok=True)
 
 YOLO_MODEL_PATH = MODEL_DIR / 'yolo.keras'
 YOLO_MODEL_RESOLUTION = 224
 YOLO_CONFIDENCE = 0.5
+
+ATTRIB_MODEL_PATH = MODEL_DIR / 'attrib.keras'
+ATTRIB_MODEL_RESOLUTION = 224
+ATTRIB_CONFIDENCE = 0.5
 
 DB_PATH = DATA_DIR / 'db.json'
 DB = TinyDB(DB_PATH, storage=ORJSONStorage)
