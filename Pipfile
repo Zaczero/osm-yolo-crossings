@@ -1,0 +1,39 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+httpx = "*"
+keras-core = "*"
+keras-cv = "*"
+lightgbm = "*"
+matplotlib = "*"
+networkx = "*"
+numpy = "*"
+opencv-python-headless = "*"
+optuna = "*"
+orjson = "*"
+pandas = "*"
+pillow = "*"
+protobuf = "*"
+pyproj = "*"
+python-xlib = "*"
+rtree = "*"
+scikit-image = "*"
+scikit-learn = "*"
+scipy = "*"
+shapely = "*"
+tenacity = "*"
+tensorflow = "*"
+tinydb = "*"
+torch = "*"
+torchaudio = "*"
+torchvision = "*"
+xmltodict = "*"
+
+[dev-packages]
+autopep8 = "*"
+
+[requires]
+python_version = "3.11"
