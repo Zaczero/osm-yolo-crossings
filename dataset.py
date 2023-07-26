@@ -14,7 +14,7 @@ from skimage.io import imread
 
 from box import Box
 from config import (CACHE_DIR, CPU_COUNT, DATASET_DIR, IMAGES_DIR,
-                    MODEL_RESOLUTION)
+                    YOLO_MODEL_RESOLUTION)
 from db_grid import random_grid
 from latlon import LatLon
 from orto import FetchMode, fetch_orto
@@ -23,8 +23,8 @@ from polygon2 import Polygon2
 from processor import (ProcessPolygonResult, normalize_image, process_image,
                        process_polygon)
 from transform_geo_px import transform_rad_to_px
-from tuned_model import TunedModel
 from utils import print_run_time, save_image
+from yolo_tuned_model import YoloTunedModel
 
 
 class DatasetLabel(NamedTuple):
@@ -123,8 +123,8 @@ def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[Proces
     save_image(orto_img, '1')
     print(f'[DATASET] 🦓 Processing {len(crossings)} crossings')
 
-    y_parts = int(orto_img.shape[0] / MODEL_RESOLUTION)
-    x_parts = int(orto_img.shape[1] / MODEL_RESOLUTION)
+    y_parts = int(orto_img.shape[0] / YOLO_MODEL_RESOLUTION)
+    x_parts = int(orto_img.shape[1] / YOLO_MODEL_RESOLUTION)
     y_cell_size = cell.size.lat / y_parts
     x_cell_size = cell.size.lon / x_parts
     result = []
@@ -141,8 +141,8 @@ def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[Proces
                 continue
 
             subcell_orto_img = orto_img[
-                subcell_idx_y * MODEL_RESOLUTION:(subcell_idx_y + 1) * MODEL_RESOLUTION,
-                subcell_idx_x * MODEL_RESOLUTION:(subcell_idx_x + 1) * MODEL_RESOLUTION,
+                subcell_idx_y * YOLO_MODEL_RESOLUTION:(subcell_idx_y + 1) * YOLO_MODEL_RESOLUTION,
+                subcell_idx_x * YOLO_MODEL_RESOLUTION:(subcell_idx_x + 1) * YOLO_MODEL_RESOLUTION,
                 :
             ]
 

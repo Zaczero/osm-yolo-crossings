@@ -7,12 +7,12 @@ from skimage.io import imread
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 from box import Box
-from config import MODEL_RESOLUTION
+from config import YOLO_MODEL_RESOLUTION
 from utils import http_headers
 
 _RESOLUTION = 4032  # 224 * 18
 assert _RESOLUTION <= 4096, 'This resolution is not supported by the WMS service'
-assert _RESOLUTION % MODEL_RESOLUTION == 0, 'The resolution must be divisible by the model resolution'
+assert _RESOLUTION % YOLO_MODEL_RESOLUTION == 0, 'The resolution must be divisible by the model resolution'
 
 
 class FetchMode(Enum):

@@ -65,8 +65,10 @@ DATASET_DIR.mkdir(exist_ok=True)
 
 MODEL_DIR = Path('model')
 MODEL_DIR.mkdir(exist_ok=True)
-MODEL_PATH = MODEL_DIR / 'model.keras'
-MODEL_RESOLUTION = 224
+
+YOLO_MODEL_PATH = MODEL_DIR / 'yolo.keras'
+YOLO_MODEL_RESOLUTION = 224
+YOLO_CONFIDENCE = 0.5
 
 DB_PATH = DATA_DIR / 'db.json'
 DB = TinyDB(DB_PATH, storage=ORJSONStorage)

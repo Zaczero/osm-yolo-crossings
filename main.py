@@ -8,7 +8,7 @@ import numpy as np
 # from check_on_osm import check_on_osm
 from config import CPU_COUNT, DRY_RUN, SEED, SLEEP_AFTER_ONE_IMPORT
 from dataset import create_dataset
-from model import create_model
+from yolo_model import create_model
 
 # from db_added import filter_added, mark_added
 # from db_grid import iter_grid
