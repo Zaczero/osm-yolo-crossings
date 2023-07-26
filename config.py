@@ -12,9 +12,9 @@ SAVE_IMG = os.getenv('SAVE_IMG', '0') == '1'
 DRY_RUN = os.getenv('DRY_RUN', '0') == '1'
 SKIP_CONSTRUCTION = os.getenv('SKIP_CONSTRUCTION', '1') == '1'
 
-DAILY_IMPORT_SPEED = float(os.getenv('DAILY_IMPORT_SPEED', '500'))
+DAILY_IMPORT_SPEED = float(os.getenv('DAILY_IMPORT_SPEED', '300'))
 SLEEP_AFTER_ONE_IMPORT = 86400 / DAILY_IMPORT_SPEED if DAILY_IMPORT_SPEED > 0 else 0
-SLEEP_AFTER_GRID_ITER = float(os.getenv('SLEEP_AFTER_GRID_ITER', '48')) * 3600
+SLEEP_AFTER_GRID_ITER = float(os.getenv('SLEEP_DAYS_AFTER_GRID_ITER', '30')) * 24 * 3600
 
 if DRY_RUN:
     print('🦺 TEST MODE 🦺')
@@ -28,6 +28,8 @@ OVERPASS_API_INTERPRETER = os.getenv('OVERPASS_API_INTERPRETER', 'https://overpa
 OSM_USERNAME = os.getenv('OSM_USERNAME')
 OSM_PASSWORD = os.getenv('OSM_PASSWORD')
 assert OSM_USERNAME and OSM_PASSWORD, 'OSM credentials not set'
+
+SEARCH_RELATION = 49715  # Poland
 
 CPU_COUNT = min(int(os.getenv('CPU_COUNT', '1')), len(os.sched_getaffinity(0)))
 

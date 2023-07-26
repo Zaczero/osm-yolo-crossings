@@ -21,14 +21,14 @@ class FetchMode(Enum):
 
 
 @retry(wait=wait_exponential(), stop=stop_after_attempt(5))
-def fetch_orto(box: Box, mode: FetchMode) -> np.ndarray | None:
+def fetch_orto(box: Box, mode: FetchMode, resolution: int = _RESOLUTION) -> np.ndarray | None:
     r = httpx.get('https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/WMS/StandardResolution', params={
         'LAYERS': 'Raster',
         'STYLES': 'default',
         'FORMAT': 'image/png' if mode == FetchMode.QUALITY else 'image/jpeg',
         'CRS': 'EPSG:4326',
-        'WIDTH': _RESOLUTION,
-        'HEIGHT': _RESOLUTION,
+        'WIDTH': resolution,
+        'HEIGHT': resolution,
         'BBOX': str(box),
         'VERSION': '1.3.0',
         'SERVICE': 'WMS',

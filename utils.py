@@ -1,16 +1,16 @@
 import os
 import time
 from contextlib import contextmanager
-from math import cos, pi, radians
+from math import cos, dist, pi, radians
 from pathlib import Path
-from typing import Generator
+from typing import Generator, Sequence
 
 import cv2
 import numpy as np
 from skimage import img_as_ubyte
 from skimage.io import imsave
 
-from config import IMAGES_DIR, SAVE_IMG, USER_AGENT
+from config import IMAGES_DIR, SAVE_IMG, USER_AGENT, YOLO_CONFIDENCE
 
 
 @contextmanager
@@ -81,7 +81,7 @@ def draw_predictions(image: np.ndarray, y_pred: dict, i: int) -> np.ndarray:
     image = img_as_ubyte(image)
 
     for box, confidence, class_id in zip(boxes[:num_detections], confidence[:num_detections], classes[:num_detections]):
-        if confidence < 0.5:
+        if confidence < YOLO_CONFIDENCE:
             continue
 
         x, y, w, h = box
@@ -94,3 +94,25 @@ def draw_predictions(image: np.ndarray, y_pred: dict, i: int) -> np.ndarray:
         cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
 
     return image
+
+
+def index_box_centered(boxes: Sequence[tuple], resolution: int) -> int:
+    assert boxes
+
+    center_x = resolution / 2
+    center_y = resolution / 2
+
+    best_i = None
+    best_dist = None
+
+    for i, box in enumerate(boxes):
+        x, y, w, h = box
+        box_center_x = x + w / 2
+        box_center_y = y + h / 2
+        box_dist = dist((center_x, center_y), (box_center_x, box_center_y))
+
+        if best_i is None or box_dist < best_dist:
+            best_i = i
+            best_dist = box_dist
+
+    return best_i

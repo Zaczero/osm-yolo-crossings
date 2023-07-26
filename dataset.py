@@ -123,26 +123,26 @@ def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[Proces
     save_image(orto_img, '1')
     print(f'[DATASET] 🦓 Processing {len(crossings)} crossings')
 
-    y_parts = int(orto_img.shape[0] / YOLO_MODEL_RESOLUTION)
-    x_parts = int(orto_img.shape[1] / YOLO_MODEL_RESOLUTION)
-    y_cell_size = cell.size.lat / y_parts
-    x_cell_size = cell.size.lon / x_parts
+    assert orto_img.shape[0] == orto_img.shape[1]
+    num_subcells = int(orto_img.shape[0] / YOLO_MODEL_RESOLUTION)
+    subcell_size_lat = cell.size.lat / num_subcells
+    subcell_size_lon = cell.size.lon / num_subcells
     result = []
 
-    for subcell_idx_y in range(int(y_parts)):
-        subcell_lat = cell.point.lat + cell.size.lat - y_cell_size * (subcell_idx_y + 1)
-        for subcell_idx_x in range(int(x_parts)):
-            subcell_lon = cell.point.lon + x_cell_size * subcell_idx_x
+    for y in range(int(num_subcells)):
+        subcell_lat = cell.point.lat + cell.size.lat - subcell_size_lat * (y + 1)
+        for x in range(int(num_subcells)):
+            subcell_lon = cell.point.lon + subcell_size_lon * x
 
-            subcell = Box(LatLon(subcell_lat, subcell_lon), LatLon(y_cell_size, x_cell_size))
+            subcell = Box(LatLon(subcell_lat, subcell_lon), LatLon(subcell_size_lat, subcell_size_lon))
             subcell_crossings = tuple(c for c in crossings if c.position in subcell)
 
             if must_contain_crossings and not subcell_crossings:
                 continue
 
             subcell_orto_img = orto_img[
-                subcell_idx_y * YOLO_MODEL_RESOLUTION:(subcell_idx_y + 1) * YOLO_MODEL_RESOLUTION,
-                subcell_idx_x * YOLO_MODEL_RESOLUTION:(subcell_idx_x + 1) * YOLO_MODEL_RESOLUTION,
+                y * YOLO_MODEL_RESOLUTION:(y + 1) * YOLO_MODEL_RESOLUTION,
+                x * YOLO_MODEL_RESOLUTION:(x + 1) * YOLO_MODEL_RESOLUTION,
                 :
             ]
 

@@ -22,12 +22,12 @@ class ProcessPolygonResult(NamedTuple):
 
 
 def normalize_image(image: np.ndarray) -> np.ndarray:
-    # save_image(image, '0', force=True)
+    save_image(image, 'normalize_0')
     image = img_as_ubyte(image[:, :, ::-1])
     image = cv2.fastNlMeansDenoisingColored(image, None, 3, 3, 7, 21)
     image = img_as_float(image[:, :, ::-1])
     image = filters.unsharp_mask(image, radius=10, amount=1.3, channel_axis=2)
-    # save_image(image, '1', force=True)
+    save_image(image, 'normalize_1')
     return image
 
 

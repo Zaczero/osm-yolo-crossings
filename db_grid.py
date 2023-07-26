@@ -7,6 +7,7 @@ from numpy import arange
 
 from box import Box
 from config import DB_GRID, SLEEP_AFTER_GRID_ITER
+from grid_filter import is_grid_valid
 from latlon import LatLon
 from utils import meters_to_lat, meters_to_lon
 
@@ -45,17 +46,20 @@ def iter_grid() -> Generator[Box, None, None]:
 
         index = 0
 
-        # for y in range(ceil(_COUNTRY_BB.size.lat / _GRID_SIZE_Y)):
-        #     for x in range(ceil(_COUNTRY_BB.size.lon / _GRID_SIZE_X)):
-        #         if index > last_index:
-        #             yield Box(
-        #                 point=_COUNTRY_BB.point + LatLon(y * _GRID_SIZE_Y, x * _GRID_SIZE_X),
-        #                 size=LatLon(_GRID_SIZE_Y, _GRID_SIZE_X))
+        for y in range(ceil(_COUNTRY_BB.size.lat / _GRID_SIZE_Y)):
+            for x in range(ceil(_COUNTRY_BB.size.lon / _GRID_SIZE_X)):
+                if index > last_index:
+                    box = Box(
+                        point=_COUNTRY_BB.point + LatLon(y * _GRID_SIZE_Y, x * _GRID_SIZE_X),
+                        size=LatLon(_GRID_SIZE_Y, _GRID_SIZE_X))
 
-        #             _set_last_index(index)
-        #             print(f'[GRID] ☑️ Finished index {index}')
+                    if is_grid_valid(box):
+                        yield box
+                        print(f'[GRID] ☑️ Processed index {index}')
 
-        #         index += 1
+                    _set_last_index(index)
+
+                index += 1
 
         _set_last_index(-1)
 
@@ -70,9 +74,8 @@ def random_grid() -> Sequence[Box]:
 
     for y in arange(_COUNTRY_BB.point.lat, country_bb_end.lat, _GRID_SIZE_Y * (1 - _OVERLAP_PERCENT)):
         for x in arange(_COUNTRY_BB.point.lon, country_bb_end.lon, _GRID_SIZE_X * (1 - _OVERLAP_PERCENT)):
-            result.append(Box(
-                point=LatLon(y, x),
-                size=LatLon(_GRID_SIZE_Y, _GRID_SIZE_X)))
+            box = Box(LatLon(y, x), LatLon(_GRID_SIZE_Y, _GRID_SIZE_X))
+            result.append(box)
 
     print(f'[GRID] # Generated {len(result)} cells')
     random.shuffle(result)

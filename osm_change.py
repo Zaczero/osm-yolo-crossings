@@ -3,7 +3,6 @@ from typing import Iterable
 
 import xmltodict
 
-from budynki import Building
 from config import CHANGESET_ID_PLACEHOLDER, CREATED_BY
 
 
