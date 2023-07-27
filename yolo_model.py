@@ -123,11 +123,16 @@ def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE
                 y_batch['classes'] = []
 
 
-def get_yolo_model() -> Model:
+def get_yolo_model(coco_weights: bool = True) -> Model:
+    preset = 'yolo_v8_xs_backbone'
+
+    if coco_weights:
+        preset += '_coco'
+
     model = keras_cv.models.YOLOV8Detector(
-        backbone=keras_cv.models.YOLOV8Backbone.from_preset('yolo_v8_xs_backbone_coco'),
-        num_classes=1,
+        backbone=keras_cv.models.YOLOV8Backbone.from_preset(preset),
         bounding_box_format='xywh',
+        num_classes=1,
     )
 
     return model
@@ -175,7 +180,7 @@ def create_yolo_model():
                       verbose=1),
 
         ModelCheckpoint(str(YOLO_MODEL_PATH),
-                        initial_value_threshold=2.5,
+                        initial_value_threshold=2.2,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),
@@ -208,12 +213,6 @@ def create_yolo_model():
     )
 
     exit()
-
-    model = keras_cv.models.YOLOV8Detector(
-        backbone=keras_cv.models.YOLOV8Backbone.from_preset('yolo_v8_xs_backbone_coco'),
-        num_classes=1,
-        bounding_box_format='xywh',
-    )
 
     model.load_weights(str(YOLO_MODEL_PATH))
 

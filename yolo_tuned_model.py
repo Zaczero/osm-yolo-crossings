@@ -7,7 +7,7 @@ from config import YOLO_CONFIDENCE, YOLO_MODEL_PATH
 class YoloTunedModel:
     def __init__(self):
         from yolo_model import get_yolo_model
-        self._model = get_yolo_model()
+        self._model = get_yolo_model(coco_weights=False)
         self._model.load_weights(str(YOLO_MODEL_PATH))
 
     def predict_single(self, X: np.ndarray, min_confidence: float = YOLO_CONFIDENCE) -> dict:
