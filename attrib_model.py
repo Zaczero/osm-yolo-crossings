@@ -2,27 +2,23 @@ from datetime import datetime
 from math import ceil
 from typing import Sequence
 
-import keras.backend as K
 import numpy as np
-import tensorflow as tf
-from keras.applications import MobileNetV3Large, MobileNetV3Small
-from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
-                             TensorBoard, TerminateOnNaN)
+from keras.applications import MobileNetV3Large
+from keras.callbacks import (EarlyStopping, ModelCheckpoint, TensorBoard,
+                             TerminateOnNaN)
 from keras.layers import BatchNormalization, Dense, Dropout, Flatten, Input
-from keras.losses import (BinaryCrossentropy, BinaryFocalCrossentropy,
-                          CategoricalCrossentropy)
-from keras.metrics import AUC, FBetaScore, Precision
-from keras.models import Model, load_model
+from keras.losses import BinaryFocalCrossentropy
+from keras.metrics import AUC
+from keras.models import Model
 from keras.optimizers import Adam
 from keras.preprocessing.image import ImageDataGenerator
-from keras_cv.losses import FocalLoss
 from sklearn.metrics import confusion_matrix, precision_score
 from sklearn.model_selection import train_test_split
-from sklearn.utils import class_weight
 
 from attrib_dataset import AttribDatasetEntry, iter_attrib_dataset
-from config import (ATTRIB_CONFIDENCES, ATTRIB_MODEL_PATH, ATTRIB_NUM_CLASSES,
-                    DATA_DIR, SEED)
+from config import (ATTRIB_CONFIDENCES, ATTRIB_MODEL_PATH,
+                    ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES, DATA_DIR,
+                    SEED)
 from model_save_fix import model_save_fix
 from one_cycle_scheduler import OneCycleScheduler
 
@@ -33,6 +29,28 @@ def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.nd
     X = np.stack(tuple(map(lambda x: x.image, dataset)))
     y = np.array(tuple(map(lambda x: x.labels.encode(), dataset)), dtype=float)
     return X, y
+
+
+def get_attrib_model() -> Model:
+    image_inputs = Input(shape=(ATTRIB_MODEL_RESOLUTION, ATTRIB_MODEL_RESOLUTION, 3))
+    image_model = MobileNetV3Large(include_top=False,
+                                   input_tensor=image_inputs,
+                                   include_preprocessing=False)
+
+    z = image_model(image_inputs)
+    z = Flatten()(z)
+    z = BatchNormalization()(z)
+    z = Dropout(0.2)(z)
+    z = Dense(256, activation='relu')(z)
+    z = Dropout(0.2)(z)
+    z = Dense(128, activation='relu')(z)
+    z = Dropout(0.2)(z)
+    z = Dense(64, activation='relu')(z)
+    z = Dense(ATTRIB_NUM_CLASSES, activation='sigmoid')(z)
+
+    model = Model(inputs=image_inputs, outputs=z)
+
+    return model
 
 
 def create_attrib_model():
@@ -56,34 +74,8 @@ def create_attrib_model():
     # test: 20%
     # val: 10%
 
-    image_inputs = Input(dataset[0].image.shape)
-    image_model = MobileNetV3Large(include_top=False,
-                                   input_tensor=image_inputs,
-                                   include_preprocessing=False)
-
-    z = image_model(image_inputs)
-    z = Flatten()(z)
-    z = BatchNormalization()(z)
-    z = Dropout(0.2)(z)
-    z = Dense(256, activation='relu')(z)
-    z = Dropout(0.2)(z)
-    z = Dense(128, activation='relu')(z)
-    z = Dropout(0.2)(z)
-    z = Dense(64, activation='relu')(z)
-    z = Dense(ATTRIB_NUM_CLASSES, activation='sigmoid')(z)
-
-    model = Model(inputs=image_inputs, outputs=z)
-    model.compile(
-        optimizer=Adam(),
-        loss=BinaryFocalCrossentropy(apply_class_balancing=True),
-        metrics=[AUC(multi_label=True, num_labels=ATTRIB_NUM_CLASSES)],
-    )
-
-    model_save_fix(model)
-
+    # no x/y shift: marker is always in the center
     datagen = ImageDataGenerator(
-        # width_shift_range=0.1,
-        # height_shift_range=0.1,
         rotation_range=180,
         shear_range=15,
         zoom_range=0.2,
@@ -113,6 +105,15 @@ def create_attrib_model():
         TensorBoard(str(DATA_DIR / 'tensorboard' / datetime.now().strftime("%Y%m%d-%H%M%S")), histogram_freq=1),
         TerminateOnNaN(),
     ]
+
+    model = get_attrib_model()
+
+    model_save_fix(model)
+    model.compile(
+        optimizer=Adam(),
+        loss=BinaryFocalCrossentropy(apply_class_balancing=True),
+        metrics=[AUC(multi_label=True, num_labels=ATTRIB_NUM_CLASSES)],
+    )
 
     model.fit(
         datagen.flow(X_train, y_train, batch_size=_BATCH_SIZE),
