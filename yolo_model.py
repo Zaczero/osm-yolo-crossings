@@ -1,5 +1,6 @@
 import random
 from datetime import datetime
+from math import ceil
 from typing import Generator, Sequence
 
 import keras_cv
@@ -28,8 +29,7 @@ from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
-_BATCH_SIZE = 32
-_STEPS_PER_EPOCH = 12
+_BATCH_SIZE = 20
 _BOXES_COUNT = 4
 
 
@@ -183,7 +183,6 @@ def create_yolo_model():
 
         EarlyStopping(min_delta=0.005,
                       patience=25,
-                      restore_best_weights=True,
                       verbose=1),
 
         ModelCheckpoint(str(YOLO_MODEL_PATH),
@@ -196,14 +195,15 @@ def create_yolo_model():
         TerminateOnNaN(),
     ]
 
-    X_batch, y_batch = next(_data_gen(train, batch_size=_BATCH_SIZE * _STEPS_PER_EPOCH * 10))
+    steps_per_epoch = ceil(len(train) / _BATCH_SIZE)
+    X_batch, y_batch = next(_data_gen(train, batch_size=_BATCH_SIZE * steps_per_epoch * 10))
     memory_usage = X_batch.nbytes + y_batch['boxes'].nbytes + y_batch['classes'].nbytes
     print(f'Batch memory usage: {memory_usage / 1024 / 1024:.2f} MiB')
 
     model.fit(
         X_batch, y_batch,
         batch_size=_BATCH_SIZE,
-        steps_per_epoch=_STEPS_PER_EPOCH,
+        steps_per_epoch=steps_per_epoch,
         epochs=1000,
         shuffle=False,
         callbacks=callbacks_early,
@@ -212,7 +212,7 @@ def create_yolo_model():
     model.fit(
         X_batch, y_batch,
         batch_size=_BATCH_SIZE,
-        steps_per_epoch=_STEPS_PER_EPOCH,
+        steps_per_epoch=steps_per_epoch,
         epochs=1000,
         shuffle=False,
         validation_data=(X_test, y_test),
