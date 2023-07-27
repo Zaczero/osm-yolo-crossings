@@ -61,10 +61,6 @@ def create_attrib_model():
                                    input_tensor=image_inputs,
                                    include_preprocessing=False)
 
-    freeze_ratio = 0.6
-    for layer in image_model.layers[:int(len(image_model.layers) * freeze_ratio)]:
-        layer.trainable = False
-
     z = image_model(image_inputs)
     z = Flatten()(z)
     z = BatchNormalization()(z)
@@ -109,6 +105,7 @@ def create_attrib_model():
                       verbose=1),
 
         ModelCheckpoint(str(ATTRIB_MODEL_PATH), 'val_auc', mode='max',
+                        initial_value_threshold=0.9,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),
