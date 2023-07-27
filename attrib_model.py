@@ -93,15 +93,15 @@ def create_attrib_model():
     )
 
     steps_per_epoch = ceil(len(train) / _BATCH_SIZE)
-    cycle_epochs = 6
+    cycle_epochs = 8
 
     callbacks = [
-        OneCycleScheduler(0.00012, steps_per_epoch, cycle_epochs),
+        OneCycleScheduler(0.0001, steps_per_epoch, cycle_epochs),
 
         EarlyStopping('val_auc', mode='max',
-                      min_delta=0.001,
+                      min_delta=0.0005,
                       start_from_epoch=cycle_epochs,
-                      patience=cycle_epochs * 2,
+                      patience=round(cycle_epochs * 2.5),
                       verbose=1),
 
         ModelCheckpoint(str(ATTRIB_MODEL_PATH), 'val_auc', mode='max',
