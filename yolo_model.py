@@ -7,7 +7,7 @@ import numpy as np
 import tensorflow as tf
 from keras.applications import MobileNetV3Large
 from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
-                             TensorBoard)
+                             TensorBoard, TerminateOnNaN)
 from keras.layers import BatchNormalization, Dense, Dropout, Flatten, Input
 from keras.losses import BinaryCrossentropy
 from keras.metrics import Precision
@@ -22,6 +22,7 @@ from Xlib import X, display
 
 from config import DATA_DIR, SEED, YOLO_MODEL_PATH, YOLO_MODEL_RESOLUTION
 from model_save_fix import model_save_fix
+from one_cycle_scheduler import OneCycleScheduler
 from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
@@ -122,7 +123,17 @@ def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE
                 y_batch['classes'] = []
 
 
-def create_model():
+def get_yolo_model() -> Model:
+    model = keras_cv.models.YOLOV8Detector(
+        backbone=keras_cv.models.YOLOV8Backbone.from_preset('yolo_v8_xs_backbone_coco'),
+        num_classes=1,
+        bounding_box_format='xywh',
+    )
+
+    return model
+
+
+def create_yolo_model():
     _setup_gpu()
 
     # dataset_iterator = iter_yolo_dataset()
@@ -134,27 +145,22 @@ def create_model():
                                    random_state=SEED,
                                    shuffle=True)
 
+    # train: 70%
+    # test: 30%
+
     X_test, y_test = next(_data_gen(test, batch_size=len(test), transform=False))
 
     print(f'Train size: {len(train)}')
     print(f'Test size: {len(test)}')
 
-    model = keras_cv.models.YOLOV8Detector(
-        backbone=keras_cv.models.YOLOV8Backbone.from_preset('yolo_v8_xs_backbone_coco'),
-        num_classes=1,
-        bounding_box_format='xywh',
-    )
+    model = get_yolo_model()
 
+    model_save_fix(model)
     model.compile(
         box_loss='ciou',
         classification_loss='binary_crossentropy',
-        optimizer=tf.optimizers.Adam(
-            learning_rate=0.004,
-            global_clipnorm=2.0,
-        )
+        optimizer=tf.optimizers.Adam(learning_rate=0.004, global_clipnorm=2.0)
     )
-
-    model_save_fix(model)
 
     callbacks_early = [
         EarlyStopping('loss', patience=5, min_delta=0.1, verbose=1),
@@ -162,12 +168,20 @@ def create_model():
     ]
 
     callbacks_late = [
-        EarlyStopping(patience=25, min_delta=0.01, verbose=1),
-        ReduceLROnPlateau(factor=0.5, patience=10, min_delta=0.01, verbose=1),
+        ReduceLROnPlateau(factor=2 / 3, patience=15, min_delta=0.005, verbose=1),
+
+        EarlyStopping(min_delta=0.005,
+                      patience=40,
+                      verbose=1),
+
         ModelCheckpoint(str(YOLO_MODEL_PATH),
-                        save_best_only=True, save_weights_only=True,
-                        verbose=1, initial_value_threshold=2.5),
+                        initial_value_threshold=2.5,
+                        save_best_only=True,
+                        save_weights_only=True,
+                        verbose=1),
+
         callbacks_early[1],  # TensorBoard
+        TerminateOnNaN(),
     ]
 
     X_batch, y_batch = next(_data_gen(train, batch_size=_BATCH_SIZE * _STEPS_PER_EPOCH * 10))

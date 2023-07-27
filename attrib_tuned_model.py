@@ -10,7 +10,7 @@ from config import ATTRIB_CONFIDENCES, ATTRIB_MODEL_PATH
 class AttribTunedModel:
     def __init__(self):
         from attrib_model import get_attrib_model
-        self._model: Model = get_attrib_model()
+        self._model = get_attrib_model()
         self._model.load_weights(str(ATTRIB_MODEL_PATH))
 
     def predict_single(self, X: np.ndarray, min_confidences: Sequence[float] = ATTRIB_CONFIDENCES) -> tuple[Sequence[bool], Sequence[float]]:

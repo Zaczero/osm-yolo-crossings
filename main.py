@@ -10,8 +10,8 @@ from attrib_dataset import create_attrib_dataset
 from attrib_model import create_attrib_model
 from box import Box
 # from check_on_osm import check_on_osm
-from config import (CPU_COUNT, DRY_RUN, SEED, SLEEP_AFTER_ONE_IMPORT,
-                    YOLO_CONFIDENCE, YOLO_MODEL_RESOLUTION)
+from config import (CPU_COUNT, SEED, SLEEP_AFTER_ONE_IMPORT, YOLO_CONFIDENCE,
+                    YOLO_MODEL_RESOLUTION)
 # from db_added import filter_added, mark_added
 from db_grid import iter_grid
 from latlon import LatLon
@@ -24,7 +24,7 @@ from transform_geo_px import transform_px_to_rad
 # from tuned_model import TunedModel
 from utils import index_box_centered, print_run_time, save_image
 from yolo_dataset import create_yolo_dataset
-from yolo_model import create_model
+from yolo_model import create_yolo_model
 from yolo_tuned_model import YoloTunedModel
 
 random.seed(SEED)
@@ -212,5 +212,5 @@ if __name__ == '__main__':
     # process_dataset()
     # create_model()
     # create_attrib_dataset(1000)
-    create_attrib_model()
+    create_yolo_model()
     # main()
