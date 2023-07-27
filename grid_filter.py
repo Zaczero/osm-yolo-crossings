@@ -28,7 +28,7 @@ class GridFilterState(NamedTuple):
     buildings: Sequence[LatLon]
     roads: Sequence[LatLon]
 
-    @cached(TTLCache(128, ttl=3600))
+    @cached(TTLCache(64, ttl=3600))
     def get_index(self) -> tuple[Index, Index]:
         return _make_index(self.buildings), _make_index(self.roads)
 

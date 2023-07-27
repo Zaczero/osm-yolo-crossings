@@ -4,12 +4,12 @@ from keras.callbacks import Callback
 
 
 class OneCycleScheduler(Callback):
-    def __init__(self, max_lr, steps_per_epoch, epochs, div_factor=25., pct_start=0.3):
+    def __init__(self, max_lr, steps_per_epoch, cycle_epochs, div_factor=25., pct_start=0.3):
         super(OneCycleScheduler, self).__init__()
         self.max_lr = max_lr
         self.div_factor = div_factor
         self.pct_start = pct_start
-        self.total_iterations = steps_per_epoch * epochs
+        self.total_iterations = steps_per_epoch * cycle_epochs
         self.mid_cycle_id = int(self.total_iterations * pct_start)
         self.current_iteration = 0
         self.history = {}
@@ -24,6 +24,7 @@ class OneCycleScheduler(Callback):
 
     def on_batch_end(self, batch, logs=None):
         logs = logs or {}
+        logs["lr"] = K.get_value(self.model.optimizer.lr)
         self.current_iteration += 1
         lr = self.calc_lr()
 

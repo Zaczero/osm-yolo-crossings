@@ -78,11 +78,10 @@ YOLO_CONFIDENCE = 0.5
 
 ATTRIB_MODEL_PATH = MODEL_DIR / 'attrib.keras'
 ATTRIB_MODEL_RESOLUTION = 224
-ATTRIB_NUM_CLASSES = 3
+ATTRIB_NUM_CLASSES = 2
 ATTRIB_CONFIDENCES = [
     0.5,
-    0.99,  # TODO: ddr nigdy signals
-    0.9,
+    0.5,  # TODO: ddr nigdy signals
 ]
 
 DB_PATH = DATA_DIR / 'db.json'

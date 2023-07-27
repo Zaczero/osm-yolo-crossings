@@ -52,7 +52,7 @@ def _tag_to_label(tag: dict) -> int | None:
     if tag['@label'] in {'signals'}:
         return 1
     if tag['@label'] in {'raised'}:
-        return 2
+        return None  # too few samples
 
     raise ValueError(f'Unknown tag label: {tag["@label"]!r}')
 
@@ -115,7 +115,7 @@ def iter_attrib_dataset() -> Iterable[AttribDatasetEntry]:
             if identifier in done:
                 continue
 
-            print(f'[DATASET][{dir_progress}][{file_progress}] 📄 Iterating: {identifier!r}')
+            # print(f'[DATASET][{dir_progress}][{file_progress}] 📄 Iterating: {identifier!r}')
 
             entry = _iter_dataset_identifier(identifier, raw_path, annotation)
             if entry is None:

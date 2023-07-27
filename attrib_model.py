@@ -2,18 +2,21 @@ from datetime import datetime
 from math import ceil
 from typing import Sequence
 
+import keras.backend as K
 import numpy as np
 import tensorflow as tf
 from keras.applications import MobileNetV3Large
 from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
-                             TensorBoard)
+                             TensorBoard, TerminateOnNaN)
 from keras.layers import BatchNormalization, Dense, Dropout, Flatten, Input
-from keras.losses import BinaryCrossentropy, CategoricalCrossentropy
-from keras.metrics import Precision
+from keras.losses import (BinaryCrossentropy, BinaryFocalCrossentropy,
+                          CategoricalCrossentropy)
+from keras.metrics import AUC, FBetaScore, Precision
 from keras.models import Model, load_model
+from keras.optimizers import Adam
 from keras.preprocessing.image import ImageDataGenerator
-from sklearn.metrics import (classification_report, confusion_matrix,
-                             precision_score)
+from keras_cv.losses import FocalLoss
+from sklearn.metrics import confusion_matrix, precision_score
 from sklearn.model_selection import train_test_split
 from sklearn.utils import class_weight
 
@@ -21,13 +24,14 @@ from attrib_dataset import AttribDatasetEntry, iter_attrib_dataset
 from config import (ATTRIB_CONFIDENCES, ATTRIB_MODEL_PATH, ATTRIB_NUM_CLASSES,
                     DATA_DIR, SEED)
 from model_save_fix import model_save_fix
+from one_cycle_scheduler import OneCycleScheduler
 
 _BATCH_SIZE = 32
 
 
 def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.ndarray]:
     X = np.stack(tuple(map(lambda x: x.image, dataset)))
-    y = np.array(tuple(map(lambda x: x.labels.encode(), dataset)))
+    y = np.array(tuple(map(lambda x: x.labels.encode(), dataset)), dtype=float)
     return X, y
 
 
@@ -68,12 +72,13 @@ def create_attrib_model():
     z = Dense(128, activation='relu')(z)
     z = Dropout(0.2)(z)
     z = Dense(64, activation='relu')(z)
-    z = Dense(ATTRIB_NUM_CLASSES)(z)
+    z = Dense(ATTRIB_NUM_CLASSES, activation='sigmoid')(z)
 
     model = Model(inputs=image_inputs, outputs=z)
     model.compile(
-        optimizer=tf.optimizers.Adam(learning_rate=0.004),
-        loss=BinaryCrossentropy(from_logits=True)
+        optimizer=Adam(),
+        loss=BinaryFocalCrossentropy(apply_class_balancing=True),
+        metrics=[AUC(multi_label=True, num_labels=ATTRIB_NUM_CLASSES)],
     )
 
     model_save_fix(model)
@@ -89,25 +94,38 @@ def create_attrib_model():
         vertical_flip=True,
     )
 
+    steps_per_epoch = ceil(len(train) / _BATCH_SIZE)
+    cycle_epochs = 6
+
     callbacks = [
-        EarlyStopping(patience=25, min_delta=0.01, verbose=1),
-        ReduceLROnPlateau(factor=0.5, patience=10, min_delta=0.01, verbose=1),
-        ModelCheckpoint(str(ATTRIB_MODEL_PATH), save_best_only=True, verbose=1),
+        OneCycleScheduler(0.0002, steps_per_epoch, cycle_epochs),
+
+        EarlyStopping('val_auc', mode='max',
+                      min_delta=0.001,
+                      start_from_epoch=cycle_epochs,
+                      patience=cycle_epochs * 2,
+                      verbose=1),
+
+        ModelCheckpoint(str(ATTRIB_MODEL_PATH), 'val_auc', mode='max',
+                        save_best_only=True,
+                        save_weights_only=True,
+                        verbose=1),
+
         TensorBoard(str(DATA_DIR / 'tensorboard' / datetime.now().strftime("%Y%m%d-%H%M%S")), histogram_freq=1),
+        TerminateOnNaN(),
     ]
 
     model.fit(
         datagen.flow(X_train, y_train, batch_size=_BATCH_SIZE),
         epochs=1000,
-        steps_per_epoch=ceil(len(train) / _BATCH_SIZE),
+        steps_per_epoch=steps_per_epoch,
         validation_data=(X_test, y_test),
         callbacks=callbacks,
     )
 
-    model: Model = load_model(str(ATTRIB_MODEL_PATH))
+    model.load_weights(str(ATTRIB_MODEL_PATH))
 
-    y_pred_logit = model.predict(X_holdout)
-    y_pred_proba = tf.sigmoid(y_pred_logit).numpy()
+    y_pred_proba = model.predict(X_holdout)
 
     for i in range(ATTRIB_NUM_CLASSES):
         print(f'Class {i} statistics:\n')

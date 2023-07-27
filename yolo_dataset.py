@@ -93,7 +93,7 @@ def iter_yolo_dataset() -> Iterable[YoloDatasetEntry]:
             if identifier in done:
                 continue
 
-            print(f'[DATASET][{dir_progress}][{file_progress}] 📄 Iterating: {identifier!r}')
+            # print(f'[DATASET][{dir_progress}][{file_progress}] 📄 Iterating: {identifier!r}')
 
             entry = _iter_dataset_identifier(identifier, raw_path, annotation)
             if entry is None:
