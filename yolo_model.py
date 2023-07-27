@@ -12,6 +12,7 @@ from keras.layers import BatchNormalization, Dense, Dropout, Flatten, Input
 from keras.losses import BinaryCrossentropy
 from keras.metrics import Precision
 from keras.models import Model, load_model
+from keras.optimizers import SGD, Adam, Nadam, RMSprop
 from keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
 from skimage import draw, transform
@@ -28,7 +29,7 @@ from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
 _BATCH_SIZE = 32
-_STEPS_PER_EPOCH = 10
+_STEPS_PER_EPOCH = 12
 _BOXES_COUNT = 4
 
 
@@ -44,12 +45,12 @@ def _setup_gpu():
 def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE, *, transform: bool = True) -> Generator[tuple[np.ndarray, dict], None, None]:
     if transform:
         datagen = ImageDataGenerator(
-            width_shift_range=0.2,
-            height_shift_range=0.2,
+            width_shift_range=0.1,
+            height_shift_range=0.1,
             rotation_range=180,
-            shear_range=10,
-            zoom_range=0.2,
-            channel_shift_range=0.25,
+            shear_range=15,
+            zoom_range=0.1,
+            channel_shift_range=0.15,
             fill_mode='constant',
             cval=0,
             horizontal_flip=True,
@@ -164,23 +165,29 @@ def create_yolo_model():
     model.compile(
         box_loss='ciou',
         classification_loss='binary_crossentropy',
-        optimizer=tf.optimizers.Adam(learning_rate=0.004, global_clipnorm=2.0)
+        optimizer=RMSprop(learning_rate=0.004, rho=0.9, momentum=0.0, epsilon=1e-07, centered=False)
     )
 
     callbacks_early = [
-        EarlyStopping('loss', patience=5, min_delta=0.1, verbose=1),
+        EarlyStopping('loss', patience=10, min_delta=0.1, verbose=1),
         TensorBoard(str(DATA_DIR / 'tensorboard' / datetime.now().strftime("%Y%m%d-%H%M%S")), histogram_freq=1),
     ]
 
     callbacks_late = [
-        ReduceLROnPlateau(factor=2 / 3, patience=15, min_delta=0.005, verbose=1),
+        ReduceLROnPlateau(factor=0.2,
+                          min_lr=0.00001,
+                          cooldown=5,
+                          patience=10,
+                          min_delta=0.005,
+                          verbose=1),
 
         EarlyStopping(min_delta=0.005,
-                      patience=40,
+                      patience=25,
+                      restore_best_weights=True,
                       verbose=1),
 
         ModelCheckpoint(str(YOLO_MODEL_PATH),
-                        initial_value_threshold=2.2,
+                        initial_value_threshold=2,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),

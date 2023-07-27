@@ -7,6 +7,7 @@ verify_ssl = true
 httpx = "*"
 keras-core = "*"
 keras-cv = "*"
+matplotlib = "*"
 networkx = "*"
 numpy = "*"
 opencv-python-headless = "*"

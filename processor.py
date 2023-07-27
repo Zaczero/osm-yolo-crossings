@@ -29,10 +29,11 @@ def median_rgb(image: np.ndarray, *args, **kwargs) -> np.ndarray:
 
 def normalize_yolo_image(image: np.ndarray) -> np.ndarray:
     save_image(image, 'normalize_yolo_0')
+    image = median_rgb(image, morphology.disk(3))
+    image = filters.unsharp_mask(image, radius=5, amount=1.5, channel_axis=2)
     image = img_as_ubyte(image[:, :, ::-1])
-    image = cv2.fastNlMeansDenoisingColored(image, None, 3, 3, 7, 21)
+    image = cv2.fastNlMeansDenoisingColored(image, None, 3, 5, 5, 7)
     image = img_as_float(image[:, :, ::-1])
-    image = filters.unsharp_mask(image, radius=10, amount=1.3, channel_axis=2)
     save_image(image, 'normalize_yolo_1')
     return image
 
