@@ -41,13 +41,12 @@ def normalize_yolo_image(image: np.ndarray) -> np.ndarray:
 def normalize_attrib_image(image: np.ndarray) -> np.ndarray:
     save_image(image, 'normalize_attrib_0')
     image = normalize_yolo_image(image)
-    # image = median_rgb(image, morphology.disk(3))
 
     hsv: np.ndarray = color.rgb2hsv(image)
     v_channel = hsv[:, :, 2]
     p05 = np.percentile(v_channel, 5)
-    p95 = np.percentile(v_channel, 95)
-    v_channel = exposure.rescale_intensity(v_channel, in_range=(p05, p95))
+    p98 = np.percentile(v_channel, 98)
+    v_channel = exposure.rescale_intensity(v_channel, in_range=(p05, p98))
     hsv[:, :, 2] = v_channel
     image = color.hsv2rgb(hsv)
 

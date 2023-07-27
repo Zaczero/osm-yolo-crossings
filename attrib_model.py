@@ -4,8 +4,8 @@ from typing import Sequence
 
 import numpy as np
 from keras.applications import MobileNetV3Large
-from keras.callbacks import (EarlyStopping, ModelCheckpoint, TensorBoard,
-                             TerminateOnNaN)
+from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
+                             TensorBoard, TerminateOnNaN)
 from keras.layers import BatchNormalization, Dense, Dropout, Flatten, Input
 from keras.losses import BinaryFocalCrossentropy
 from keras.metrics import AUC
@@ -22,7 +22,7 @@ from config import (ATTRIB_CONFIDENCES, ATTRIB_MODEL_PATH,
 from model_save_fix import model_save_fix
 from one_cycle_scheduler import OneCycleScheduler
 
-_BATCH_SIZE = 32
+_BATCH_SIZE = 24
 
 
 def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.ndarray]:
@@ -74,26 +74,28 @@ def create_attrib_model():
     # test: 20%
     # val: 10%
 
-    # no x/y shift: marker is always in the center
     datagen = ImageDataGenerator(
+        width_shift_range=0.05,
+        height_shift_range=0.05,
         rotation_range=180,
-        shear_range=15,
-        zoom_range=0.2,
+        shear_range=20,
+        zoom_range=0.15,
         fill_mode='reflect',
         horizontal_flip=True,
         vertical_flip=True,
     )
 
-    steps_per_epoch = ceil(len(train) / _BATCH_SIZE)
-    cycle_epochs = 8
-
     callbacks = [
-        OneCycleScheduler(0.0001, steps_per_epoch, cycle_epochs),
+        ReduceLROnPlateau(factor=0.2,
+                          min_lr=0.00001,
+                          cooldown=5,
+                          patience=10,
+                          min_delta=0.0005,
+                          verbose=1),
 
         EarlyStopping('val_auc', mode='max',
                       min_delta=0.0005,
-                      start_from_epoch=cycle_epochs,
-                      patience=round(cycle_epochs * 2.5),
+                      patience=25,
                       verbose=1),
 
         ModelCheckpoint(str(ATTRIB_MODEL_PATH), 'val_auc', mode='max',
@@ -110,10 +112,12 @@ def create_attrib_model():
 
     model_save_fix(model)
     model.compile(
-        optimizer=Adam(),
+        optimizer=Adam(learning_rate=0.0005),
         loss=BinaryFocalCrossentropy(apply_class_balancing=True),
         metrics=[AUC(multi_label=True, num_labels=ATTRIB_NUM_CLASSES)],
     )
+
+    steps_per_epoch = ceil(len(train) / _BATCH_SIZE)
 
     model.fit(
         datagen.flow(X_train, y_train, batch_size=_BATCH_SIZE),

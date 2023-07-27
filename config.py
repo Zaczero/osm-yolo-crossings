@@ -80,7 +80,7 @@ ATTRIB_MODEL_PATH = MODEL_DIR / 'attrib.keras'
 ATTRIB_MODEL_RESOLUTION = 224
 ATTRIB_NUM_CLASSES = 2
 ATTRIB_CONFIDENCES = [
-    0.7,  # valid
+    0.9,  # valid
     0.9,  # signals
 ]
 
