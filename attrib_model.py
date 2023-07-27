@@ -5,7 +5,7 @@ from typing import Sequence
 import keras.backend as K
 import numpy as np
 import tensorflow as tf
-from keras.applications import MobileNetV3Large
+from keras.applications import MobileNetV3Large, MobileNetV3Small
 from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
                              TensorBoard, TerminateOnNaN)
 from keras.layers import BatchNormalization, Dense, Dropout, Flatten, Input
@@ -40,11 +40,13 @@ def create_attrib_model():
 
     train, temp = train_test_split(dataset,
                                    test_size=0.3,
-                                   random_state=SEED)
+                                   random_state=SEED,
+                                   stratify=tuple(map(lambda x: x.labels.encode_num(), dataset)))
 
     holdout, test = train_test_split(temp,
                                      test_size=2/3,
-                                     random_state=SEED)
+                                     random_state=SEED,
+                                     stratify=tuple(map(lambda x: x.labels.encode_num(), temp)))
 
     X_train, y_train = _split_x_y(train)
     X_test, y_test = _split_x_y(test)
@@ -84,8 +86,8 @@ def create_attrib_model():
     model_save_fix(model)
 
     datagen = ImageDataGenerator(
-        width_shift_range=0.1,
-        height_shift_range=0.1,
+        # width_shift_range=0.1,
+        # height_shift_range=0.1,
         rotation_range=180,
         shear_range=15,
         zoom_range=0.2,
@@ -98,7 +100,7 @@ def create_attrib_model():
     cycle_epochs = 6
 
     callbacks = [
-        OneCycleScheduler(0.0002, steps_per_epoch, cycle_epochs),
+        OneCycleScheduler(0.00012, steps_per_epoch, cycle_epochs),
 
         EarlyStopping('val_auc', mode='max',
                       min_delta=0.001,

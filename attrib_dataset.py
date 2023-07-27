@@ -37,6 +37,9 @@ class AttribDatasetLabel(NamedTuple):
     def encode(self) -> np.ndarray:
         return MultiLabelBinarizer(classes=range(ATTRIB_NUM_CLASSES)).fit_transform([self.labels])[0]
 
+    def encode_num(self) -> int:
+        return int(''.join(map(str, self.encode())), 2)
+
 
 class AttribDatasetEntry(NamedTuple):
     id: str
