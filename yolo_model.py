@@ -125,7 +125,7 @@ def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE
 def create_model():
     _setup_gpu()
 
-    # dataset_iterator = iter_dataset()
+    # dataset_iterator = iter_yolo_dataset()
     # dataset = tuple(next(dataset_iterator) for _ in range(100))
     dataset = tuple(iter_yolo_dataset())
 

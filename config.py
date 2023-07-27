@@ -51,8 +51,6 @@ DEFAULT_CHANGESET_TAGS = {
     # TODO: 'website:import': 'https://wiki.openstreetmap.org/wiki/BDOT10k_buildings_import',
 }
 
-CONFIDENCE = 0.997
-
 DATA_DIR = Path('data')
 DATA_DIR.mkdir(exist_ok=True)
 
@@ -80,7 +78,12 @@ YOLO_CONFIDENCE = 0.5
 
 ATTRIB_MODEL_PATH = MODEL_DIR / 'attrib.keras'
 ATTRIB_MODEL_RESOLUTION = 224
-ATTRIB_CONFIDENCE = 0.5
+ATTRIB_NUM_CLASSES = 3
+ATTRIB_CONFIDENCES = [
+    0.5,
+    0.99,  # TODO: ddr nigdy signals
+    0.9,
+]
 
 DB_PATH = DATA_DIR / 'db.json'
 DB = TinyDB(DB_PATH, storage=ORJSONStorage)

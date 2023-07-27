@@ -5,18 +5,19 @@ from functools import partial
 from itertools import chain
 from multiprocessing import Pool
 from pathlib import Path
-from re import I
 from typing import Iterable, NamedTuple, Sequence
 
 import numpy as np
 import xmltodict
+from keras.utils import to_categorical
 from skimage import draw, img_as_float, transform
 from skimage.io import imread
+from sklearn.preprocessing import MultiLabelBinarizer
 
 from box import Box
 from config import (ATTRIB_DATASET_DIR, ATTRIB_MODEL_PATH,
-                    ATTRIB_MODEL_RESOLUTION, CACHE_DIR, CPU_COUNT, IMAGES_DIR,
-                    YOLO_MODEL_RESOLUTION)
+                    ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES, CACHE_DIR,
+                    CPU_COUNT, IMAGES_DIR, YOLO_MODEL_RESOLUTION)
 from db_grid import random_grid
 from latlon import LatLon
 from orto import FetchMode, fetch_orto
@@ -32,6 +33,9 @@ _EXTEND = 9
 
 class AttribDatasetLabel(NamedTuple):
     labels: Sequence[int]
+
+    def encode(self) -> np.ndarray:
+        return MultiLabelBinarizer(classes=range(ATTRIB_NUM_CLASSES)).fit_transform([self.labels])[0]
 
 
 class AttribDatasetEntry(NamedTuple):
@@ -61,10 +65,6 @@ def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) 
     if 'tag' not in annotation:
         return None
 
-    image = imread(raw_path)
-    image = img_as_float(image)
-    image = normalize_attrib_image(image)
-
     labels = []
 
     for p in annotation['tag']:
@@ -73,6 +73,23 @@ def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) 
             continue
 
         labels.append(label)
+
+    image = imread(raw_path)
+    image = img_as_float(image)
+    image = normalize_attrib_image(image)
+
+    center_x = image.shape[1] / 2
+    center_y = image.shape[0] / 2
+    center = (center_y, center_x)
+
+    rr, cc = draw.disk(center, radius=6, shape=image.shape[:2])
+    image[rr, cc] = (0, 0, 0)
+    rr, cc = draw.disk(center, radius=4, shape=image.shape[:2])
+    image[rr, cc] = (1, 0, 0)
+
+    save_image(image, 'dataset_attrib_1')
+
+    image = image * 2 - 1  # MobileNet requires [-1, 1] input
 
     entry = AttribDatasetEntry(identifier, AttribDatasetLabel(labels), image)
     cache_path.write_bytes(pickle.dumps(entry, protocol=pickle.HIGHEST_PROTOCOL))

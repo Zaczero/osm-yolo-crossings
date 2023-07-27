@@ -7,6 +7,7 @@ from typing import Sequence
 import numpy as np
 
 from attrib_dataset import create_attrib_dataset
+from attrib_model import create_attrib_model
 from box import Box
 # from check_on_osm import check_on_osm
 from config import (CPU_COUNT, DRY_RUN, SEED, SLEEP_AFTER_ONE_IMPORT,
@@ -210,5 +211,6 @@ if __name__ == '__main__':
     # create_dataset(1000)
     # process_dataset()
     # create_model()
-    create_attrib_dataset(1000)
+    # create_attrib_dataset(1000)
+    create_attrib_model()
     # main()
