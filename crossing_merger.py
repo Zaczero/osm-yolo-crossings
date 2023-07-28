@@ -6,12 +6,12 @@ from shapely.geometry import LineString, Point
 from shapely.ops import nearest_points
 
 from config import (NODE_MERGE_THRESHOLD, ROAD_VALID_MAX_ANGLE,
-                    ROAD_VALID_MAX_COUNT)
+                    ROAD_VALID_MAX_COUNT, ROAD_VALID_MIN_CROSSING_DISTANCE)
 from crossing_suggestion import CrossingSuggestion
 from crossing_type import CrossingType
 from latlon import LatLon
 from overpass import query_roads_and_crossings_historical
-from utils import haversine_distance, make_way_geometry
+from utils import haversine_distance, make_way_geometry, meters_to_lat
 
 
 class CrossingMergeToWayInstructions(NamedTuple):
@@ -41,7 +41,7 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
         for rac_h in rac:
             for c in rac_h.crossings:
                 if rac_h.nodes[c['id']] in s.box:
-                    print(f'[MERGE] Skipping {s_box_center}: nearby crossings')
+                    print(f'[MERGE] Skipping {s_box_center}: nearby crossings (1)')
                     skip = True
                     break
             if skip:
@@ -127,6 +127,24 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
                         print(f'[MERGE] Skipping {s_box_center}: too large angle')
                         skip = True
                         break
+            if skip:
+                break
+        if skip:
+            continue
+
+        # check for nearby crossings
+        crossing_nodes_ids = set(c['id'] for c in rac_current.crossings)
+        for intersection, way_id in perpendicular_positions:
+            way = next(way for way in rac_current.roads if way['id'] == way_id)
+            way_nodes_ids = set(way['nodes'])
+            way_crossing_nodes_ids = crossing_nodes_ids.intersection(way_nodes_ids)
+
+            for crossing_node_id in way_crossing_nodes_ids:
+                crossing_position = rac_current.nodes[crossing_node_id]
+                if Point(crossing_position).distance(closest_point) < meters_to_lat(ROAD_VALID_MIN_CROSSING_DISTANCE):
+                    print(f'[MERGE] Skipping {s_box_center}: nearby crossings (2)')
+                    skip = True
+                    break
             if skip:
                 break
         if skip:

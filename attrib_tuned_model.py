@@ -20,7 +20,7 @@ class AttribTunedModel:
 
     def predict_single(self, X: np.ndarray, min_confidences: Sequence[float] = ATTRIB_CONFIDENCES) -> AttribClassification:
         with tf.device('/CPU:0'):  # force CPU to better understand real performance
-            pred_proba: dict = self._model.predict(X[np.newaxis, ...])[0]
+            pred_proba: dict = self._model.predict(X[np.newaxis, ...], verbose=0)[0]
 
         assert len(pred_proba) == len(min_confidences)
 

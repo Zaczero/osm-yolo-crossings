@@ -187,7 +187,7 @@ def _process_interesting_box(box: Box) -> CrossingSuggestion | None:
     )
 
 
-def _process_cell(cell: Box) -> Sequence[CrossingMergeInstructions]:
+def _process_cell_mp(cell: Box) -> Sequence[Box]:
     print(f'[CELL] ⚙️ Processing {cell!r}')
 
     with print_run_time('Fetching ortophoto imagery'):
@@ -200,38 +200,7 @@ def _process_cell(cell: Box) -> Sequence[CrossingMergeInstructions]:
     orto_img = normalize_yolo_image(orto_img)
 
     with print_run_time('Processing ortophoto'):
-        interesting_boxes = _process_orto(cell, orto_img)
-
-    if not interesting_boxes:
-        print('[CELL] ⏭️ Nothing to do: no interesting boxes')
-        return tuple()
-
-    with print_run_time('Filtering added boxes'):
-        interesting_boxes = _filter_added_boxes(interesting_boxes)
-
-    if not interesting_boxes:
-        print('[CELL] ⏭️ Nothing to do: no new boxes')
-        return tuple()
-
-    with print_run_time('Generating suggestions'):
-        suggestions = tuple(filter(None, map(
-            lambda box: _process_interesting_box(box),
-            interesting_boxes)))
-
-    if not suggestions:
-        print('[CELL] ⏭️ Nothing to do: no suggestions')
-        return tuple()
-
-    print(f'[CELL] 💡 Suggested {len(suggestions)} crossings')
-
-    with print_run_time('Merging crossings'):
-        instructions = merge_crossings(suggestions)
-
-    empty_mask = tuple(not i.to_nodes_ids and not i.to_ways_inst for i in instructions)
-    empty_instructions = tuple(i for i, m in zip(instructions, empty_mask) if m)
-    valid_instructions = tuple(i for i, m in zip(instructions, empty_mask) if not m)
-    mark_added(tuple(i.position for i in empty_instructions), reason='empty')
-    return valid_instructions
+        return _process_orto(cell, orto_img)
 
 
 def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeInstructions], *, force: bool = False) -> int:
@@ -291,14 +260,44 @@ def main() -> None:
                 process_boxes = tuple(map(lambda c: c.box, process_cells))
 
                 if CPU_COUNT == 1:
-                    iterator = map(_process_cell, process_boxes)
+                    iterator = map(_process_cell_mp, process_boxes)
                 else:
-                    iterator = pool.imap_unordered(_process_cell, process_boxes)
+                    iterator = pool.imap_unordered(_process_cell_mp, process_boxes)
 
-                for new_processed in iterator:
-                    if new_processed:
-                        print(f'[CELL] 📦 Processed: {len(processed)} + {len(new_processed)}')
-                        processed.extend(new_processed)
+                for interesting_boxes in iterator:
+                    if not interesting_boxes:
+                        print(f'[CELL] ⏭️ Nothing to do: no interesting boxes')
+                        continue
+
+                    with print_run_time('Filtering added boxes'):
+                        interesting_boxes = _filter_added_boxes(interesting_boxes)
+
+                    if not interesting_boxes:
+                        print('[CELL] ⏭️ Nothing to do: no new boxes')
+                        continue
+
+                    with print_run_time('Generating suggestions'):
+                        suggestions = tuple(filter(None, map(
+                            lambda box: _process_interesting_box(box),
+                            interesting_boxes)))
+
+                    if not suggestions:
+                        print('[CELL] ⏭️ Nothing to do: no suggestions')
+                        continue
+
+                    print(f'[CELL] 💡 Suggested {len(suggestions)} crossings')
+
+                    with print_run_time('Merging crossings'):
+                        instructions = merge_crossings(suggestions)
+
+                    empty_mask = tuple(not i.to_nodes_ids and not i.to_ways_inst for i in instructions)
+                    empty_instructions = tuple(i for i, m in zip(instructions, empty_mask) if m)
+                    valid_instructions = tuple(i for i, m in zip(instructions, empty_mask) if not m)
+                    mark_added(tuple(i.position for i in empty_instructions), reason='empty')
+
+                    if valid_instructions:
+                        print(f'[CELL] 📦 Processed: {len(processed)} + {len(valid_instructions)}')
+                        processed.extend(valid_instructions)
 
                 if not processed:
                     set_last_cell(process_cells[-1])

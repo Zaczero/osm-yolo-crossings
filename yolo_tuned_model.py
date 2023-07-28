@@ -3,7 +3,7 @@ from typing import Sequence
 import numpy as np
 import tensorflow as tf
 
-from config import YOLO_CONFIDENCE, YOLO_MODEL_PATH
+from config import CPU_COUNT, YOLO_CONFIDENCE, YOLO_MODEL_PATH
 
 
 class YoloTunedModel:
@@ -19,7 +19,7 @@ class YoloTunedModel:
         assert len(X.shape) == 4
 
         with tf.device('/CPU:0'):  # force CPU to better understand real performance
-            pred_all: dict = self._model.predict(X)
+            pred_all: dict = self._model.predict(X, verbose=0 if (X.shape[0] == 1 or CPU_COUNT > 1) else 'auto')
 
         result = []
 

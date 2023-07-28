@@ -16,7 +16,7 @@ def _get_tree() -> BallTree:
     if _tree is None:
         docs = DB_ADDED.search(Query().scorer_version >= SCORER_VERSION)
 
-        if docs is None:
+        if not docs:
             positions = ((0, 0),)
         else:
             positions = tuple(LatLon(*doc['position']) for doc in docs)

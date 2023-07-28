@@ -14,7 +14,7 @@ from utils import print_run_time
 
 _STATE_GRID_SIZE = 0.2
 _MIN_BUILDINGS = 2
-_MIN_ROADS = 1  # road nodes
+_MIN_ROADS = 2  # road nodes
 
 
 def _make_index(elements: Sequence[LatLon]) -> Index:
