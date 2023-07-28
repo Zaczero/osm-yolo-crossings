@@ -1,7 +1,6 @@
 import random
-import traceback
 from functools import cache
-from itertools import chain, islice
+from itertools import islice
 from multiprocessing import Pool
 from time import sleep
 from typing import Sequence

@@ -7,7 +7,6 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 from box import Box
 from config import OVERPASS_API_INTERPRETER, SEARCH_RELATION
 from latlon import LatLon
-from polygon import Polygon
 from utils import http_headers
 
 
@@ -48,7 +47,7 @@ def _build_buildings_roads_query(box: Box, timeout: int) -> str:
     )
 
 
-def _builds_roads_query(boxes: Sequence[Box], timeout: int) -> str:
+def _build_roads_query(boxes: Sequence[Box], timeout: int) -> str:
     return (
         f'[out:json][timeout:{timeout}];' +
         f''.join(
@@ -186,7 +185,7 @@ def query_roads_and_crossings_historical(boxes: Sequence[Box]) -> Sequence[Seque
         result_historical = tuple(QueriedRoadsAndCrossings([], [], {}) for _ in boxes)
 
         timeout = 90
-        query = _builds_roads_query(boxes, timeout)
+        query = _build_roads_query(boxes, timeout)
 
         if years_ago > 0:
             date = datetime.utcnow() - timedelta(days=365 * years_ago)

@@ -1,12 +1,16 @@
 from itertools import chain
+from math import isclose
 from typing import Sequence
 
 import xmltodict
+from shapely.geometry import LineString, Point
 
 from config import CHANGESET_ID_PLACEHOLDER, CREATED_BY
 from crossing_merger import CrossingMergeInstructions
 from crossing_type import CrossingType
+from latlon import LatLon
 from openstreetmap import OpenStreetMap
+from utils import print_run_time
 
 
 def _merge_tags(e: dict, tags: dict) -> dict:
@@ -33,13 +37,22 @@ def create_instructed_change(instructions: Sequence[CrossingMergeInstructions]) 
     osm = OpenStreetMap()
 
     # fetch latest data
-    fetch_nodes = osm.get_nodes(tuple(chain.from_iterable(
-        i.to_nodes_ids for i in instructions)))
-    fetch_nodes = {n['@id']: n for n in fetch_nodes}
+    with print_run_time('Fetching latest nodes data'):
+        fetch_nodes = osm.get_nodes(
+            tuple(chain.from_iterable(i.to_nodes_ids for i in instructions)))
+        fetch_nodes = {n['@id']: n for n in fetch_nodes}
 
-    fetch_ways = osm.get_ways(tuple(chain.from_iterable(
-        (i.way_id for i in inst.to_ways_inst) for inst in instructions)))
-    fetch_ways = {w['@id']: w for w in fetch_ways}
+    with print_run_time('Fetching latest ways data'):
+        fetch_ways = {}
+        fetch_ways_geom = {}
+        for inst in instructions:
+            for way_inst in inst.to_ways_inst:
+                fetch_way_full = osm.get_way_full(way_inst.way_id)
+                fetch_way = fetch_way_full['way'][0]
+                fetch_ways[fetch_way['@id']] = fetch_way
+
+                for node in fetch_way_full['node']:
+                    fetch_ways_geom[node['@id']] = node
 
     # increment metadata
     for node in fetch_nodes.values():
@@ -67,20 +80,8 @@ def create_instructed_change(instructions: Sequence[CrossingMergeInstructions]) 
         for way_inst in inst.to_ways_inst:
             way = fetch_ways[way_inst.way_id]
 
-            try:
-                after_index = way['nd'].index({'@ref': way_inst.after_node_id})
-                before_index = way['nd'].index({'@ref': way_inst.before_node_id})
-            except ValueError:
-                continue
-
-            if after_index > before_index:
-                after_index, before_index = before_index, after_index
-
-            if after_index + 1 != before_index:
-                continue
-
             last_id -= 1
-            create_node.append({
+            new_node = {
                 '@id': last_id,
                 '@changeset': CHANGESET_ID_PLACEHOLDER,
                 '@version': 1,
@@ -90,12 +91,21 @@ def create_instructed_change(instructions: Sequence[CrossingMergeInstructions]) 
                     {'@k': k, '@v': v}
                     for k, v in tags.items()
                 ),
-            })
+            }
 
-            way['nd'].insert(
-                after_index + 1,
-                {'@ref': last_id},
-            )
+            for i, (node1_ref, node2_ref) in enumerate(zip(way['nd'], way['nd'][1:])):
+                node1_id = node1_ref['@ref']
+                node2_id = node2_ref['@ref']
+                node1 = fetch_nodes.get(node1_id, fetch_ways_geom.get(node1_id))
+                node2 = fetch_nodes.get(node2_id, fetch_ways_geom.get(node2_id))
+                p1 = LatLon(node1['@lat'], node1['@lon'])
+                p2 = LatLon(node2['@lat'], node2['@lon'])
+
+                if isclose(LineString([p1, p2]).distance(Point(way_inst.position)), 0, abs_tol=1e-8):
+                    create_node.append(new_node)
+                    fetch_ways_geom[new_node['@id']] = new_node
+                    way['nd'].insert(i + 1, {'@ref': new_node['@id']})
+                    break
 
     result['osmChange']['modify']['node'] = tuple(fetch_nodes.values())
     result['osmChange']['modify']['way'] = tuple(fetch_ways.values())

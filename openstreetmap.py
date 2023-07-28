@@ -17,6 +17,7 @@ class OpenStreetMap:
                             headers=http_headers(),
                             auth=(OSM_USERNAME, OSM_PASSWORD))
 
+    @retry(wait=wait_exponential(), stop=stop_after_attempt(3))
     def get_changeset_max_size(self) -> int:
         with self._get_http_client() as http:
             r = http.get('/capabilities')
@@ -45,6 +46,7 @@ class OpenStreetMap:
         return self._get_elements('nodes', node_ids)
 
     @cached(TTLCache(1024, ttl=60))
+    @retry(wait=wait_exponential(), stop=stop_after_attempt(3))
     def _get_elements(self, elements_type: str, element_ids: Sequence[str]) -> list[dict]:
         if not element_ids:
             return []
@@ -60,6 +62,20 @@ class OpenStreetMap:
         )['osm']
 
         return data[elements_type[:-1]]
+
+    @retry(wait=wait_exponential(), stop=stop_after_attempt(3))
+    def get_way_full(self, way_id: str | int,) -> dict:
+        with self._get_http_client() as http:
+            r = http.get(f'/0.6/way/{way_id}/full')
+            r.raise_for_status()
+
+        data = xmltodict.parse(
+            r.text,
+            postprocessor=xmltodict_postprocessor,
+            force_list=('node', 'way', 'relation', 'member', 'tag', 'nd'),
+        )['osm']
+
+        return data
 
     @retry(wait=wait_exponential(), stop=stop_after_attempt(3))
     def get_authorized_user(self) -> dict | None:

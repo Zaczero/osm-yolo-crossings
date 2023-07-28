@@ -17,8 +17,6 @@ from utils import haversine_distance, make_way_geometry, meters_to_lat
 class CrossingMergeToWayInstructions(NamedTuple):
     way_id: int
     position: LatLon
-    after_node_id: int
-    before_node_id: int
 
 
 class CrossingMergeInstructions(NamedTuple):
@@ -172,8 +170,6 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
                 result[i].to_ways_inst.append(CrossingMergeToWayInstructions(
                     way_id=way_id,
                     position=LatLon(intersection.x, intersection.y),
-                    after_node_id=after_node_id,
-                    before_node_id=before_node_id
                 ))
 
     return result
