@@ -14,7 +14,8 @@ _tree: BallTree | None = None
 def _get_tree() -> BallTree:
     global _tree
     if _tree is None:
-        docs = DB_ADDED.search(Query().scorer_version >= SCORER_VERSION)
+        entry = Query()
+        docs = DB_ADDED.search((entry.scorer_version >= SCORER_VERSION) | (entry.reason == 'added'))
 
         if not docs:
             positions = ((0, 0),)
