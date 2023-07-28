@@ -98,13 +98,13 @@ def _is_road(element: dict) -> bool:
     return (
         tags.get('highway', '') in {
             'residential',
-            'service',
+            # 'service',  # TODO: fix https://www.openstreetmap.org/way/444251815
             'unclassified',
             'tertiary',
             'secondary',
             'primary',
             'living_street',
-            'road',
+            # 'road',
         } and
         tags.get('area', 'no') == 'no'
     )
