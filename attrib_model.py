@@ -20,7 +20,6 @@ from config import (ATTRIB_CONFIDENCES, ATTRIB_MODEL_PATH,
                     ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES, DATA_DIR,
                     SEED)
 from model_save_fix import model_save_fix
-from one_cycle_scheduler import OneCycleScheduler
 
 _BATCH_SIZE = 24
 

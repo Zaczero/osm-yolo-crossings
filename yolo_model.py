@@ -6,25 +6,18 @@ from typing import Generator, Sequence
 import keras_cv
 import numpy as np
 import tensorflow as tf
-from keras.applications import MobileNetV3Large
 from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
                              TensorBoard, TerminateOnNaN)
-from keras.layers import BatchNormalization, Dense, Dropout, Flatten, Input
-from keras.losses import BinaryCrossentropy
-from keras.metrics import Precision
-from keras.models import Model, load_model
-from keras.optimizers import SGD, Adam, Nadam, RMSprop
+from keras.models import Model
+from keras.optimizers import RMSprop
 from keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
-from skimage import draw, transform
-from sklearn.metrics import confusion_matrix, precision_score
+from skimage import transform
 from sklearn.model_selection import train_test_split
-from sklearn.utils import class_weight
 from Xlib import X, display
 
 from config import DATA_DIR, SEED, YOLO_MODEL_PATH, YOLO_MODEL_RESOLUTION
 from model_save_fix import model_save_fix
-from one_cycle_scheduler import OneCycleScheduler
 from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset

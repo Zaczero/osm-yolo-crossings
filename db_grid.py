@@ -1,7 +1,7 @@
 import random
 from math import ceil
 from time import sleep
-from typing import Generator, Sequence
+from typing import Generator, NamedTuple, Sequence
 
 from numpy import arange
 
@@ -24,6 +24,11 @@ _GRID_SIZE_X = 0.004 * _RATIO
 _OVERLAP_PERCENT = 0.1
 
 
+class Cell(NamedTuple):
+    index: int
+    box: Box
+
+
 def _get_last_index() -> int:
     doc = DB_GRID.get(doc_id=1)
 
@@ -37,35 +42,30 @@ def _set_last_index(index: int) -> None:
     DB_GRID.upsert({'index': index}, lambda _: True)
 
 
-def iter_grid() -> Generator[Box, None, None]:
-    while True:
-        last_index = _get_last_index()
+def iter_grid() -> Generator[Cell, None, None]:
+    last_index = _get_last_index()
 
-        if last_index > -1:
-            print(f'[GRID] ⏭️ Resuming from index {last_index + 1}')
+    if last_index > -1:
+        print(f'[GRID] ⏭️ Resuming from index {last_index + 1}')
 
-        index = 0
+    index = 0
 
-        for y in range(ceil(_COUNTRY_BB.size.lat / _GRID_SIZE_Y)):
-            for x in range(ceil(_COUNTRY_BB.size.lon / _GRID_SIZE_X)):
-                if index > last_index:
-                    box = Box(
-                        point=_COUNTRY_BB.point + LatLon(y * _GRID_SIZE_Y, x * _GRID_SIZE_X),
-                        size=LatLon(_GRID_SIZE_Y, _GRID_SIZE_X))
+    for y in range(ceil(_COUNTRY_BB.size.lat / _GRID_SIZE_Y)):
+        for x in range(ceil(_COUNTRY_BB.size.lon / _GRID_SIZE_X)):
+            if index > last_index:
+                box = Box(
+                    point=_COUNTRY_BB.point + LatLon(y * _GRID_SIZE_Y, x * _GRID_SIZE_X),
+                    size=LatLon(_GRID_SIZE_Y, _GRID_SIZE_X))
 
-                    if is_grid_valid(box):
-                        yield box
-                        print(f'[GRID] ☑️ Processed index {index}')
+                if is_grid_valid(box):
+                    print(f'[GRID] ☑️ Yield index {index}')
+                    yield Cell(index, box)
 
-                    _set_last_index(index)
+            index += 1
 
-                index += 1
 
-        _set_last_index(-1)
-
-        if SLEEP_AFTER_GRID_ITER:
-            print(f'[SLEEP-GRID] ⏳ Sleeping for {SLEEP_AFTER_GRID_ITER} seconds...')
-            sleep(SLEEP_AFTER_GRID_ITER)
+def set_last_cell(cell: Cell | None) -> None:
+    _set_last_index(cell.index if cell else -1)
 
 
 def random_grid() -> Sequence[Box]:

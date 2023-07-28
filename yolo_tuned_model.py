@@ -33,6 +33,12 @@ class YoloTunedModel:
             confidences = pred['confidence'][:num_detections]
             classes = pred['classes'][:num_detections]
 
+            # sort by confidence (descending)
+            sort_indices = np.argsort(confidences)[::-1]
+            boxes = boxes[sort_indices]
+            confidences = confidences[sort_indices]
+            classes = classes[sort_indices]
+
             new_boxes = []
             new_confidences = []
             new_classes = []

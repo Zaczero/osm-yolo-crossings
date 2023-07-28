@@ -1,5 +1,4 @@
 import os
-import secrets
 from pathlib import Path
 
 from tinydb import TinyDB
@@ -13,7 +12,8 @@ DRY_RUN = os.getenv('DRY_RUN', '0') == '1'
 SKIP_CONSTRUCTION = os.getenv('SKIP_CONSTRUCTION', '1') == '1'
 
 DAILY_IMPORT_SPEED = float(os.getenv('DAILY_IMPORT_SPEED', '300'))
-SLEEP_AFTER_ONE_IMPORT = 86400 / DAILY_IMPORT_SPEED if DAILY_IMPORT_SPEED > 0 else 0
+MIN_IMPORT_SIZE = int(os.getenv('MIN_IMPORT_SIZE', '30'))
+MIN_SLEEP_AFTER_IMPORT = float(os.getenv('MIN_SLEEP_AFTER_IMPORT', '300'))  # let overpass-api update
 SLEEP_AFTER_GRID_ITER = float(os.getenv('SLEEP_DAYS_AFTER_GRID_ITER', '30')) * 24 * 3600
 
 if DRY_RUN:
@@ -40,7 +40,7 @@ CREATED_BY = f'osm-yolo-crossings {VERSION}'
 WEBSITE = 'https://github.com/Zaczero/osm-yolo-crossings'
 USER_AGENT = f'osm-yolo-crossings/{VERSION} (+{WEBSITE})'
 
-CHANGESET_ID_PLACEHOLDER = f'__CHANGESET_ID_PLACEHOLDER__{secrets.token_urlsafe(8)}__'
+CHANGESET_ID_PLACEHOLDER = '__CHANGESET_ID_PLACEHOLDER__'
 
 DEFAULT_CHANGESET_TAGS = {
     'comment': 'Import przejść dla pieszych z ortofotomapy',
@@ -85,12 +85,12 @@ ATTRIB_CONFIDENCES = [
     0.9,  # signals
 ]
 
-ADDED_POSITION_SEARCH = 9  # meters
-
 CROSSING_BOX_EXTEND = 1.5  # meters
+ADDED_POSITION_SEARCH = 10  # meters
 
 ROAD_VALID_MAX_ANGLE = 40  # degrees
 ROAD_VALID_MAX_COUNT = 2
+ROAD_VALID_MIN_CROSSING_DISTANCE = 70  # meters
 
 NODE_MERGE_THRESHOLD = 1.8  # meters
 

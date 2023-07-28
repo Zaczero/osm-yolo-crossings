@@ -1,16 +1,19 @@
 import os
 import time
 from contextlib import contextmanager
-from math import cos, dist, pi, radians
+from math import atan2, cos, dist, pi, radians, sin, sqrt
 from pathlib import Path
 from typing import Generator, Sequence
 
 import cv2
 import numpy as np
+from numba import njit
 from skimage import img_as_ubyte
 from skimage.io import imsave
 
-from config import IMAGES_DIR, SAVE_IMG, USER_AGENT, YOLO_CONFIDENCE
+from config import (DAILY_IMPORT_SPEED, IMAGES_DIR, MIN_SLEEP_AFTER_IMPORT,
+                    SAVE_IMG, USER_AGENT, YOLO_CONFIDENCE)
+from latlon import LatLon
 
 
 @contextmanager
@@ -54,22 +57,38 @@ def save_image(image: np.ndarray, name: str = 'UNTITLED', *, final_path: bool = 
     return image_path
 
 
-def random_color() -> np.ndarray:
-    color = np.random.rand(3)
-    color = np.maximum(color, 0.2)
-    return color
-
-
 EARTH_RADIUS = 6371000
 CIRCUMFERENCE = 2 * pi * EARTH_RADIUS
 
 
+@njit(fastmath=True)
 def meters_to_lat(meters: float) -> float:
     return meters / (CIRCUMFERENCE / 360)
 
 
+@njit(fastmath=True)
 def meters_to_lon(meters: float, lat: float) -> float:
     return meters / ((CIRCUMFERENCE / 360) * cos(radians(lat)))
+
+
+@njit(fastmath=True)
+def radians_tuple(p: tuple[float, float]) -> tuple[float, float]:
+    return (radians(p[0]), radians(p[1]))
+
+
+@njit(fastmath=True)
+def haversine_distance(p1: tuple[float, float], p2: tuple[float, float]) -> float:
+    p1_lat, p1_lon = radians_tuple(p1)
+    p2_lat, p2_lon = radians_tuple(p2)
+
+    dlat = p2_lat - p1_lat
+    dlon = p2_lon - p1_lon
+
+    a = sin(dlat / 2)**2 + cos(p1_lat) * cos(p2_lat) * sin(dlon / 2)**2
+    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+
+    # distance in meters
+    return c * EARTH_RADIUS
 
 
 def draw_predictions(image: np.ndarray, y_pred: dict, i: int) -> np.ndarray:
@@ -98,7 +117,6 @@ def draw_predictions(image: np.ndarray, y_pred: dict, i: int) -> np.ndarray:
 
 def index_box_centered(boxes: Sequence[tuple], resolution: int) -> int:
     assert boxes
-
     center_x = resolution / 2
     center_y = resolution / 2
 
@@ -116,3 +134,20 @@ def index_box_centered(boxes: Sequence[tuple], resolution: int) -> int:
             best_dist = box_dist
 
     return best_i
+
+
+def make_way_geometry(way: dict, nodes: dict[str, LatLon]) -> Sequence[LatLon]:
+    return tuple(nodes[node_id] for node_id in way['nodes'])
+
+
+def sleep_after_import(size: int) -> None:
+    sleep = 24 * 3600 * (size / DAILY_IMPORT_SPEED)
+    sleep = max(sleep, MIN_SLEEP_AFTER_IMPORT)
+
+    if sleep > 0:
+        print(f'[SLEEP-IMPORT] 💤 Sleeping for {sleep:.0f} seconds...')
+        time.sleep(sleep)
+
+
+def set_nice(value: int) -> None:
+    os.nice(value - os.nice(0))

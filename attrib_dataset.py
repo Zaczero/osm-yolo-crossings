@@ -1,7 +1,5 @@
 import json
 import pickle
-import traceback
-from functools import partial
 from itertools import chain
 from multiprocessing import Pool
 from pathlib import Path
@@ -9,25 +7,20 @@ from typing import Iterable, NamedTuple, Sequence
 
 import numpy as np
 import xmltodict
-from keras.utils import to_categorical
-from skimage import draw, img_as_float, transform
 from skimage.io import imread
 from sklearn.preprocessing import MultiLabelBinarizer
 
 from box import Box
-from config import (ATTRIB_DATASET_DIR, ATTRIB_MODEL_PATH,
-                    ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES,
-                    ATTRIB_POSITION_EXTEND, CACHE_DIR, CPU_COUNT, IMAGES_DIR,
-                    YOLO_MODEL_RESOLUTION)
+from config import (ATTRIB_DATASET_DIR, ATTRIB_MODEL_RESOLUTION,
+                    ATTRIB_NUM_CLASSES, ATTRIB_POSITION_EXTEND, CACHE_DIR,
+                    CPU_COUNT, IMAGES_DIR)
 from db_grid import random_grid
 from latlon import LatLon
 from orto import FetchMode, fetch_orto
 from overpass import query_specific_crossings
-from polygon2 import Polygon2
-from processor import (ProcessPolygonResult, normalize_attrib_image,
-                       normalize_yolo_image, process_image, process_polygon)
+from processor import normalize_attrib_image
 from transform_geo_px import transform_rad_to_px
-from utils import print_run_time, save_image
+from utils import save_image
 
 
 class AttribDatasetLabel(NamedTuple):

@@ -1,31 +1,35 @@
 import random
 import traceback
+from functools import cache
+from itertools import chain, islice
 from multiprocessing import Pool
 from time import sleep
-from typing import NamedTuple, Sequence
+from typing import Sequence
 
 import numpy as np
 from skimage import draw
+from sklearn.neighbors import BallTree
 
 from attrib_dataset import create_attrib_dataset
 from attrib_model import create_attrib_model
 from attrib_tuned_model import AttribTunedModel
 from box import Box
-# from check_on_osm import check_on_osm
-from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND, CPU_COUNT,
-                    CROSSING_BOX_EXTEND, SEED, SLEEP_AFTER_ONE_IMPORT,
+from config import (ADDED_POSITION_SEARCH, ATTRIB_MODEL_RESOLUTION,
+                    ATTRIB_POSITION_EXTEND, CPU_COUNT, CROSSING_BOX_EXTEND,
+                    DRY_RUN, MIN_IMPORT_SIZE, SEED, SLEEP_AFTER_GRID_ITER,
                     YOLO_MODEL_RESOLUTION)
+from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
-from crossing_type import CrossingType
-from db_added import filter_added, mark_added
-from db_grid import iter_grid
+from db_added import filter_not_added, mark_added
+from db_grid import iter_grid, set_last_cell
 from latlon import LatLon
 from openstreetmap import OpenStreetMap
 from orto import FetchMode, fetch_orto
-# from osm_change import create_buildings_change
+from osm_change import create_instructed_change
 from processor import normalize_attrib_image, normalize_yolo_image
-from transform_geo_px import transform_px_to_rad, transform_rad_to_px
-from utils import index_box_centered, print_run_time, save_image
+from transform_geo_px import transform_px_to_rad
+from utils import (index_box_centered, meters_to_lat, print_run_time,
+                   save_image, set_nice, sleep_after_import)
 from yolo_dataset import create_yolo_dataset
 from yolo_model import create_yolo_model
 from yolo_tuned_model import YoloTunedModel
@@ -37,7 +41,21 @@ np.random.seed(SEED)
 _MIN_EDGE_DISTANCE = 0.1
 
 
-def _process_orto(yolo: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequence[Box]:
+@cache
+def _get_yolo_model() -> YoloTunedModel:
+    with print_run_time('Loading YOLO model'):
+        return YoloTunedModel()
+
+
+@cache
+def _get_attrib_model() -> AttribTunedModel:
+    with print_run_time('Loading ATTRIB model'):
+        return AttribTunedModel()
+
+
+def _process_orto(cell: Box, orto_img: np.ndarray) -> Sequence[Box]:
+    yolo_model = _get_yolo_model()
+
     assert orto_img.shape[0] == orto_img.shape[1]
     num_subcells = int(orto_img.shape[0] / YOLO_MODEL_RESOLUTION)
     subcell_size_lat = cell.size.lat / num_subcells
@@ -56,7 +74,7 @@ def _process_orto(yolo: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequ
             save_image(subcell_img, f'subcell_{y}_{x}')
             subcell_imgs.append(subcell_img)
 
-    subcell_preds = yolo.predict_multi(np.stack(subcell_imgs))
+    subcell_preds = yolo_model.predict_multi(np.stack(subcell_imgs))
 
     for y in range(num_subcells):
         subcell_lat = cell.point.lat + cell.size.lat - subcell_size_lat * (y + 1)
@@ -90,11 +108,9 @@ def _process_orto(yolo: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequ
                         _MIN_EDGE_DISTANCE < y_min_p < 1 - _MIN_EDGE_DISTANCE and
                         _MIN_EDGE_DISTANCE < y_max_p < 1 - _MIN_EDGE_DISTANCE
                     ):
-                        points = transform_px_to_rad(
-                            ((x_min, y_max), (x_max, y_min)), box_cell,
+                        p1, p2 = transform_px_to_rad(
+                            ((y_max, x_min), (y_min, x_max)), box_cell,
                             (YOLO_MODEL_RESOLUTION, YOLO_MODEL_RESOLUTION))
-                        p1 = LatLon(points[0][0], points[0][1])
-                        p2 = LatLon(points[1][0], points[1][1])
                         result.append(Box(p1, p2 - p1).extend(meters=CROSSING_BOX_EXTEND))
                         break
 
@@ -113,7 +129,7 @@ def _process_orto(yolo: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequ
                     box_img = fetch_orto(box_cell, FetchMode.FAST, YOLO_MODEL_RESOLUTION)
                     box_img = normalize_yolo_image(box_img)
 
-                    subcell_pred = yolo.predict_single(box_img)
+                    subcell_pred = yolo_model.predict_single(box_img)
                     boxes = subcell_pred['boxes']
 
                     if not boxes:
@@ -128,7 +144,14 @@ def _process_orto(yolo: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequ
     return result
 
 
-def _process_interesting_box(attrib: AttribTunedModel, box: Box) -> CrossingSuggestion | None:
+def _filter_added_boxes(boxes: Sequence[Box]) -> Sequence[Box]:
+    mask = filter_not_added(tuple(b.center() for b in boxes))
+    return tuple(b for b, m in zip(boxes, mask) if m)
+
+
+def _process_interesting_box(box: Box) -> CrossingSuggestion | None:
+    attrib_model = _get_attrib_model()
+
     position = box.center()
     orto_box = Box(position, LatLon(0, 0))
     orto_box = orto_box.extend(meters=ATTRIB_POSITION_EXTEND)
@@ -152,9 +175,10 @@ def _process_interesting_box(attrib: AttribTunedModel, box: Box) -> CrossingSugg
 
     image = image * 2 - 1  # MobileNet requires [-1, 1] input
 
-    classification = attrib.predict_single(image)
+    classification = attrib_model.predict_single(image)
 
     if not classification.is_valid:
+        mark_added((position,), reason='invalid')
         return None
 
     return CrossingSuggestion(
@@ -163,100 +187,133 @@ def _process_interesting_box(attrib: AttribTunedModel, box: Box) -> CrossingSugg
     )
 
 
+def _process_cell(cell: Box) -> Sequence[CrossingMergeInstructions]:
+    print(f'[CELL] ⚙️ Processing {cell!r}')
+
+    with print_run_time('Fetching ortophoto imagery'):
+        orto_img = fetch_orto(cell, FetchMode.FAST)
+
+    if orto_img is None:
+        print('[CELL] ⏭️ Nothing to do: missing ortophoto')
+        return tuple()
+
+    orto_img = normalize_yolo_image(orto_img)
+
+    with print_run_time('Processing ortophoto'):
+        interesting_boxes = _process_orto(cell, orto_img)
+
+    if not interesting_boxes:
+        print('[CELL] ⏭️ Nothing to do: no interesting boxes')
+        return tuple()
+
+    with print_run_time('Filtering added boxes'):
+        interesting_boxes = _filter_added_boxes(interesting_boxes)
+
+    if not interesting_boxes:
+        print('[CELL] ⏭️ Nothing to do: no new boxes')
+        return tuple()
+
+    with print_run_time('Generating suggestions'):
+        suggestions = tuple(filter(None, map(
+            lambda box: _process_interesting_box(box),
+            interesting_boxes)))
+
+    if not suggestions:
+        print('[CELL] ⏭️ Nothing to do: no suggestions')
+        return tuple()
+
+    print(f'[CELL] 💡 Suggested {len(suggestions)} crossings')
+
+    with print_run_time('Merging crossings'):
+        instructions = merge_crossings(suggestions)
+
+    empty_mask = tuple(not i.to_nodes_ids and not i.to_ways_inst for i in instructions)
+    empty_instructions = tuple(i for i, m in zip(instructions, empty_mask) if m)
+    valid_instructions = tuple(i for i, m in zip(instructions, empty_mask) if not m)
+    mark_added(tuple(i.position for i in empty_instructions), reason='empty')
+    return valid_instructions
+
+
+def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeInstructions], *, force: bool = False) -> int:
+    if not (
+        len(instructions) >= MIN_IMPORT_SIZE or
+        (len(instructions) > 0 and force)
+    ):
+        return 0
+
+    positions = tuple(i.position for i in instructions)
+    tree = BallTree(positions, metric='haversine')
+    query = tree.query_radius(positions, meters_to_lat(ADDED_POSITION_SEARCH))
+
+    added: set[int] = set()
+
+    for i, query_indices in enumerate(query):
+        # deduplicate
+        if len(query_indices) > 1 and any(i in added for i in query_indices):
+            continue
+
+        added.add(i)
+
+    if len(instructions) != len(added):
+        print(f'[UPLOAD] Removed {len(instructions) - len(added)} duplicates')
+
+    added_instructions = tuple(instructions[i] for i in added)
+    added_positions = tuple(i.position for i in added_instructions)
+
+    with print_run_time('Create OSM change'):
+        osm_change = create_instructed_change(added_instructions)
+
+    with print_run_time('Upload OSM change'):
+        if DRY_RUN:
+            print('[DRY-RUN] 🚫 Skipping upload')
+            changeset_id = 0
+        else:
+            changeset_id = osm.upload_osm_change(osm_change)
+
+    mark_added(added_positions, reason='added', changeset_id=changeset_id)
+    print(f'[UPLOAD] ✅ Import successful: https://www.openstreetmap.org/changeset/{changeset_id} ({len(added)})')
+    return len(added)
+
+
 def main() -> None:
     with print_run_time('Logging in'):
         osm = OpenStreetMap()
         display_name = osm.get_authorized_user()['display_name']
         print(f'👤 Welcome, {display_name}!')
+        # changeset_max_size = osm.get_changeset_max_size()
 
-        changeset_max_size = osm.get_changeset_max_size()
+    with Pool(CPU_COUNT, set_nice, (15,)) as pool:
+        while True:
+            processed: list[CrossingMergeInstructions] = []
+            cells_gen = iter_grid()
 
-    with print_run_time('Loading YOLO model'):
-        yolo_model = YoloTunedModel()
+            while (process_cells := tuple(islice(cells_gen, CPU_COUNT))):
+                process_boxes = tuple(map(lambda c: c.box, process_cells))
 
-    with print_run_time('Loading ATTRIB model'):
-        attrib_model = AttribTunedModel()
+                if CPU_COUNT == 1:
+                    iterator = map(_process_cell, process_boxes)
+                else:
+                    iterator = pool.imap_unordered(_process_cell, process_boxes)
 
-    with Pool(CPU_COUNT) as pool:
-        for cell in iter_grid():
-            print(f'[CELL] ⚙️ Processing {cell!r}')
+                for new_processed in iterator:
+                    if new_processed:
+                        print(f'[CELL] 📦 Processed: {len(processed)} + {len(new_processed)}')
+                        processed.extend(new_processed)
 
-            with print_run_time('Fetching ortophoto imagery'):
-                orto_img = fetch_orto(cell, FetchMode.FAST)
+                if not processed:
+                    set_last_cell(process_cells[-1])
+                elif (submit_size := _submit_processed(osm, processed)):
+                    set_last_cell(process_cells[-1])
+                    sleep_after_import(submit_size)
+                    processed.clear()
 
-            if orto_img is None:
-                print('[CELL] ⏭️ Nothing to do: missing ortophoto')
-                continue
+            submit_size = _submit_processed(osm, processed, force=True)
+            set_last_cell(None)
+            sleep_after_import(submit_size)
 
-            orto_img = normalize_yolo_image(orto_img)
-
-            with print_run_time('Processing ortophoto'):
-                interesting_boxes = _process_orto(yolo_model, cell, orto_img)
-
-            with print_run_time('Generating suggestions'):
-                suggestions = tuple(filter(None, map(
-                    lambda box: _process_interesting_box(attrib_model, box),
-                    interesting_boxes)))
-
-            if suggestions:
-                print(f'[CELL] 💡 Suggested {len(suggestions)} crossings')
-
-            # valid_buildings: list[ClassifiedBuilding] = []
-
-            # if CPU_COUNT == 1:
-            #     iterator = map(_process_building, buildings)
-            # else:
-            #     iterator = pool.imap_unordered(_process_building, buildings, chunksize=4)
-
-            # for building, model_input in iterator:
-            #     if model_input is None:
-            #         print(f'[PROCESS] 🚫 Unsupported')
-            #         mark_added((building,), reason='unsupported')
-            #         continue
-
-            #     is_valid, proba = model.predict_single(model_input)
-
-            #     if is_valid:
-            #         print(f'[PROCESS][{proba:.3f}] ✅ Valid')
-            #         valid_buildings.append(ClassifiedBuilding(building, proba))
-            #     else:
-            #         print(f'[PROCESS][{proba:.3f}] 🚫 Invalid')
-            #         mark_added((building,), reason='predict', predict=proba)
-
-            # print(f'[CELL][1/2] 🏠 Valid buildings: {len(valid_buildings)}')
-
-            # with print_run_time('Check on OSM'):
-            #     found, not_found = check_on_osm(valid_buildings)
-            #     assert len(found) + len(not_found) == len(valid_buildings)
-
-            # if found:
-            #     mark_added(tuple(map(lambda cb: cb.building, found)), reason='found')
-
-            # print(f'[CELL][2/2] 🏠 Needing import: {len(not_found)}')
-
-            # if not_found:
-            #     for score_min, score_max, name in ((0.999, 1.001, '>99.9%',),
-            #                                        (0.000, 0.999, '>99.5%',)):
-            #         buildings = tuple(cb.building for cb in not_found if score_min <= cb.score < score_max)
-
-            #         for chunk in building_chunks(buildings, size=changeset_max_size):
-            #             with print_run_time('Create OSM change'):
-            #                 osm_change = create_buildings_change(chunk)
-
-            #             with print_run_time('Upload OSM change'):
-            #                 if DRY_RUN:
-            #                     print('[DRY-RUN] 🚫 Skipping upload')
-            #                     changeset_id = 0
-            #                 else:
-            #                     changeset_id = osm.upload_osm_change(osm_change, name)
-
-            #             mark_added(chunk, reason='upload', changeset_id=changeset_id)
-            #             print(f'✅ Import successful: {name!r} ({len(chunk)})')
-
-            #     if SLEEP_AFTER_ONE_IMPORT:
-            #         sleep_duration = len(not_found) * SLEEP_AFTER_ONE_IMPORT
-            #         print(f'[SLEEP-IMPORT] ⏳ Sleeping for {sleep_duration} seconds...')
-            #         sleep(sleep_duration)
+            if SLEEP_AFTER_GRID_ITER:
+                print(f'[SLEEP-GRID] 💤 Sleeping for {SLEEP_AFTER_GRID_ITER} seconds...')
+                sleep(SLEEP_AFTER_GRID_ITER)
 
 
 if __name__ == '__main__':

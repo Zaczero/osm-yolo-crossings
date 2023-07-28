@@ -20,7 +20,7 @@ class QueriedCrossing(NamedTuple):
 class QueriedRoadsAndCrossings(NamedTuple):
     roads: Sequence[dict]
     crossings: Sequence[dict]
-    nodes: dict[str, LatLon]
+    nodes: dict[int, LatLon]
 
 
 def _build_specific_crossings_query(box: Box, timeout: int, specific: str) -> str:
@@ -50,9 +50,9 @@ def _build_buildings_roads_query(box: Box, timeout: int) -> str:
 
 def _builds_roads_query(boxes: Sequence[Box], timeout: int) -> str:
     return (
-        f'[out:json][timeout:{timeout}];'
+        f'[out:json][timeout:{timeout}];' +
         f''.join(
-            f'way[highway](bbox:{box});'
+            f'way[highway]({box});'
             f'out body qt;'
             f'>;'
             f'out body qt;'
@@ -96,16 +96,19 @@ def _is_bicycle(element: dict) -> bool:
 def _is_road(element: dict) -> bool:
     tags = element.get('tags', {})
 
-    return tags.get('highway', '') in {
-        'residential',
-        'service',
-        'unclassified',
-        'tertiary',
-        'secondary',
-        'primary',
-        'living_street',
-        'road',
-    }
+    return (
+        tags.get('highway', '') in {
+            'residential',
+            'service',
+            'unclassified',
+            'tertiary',
+            'secondary',
+            'primary',
+            'living_street',
+            'road',
+        } and
+        tags.get('area', 'no') == 'no'
+    )
 
 
 def _is_crossing(element: dict) -> bool:

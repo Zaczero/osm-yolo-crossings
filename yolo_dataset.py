@@ -1,6 +1,5 @@
 import json
 import pickle
-import traceback
 from functools import partial
 from itertools import chain
 from multiprocessing import Pool
@@ -9,7 +8,7 @@ from typing import Iterable, NamedTuple, Sequence
 
 import numpy as np
 import xmltodict
-from skimage import draw, img_as_float, transform
+from skimage import draw, img_as_float
 from skimage.io import imread
 
 from box import Box
@@ -20,11 +19,9 @@ from latlon import LatLon
 from orto import FetchMode, fetch_orto
 from overpass import query_specific_crossings
 from polygon2 import Polygon2
-from processor import (ProcessPolygonResult, normalize_yolo_image,
-                       process_image, process_polygon)
+from processor import normalize_yolo_image
 from transform_geo_px import transform_rad_to_px
-from utils import print_run_time, save_image
-from yolo_tuned_model import YoloTunedModel
+from utils import save_image
 
 
 class YoloDatasetLabel(NamedTuple):
