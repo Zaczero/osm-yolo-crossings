@@ -2,26 +2,29 @@ import random
 import traceback
 from multiprocessing import Pool
 from time import sleep
-from typing import Sequence
+from typing import NamedTuple, Sequence
 
 import numpy as np
+from skimage import draw
 
 from attrib_dataset import create_attrib_dataset
 from attrib_model import create_attrib_model
+from attrib_tuned_model import AttribTunedModel
 from box import Box
 # from check_on_osm import check_on_osm
-from config import (CPU_COUNT, SEED, SLEEP_AFTER_ONE_IMPORT, YOLO_CONFIDENCE,
+from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND, CPU_COUNT,
+                    CROSSING_BOX_EXTEND, SEED, SLEEP_AFTER_ONE_IMPORT,
                     YOLO_MODEL_RESOLUTION)
-# from db_added import filter_added, mark_added
+from crossing_suggestion import CrossingSuggestion
+from crossing_type import CrossingType
+from db_added import filter_added, mark_added
 from db_grid import iter_grid
 from latlon import LatLon
 from openstreetmap import OpenStreetMap
 from orto import FetchMode, fetch_orto
 # from osm_change import create_buildings_change
-from processor import normalize_yolo_image
-from transform_geo_px import transform_px_to_rad
-# from processor import process_image, process_polygon
-# from tuned_model import TunedModel
+from processor import normalize_attrib_image, normalize_yolo_image
+from transform_geo_px import transform_px_to_rad, transform_rad_to_px
 from utils import index_box_centered, print_run_time, save_image
 from yolo_dataset import create_yolo_dataset
 from yolo_model import create_yolo_model
@@ -34,39 +37,37 @@ np.random.seed(SEED)
 _MIN_EDGE_DISTANCE = 0.1
 
 
-def _process_orto(model: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequence[Box]:
+def _process_orto(yolo: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Sequence[Box]:
     assert orto_img.shape[0] == orto_img.shape[1]
     num_subcells = int(orto_img.shape[0] / YOLO_MODEL_RESOLUTION)
     subcell_size_lat = cell.size.lat / num_subcells
     subcell_size_lon = cell.size.lon / num_subcells
     result = []
 
-    for y in range(num_subcells):
-        subcell_lat = cell.point.lat + cell.size.lat - subcell_size_lat * (y + 1)
-        for x in range(num_subcells):
-            subcell_lon = cell.point.lon + x * subcell_size_lon
+    subcell_imgs = []
 
-            subcell = Box(LatLon(subcell_lat, subcell_lon), LatLon(subcell_size_lat, subcell_size_lon))
+    for y in range(num_subcells):
+        for x in range(num_subcells):
             subcell_img = orto_img[
                 y * YOLO_MODEL_RESOLUTION:(y + 1) * YOLO_MODEL_RESOLUTION,
                 x * YOLO_MODEL_RESOLUTION:(x + 1) * YOLO_MODEL_RESOLUTION,
                 :
             ]
-
             save_image(subcell_img, f'subcell_{y}_{x}')
-            pred = model.predict_single(subcell_img)
+            subcell_imgs.append(subcell_img)
 
-            boxes = pred['boxes']
-            confidences = pred['confidence']
-            classes = pred['classes']
+    subcell_preds = yolo.predict_multi(np.stack(subcell_imgs))
 
-            if boxes:
-                print(f'[PROCESS] 💡 Found {len(boxes)} detections')
+    for y in range(num_subcells):
+        subcell_lat = cell.point.lat + cell.size.lat - subcell_size_lat * (y + 1)
+        for x in range(num_subcells):
+            subcell_lon = cell.point.lon + x * subcell_size_lon
+            subcell = Box(LatLon(subcell_lat, subcell_lon), LatLon(subcell_size_lat, subcell_size_lon))
+            subcell_pred = subcell_preds[y * num_subcells + x]
 
-            for box, confidence, _ in zip(boxes, confidences, classes):
-                if confidence < YOLO_CONFIDENCE:
-                    continue
+            boxes = subcell_pred['boxes']
 
+            for box in boxes:
                 box_cell = subcell
                 max_repeat = 2
 
@@ -91,10 +92,10 @@ def _process_orto(model: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Seq
                     ):
                         points = transform_px_to_rad(
                             ((x_min, y_max), (x_max, y_min)), box_cell,
-                            (YOLO_MODEL_RESOLUTION, YOLO_MODEL_RESOLUTION))[0]
+                            (YOLO_MODEL_RESOLUTION, YOLO_MODEL_RESOLUTION))
                         p1 = LatLon(points[0][0], points[0][1])
                         p2 = LatLon(points[1][0], points[1][1])
-                        result.append(Box(p1, p2 - p1))
+                        result.append(Box(p1, p2 - p1).extend(meters=CROSSING_BOX_EXTEND))
                         break
 
                     tx = center_x - YOLO_MODEL_RESOLUTION / 2
@@ -112,16 +113,54 @@ def _process_orto(model: YoloTunedModel, cell: Box, orto_img: np.ndarray) -> Seq
                     box_img = fetch_orto(box_cell, FetchMode.FAST, YOLO_MODEL_RESOLUTION)
                     box_img = normalize_yolo_image(box_img)
 
-                    pred = model.predict_single(box_img)
-                    boxes, confidences = pred['boxes'], pred['confidence']
+                    subcell_pred = yolo.predict_single(box_img)
+                    boxes = subcell_pred['boxes']
 
                     if not boxes:
                         break
 
                     centered_i = index_box_centered(boxes, YOLO_MODEL_RESOLUTION)
-                    box, confidence = boxes[centered_i], confidences[centered_i]
+                    box = boxes[centered_i]
+
+    if result:
+        print(f'[YOLO] 👁 Found {len(result)} interesting boxes')
 
     return result
+
+
+def _process_interesting_box(attrib: AttribTunedModel, box: Box) -> CrossingSuggestion | None:
+    position = box.center()
+    orto_box = Box(position, LatLon(0, 0))
+    orto_box = orto_box.extend(meters=ATTRIB_POSITION_EXTEND)
+
+    orto_img = fetch_orto(orto_box, FetchMode.FAST, ATTRIB_MODEL_RESOLUTION)
+    if orto_img is None:
+        return None
+
+    image = normalize_attrib_image(orto_img)
+
+    center_x = image.shape[1] / 2
+    center_y = image.shape[0] / 2
+    center = (center_y, center_x)
+
+    rr, cc = draw.disk(center, radius=6, shape=image.shape[:2])
+    image[rr, cc] = (0, 0, 0)
+    rr, cc = draw.disk(center, radius=4, shape=image.shape[:2])
+    image[rr, cc] = (1, 0, 0)
+
+    save_image(image, 'attrib', force=True)
+
+    image = image * 2 - 1  # MobileNet requires [-1, 1] input
+
+    classification = attrib.predict_single(image)
+
+    if not classification.is_valid:
+        return None
+
+    return CrossingSuggestion(
+        box=box,
+        crossing_type=classification.crossing_type,
+    )
 
 
 def main() -> None:
@@ -135,6 +174,9 @@ def main() -> None:
     with print_run_time('Loading YOLO model'):
         yolo_model = YoloTunedModel()
 
+    with print_run_time('Loading ATTRIB model'):
+        attrib_model = AttribTunedModel()
+
     with Pool(CPU_COUNT) as pool:
         for cell in iter_grid():
             print(f'[CELL] ⚙️ Processing {cell!r}')
@@ -147,7 +189,17 @@ def main() -> None:
                 continue
 
             orto_img = normalize_yolo_image(orto_img)
-            crossings = _process_orto(yolo_model, cell, orto_img)
+
+            with print_run_time('Processing ortophoto'):
+                interesting_boxes = _process_orto(yolo_model, cell, orto_img)
+
+            with print_run_time('Generating suggestions'):
+                suggestions = tuple(filter(None, map(
+                    lambda box: _process_interesting_box(attrib_model, box),
+                    interesting_boxes)))
+
+            if suggestions:
+                print(f'[CELL] 💡 Suggested {len(suggestions)} crossings')
 
             # valid_buildings: list[ClassifiedBuilding] = []
 
@@ -208,9 +260,4 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    # create_dataset(1000)
-    # process_dataset()
-    # create_model()
-    # create_attrib_dataset(1000)
-    create_yolo_model()
-    # main()
+    main()

@@ -1,3 +1,5 @@
+from typing import Sequence
+
 import numpy as np
 import tensorflow as tf
 
@@ -11,37 +13,46 @@ class YoloTunedModel:
         self._model.load_weights(str(YOLO_MODEL_PATH))
 
     def predict_single(self, X: np.ndarray, min_confidence: float = YOLO_CONFIDENCE) -> dict:
+        return self.predict_multi(X[np.newaxis, ...], min_confidence)[0]
+
+    def predict_multi(self, X: np.ndarray, min_confidence: float = YOLO_CONFIDENCE) -> Sequence[dict]:
+        assert len(X.shape) == 4
+
         with tf.device('/CPU:0'):  # force CPU to better understand real performance
-            pred: dict = self._model.predict(X[np.newaxis, ...])
+            pred_all: dict = self._model.predict(X)
 
-        for k, v in pred.items():
-            pred[k] = v[0]
+        result = []
 
-        num_detections = pred['num_detections']
+        for i in range(X.shape[0]):
+            pred = {k: v[i] for k, v in pred_all.items()}
 
-        boxes = pred['boxes'][:num_detections]
-        confidences = pred['confidence'][:num_detections]
-        classes = pred['classes'][:num_detections]
+            num_detections = pred['num_detections']
+            del pred['num_detections']
 
-        new_boxes = []
-        new_confidences = []
-        new_classes = []
+            boxes = pred['boxes'][:num_detections]
+            confidences = pred['confidence'][:num_detections]
+            classes = pred['classes'][:num_detections]
 
-        for box, confidence, class_id in zip(boxes, confidences, classes):
-            if confidence < min_confidence:
-                continue
+            new_boxes = []
+            new_confidences = []
+            new_classes = []
 
-            new_box = tuple(float(v) for v in box)
-            new_confidence = confidence
-            new_class_id = class_id
+            for box, confidence, class_id in zip(boxes, confidences, classes):
+                if confidence < min_confidence:
+                    continue
 
-            new_boxes.append(new_box)
-            new_confidences.append(new_confidence)
-            new_classes.append(new_class_id)
+                new_box = tuple(float(v) for v in box)
+                new_confidence = confidence
+                new_class_id = class_id
 
-        pred['boxes'] = new_boxes
-        pred['confidence'] = new_confidences
-        pred['classes'] = new_classes
-        del pred['num_detections']
+                new_boxes.append(new_box)
+                new_confidences.append(new_confidence)
+                new_classes.append(new_class_id)
 
-        return pred
+            pred['boxes'] = new_boxes
+            pred['confidence'] = new_confidences
+            pred['classes'] = new_classes
+
+            result.append(pred)
+
+        return tuple(result)

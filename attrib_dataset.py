@@ -16,8 +16,9 @@ from sklearn.preprocessing import MultiLabelBinarizer
 
 from box import Box
 from config import (ATTRIB_DATASET_DIR, ATTRIB_MODEL_PATH,
-                    ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES, CACHE_DIR,
-                    CPU_COUNT, IMAGES_DIR, YOLO_MODEL_RESOLUTION)
+                    ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES,
+                    ATTRIB_POSITION_EXTEND, CACHE_DIR, CPU_COUNT, IMAGES_DIR,
+                    YOLO_MODEL_RESOLUTION)
 from db_grid import random_grid
 from latlon import LatLon
 from orto import FetchMode, fetch_orto
@@ -27,8 +28,6 @@ from processor import (ProcessPolygonResult, normalize_attrib_image,
                        normalize_yolo_image, process_image, process_polygon)
 from transform_geo_px import transform_rad_to_px
 from utils import print_run_time, save_image
-
-_EXTEND = 9
 
 
 class AttribDatasetLabel(NamedTuple):
@@ -136,7 +135,7 @@ class ProcessCellResult(NamedTuple):
 
 
 def _process_cell(cell: Box) -> Sequence[ProcessCellResult]:
-    crossings = query_specific_crossings(cell, "~'^(uncontrolled|marked|traffic_signals)$'", historical=False)
+    crossings = query_specific_crossings(cell, "~'^(uncontrolled|marked|traffic_signals)$'")
 
     if crossings:
         print(f'[DATASET] 🦓 Processing {len(crossings)} crossings')
@@ -145,10 +144,9 @@ def _process_cell(cell: Box) -> Sequence[ProcessCellResult]:
 
     for crossing in crossings:
         crossing_box = Box(crossing.position, LatLon(0, 0))
-        crossing_box = crossing_box.extend(meters=_EXTEND)
+        crossing_box = crossing_box.extend(meters=ATTRIB_POSITION_EXTEND)
 
         orto_img = fetch_orto(crossing_box, FetchMode.FAST, resolution=ATTRIB_MODEL_RESOLUTION)
-
         if orto_img is None:
             continue
 

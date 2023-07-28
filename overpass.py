@@ -17,6 +17,12 @@ class QueriedCrossing(NamedTuple):
     bicycle: bool
 
 
+class QueriedRoadsAndCrossings(NamedTuple):
+    roads: Sequence[dict]
+    crossings: Sequence[dict]
+    nodes: dict[str, LatLon]
+
+
 def _build_specific_crossings_query(box: Box, timeout: int, specific: str) -> str:
     return (
         f'[out:json][timeout:{timeout}][bbox:{box}];'
@@ -39,6 +45,20 @@ def _build_buildings_roads_query(box: Box, timeout: int) -> str:
         f'>;'
         f'out skel qt;'
         f'out count;'
+    )
+
+
+def _builds_roads_query(boxes: Sequence[Box], timeout: int) -> str:
+    return (
+        f'[out:json][timeout:{timeout}];'
+        f''.join(
+            f'way[highway](bbox:{box});'
+            f'out body qt;'
+            f'>;'
+            f'out body qt;'
+            f'out count;'
+            for box in boxes
+        )
     )
 
 
@@ -88,31 +108,31 @@ def _is_road(element: dict) -> bool:
     }
 
 
+def _is_crossing(element: dict) -> bool:
+    tags = element.get('tags', {})
+
+    return tags.get('highway', '') == 'crossing'
+
+
 @retry(wait=wait_exponential(), stop=stop_after_attempt(5))
-def query_specific_crossings(box: Box, specific: str, *, historical: bool) -> Sequence[QueriedCrossing]:
+def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossing]:
+    timeout = 90
+    query = _build_specific_crossings_query(box, timeout, specific)
+
+    r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
+    r.raise_for_status()
+
+    elements = r.json()['elements']
+    _extract_center(elements)
+
     result = []
 
-    for years_ago in (0, 1, 2) if historical else (0,):
-        timeout = 90
-        query = _build_specific_crossings_query(box, timeout, specific)
-
-        if years_ago > 0:
-            date = datetime.utcnow() - timedelta(days=365 * years_ago)
-            date_fmt = date.strftime('%Y-%m-%dT%H:%M:%SZ')
-            query = f'[date:"{date_fmt}"]{query}'
-
-        r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
-        r.raise_for_status()
-
-        elements = r.json()['elements']
-        _extract_center(elements)
-
-        for e in elements:
-            result.append(QueriedCrossing(
-                position=LatLon(e['lat'], e['lon']),
-                tags=e.get('tags', {}),
-                bicycle=_is_bicycle(e)
-            ))
+    for e in elements:
+        result.append(QueriedCrossing(
+            position=LatLon(e['lat'], e['lon']),
+            tags=e.get('tags', {}),
+            bicycle=_is_bicycle(e)
+        ))
 
     return result
 
@@ -153,3 +173,43 @@ def query_buildings_roads(box: Box) -> tuple[Sequence[LatLon], Sequence[LatLon]]
             roads.append(roads_nodes_map[node_id])
 
     return buildings, tuple(roads)
+
+
+@retry(wait=wait_exponential(), stop=stop_after_attempt(5))
+def query_roads_and_crossings_historical(boxes: Sequence[Box]) -> Sequence[Sequence[QueriedRoadsAndCrossings]]:
+    result = tuple([] for _ in boxes)
+
+    for years_ago in (0, 0.3, 1, 2):
+        result_historical = tuple(QueriedRoadsAndCrossings([], [], {}) for _ in boxes)
+
+        timeout = 90
+        query = _builds_roads_query(boxes, timeout)
+
+        if years_ago > 0:
+            date = datetime.utcnow() - timedelta(days=365 * years_ago)
+            date_fmt = date.strftime('%Y-%m-%dT%H:%M:%SZ')
+            query = f'[date:"{date_fmt}"]{query}'
+
+        r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
+        r.raise_for_status()
+
+        elements = r.json()['elements']
+        _extract_center(elements)
+
+        parts = _split_by_count(elements)
+        assert len(parts) == len(boxes), f'Expected {len(boxes)} parts, got {len(parts)}'
+
+        for i, slice in enumerate(parts):
+            for e in slice:
+                if e['type'] == 'way':
+                    if _is_road(e):
+                        result_historical[i].roads.append(e)
+                elif e['type'] == 'node':
+                    if _is_crossing(e):
+                        result_historical[i].crossings.append(e)
+                    result_historical[i].nodes[e['id']] = LatLon(e['lat'], e['lon'])
+
+        for i, r in enumerate(result_historical):
+            result[i].append(r)
+
+    return result

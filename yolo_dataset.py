@@ -110,7 +110,7 @@ class ProcessCellResult(NamedTuple):
 
 
 def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[ProcessCellResult]:
-    crossings = query_specific_crossings(cell, "~'^(uncontrolled|marked|traffic_signals)$'", historical=False)
+    crossings = query_specific_crossings(cell, "~'^(uncontrolled|marked|traffic_signals)$'")
     if len(crossings) < 2:
         return []
 

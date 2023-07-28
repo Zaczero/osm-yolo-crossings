@@ -1,53 +1,25 @@
 from time import time
-from typing import Iterable, Sequence
+from typing import Sequence
 
-from budynki import Building
-from config import DB_ADDED, DB_ADDED_INDEX, SCORER_VERSION, VERSION
+from sklearn.neighbors import BallTree
+from tinydb import Query
 
-
-def _get_index() -> dict[str, int]:
-    doc = DB_ADDED_INDEX.get(doc_id=1)
-
-    if doc is None:
-        return {}
-
-    return doc['index']
+from config import ADDED_POSITION_SEARCH, DB_ADDED, SCORER_VERSION, VERSION
+from latlon import LatLon
 
 
-def _set_index(index: dict[str, int]) -> None:
-    DB_ADDED_INDEX.upsert({'index': index}, lambda _: True)
+def filter_added(positions: Sequence[LatLon]) -> Sequence[LatLon]:
+    docs = DB_ADDED.get(Query().scorer_version >= SCORER_VERSION)
+    db_positions = tuple(LatLon(*doc['position']) for doc in docs)
+    tree = BallTree(db_positions, metric='haversine')
+    query = tree.query_radius(tuple(positions), ADDED_POSITION_SEARCH, count_only=True)
+    return tuple(p for q, p in zip(query, positions) if q == 0)
 
 
-def filter_added(buildings: Iterable[Building]) -> Sequence[Building]:
-    index = _get_index()
-
-    def _is_added(building: Building) -> bool:
-        unique_id = building.polygon.unique_id_hash(8)
-        doc_id = index.get(unique_id, None)
-
-        if doc_id is None:
-            return False
-
-        doc = DB_ADDED.get(doc_id=doc_id)
-        return doc['scorer_version'] >= SCORER_VERSION
-
-    return tuple(filter(lambda b: not _is_added(b), buildings))
-
-
-def mark_added(buildings: Sequence[Building], **kwargs) -> Sequence[int]:
-    unique_ids = tuple(b.polygon.unique_id_hash(8) for b in buildings)
-
-    ids = DB_ADDED.insert_multiple({
+def mark_added(positions: Sequence[LatLon], **kwargs) -> Sequence[int]:
+    return DB_ADDED.insert_multiple({
         'timestamp': time(),
-        'unique_id': unique_id,
-        'location': tuple(building.polygon.points[0]),
+        'position': tuple(p),
         'app_version': VERSION,
         'scorer_version': SCORER_VERSION,
-    } | kwargs for building, unique_id in zip(buildings, unique_ids))
-
-    index = _get_index()
-
-    for doc_id, unique_id in zip(ids, unique_ids):
-        index[unique_id] = doc_id
-
-    _set_index(index)
+    } | kwargs for p in positions)
