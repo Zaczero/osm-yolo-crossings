@@ -81,17 +81,20 @@ ATTRIB_MODEL_PATH = MODEL_DIR / 'attrib.keras'
 ATTRIB_MODEL_RESOLUTION = 224
 ATTRIB_NUM_CLASSES = 2
 ATTRIB_CONFIDENCES = [
-    0.9,  # valid
-    0.9,  # signals
+    0.95,  # valid
+    0.90,  # signals
 ]
 
+GRID_FILTER_INTERPOLATE = 10  # meters
 CROSSING_BOX_EXTEND = 1.5  # meters
-ADDED_POSITION_SEARCH = 10  # meters
+ADDED_SEARCH_RADIUS = 10  # meters
 
-ROAD_VALID_MAX_ANGLE = 40  # degrees
-ROAD_VALID_MAX_COUNT = 2
-ROAD_VALID_MIN_CROSSING_DISTANCE = 70  # meters
+BOX_VALID_MAX_CENTER_DISTANCE = 10  # meters
+BOX_VALID_MAX_ROAD_ANGLE = 40  # degrees
+BOX_VALID_MAX_ROAD_COUNT = 2
+BOX_VALID_MIN_CROSSING_DISTANCE = 70  # meters
 
+# when to reuse an existing node
 NODE_MERGE_THRESHOLD = 1.8  # meters
 
 DB_PATH = DATA_DIR / 'db.json'

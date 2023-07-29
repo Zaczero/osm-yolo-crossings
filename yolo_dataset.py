@@ -16,7 +16,7 @@ from config import (CACHE_DIR, CPU_COUNT, IMAGES_DIR, YOLO_DATASET_DIR,
                     YOLO_MODEL_RESOLUTION)
 from db_grid import random_grid
 from latlon import LatLon
-from orto import FetchMode, fetch_orto
+from orto import fetch_orto
 from overpass import query_specific_crossings
 from polygon2 import Polygon2
 from processor import normalize_yolo_image
@@ -111,7 +111,7 @@ def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[Proces
     if len(crossings) < 2:
         return []
 
-    orto_img = fetch_orto(cell, FetchMode.FAST)
+    orto_img = fetch_orto(cell, YOLO_MODEL_RESOLUTION * 18)
     if orto_img is None:
         return []
 

@@ -7,6 +7,7 @@ from typing import Iterable, NamedTuple, Sequence
 
 import numpy as np
 import xmltodict
+from skimage import draw, img_as_float
 from skimage.io import imread
 from sklearn.preprocessing import MultiLabelBinarizer
 
@@ -16,7 +17,7 @@ from config import (ATTRIB_DATASET_DIR, ATTRIB_MODEL_RESOLUTION,
                     CPU_COUNT, IMAGES_DIR)
 from db_grid import random_grid
 from latlon import LatLon
-from orto import FetchMode, fetch_orto
+from orto import fetch_orto
 from overpass import query_specific_crossings
 from processor import normalize_attrib_image
 from transform_geo_px import transform_rad_to_px
@@ -139,7 +140,7 @@ def _process_cell(cell: Box) -> Sequence[ProcessCellResult]:
         crossing_box = Box(crossing.position, LatLon(0, 0))
         crossing_box = crossing_box.extend(meters=ATTRIB_POSITION_EXTEND)
 
-        orto_img = fetch_orto(crossing_box, FetchMode.FAST, resolution=ATTRIB_MODEL_RESOLUTION)
+        orto_img = fetch_orto(crossing_box, ATTRIB_MODEL_RESOLUTION)
         if orto_img is None:
             continue
 

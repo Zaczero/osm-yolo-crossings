@@ -13,8 +13,8 @@ from overpass import query_buildings_roads
 from utils import print_run_time
 
 _STATE_GRID_SIZE = 0.2
-_MIN_BUILDINGS = 2
-_MIN_ROADS = 2  # road nodes
+# _MIN_BUILDINGS = 2
+_MIN_ROADS = 1  # road nodes
 
 
 def _make_index(elements: Sequence[LatLon]) -> Index:
@@ -43,8 +43,9 @@ def _load_state(box: Box) -> Sequence[GridFilterState]:
                 state = pickle.loads(cache_path.read_bytes())
             else:
                 with print_run_time(f'Query grid filter: ({lat:.2f}, {lon:.2f})'):
-                    buildings, roads = query_buildings_roads(
-                        Box(LatLon(lat, lon), LatLon(_STATE_GRID_SIZE, _STATE_GRID_SIZE)))
+                    buildings, roads = query_buildings_roads(Box(
+                        point=LatLon(lat, lon),
+                        size=LatLon(_STATE_GRID_SIZE, _STATE_GRID_SIZE)))
 
                 state = GridFilterState(buildings, roads)
                 cache_path.write_bytes(pickle.dumps(state))
@@ -55,21 +56,23 @@ def _load_state(box: Box) -> Sequence[GridFilterState]:
 
 
 def is_grid_valid(box: Box) -> bool:
-    total_buildings = 0
+    # total_buildings = 0
     total_roads = 0
 
     for state in _load_state(box):
         building_index, road_index = state.get_index()
 
-        buildings = building_index.intersection(
-            (box.point.lat, box.point.lon, box.point.lat + box.size.lat, box.point.lon + box.size.lon))
-        total_buildings += sum(1 for _ in buildings)
+        # if total_buildings < _MIN_BUILDINGS:
+        #     buildings = building_index.intersection(
+        #         (box.point.lat, box.point.lon, box.point.lat + box.size.lat, box.point.lon + box.size.lon))
+        #     total_buildings += sum(1 for _ in buildings)
 
-        roads = road_index.intersection(
-            (box.point.lat, box.point.lon, box.point.lat + box.size.lat, box.point.lon + box.size.lon))
-        total_roads += sum(1 for _ in roads)
+        if total_roads < _MIN_ROADS:
+            roads = road_index.intersection(
+                (box.point.lat, box.point.lon, box.point.lat + box.size.lat, box.point.lon + box.size.lon))
+            total_roads += sum(1 for _ in roads)
 
-        if total_buildings >= _MIN_BUILDINGS and total_roads >= _MIN_ROADS:
+        if total_roads >= _MIN_ROADS:
             return True
 
     return False

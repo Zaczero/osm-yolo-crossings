@@ -1,13 +1,15 @@
 from datetime import datetime, timedelta
+from itertools import pairwise
 from typing import Iterable, NamedTuple, Sequence
 
 import httpx
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 from box import Box
-from config import OVERPASS_API_INTERPRETER, SEARCH_RELATION
+from config import (GRID_FILTER_INTERPOLATE, OVERPASS_API_INTERPRETER,
+                    SEARCH_RELATION)
 from latlon import LatLon
-from utils import http_headers
+from utils import haversine_distance, http_headers
 
 
 class QueriedCrossing(NamedTuple):
@@ -140,7 +142,7 @@ def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossin
 
 
 @retry(wait=wait_exponential(), stop=stop_after_attempt(5))
-def query_buildings_roads(box: Box) -> tuple[Sequence[LatLon], Sequence[LatLon]]:
+def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[Sequence[LatLon], Sequence[LatLon]]:
     timeout = 90
     query = _build_buildings_roads_query(box, timeout)
 
@@ -160,7 +162,7 @@ def query_buildings_roads(box: Box) -> tuple[Sequence[LatLon], Sequence[LatLon]]
         for e in buildings_elements
     )
 
-    roads_nodes_map = {
+    roads_nodes_position_map = {
         e['id']: LatLon(e['lat'], e['lon'])
         for e in roads_nodes_elements
     }
@@ -172,7 +174,22 @@ def query_buildings_roads(box: Box) -> tuple[Sequence[LatLon], Sequence[LatLon]]
             continue
 
         for node_id in road_element['nodes']:
-            roads.append(roads_nodes_map[node_id])
+            roads.append(roads_nodes_position_map[node_id])
+
+        if interpolate_roads:
+            for n1_id, n2_id in pairwise(road_element['nodes']):
+                n1_pos = roads_nodes_position_map[n1_id]
+                n2_pos = roads_nodes_position_map[n2_id]
+
+                distance = haversine_distance(n1_pos, n2_pos)
+                num_interpolated = int(distance / GRID_FILTER_INTERPOLATE)
+
+                for i in range(1, num_interpolated + 1):
+                    ratio = i / (num_interpolated + 1)
+                    roads.append(LatLon(
+                        n1_pos.lat + (n2_pos.lat - n1_pos.lat) * ratio,
+                        n1_pos.lon + (n2_pos.lon - n1_pos.lon) * ratio,
+                    ))
 
     return buildings, tuple(roads)
 

@@ -4,7 +4,7 @@ from typing import Sequence
 from sklearn.neighbors import BallTree
 from tinydb import Query
 
-from config import ADDED_POSITION_SEARCH, DB_ADDED, SCORER_VERSION, VERSION
+from config import ADDED_SEARCH_RADIUS, DB_ADDED, SCORER_VERSION, VERSION
 from latlon import LatLon
 from utils import meters_to_lat
 
@@ -27,7 +27,7 @@ def _get_tree() -> BallTree:
 
 
 def filter_not_added(positions: Sequence[LatLon]) -> Sequence[bool]:
-    query = _get_tree().query_radius(positions, meters_to_lat(ADDED_POSITION_SEARCH), count_only=True)
+    query = _get_tree().query_radius(positions, meters_to_lat(ADDED_SEARCH_RADIUS), count_only=True)
     return tuple(q == 0 for q in query)
 
 
