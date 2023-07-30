@@ -116,13 +116,13 @@ def create_attrib_model():
 
     callbacks = [
         ModelCheckpoint(str(ATTRIB_MODEL_PATH), 'val_auc', mode='max',
-                        initial_value_threshold=0.9,
+                        initial_value_threshold=0.95,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),
 
         ModelCheckpoint(str(ATTRIB_MODEL_PATH.with_stem('attrib_recall')), 'val_recall_at_precision', mode='max',
-                        initial_value_threshold=0.8,
+                        initial_value_threshold=0.9,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),
