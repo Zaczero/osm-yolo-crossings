@@ -21,11 +21,11 @@ from sklearn.model_selection import train_test_split
 
 from attrib_dataset import AttribDatasetEntry, iter_attrib_dataset
 from config import (ATTRIB_CONFIDENCES, ATTRIB_MODEL_PATH,
-                    ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES, DATA_DIR,
-                    SEED)
+                    ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES,
+                    ATTRIB_PRECISION, DATA_DIR, SEED)
 
 _BATCH_SIZE = 32
-_EPOCHS = 50
+_EPOCHS = 150
 
 
 def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.ndarray]:
@@ -103,7 +103,7 @@ def create_attrib_model():
             CosineDecay(initial_learning_rate=1e-5,
                         decay_steps=steps_per_epoch * _EPOCHS - 8,
                         alpha=0.3,
-                        warmup_target=3e-5,
+                        warmup_target=1e-4,
                         warmup_steps=steps_per_epoch * 8,),
             amsgrad=True),
         loss=BinaryFocalCrossentropy(apply_class_balancing=True),
@@ -117,7 +117,7 @@ def create_attrib_model():
 
     callbacks = [
         ModelCheckpoint(str(ATTRIB_MODEL_PATH), 'val_auc', mode='max',
-                        # initial_value_threshold=0.6,
+                        initial_value_threshold=0.9,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),
@@ -141,12 +141,14 @@ def create_attrib_model():
     for i in range(ATTRIB_NUM_CLASSES):
         print(f'Class {i} statistics:\n')
 
-        threshold = ATTRIB_CONFIDENCES[i]
-        print(f'Threshold: {threshold}')
-
         y_true_class = y_holdout[:, i]
         y_pred_proba_class = y_pred_proba[:, i]
-        y_pred_class = y_pred_proba[:, i] > threshold
+
+        precisions, _, thresholds = precision_recall_curve(y_true_class, y_pred_proba_class)
+        threshold_optimal = thresholds[np.searchsorted(precisions, ATTRIB_PRECISION[i]) - 1]
+        print(f'Threshold: {threshold_optimal}')
+
+        y_pred_class = y_pred_proba[:, i] > threshold_optimal
 
         auc = roc_auc_score(y_true_class, y_pred_proba_class)
         print(f'AUC: {auc:.3f}')
