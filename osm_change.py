@@ -57,11 +57,9 @@ def create_instructed_change(instructions: Sequence[CrossingMergeInstructions]) 
     # increment metadata
     for node in fetch_nodes.values():
         node['@changeset'] = CHANGESET_ID_PLACEHOLDER
-        node['@version'] += 1
 
     for way in fetch_ways.values():
         way['@changeset'] = CHANGESET_ID_PLACEHOLDER
-        way['@version'] += 1
 
     result = _initialize_osm_change_structure()
     create_node: list = result['osmChange']['create']['node']

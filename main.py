@@ -15,13 +15,14 @@ from attrib_model import create_attrib_model
 from attrib_tuned_model import AttribTunedModel
 from box import Box
 from config import (ADDED_SEARCH_RADIUS, ATTRIB_MODEL_RESOLUTION,
-                    ATTRIB_POSITION_EXTEND, CPU_COUNT, CROSSING_BOX_EXTEND,
-                    DATA_DIR, DRY_RUN, MIN_IMPORT_SIZE, SEED,
-                    SLEEP_AFTER_GRID_ITER, YOLO_MODEL_RESOLUTION)
+                    ATTRIB_POSITION_EXTEND, CROSSING_BOX_EXTEND, DATA_DIR,
+                    DRY_RUN, MIN_IMPORT_SIZE, SEED, SLEEP_AFTER_GRID_ITER,
+                    WEB_CONCURRENCY, YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
 from db_added import filter_not_added, mark_added
 from db_grid import Cell, iter_grid, set_last_cell
+from import_speed_limit import ImportSpeedLimit
 from latlon import LatLon
 from openstreetmap import OpenStreetMap
 from orto import fetch_orto, fetch_orto_async
@@ -29,7 +30,7 @@ from osm_change import create_instructed_change
 from processor import normalize_attrib_image, normalize_yolo_image
 from transform_geo_px import transform_px_to_rad
 from utils import (index_box_centered, meters_to_lat, print_run_time,
-                   save_image, set_nice, sleep_after_import)
+                   save_image, set_nice)
 from yolo_dataset import create_yolo_dataset
 from yolo_model import create_yolo_model
 from yolo_tuned_model import YoloTunedModel
@@ -54,7 +55,7 @@ def _get_attrib_model() -> AttribTunedModel:
         return AttribTunedModel()
 
 
-def _process_orto(cell_box: Box, orto_img: np.ndarray) -> Sequence[Box]:
+def _process_object_detection(cell_box: Box, orto_img: np.ndarray) -> Sequence[Box]:
     yolo_model = _get_yolo_model()
 
     assert orto_img.shape[0] == orto_img.shape[1]
@@ -188,6 +189,49 @@ def _process_interesting_box(box: Box) -> CrossingSuggestion | None:
     )
 
 
+def _process_orto_img(cell: Box, orto_img: np.ndarray) -> Sequence[CrossingMergeInstructions]:
+    if orto_img is None:
+        print('[CELL] ⏭️ Nothing to do: missing ortophoto')
+        return ()
+
+    with print_run_time('Processing ortophoto'):
+        yolo_img = normalize_yolo_image(orto_img)
+        interesting_boxes = _process_object_detection(cell.box, yolo_img)
+
+    if not interesting_boxes:
+        # this message prints too often
+        # print(f'[CELL] ⏭️ Nothing to do: no interesting boxes')
+        return ()
+
+    with print_run_time('Filtering added boxes'):
+        interesting_boxes = _filter_added_boxes(interesting_boxes)
+
+    if not interesting_boxes:
+        print('[CELL] ⏭️ Nothing to do: no new boxes')
+        return ()
+
+    # TODO: predict_multi, very low priority
+    with print_run_time('Generating suggestions'):
+        suggestions = tuple(filter(None, map(
+            lambda b: _process_interesting_box(b),
+            interesting_boxes)))
+
+    if not suggestions:
+        print('[CELL] ⏭️ Nothing to do: no suggestions')
+        return ()
+
+    print(f'[CELL] 💡 Suggested {len(suggestions)} crossings')
+
+    with print_run_time('Merging crossings'):
+        instructions = merge_crossings(suggestions)
+
+    empty_mask = tuple(not i.to_nodes_ids and not i.to_ways_inst for i in instructions)
+    empty_instructions = tuple(i for i, m in zip(instructions, empty_mask) if m)
+    valid_instructions = tuple(i for i, m in zip(instructions, empty_mask) if not m)
+    mark_added(tuple(i.position for i in empty_instructions), reason='empty')
+    return valid_instructions
+
+
 def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeInstructions], *, force: bool = False) -> int:
     if not (
         len(instructions) >= MIN_IMPORT_SIZE or
@@ -231,6 +275,7 @@ def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeIn
 
 async def main() -> None:
     set_nice(_PROCESS_NICE)
+    import_speed_limit = ImportSpeedLimit()
 
     with print_run_time('Logging in'):
         osm = OpenStreetMap()
@@ -239,78 +284,37 @@ async def main() -> None:
         # changeset_max_size = osm.get_changeset_max_size()
 
     while True:
+        async def fetch_orto_with_cell(cell: Cell):
+            return cell, await fetch_orto_async(cell.box, YOLO_MODEL_RESOLUTION)
+
         processed: list[CrossingMergeInstructions] = []
         cells_gen = iter_grid()
+        fetch_tasks = [
+            asyncio.create_task(fetch_orto_with_cell(cell))
+            for cell in islice(cells_gen, WEB_CONCURRENCY)]
 
-        while (process_cells := tuple(islice(cells_gen, CPU_COUNT))):
-            async def fetch_orto_with_cell(cell: Cell):
-                return cell, await fetch_orto_async(cell.box, YOLO_MODEL_RESOLUTION)
+        while fetch_tasks:
+            cell, orto_img = await fetch_tasks.pop(0)
 
-            fetch_orto_tasks = tuple(
-                asyncio.create_task(fetch_orto_with_cell(cell))
-                for cell in process_cells)
+            # start a new fetch task immediately
+            for cell in islice(cells_gen, 1):
+                fetch_tasks.append(asyncio.create_task(fetch_orto_with_cell(cell)))
 
-            for task in asyncio.as_completed(fetch_orto_tasks):
-                cell, orto_img = await task
-                if orto_img is None:
-                    print('[CELL] ⏭️ Nothing to do: missing ortophoto')
-                    continue
-
-                with print_run_time('Processing ortophoto'):
-                    yolo_img = normalize_yolo_image(orto_img)
-                    interesting_boxes = _process_orto(cell.box, yolo_img)
-
-                if not interesting_boxes:
-                    print(f'[CELL] ⏭️ Nothing to do: no interesting boxes')
-                    continue
-
-                with print_run_time('Filtering added boxes'):
-                    interesting_boxes = _filter_added_boxes(interesting_boxes)
-
-                if not interesting_boxes:
-                    print('[CELL] ⏭️ Nothing to do: no new boxes')
-                    continue
-
-                # TODO: predict_multi
-                with print_run_time('Generating suggestions'):
-                    suggestions = tuple(filter(None, map(
-                        lambda b: _process_interesting_box(b),
-                        interesting_boxes)))
-
-                if not suggestions:
-                    print('[CELL] ⏭️ Nothing to do: no suggestions')
-                    continue
-
-                print(f'[CELL] 💡 Suggested {len(suggestions)} crossings')
-
-                with print_run_time('Merging crossings'):
-                    instructions = merge_crossings(suggestions)
-
-                empty_mask = tuple(not i.to_nodes_ids and not i.to_ways_inst for i in instructions)
-                empty_instructions = tuple(i for i, m in zip(instructions, empty_mask) if m)
-                valid_instructions = tuple(i for i, m in zip(instructions, empty_mask) if not m)
-                mark_added(tuple(i.position for i in empty_instructions), reason='empty')
-
-                if valid_instructions:
-                    print(f'[CELL] 📦 Processed: {len(processed)} + {len(valid_instructions)}')
-                    processed.extend(valid_instructions)
-
-                    a = DATA_DIR / 'processed.json'
-                    a.write_text(json.dumps([i.position for i in processed], indent=2))
-
-            last_cell = process_cells[-1]
-            print(f'[CELL] 🏁 Finished cell {last_cell!r}')
+            valid_instructions = _process_orto_img(cell, orto_img)
+            if valid_instructions:
+                print(f'[CELL] 📦 Processed: {len(processed)} + {len(valid_instructions)}')
+                processed.extend(valid_instructions)
 
             if not processed:
-                set_last_cell(last_cell)
+                set_last_cell(cell)
             elif (submit_size := _submit_processed(osm, processed)):
-                set_last_cell(last_cell)
-                sleep_after_import(submit_size)
+                set_last_cell(cell)
+                import_speed_limit.sleep(submit_size)
                 processed.clear()
 
         submit_size = _submit_processed(osm, processed, force=True)
         set_last_cell(None)
-        sleep_after_import(submit_size)
+        import_speed_limit.sleep(submit_size)
 
         if SLEEP_AFTER_GRID_ITER:
             print(f'[SLEEP-GRID] 💤 Sleeping for {SLEEP_AFTER_GRID_ITER} seconds...')
@@ -318,4 +322,6 @@ async def main() -> None:
 
 
 if __name__ == '__main__':
+    # create_attrib_dataset(200)
+    # create_attrib_model()
     asyncio.run(main())

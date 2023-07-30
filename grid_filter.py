@@ -33,24 +33,28 @@ class GridFilterState(NamedTuple):
         return _make_index(self.buildings), _make_index(self.roads)
 
 
+@cached(TTLCache(64, ttl=3600))
+def _load_state_single(lat: float, lon: float) -> GridFilterState:
+    cache_path = CACHE_DIR / f'FilterState_{lat:.2f}_{lon:.2f}.pkl'
+    if cache_path.is_file():
+        return pickle.loads(cache_path.read_bytes())
+    else:
+        with print_run_time(f'Query grid filter: ({lat:.2f}, {lon:.2f})'):
+            buildings, roads = query_buildings_roads(Box(
+                point=LatLon(lat, lon),
+                size=LatLon(_STATE_GRID_SIZE, _STATE_GRID_SIZE)))
+
+        state = GridFilterState(buildings, roads)
+        cache_path.write_bytes(pickle.dumps(state))
+        return state
+
+
 def _load_state(box: Box) -> Sequence[GridFilterState]:
     result = []
 
     for lat in arange(floor(box.point.lat / _STATE_GRID_SIZE) * _STATE_GRID_SIZE, box.point.lat + box.size.lat, _STATE_GRID_SIZE):
         for lon in arange(floor(box.point.lon / _STATE_GRID_SIZE) * _STATE_GRID_SIZE, box.point.lon + box.size.lon, _STATE_GRID_SIZE):
-            cache_path = CACHE_DIR / f'FilterState_{lat:.2f}_{lon:.2f}.pkl'
-            if cache_path.is_file():
-                state = pickle.loads(cache_path.read_bytes())
-            else:
-                with print_run_time(f'Query grid filter: ({lat:.2f}, {lon:.2f})'):
-                    buildings, roads = query_buildings_roads(Box(
-                        point=LatLon(lat, lon),
-                        size=LatLon(_STATE_GRID_SIZE, _STATE_GRID_SIZE)))
-
-                state = GridFilterState(buildings, roads)
-                cache_path.write_bytes(pickle.dumps(state))
-
-            result.append(state)
+            result.append(_load_state_single(lat, lon))
 
     return tuple(result)
 

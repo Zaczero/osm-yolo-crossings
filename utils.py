@@ -11,8 +11,7 @@ from numba import njit
 from skimage import img_as_ubyte
 from skimage.io import imsave
 
-from config import (DAILY_IMPORT_SPEED, IMAGES_DIR, MIN_SLEEP_AFTER_IMPORT,
-                    SAVE_IMG, USER_AGENT, YOLO_CONFIDENCE)
+from config import IMAGES_DIR, SAVE_IMG, USER_AGENT, YOLO_CONFIDENCE
 from latlon import LatLon
 
 
@@ -138,15 +137,6 @@ def index_box_centered(boxes: Sequence[tuple], resolution: int) -> int:
 
 def make_way_geometry(way: dict, nodes: dict[str, LatLon]) -> Sequence[LatLon]:
     return tuple(nodes[node_id] for node_id in way['nodes'])
-
-
-def sleep_after_import(size: int) -> None:
-    sleep = 24 * 3600 * (size / DAILY_IMPORT_SPEED)
-    sleep = max(sleep, MIN_SLEEP_AFTER_IMPORT)
-
-    if sleep > 0:
-        print(f'[SLEEP-IMPORT] 💤 Sleeping for {sleep:.0f} seconds...')
-        time.sleep(sleep)
 
 
 def set_nice(value: int) -> None:
