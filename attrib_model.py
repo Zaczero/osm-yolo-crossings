@@ -41,7 +41,7 @@ def get_attrib_model(imagenet_weights: bool = True) -> Model:
                                    dropout_rate=0.3,
                                    include_preprocessing=False)
 
-    freeze_ratio = 0.6
+    freeze_ratio = 0.5
     for layer in image_model.layers[:int(len(image_model.layers) * freeze_ratio)]:
         layer.trainable = False
 
