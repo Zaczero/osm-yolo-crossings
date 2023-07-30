@@ -130,9 +130,9 @@ class ProcessCellResult(NamedTuple):
 
 
 def _process(size: int) -> Sequence[ProcessCellResult]:
-    attributes = ('concrete_plates',)
+    attributes = ('signals',)
 
-    crossings = query_elements_position('way[highway=service][surface="concrete:plates"]')
+    crossings = query_elements_position('node[crossing=traffic_signals][!bicycle]')
     crossings = list(crossings)
     random.shuffle(crossings)
 

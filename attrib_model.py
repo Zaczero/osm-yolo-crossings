@@ -100,10 +100,10 @@ def create_attrib_model():
     model.compile(
         optimizer=AdamW(
             CosineDecay(initial_learning_rate=1e-5,
-                        decay_steps=steps_per_epoch * _EPOCHS - 8,
+                        decay_steps=steps_per_epoch * _EPOCHS - 10,
                         alpha=0.3,
                         warmup_target=1e-4,
-                        warmup_steps=steps_per_epoch * 8,),
+                        warmup_steps=steps_per_epoch * 10,),
             amsgrad=True),
         loss=BinaryFocalCrossentropy(apply_class_balancing=True),
         metrics=[
@@ -121,8 +121,8 @@ def create_attrib_model():
                         save_weights_only=True,
                         verbose=1),
 
-        ModelCheckpoint(str(ATTRIB_MODEL_PATH.with_stem('model_recall')), 'val_recall_at_precision', mode='max',
-                        # initial_value_threshold=0.9,
+        ModelCheckpoint(str(ATTRIB_MODEL_PATH.with_stem('attrib_recall')), 'val_recall_at_precision', mode='max',
+                        initial_value_threshold=0.8,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),
