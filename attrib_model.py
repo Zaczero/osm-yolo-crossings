@@ -41,7 +41,7 @@ def get_attrib_model(imagenet_weights: bool = True) -> Model:
                                    dropout_rate=0.3,
                                    include_preprocessing=False)
 
-    freeze_ratio = 0.7
+    freeze_ratio = 0.6
     for layer in image_model.layers[:int(len(image_model.layers) * freeze_ratio)]:
         layer.trainable = False
 
@@ -156,10 +156,10 @@ def create_attrib_model():
         y_pred_class = y_pred_proba[:, i] > threshold_optimal
 
         auc = roc_auc_score(y_true_class, y_pred_proba_class)
-        print(f'AUC: {auc:.3f}')
+        print(f'AUC: {auc:.5f}')
 
         precision = precision_score(y_true_class, y_pred_class)
-        print(f'Precision: {precision:.3f}')
+        print(f'Precision: {precision:.5f}')
 
         tn, fp, fn, tp = confusion_matrix(y_true_class, y_pred_class).ravel()
         print(f'True Negatives: {tn}')
