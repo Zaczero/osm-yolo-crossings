@@ -80,14 +80,14 @@ ATTRIB_POSITION_EXTEND = 9  # meters
 ATTRIB_MODEL_PATH = MODEL_DIR / 'attrib.h5'
 ATTRIB_MODEL_RESOLUTION = 224
 ATTRIB_NUM_CLASSES = 2
-ATTRIB_PRECISION = [
+ATTRIB_PRECISION = (
     0.995,  # valid
     0.995,  # signals
-]
-ATTRIB_CONFIDENCES = [
+)
+ATTRIB_CONFIDENCES = (
     0.800,  # valid
-    0.805,  # signals  # 0.8487555980682373
-]
+    (0.150, 0.805),  # signals
+)
 
 GRID_FILTER_INTERPOLATE = 10  # meters
 CROSSING_BOX_EXTEND = 1.5  # meters

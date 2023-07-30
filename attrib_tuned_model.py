@@ -25,8 +25,8 @@ class AttribTunedModel:
         assert len(pred_proba) == len(min_confidences)
 
         is_valid = pred_proba[0] > min_confidences[0]
-        is_uncontrolled = pred_proba[1] < (1 - min_confidences[1])
-        is_traffic_signals = pred_proba[1] > min_confidences[1]
+        is_uncontrolled = pred_proba[1] < min_confidences[1][0]
+        is_traffic_signals = pred_proba[1] > min_confidences[1][1]
 
         if (not is_uncontrolled and not is_traffic_signals) or (is_uncontrolled and is_traffic_signals):
             crossing_type = CrossingType.UNKNOWN

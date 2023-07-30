@@ -20,9 +20,8 @@ from sklearn.metrics import (confusion_matrix, precision_recall_curve,
 from sklearn.model_selection import train_test_split
 
 from attrib_dataset import AttribDatasetEntry, iter_attrib_dataset
-from config import (ATTRIB_CONFIDENCES, ATTRIB_MODEL_PATH,
-                    ATTRIB_MODEL_RESOLUTION, ATTRIB_NUM_CLASSES,
-                    ATTRIB_PRECISION, DATA_DIR, SEED)
+from config import (ATTRIB_MODEL_PATH, ATTRIB_MODEL_RESOLUTION,
+                    ATTRIB_NUM_CLASSES, ATTRIB_PRECISION, DATA_DIR, SEED)
 
 _BATCH_SIZE = 32
 _EPOCHS = 150
