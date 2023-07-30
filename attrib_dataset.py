@@ -1,5 +1,6 @@
 import json
 import pickle
+import random
 from itertools import chain
 from multiprocessing import Pool
 from pathlib import Path
@@ -18,7 +19,7 @@ from config import (ATTRIB_DATASET_DIR, ATTRIB_MODEL_RESOLUTION,
 from db_grid import random_grid
 from latlon import LatLon
 from orto import fetch_orto
-from overpass import query_specific_crossings
+from overpass import query_elements_position, query_specific_crossings
 from processor import normalize_attrib_image
 from transform_geo_px import transform_rad_to_px
 from utils import save_image
@@ -128,16 +129,20 @@ class ProcessCellResult(NamedTuple):
     attributes: Sequence[str]
 
 
-def _process_cell(cell: Box) -> Sequence[ProcessCellResult]:
-    crossings = query_specific_crossings(cell, "~'^(uncontrolled|marked|traffic_signals)$'")
+def _process(size: int) -> Sequence[ProcessCellResult]:
+    attributes = ('concrete_plates',)
+
+    crossings = query_elements_position('way[highway=service][surface="concrete:plates"]')
+    crossings = list(crossings)
+    random.shuffle(crossings)
 
     if crossings:
-        print(f'[DATASET] 🦓 Processing {len(crossings)} crossings')
+        print(f'[DATASET] 🦓 Processing {len(crossings)} elements')
 
     result = []
 
-    for crossing in crossings:
-        crossing_box = Box(crossing.position, LatLon(0, 0))
+    for crossing_position in crossings:
+        crossing_box = Box(crossing_position, LatLon(0, 0))
         crossing_box = crossing_box.extend(meters=ATTRIB_POSITION_EXTEND)
 
         orto_img = fetch_orto(crossing_box, ATTRIB_MODEL_RESOLUTION)
@@ -148,7 +153,7 @@ def _process_cell(cell: Box) -> Sequence[ProcessCellResult]:
         overlay_img = normalize_attrib_image(overlay_img)
 
         crossing_px = transform_rad_to_px(
-            (crossing.position,),
+            (crossing_position,),
             img_box=crossing_box,
             img_shape=overlay_img.shape)[0]
 
@@ -160,20 +165,21 @@ def _process_cell(cell: Box) -> Sequence[ProcessCellResult]:
         save_image(orto_img, 'dataset_attrib_1')
         save_image(overlay_img, 'dataset_attrib_2')
 
-        attributes = []
+        # if crossing.tags.get('crossing', '') == 'traffic_signals':
+        #     attributes.append('signals')
 
-        if crossing.tags.get('crossing', '') == 'traffic_signals':
-            attributes.append('signals')
-
-        if crossing.tags.get('traffic_calming', '') == 'table':
-            attributes.append('raised')
+        # if crossing.tags.get('traffic_calming', '') == 'table':
+        #     attributes.append('raised')
 
         result.append(ProcessCellResult(
-            position=crossing.position,
+            position=crossing_position,
             image=orto_img,
             overlay=overlay_img,
             attributes=tuple(attributes),
         ))
+
+        if len(result) >= size:
+            break
 
     return tuple(result)
 
@@ -188,39 +194,26 @@ def create_attrib_dataset(size: int) -> None:
 
     cvat_image_annotations: list[dict] = cvat_annotations['annotations']['image']
 
-    with Pool(CPU_COUNT) as pool:
-        cells = random_grid()
-        for i in range(0, len(cells), CPU_COUNT):
-            process_cells = cells[i:i+CPU_COUNT]
+    for result in _process(size):
+        unique_id = str(result.position).replace('.', '_')
+        category = '_'.join(sorted(result.attributes)) or 'generic'
 
-            if CPU_COUNT == 1:
-                iterator = map(_process_cell, process_cells)
-            else:
-                iterator = pool.imap_unordered(_process_cell, process_cells)
+        raw_path = save_image(result.image, f'CVAT/{category}/{unique_id}', force=True)
+        raw_name = raw_path.name
+        raw_name_safe = raw_name.replace('.', '_')
 
-            for result in chain.from_iterable(iterator):
-                unique_id = str(result.position).replace('.', '_')
-                category = '_'.join(sorted(result.attributes)) or 'generic'
+        save_image(result.overlay, f'CVAT/{category}/related_images/{raw_name_safe}/overlay', force=True)
 
-                raw_path = save_image(result.image, f'CVAT/{category}/{unique_id}', force=True)
-                raw_name = raw_path.name
-                raw_name_safe = raw_name.replace('.', '_')
+        with open(IMAGES_DIR / f'CVAT/{category}/related_images/{raw_name_safe}/position.json', 'w') as f:
+            json.dump(result.position, f)
 
-                save_image(result.overlay, f'CVAT/{category}/related_images/{raw_name_safe}/overlay', force=True)
+        annotation = {
+            '@name': f'{category}/{raw_name}',
+            '@height': result.image.shape[0],
+            '@width': result.image.shape[1],
+        }
 
-                with open(IMAGES_DIR / f'CVAT/{category}/related_images/{raw_name_safe}/position.json', 'w') as f:
-                    json.dump(result.position, f)
-
-                annotation = {
-                    '@name': f'{category}/{raw_name}',
-                    '@height': result.image.shape[0],
-                    '@width': result.image.shape[1],
-                }
-
-                cvat_image_annotations.append(annotation)
-
-            if len(cvat_image_annotations) >= size:
-                break
+        cvat_image_annotations.append(annotation)
 
     # sort in lexical order
     cvat_image_annotations.sort(key=lambda x: x['@name'])

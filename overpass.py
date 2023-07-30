@@ -24,6 +24,16 @@ class QueriedRoadsAndCrossings(NamedTuple):
     nodes: dict[int, LatLon]
 
 
+def _build_elements_query(timeout: int, query: str) -> str:
+    return (
+        f'[out:json][timeout:{timeout}];'
+        f'rel({SEARCH_RELATION});'
+        f'map_to_area->.a;'
+        f'{query}(area.a);'
+        f'out ids center qt;'
+    )
+
+
 def _build_specific_crossings_query(box: Box, timeout: int, specific: str) -> str:
     return (
         f'[out:json][timeout:{timeout}][bbox:{box}];'
@@ -100,13 +110,13 @@ def _is_road(element: dict) -> bool:
     return (
         tags.get('highway', '') in {
             'residential',
-            # 'service',  # TODO: fix https://www.openstreetmap.org/way/444251815
+            'service',  # https://www.openstreetmap.org/way/444251815
             'unclassified',
             'tertiary',
             'secondary',
             'primary',
             'living_street',
-            # 'road',
+            'road',
         } and
         tags.get('area', 'no') == 'no'
     )
@@ -116,6 +126,22 @@ def _is_crossing(element: dict) -> bool:
     tags = element.get('tags', {})
 
     return tags.get('highway', '') == 'crossing'
+
+
+@retry(wait=wait_exponential(), stop=stop_after_attempt(5))
+def query_elements_position(query: str) -> Sequence[LatLon]:
+    timeout = 180
+    query = _build_elements_query(timeout, query)
+
+    r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
+    r.raise_for_status()
+
+    elements = r.json()['elements']
+    _extract_center(elements)
+
+    result = tuple(LatLon(e['lat'], e['lon']) for e in elements)
+
+    return result
 
 
 @retry(wait=wait_exponential(), stop=stop_after_attempt(5))
@@ -138,7 +164,7 @@ def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossin
             bicycle=_is_bicycle(e)
         ))
 
-    return result
+    return tuple(result)
 
 
 @retry(wait=wait_exponential(), stop=stop_after_attempt(5))

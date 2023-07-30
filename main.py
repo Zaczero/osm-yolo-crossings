@@ -298,10 +298,13 @@ async def main() -> None:
                     a = DATA_DIR / 'processed.json'
                     a.write_text(json.dumps([i.position for i in processed], indent=2))
 
+            last_cell = process_cells[-1]
+            print(f'[CELL] 🏁 Finished cell {last_cell!r}')
+
             if not processed:
-                set_last_cell(process_cells[-1])
+                set_last_cell(last_cell)
             elif (submit_size := _submit_processed(osm, processed)):
-                set_last_cell(process_cells[-1])
+                set_last_cell(last_cell)
                 sleep_after_import(submit_size)
                 processed.clear()
 

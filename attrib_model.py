@@ -122,17 +122,23 @@ def create_attrib_model():
                         save_weights_only=True,
                         verbose=1),
 
+        ModelCheckpoint(str(ATTRIB_MODEL_PATH.with_stem('model_recall')), 'val_recall_at_precision', mode='max',
+                        # initial_value_threshold=0.9,
+                        save_best_only=True,
+                        save_weights_only=True,
+                        verbose=1),
+
         TensorBoard(str(DATA_DIR / 'tensorboard' / datetime.now().strftime("%Y%m%d-%H%M%S")), histogram_freq=1),
         TerminateOnNaN(),
     ]
 
-    # model.fit(
-    #     datagen.flow(X_train, y_train, batch_size=_BATCH_SIZE),
-    #     epochs=_EPOCHS + 10,
-    #     steps_per_epoch=steps_per_epoch,
-    #     validation_data=(X_test, y_test),
-    #     callbacks=callbacks,
-    # )
+    model.fit(
+        datagen.flow(X_train, y_train, batch_size=_BATCH_SIZE),
+        epochs=_EPOCHS + 10,
+        steps_per_epoch=steps_per_epoch,
+        validation_data=(X_test, y_test),
+        callbacks=callbacks,
+    )
 
     model.load_weights(str(ATTRIB_MODEL_PATH))
 
