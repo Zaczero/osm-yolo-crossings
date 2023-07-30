@@ -16,8 +16,9 @@ from attrib_tuned_model import AttribTunedModel
 from box import Box
 from config import (ADDED_SEARCH_RADIUS, ATTRIB_MODEL_RESOLUTION,
                     ATTRIB_POSITION_EXTEND, CROSSING_BOX_EXTEND, DATA_DIR,
-                    DRY_RUN, MIN_IMPORT_SIZE, SEED, SLEEP_AFTER_GRID_ITER,
-                    WEB_CONCURRENCY, YOLO_MODEL_RESOLUTION)
+                    DRY_RUN, MIN_IMPORT_SIZE, PROCESS_NICE, SEED,
+                    SLEEP_AFTER_GRID_ITER, WEB_CONCURRENCY,
+                    YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
 from db_added import filter_not_added, mark_added
@@ -38,8 +39,6 @@ from yolo_tuned_model import YoloTunedModel
 random.seed(SEED)
 np.random.seed(SEED)
 
-
-_PROCESS_NICE = 15
 _MIN_EDGE_DISTANCE = 0.1
 
 
@@ -274,7 +273,7 @@ def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeIn
 
 
 async def main() -> None:
-    set_nice(_PROCESS_NICE)
+    set_nice(PROCESS_NICE)
     import_speed_limit = ImportSpeedLimit()
 
     with print_run_time('Logging in'):
