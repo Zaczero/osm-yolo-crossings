@@ -37,9 +37,9 @@ def normalize_attrib_image(image: np.ndarray) -> np.ndarray:
 
     hsv: np.ndarray = color.rgb2hsv(image)
     v_channel = hsv[:, :, 2]
-    p05 = np.percentile(v_channel, 5)
+    p02 = np.percentile(v_channel, 2)
     p98 = np.percentile(v_channel, 98)
-    v_channel = exposure.rescale_intensity(v_channel, in_range=(p05, p98))
+    v_channel = exposure.rescale_intensity(v_channel, in_range=(p02, p98))
     hsv[:, :, 2] = v_channel
     image = color.hsv2rgb(hsv)
 

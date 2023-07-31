@@ -24,7 +24,7 @@ from config import (ATTRIB_MODEL_PATH, ATTRIB_MODEL_RESOLUTION,
                     ATTRIB_NUM_CLASSES, ATTRIB_PRECISION, DATA_DIR, SEED)
 
 _BATCH_SIZE = 32
-_EPOCHS = 150
+_EPOCHS = 50
 
 
 def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.ndarray]:
@@ -38,10 +38,9 @@ def get_attrib_model(imagenet_weights: bool = True) -> Model:
     image_model = MobileNetV3Large(include_top=False,
                                    weights='imagenet' if imagenet_weights else None,
                                    input_tensor=image_inputs,
-                                   dropout_rate=0.3,
                                    include_preprocessing=False)
 
-    freeze_ratio = 0.5
+    freeze_ratio = 0.7
     for layer in image_model.layers[:int(len(image_model.layers) * freeze_ratio)]:
         layer.trainable = False
 
@@ -99,12 +98,11 @@ def create_attrib_model():
     model = get_attrib_model()
     model.compile(
         optimizer=AdamW(
-            CosineDecay(initial_learning_rate=1e-5,
-                        decay_steps=steps_per_epoch * _EPOCHS - 10,
+            CosineDecay(initial_learning_rate=3e-5,
+                        decay_steps=steps_per_epoch * _EPOCHS - 5,
                         alpha=0.3,
-                        warmup_target=1e-4,
-                        warmup_steps=steps_per_epoch * 10,),
-            amsgrad=True),
+                        warmup_target=2e-4,
+                        warmup_steps=steps_per_epoch * 5,)),
         loss=BinaryFocalCrossentropy(apply_class_balancing=True),
         metrics=[
             AUC(multi_label=True, num_labels=ATTRIB_NUM_CLASSES),
@@ -133,7 +131,7 @@ def create_attrib_model():
 
     model.fit(
         datagen.flow(X_train, y_train, batch_size=_BATCH_SIZE),
-        epochs=_EPOCHS + 10,
+        epochs=_EPOCHS,
         steps_per_epoch=steps_per_epoch,
         validation_data=(X_test, y_test),
         callbacks=callbacks,

@@ -8,7 +8,7 @@ from box import Box
 from utils import http_headers
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(5))
+@retry(wait=wait_exponential(), stop=stop_after_attempt(8))
 async def fetch_orto_async(box: Box, resolution: int) -> httpx.Response:
     assert resolution <= 4096, 'This resolution is not supported by the WMS service'
 

@@ -82,7 +82,7 @@ def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) 
     rr, cc = draw.disk(center, radius=6, shape=image.shape[:2])
     image[rr, cc] = (0, 0, 0)
     rr, cc = draw.disk(center, radius=4, shape=image.shape[:2])
-    image[rr, cc] = (1, 0, 0)
+    image[rr, cc] = (1, 1, 1)
 
     save_image(image, 'dataset_attrib_1')
 
