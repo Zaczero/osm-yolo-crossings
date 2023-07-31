@@ -6,12 +6,11 @@ from typing import Generator, Sequence
 import keras_cv
 import numpy as np
 import tensorflow as tf
-from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
-                             TensorBoard, TerminateOnNaN)
+from keras.callbacks import ModelCheckpoint, TensorBoard, TerminateOnNaN
 from keras.experimental import CosineDecay
 from keras.losses import BinaryFocalCrossentropy
 from keras.models import Model
-from keras.optimizers import AdamW, RMSprop
+from keras.optimizers import AdamW
 from keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
 from skimage import transform
@@ -24,8 +23,8 @@ from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
-_EPOCHS = 60
-_BATCH_SIZE = 20
+_EPOCHS = 250
+_BATCH_SIZE = 32
 _BOXES_COUNT = 4
 
 
@@ -44,7 +43,7 @@ def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE
             width_shift_range=0.15,
             height_shift_range=0.15,
             rotation_range=180,
-            shear_range=15,
+            shear_range=20,
             zoom_range=0.1,
             channel_shift_range=0.1,
             fill_mode='constant',
@@ -163,10 +162,10 @@ def create_yolo_model():
     model.compile(
         optimizer=AdamW(
             CosineDecay(initial_learning_rate=3e-5,
-                        decay_steps=steps_per_epoch * _EPOCHS,
-                        alpha=0.3,
+                        decay_steps=steps_per_epoch * (_EPOCHS - 10),
+                        alpha=0.01,
                         warmup_target=3e-4,
-                        warmup_steps=steps_per_epoch * 5)),
+                        warmup_steps=steps_per_epoch * 10)),
         box_loss='ciou',
         classification_loss=BinaryFocalCrossentropy(apply_class_balancing=True),
     )
@@ -190,7 +189,7 @@ def create_yolo_model():
         X_batch, y_batch,
         batch_size=_BATCH_SIZE,
         steps_per_epoch=steps_per_epoch,
-        epochs=5,
+        epochs=10,
         shuffle=False,
     )
 
@@ -198,7 +197,7 @@ def create_yolo_model():
         X_batch, y_batch,
         batch_size=_BATCH_SIZE,
         steps_per_epoch=steps_per_epoch,
-        epochs=_EPOCHS,
+        epochs=_EPOCHS - 10,
         shuffle=False,
         validation_data=(X_test, y_test),
         callbacks=callbacks,
