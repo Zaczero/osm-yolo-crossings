@@ -13,8 +13,13 @@ from openstreetmap import OpenStreetMap
 from utils import print_run_time
 
 
-def _merge_tags(e: dict, tags: dict) -> dict:
-    return e.get('tags', {}) | tags
+def _merge_tags(e: dict, tags: dict, *, from_xml: bool) -> dict:
+    if from_xml:
+        e_tags = {t['@k']: t['@v'] for t in e.get('tag', [])}
+    else:
+        raise NotImplementedError
+
+    return e_tags | tags
 
 
 def _initialize_osm_change_structure() -> dict:
@@ -72,7 +77,7 @@ def create_instructed_change(instructions: Sequence[CrossingMergeInstructions]) 
             node = fetch_nodes[node_id]
             node['tag'] = tuple(
                 {'@k': k, '@v': v}
-                for k, v in _merge_tags(node, tags).items()
+                for k, v in _merge_tags(node, tags, from_xml=True).items()
             )
 
         for way_inst in inst.to_ways_inst:
