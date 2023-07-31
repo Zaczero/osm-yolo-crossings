@@ -92,16 +92,24 @@ ATTRIB_CONFIDENCES = (
 )
 
 GRID_FILTER_INTERPOLATE = 10  # meters
-CROSSING_BOX_EXTEND = 1.5  # meters
+CROSSING_BOX_EXTEND = 10  # meters
 ADDED_SEARCH_RADIUS = 4.6  # meters
 
+# see for picking good values: https://www.openstreetmap.org/node/4464489698
+# maximum distance from the center of the box to a road
 BOX_VALID_MAX_CENTER_DISTANCE = 4.5  # meters
-BOX_VALID_MAX_ROAD_ANGLE = 40  # degrees
-BOX_VALID_MAX_ROAD_COUNT = 2
-BOX_VALID_MIN_CROSSING_DISTANCE = 70  # meters
 
-# when to reuse an existing node
-NODE_MERGE_THRESHOLD = 1.8  # meters
+# maximum angle between raods before considering the case too complex
+BOX_VALID_MAX_ROAD_ANGLE = 40  # degrees
+
+# maximum intersection count for a perpendicular section
+BOX_VALID_MAX_ROAD_COUNT = 2
+
+# minimum distance between crossings
+BOX_VALID_MIN_CROSSING_DISTANCE = 4.5  # meters
+
+# maximum distance to reuse an existing node
+NODE_MERGE_THRESHOLD = 2  # meters
 
 DB_PATH = DATA_DIR / 'db.json'
 DB = TinyDB(DB_PATH, storage=ORJSONStorage)

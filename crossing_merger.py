@@ -78,10 +78,9 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
 
         # create a perpendicular section to the closest way segment
         perpendicular_dir_vector = np.array([-closest_dir_vector[1], closest_dir_vector[0]])
-        closest_point_arr = np.array((closest_point.x, closest_point.y))
-        section_length = max(s.box.size)
-        section_p1 = closest_point_arr - section_length / 2 * perpendicular_dir_vector
-        section_p2 = closest_point_arr + section_length / 2 * perpendicular_dir_vector
+        s_box_center_arr = np.array(s_box_center)
+        section_p1 = s_box_center_arr - BOX_VALID_MAX_CENTER_DISTANCE * perpendicular_dir_vector
+        section_p2 = s_box_center_arr + BOX_VALID_MAX_CENTER_DISTANCE * perpendicular_dir_vector
         section_line = LineString([section_p1, section_p2])
 
         # find all perpendicular positions
@@ -132,21 +131,17 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
             continue
 
         # check for nearby crossings
-        crossing_nodes_ids = set(c['id'] for c in rac_current.crossings)
-        for intersection, way_id in perpendicular_positions:
-            way = next(way for way in rac_current.roads if way['id'] == way_id)
-            way_nodes_ids = set(way['nodes'])
-            way_crossing_nodes_ids = crossing_nodes_ids.intersection(way_nodes_ids)
+        def has_nearby_crossing(intersection: Point) -> bool:
+            for crossing_node in rac_current.crossings:
+                crossing_position = rac_current.nodes[crossing_node['id']]
+                if Point(crossing_position).distance(intersection) < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
+                    return True
+            return False
 
-            for crossing_node_id in way_crossing_nodes_ids:
-                crossing_position = rac_current.nodes[crossing_node_id]
-                if Point(crossing_position).distance(closest_point) < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
-                    print(f'[MERGE] Skipping {s_box_center}: nearby crossings (2)')
-                    skip = True
-                    break
-            if skip:
-                break
-        if skip:
+        perpendicular_positions = list(filter(lambda t: not has_nearby_crossing(t[0]), perpendicular_positions))
+
+        if not perpendicular_positions:
+            print(f'[MERGE] Skipping {s_box_center}: nearby crossings (2)')
             continue
 
         # create merge instructions
