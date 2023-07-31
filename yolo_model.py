@@ -24,7 +24,7 @@ from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
-_EPOCHS = 50
+_EPOCHS = 60
 _BATCH_SIZE = 20
 _BOXES_COUNT = 4
 
@@ -165,15 +165,15 @@ def create_yolo_model():
             CosineDecay(initial_learning_rate=3e-5,
                         decay_steps=steps_per_epoch * _EPOCHS,
                         alpha=0.3,
-                        warmup_target=1e-4,
+                        warmup_target=3e-4,
                         warmup_steps=steps_per_epoch * 5)),
         box_loss='ciou',
         classification_loss=BinaryFocalCrossentropy(apply_class_balancing=True),
     )
 
     callbacks = [
-        ModelCheckpoint(str(YOLO_MODEL_PATH), 'box_loss', mode='min',
-                        initial_value_threshold=2,
+        ModelCheckpoint(str(YOLO_MODEL_PATH),
+                        initial_value_threshold=1.5,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),
