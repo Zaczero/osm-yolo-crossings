@@ -24,7 +24,7 @@ from config import (ATTRIB_MODEL_PATH, ATTRIB_MODEL_RESOLUTION,
                     ATTRIB_NUM_CLASSES, ATTRIB_PRECISION, DATA_DIR, SEED)
 
 _BATCH_SIZE = 32
-_EPOCHS = 50
+_EPOCHS = 100
 
 
 def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.ndarray]:
@@ -98,9 +98,9 @@ def create_attrib_model():
     model = get_attrib_model()
     model.compile(
         optimizer=AdamW(
-            CosineDecay(initial_learning_rate=3e-5,
+            CosineDecay(initial_learning_rate=2e-5,
                         decay_steps=steps_per_epoch * _EPOCHS - 5,
-                        alpha=0.3,
+                        alpha=0.1,
                         warmup_target=2e-4,
                         warmup_steps=steps_per_epoch * 5)),
         loss=BinaryFocalCrossentropy(apply_class_balancing=True),
