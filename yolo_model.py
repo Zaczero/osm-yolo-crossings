@@ -8,8 +8,10 @@ import numpy as np
 import tensorflow as tf
 from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
                              TensorBoard, TerminateOnNaN)
+from keras.experimental import CosineDecay
+from keras.losses import BinaryFocalCrossentropy
 from keras.models import Model
-from keras.optimizers import RMSprop
+from keras.optimizers import AdamW, RMSprop
 from keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
 from skimage import transform
@@ -22,6 +24,7 @@ from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
+_EPOCHS = 50
 _BATCH_SIZE = 20
 _BOXES_COUNT = 4
 
@@ -38,12 +41,12 @@ def _setup_gpu():
 def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE, *, transform: bool = True) -> Generator[tuple[np.ndarray, dict], None, None]:
     if transform:
         datagen = ImageDataGenerator(
-            width_shift_range=0.1,
-            height_shift_range=0.1,
+            width_shift_range=0.15,
+            height_shift_range=0.15,
             rotation_range=180,
             shear_range=15,
             zoom_range=0.1,
-            channel_shift_range=0.15,
+            channel_shift_range=0.1,
             fill_mode='constant',
             cval=0,
             horizontal_flip=True,
@@ -152,43 +155,33 @@ def create_yolo_model():
     print(f'Train size: {len(train)}')
     print(f'Test size: {len(test)}')
 
+    steps_per_epoch = ceil(len(train) / _BATCH_SIZE)
+
     model = get_yolo_model()
 
     model_save_fix(model)
     model.compile(
+        optimizer=AdamW(
+            CosineDecay(initial_learning_rate=3e-5,
+                        decay_steps=steps_per_epoch * _EPOCHS,
+                        alpha=0.3,
+                        warmup_target=1e-4,
+                        warmup_steps=steps_per_epoch * 5)),
         box_loss='ciou',
-        classification_loss='binary_crossentropy',
-        optimizer=RMSprop(learning_rate=0.004, rho=0.9, momentum=0.0, epsilon=1e-07, centered=False)
+        classification_loss=BinaryFocalCrossentropy(apply_class_balancing=True),
     )
 
-    callbacks_early = [
-        EarlyStopping('loss', patience=10, min_delta=0.1, verbose=1),
-        TensorBoard(str(DATA_DIR / 'tensorboard' / datetime.now().strftime("%Y%m%d-%H%M%S")), histogram_freq=1),
-    ]
-
-    callbacks_late = [
-        ReduceLROnPlateau(factor=0.2,
-                          min_lr=0.00001,
-                          cooldown=5,
-                          patience=10,
-                          min_delta=0.005,
-                          verbose=1),
-
-        EarlyStopping(min_delta=0.005,
-                      patience=25,
-                      verbose=1),
-
-        ModelCheckpoint(str(YOLO_MODEL_PATH),
+    callbacks = [
+        ModelCheckpoint(str(YOLO_MODEL_PATH), 'box_loss', mode='min',
                         initial_value_threshold=2,
                         save_best_only=True,
                         save_weights_only=True,
                         verbose=1),
 
-        callbacks_early[1],  # TensorBoard
+        TensorBoard(str(DATA_DIR / 'tensorboard' / datetime.now().strftime("%Y%m%d-%H%M%S")), histogram_freq=1),
         TerminateOnNaN(),
     ]
 
-    steps_per_epoch = ceil(len(train) / _BATCH_SIZE)
     X_batch, y_batch = next(_data_gen(train, batch_size=_BATCH_SIZE * steps_per_epoch * 10))
     memory_usage = X_batch.nbytes + y_batch['boxes'].nbytes + y_batch['classes'].nbytes
     print(f'Batch memory usage: {memory_usage / 1024 / 1024:.2f} MiB')
@@ -197,19 +190,18 @@ def create_yolo_model():
         X_batch, y_batch,
         batch_size=_BATCH_SIZE,
         steps_per_epoch=steps_per_epoch,
-        epochs=1000,
+        epochs=5,
         shuffle=False,
-        callbacks=callbacks_early,
     )
 
     model.fit(
         X_batch, y_batch,
         batch_size=_BATCH_SIZE,
         steps_per_epoch=steps_per_epoch,
-        epochs=1000,
+        epochs=_EPOCHS,
         shuffle=False,
         validation_data=(X_test, y_test),
-        callbacks=callbacks_late,
+        callbacks=callbacks,
     )
 
     exit()

@@ -102,7 +102,7 @@ def create_attrib_model():
                         decay_steps=steps_per_epoch * _EPOCHS - 5,
                         alpha=0.3,
                         warmup_target=2e-4,
-                        warmup_steps=steps_per_epoch * 5,)),
+                        warmup_steps=steps_per_epoch * 5)),
         loss=BinaryFocalCrossentropy(apply_class_balancing=True),
         metrics=[
             AUC(multi_label=True, num_labels=ATTRIB_NUM_CLASSES),
