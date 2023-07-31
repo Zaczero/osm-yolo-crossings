@@ -36,18 +36,6 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
         s_box_center = s.box.center()
         skip = False
 
-        # check for pre-existing crossings
-        for rac_h in rac:
-            for c in rac_h.crossings:
-                if rac_h.nodes[c['id']] in s.box:
-                    print(f'[MERGE] Skipping {s_box_center}: nearby crossings (1)')
-                    skip = True
-                    break
-            if skip:
-                break
-        if skip:
-            continue
-
         # find the closest way and the point on it that's closest to the s_box_center
         closest_way = None
         closest_way_geom = None
@@ -79,16 +67,13 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
         # create a perpendicular section to the closest way segment
         perpendicular_dir_vector = np.array([-closest_dir_vector[1], closest_dir_vector[0]])
         s_box_center_arr = np.array(s_box_center)
-        section_p1 = s_box_center_arr - BOX_VALID_MAX_CENTER_DISTANCE * perpendicular_dir_vector
-        section_p2 = s_box_center_arr + BOX_VALID_MAX_CENTER_DISTANCE * perpendicular_dir_vector
+        section_p1 = s_box_center_arr - meters_to_lat(BOX_VALID_MAX_CENTER_DISTANCE) * perpendicular_dir_vector
+        section_p2 = s_box_center_arr + meters_to_lat(BOX_VALID_MAX_CENTER_DISTANCE) * perpendicular_dir_vector
         section_line = LineString([section_p1, section_p2])
 
         # find all perpendicular positions
-        perpendicular_positions: list[tuple[Point, str]] = [(closest_point, closest_way['id'])]
+        perpendicular_positions: list[tuple[Point, str]] = []
         for way in rac_current.roads:
-            if way['id'] == closest_way['id']:
-                continue
-
             way_geom = make_way_geometry(way, rac_current.nodes)
             way_line = LineString(way_geom)
             if not way_line.intersects(section_line):
@@ -132,16 +117,17 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
 
         # check for nearby crossings
         def has_nearby_crossing(intersection: Point) -> bool:
-            for crossing_node in rac_current.crossings:
-                crossing_position = rac_current.nodes[crossing_node['id']]
-                if Point(crossing_position).distance(intersection) < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
-                    return True
+            for rac_h in rac:
+                for crossing_node in rac_h.crossings:
+                    crossing_position = rac_current.nodes[crossing_node['id']]
+                    if Point(crossing_position).distance(intersection) < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
+                        return True
             return False
 
         perpendicular_positions = list(filter(lambda t: not has_nearby_crossing(t[0]), perpendicular_positions))
 
         if not perpendicular_positions:
-            print(f'[MERGE] Skipping {s_box_center}: nearby crossings (2)')
+            print(f'[MERGE] Skipping {s_box_center}: nearby crossings')
             continue
 
         # create merge instructions
@@ -169,16 +155,3 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
                 ))
 
     return result
-
-    # 1. for each rac (current + historical):
-    # 1.1. for each way in the box, check if there is a crossing < ROAD_VALID_MIN_CROSSING_DISTANCE meters away from the s.box.center()
-    # 1.2. if yes, skip this suggestion completely
-    # 2. then for current:
-    # 2.1. find position on the closest way, which is closest to the s.box.center() (not necessarily an existing node)
-    # 2.2. find all other positions which are perpendicular (90deg) to that position, in all ways
-    # 2.2.1. max perpendicular way distance should must be max(s.box.width, s.box.height), half on each side of the way
-    # 2.3. if there are in total > ROAD_VALID_MAX_COUNT such positions, skip this suggestion completely
-    # 2.4. if any of the matched ways is > ROAD_VALID_MAX_ANGLE angle difference from the closest way, skip this suggestion completely
-    # 3. for each matched perpendicular position:
-    # 3.1. attempt to merge that position to a nearby node (at the same way) if distance is < NODE_MERGE_THRESHOLD
-    # 3.2. generate merge instructions for position, if merged to a node, use to_nodes_ids, otherwise use to_ways_inst
