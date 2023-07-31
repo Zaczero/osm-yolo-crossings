@@ -1,41 +1,71 @@
-from base64 import urlsafe_b64encode
-from hashlib import sha256
-from typing import NamedTuple, Sequence
+from math import cos, radians, sin, tan
+from typing import NamedTuple, Self, Sequence
 
-from box import Box
-from latlon import LatLon
+import numpy as np
 
 
 class Polygon(NamedTuple):
-    points: Sequence[LatLon]
+    points: Sequence[tuple[float, float]]
 
-    # def extend(self, meters: float) -> Self:
-    #     points_arr = np.array(self.points)
-    #     edge_vectors = np.roll(points_arr, -1, axis=0) - points_arr
-    #     edge_vectors[-1] = points_arr[0] - points_arr[-1]
-    #     normal_vectors = np.stack([-edge_vectors[:, 1], edge_vectors[:, 0]], axis=-1)
-    #     normal_vectors /= np.linalg.norm(normal_vectors, axis=1, keepdims=True)
-    #     return Polygon(tuple(points_arr + normal_vectors * meters_to_lat(meters)))
+    @classmethod
+    def from_str(cls, s: str) -> Self:
+        points = []
+        for point_str in s.split(';'):
+            x, y = point_str.split(',')
+            points.append((float(x), float(y)))
+        return cls(tuple(points))
 
-    def get_bounding_box(self) -> Box:
-        min_lat = min(p.lat for p in self.points)
-        max_lat = max(p.lat for p in self.points)
-        min_lon = min(p.lon for p in self.points)
-        max_lon = max(p.lon for p in self.points)
+    def transform_and_bb(self, params: dict, shape: Sequence[int]) -> tuple[float, float, float, float]:
+        center_x = shape[1] / 2
+        center_y = shape[0] / 2
 
-        return Box(
-            point=LatLon(min_lat, min_lon),
-            size=LatLon(max_lat - min_lat, max_lon - min_lon),
-        )
+        points = tuple(list(p) for p in self.points)
 
-    def unique_id(self) -> str:
-        precision = 0.00003
-        rounded_points = (
-            f'{(round(p.lat / precision) * precision):.5f},{(round(p.lon / precision) * precision):.5f}'
-            for p in self.points)
-        return ';'.join(sorted(rounded_points))
+        for p in points:
+            # rotate
+            theta = -radians(params['theta'])
+            dx = p[0] - center_x
+            dy = p[1] - center_y
+            p[0] = dx * cos(theta) - dy * sin(theta) + center_x
+            p[1] = dx * sin(theta) + dy * cos(theta) + center_y
 
-    def unique_id_hash(self, size: int = 6) -> str:
-        result = sha256(self.unique_id().encode(), usedforsecurity=False).digest()
-        result = result[:size]
-        return urlsafe_b64encode(result).decode()
+            # translate
+            p[0] -= params['tx']
+            p[1] -= params['ty']
+
+            # shear
+            shear = -radians(params['shear'])
+            dx = p[0] - center_x
+            dy = p[1] - center_y
+            p[0] = dx - sin(shear) * dy + center_x
+            p[1] = cos(shear) * dy + center_y
+
+            # scale
+            dx = p[0] - center_x
+            dy = p[1] - center_y
+            dx /= params['zx']
+            dy /= params['zy']
+            p[0] = center_x + dx
+            p[1] = center_y + dy
+
+            # flip
+            if params['flip_horizontal']:
+                p[0] = shape[1] - p[0]
+            if params['flip_vertical']:
+                p[1] = shape[0] - p[1]
+
+        # bounding box
+        x_min = min(p[0] for p in points)
+        x_max = max(p[0] for p in points)
+        y_min = min(p[1] for p in points)
+        y_max = max(p[1] for p in points)
+
+        # clip
+        x_min = np.clip(x_min, 0, shape[1])
+        x_max = np.clip(x_max, 0, shape[1])
+        y_min = np.clip(y_min, 0, shape[0])
+        y_max = np.clip(y_max, 0, shape[0])
+
+        x, y, w, h = x_min, y_min, x_max - x_min, y_max - y_min
+
+        return x, y, w, h

@@ -7,6 +7,8 @@ from shapely.ops import nearest_points
 
 from config import (BOX_VALID_MAX_CENTER_DISTANCE, BOX_VALID_MAX_ROAD_ANGLE,
                     BOX_VALID_MAX_ROAD_COUNT, BOX_VALID_MIN_CROSSING_DISTANCE,
+                    BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR,
+                    BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR_ANGLE,
                     NODE_MERGE_THRESHOLD)
 from crossing_suggestion import CrossingSuggestion
 from crossing_type import CrossingType
@@ -25,6 +27,19 @@ class CrossingMergeInstructions(NamedTuple):
     crossing_type: CrossingType
     to_nodes_ids: Sequence[int]
     to_ways_inst: Sequence[CrossingMergeToWayInstructions]
+
+
+class PerpendicularPosition(NamedTuple):
+    point: Point
+    way_id: int
+    way_geom: Sequence[LatLon]
+    p1: LatLon
+    p2: LatLon
+    way_direction_vector: np.ndarray
+
+    @property
+    def position(self) -> LatLon:
+        return LatLon(self.point.x, self.point.y)
 
 
 def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[CrossingMergeInstructions]:
@@ -72,18 +87,25 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
         section_line = LineString([section_p1, section_p2])
 
         # find all perpendicular positions
-        perpendicular_positions: list[tuple[Point, str]] = []
+        perpendicular_positions: list[PerpendicularPosition] = []
         for way in rac_current.roads:
             way_geom = make_way_geometry(way, rac_current.nodes)
             way_line = LineString(way_geom)
             if not way_line.intersects(section_line):
                 continue
 
+            def make_position(p: Point) -> PerpendicularPosition:
+                for p1, p2 in zip(way_geom, way_geom[1:]):
+                    if isclose(LineString([p1, p2]).distance(p), 0, abs_tol=1e-8):
+                        way_direction_vector = np.array(p2) - np.array(p1)
+                        way_direction_vector /= np.linalg.norm(way_direction_vector)
+                        return PerpendicularPosition(p, way['id'], way_geom, p1, p2, way_direction_vector)
+
             intersection = way_line.intersection(section_line)
             if intersection.geom_type == 'Point':  # single intersection point
-                perpendicular_positions.append((intersection, way['id']))
+                perpendicular_positions.append(make_position(intersection))
             elif intersection.geom_type == 'MultiPoint':  # multiple intersection points
-                perpendicular_positions.extend((point, way['id']) for point in intersection)
+                perpendicular_positions.extend(make_position(point) for point in intersection)
 
         # check for maximum count
         if len(perpendicular_positions) > BOX_VALID_MAX_ROAD_COUNT:
@@ -91,56 +113,58 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
             continue
 
         # check for maximum angle
-        for intersection, way_id in perpendicular_positions:
-            way = next(way for way in rac_current.roads if way['id'] == way_id)
-            way_geom = make_way_geometry(way, rac_current.nodes)
-            for p1, p2 in zip(way_geom, way_geom[1:]):
-                if isclose(LineString([p1, p2]).distance(Point(intersection)), 0, abs_tol=1e-8):
-                    way_dir_vector = np.array(p2) - np.array(p1)
-                    way_dir_vector /= np.linalg.norm(way_dir_vector)
+        for pp in perpendicular_positions:
+            angle = np.arccos(np.clip(np.dot(closest_dir_vector, pp.way_direction_vector), -1.0, 1.0))
+            angle = degrees(angle)
 
-                    angle = np.arccos(np.clip(np.dot(closest_dir_vector, way_dir_vector), -1.0, 1.0))
-                    angle = degrees(angle)
+            # make angle into [0, 90] range
+            if angle > 90:
+                angle = 180 - angle
 
-                    # make angle into [0, 90] range
-                    if angle > 90:
-                        angle = 180 - angle
-
-                    if angle > BOX_VALID_MAX_ROAD_ANGLE:
-                        print(f'[MERGE] Skipping {s_box_center}: too large angle')
-                        skip = True
-                        break
-            if skip:
+            if angle > BOX_VALID_MAX_ROAD_ANGLE:
+                print(f'[MERGE] Skipping {s_box_center}: too large angle')
+                skip = True
                 break
         if skip:
             continue
 
         # check for nearby crossings
-        def has_nearby_crossing(intersection: Point) -> bool:
+        def has_nearby_crossing(pp: PerpendicularPosition) -> bool:
             for rac_h in rac:
                 for crossing_node in rac_h.crossings:
                     crossing_position = rac_h.nodes[crossing_node['id']]
-                    if Point(crossing_position).distance(intersection) < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
+                    crossing_vector = np.array(crossing_position) - np.array(pp.position)
+                    crossing_distance = np.linalg.norm(crossing_vector)
+                    if crossing_distance < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
                         return True
+
+                    if crossing_distance < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR):
+                        # calculate the angle between the crossing vector and the road direction
+                        crossing_vector /= crossing_distance
+                        crossing_angle = np.arccos(np.clip(np.dot(pp.way_direction_vector, crossing_vector), -1.0, 1.0))
+                        crossing_angle = degrees(crossing_angle)
+
+                        # make angle into [0, 90] range
+                        if crossing_angle > 90:
+                            crossing_angle = 180 - crossing_angle
+
+                        # check if the crossing lies within the forward or backward cone
+                        if crossing_angle < BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR_ANGLE:
+                            return True
             return False
 
-        perpendicular_positions = list(filter(lambda t: not has_nearby_crossing(t[0]), perpendicular_positions))
+        perpendicular_positions = list(filter(lambda pp: not has_nearby_crossing(pp), perpendicular_positions))
 
         if not perpendicular_positions:
             print(f'[MERGE] Skipping {s_box_center}: nearby crossings')
             continue
 
         # create merge instructions
-        for intersection, way_id in perpendicular_positions:
-            way = next(way for way in rac_current.roads if way['id'] == way_id)
-            way_geom = make_way_geometry(way, rac_current.nodes)
-            for p1, p2 in zip(way_geom, way_geom[1:]):
-                if isclose(LineString([p1, p2]).distance(Point(intersection)), 0, abs_tol=1e-8):
-                    after_distance = haversine_distance((intersection.x, intersection.y), p1)
-                    after_node_id = way['nodes'][way_geom.index(p1)]
-                    before_distance = haversine_distance((intersection.x, intersection.y), p2)
-                    before_node_id = way['nodes'][way_geom.index(p2)]
-                    break
+        for pp in perpendicular_positions:
+            after_node_id = way['nodes'][pp.way_geom.index(pp.p1)]
+            after_distance = haversine_distance(pp.position, pp.p1)
+            before_node_id = way['nodes'][pp.way_geom.index(pp.p2)]
+            before_distance = haversine_distance(pp.position, pp.p2)
 
             # merge to the closest node
             if after_distance < NODE_MERGE_THRESHOLD or before_distance < NODE_MERGE_THRESHOLD:
@@ -150,8 +174,7 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
             # merge to the way (new node)
             else:
                 result[i].to_ways_inst.append(CrossingMergeToWayInstructions(
-                    way_id=way_id,
-                    position=LatLon(intersection.x, intersection.y),
-                ))
+                    way_id=pp.way_id,
+                    position=pp.position))
 
     return result

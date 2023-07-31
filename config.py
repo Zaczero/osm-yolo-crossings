@@ -37,7 +37,7 @@ WEB_CONCURRENCY = int(os.getenv('WEB_CONCURRENCY', '32'))
 
 SCORER_VERSION = 1  # changing this will invalidate previous results
 
-VERSION = '1.1'
+VERSION = '1.2'
 CREATED_BY = f'osm-yolo-crossings {VERSION}'
 WEBSITE = 'https://github.com/Zaczero/osm-yolo-crossings'
 USER_AGENT = f'osm-yolo-crossings/{VERSION} (+{WEBSITE})'
@@ -92,12 +92,14 @@ ATTRIB_CONFIDENCES = (
 )
 
 GRID_FILTER_INTERPOLATE = 10  # meters
-CROSSING_BOX_EXTEND = 10  # meters
-ADDED_SEARCH_RADIUS = 4.6  # meters
+
+_RANGE = 4.5  # meters
+ADDED_SEARCH_RADIUS = _RANGE + 0.1  # meters
+CROSSING_BOX_EXTEND = 15  # meters
 
 # see for picking good values: https://www.openstreetmap.org/node/4464489698
 # maximum distance from the center of the box to a road
-BOX_VALID_MAX_CENTER_DISTANCE = 4.5  # meters
+BOX_VALID_MAX_CENTER_DISTANCE = _RANGE  # meters
 
 # maximum angle between raods before considering the case too complex
 BOX_VALID_MAX_ROAD_ANGLE = 40  # degrees
@@ -105,11 +107,15 @@ BOX_VALID_MAX_ROAD_ANGLE = 40  # degrees
 # maximum intersection count for a perpendicular section
 BOX_VALID_MAX_ROAD_COUNT = 2
 
-# minimum distance between crossings
-BOX_VALID_MIN_CROSSING_DISTANCE = 4.5  # meters
+# minimum distance between crossings (circular)
+BOX_VALID_MIN_CROSSING_DISTANCE = _RANGE  # meters
+
+# minimum distance between crossings (linear)
+BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR = 15  # meters
+BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR_ANGLE = 30  # degrees
 
 # maximum distance to reuse an existing node
-NODE_MERGE_THRESHOLD = 2  # meters
+NODE_MERGE_THRESHOLD = _RANGE - 0.1  # meters
 
 DB_PATH = DATA_DIR / 'db.json'
 DB = TinyDB(DB_PATH, storage=ORJSONStorage)

@@ -18,14 +18,14 @@ from db_grid import random_grid
 from latlon import LatLon
 from orto import fetch_orto
 from overpass import query_specific_crossings
-from polygon2 import Polygon2
+from polygon import Polygon
 from processor import normalize_yolo_image
 from transform_geo_px import transform_rad_to_px
 from utils import save_image
 
 
 class YoloDatasetLabel(NamedTuple):
-    polygons: Sequence[Polygon2]
+    polygons: Sequence[Polygon]
     labels: Sequence[int]
 
 
@@ -63,7 +63,7 @@ def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) 
         if label is None:
             continue
 
-        polygons.append(Polygon2.from_str(p['@points']))
+        polygons.append(Polygon.from_str(p['@points']))
         labels.append(label)
 
     entry = YoloDatasetEntry(identifier, YoloDatasetLabel(polygons, labels), image)
