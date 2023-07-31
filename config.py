@@ -87,8 +87,8 @@ ATTRIB_PRECISION = (
     0.995,  # signals
 )
 ATTRIB_CONFIDENCES = (
-    0.850,  # valid
-    (0.165, 0.950),  # signals
+    0.785,  # valid
+    (0.115, 0.865),  # signals
 )
 
 GRID_FILTER_INTERPOLATE = 10  # meters
