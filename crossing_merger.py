@@ -119,7 +119,7 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
         def has_nearby_crossing(intersection: Point) -> bool:
             for rac_h in rac:
                 for crossing_node in rac_h.crossings:
-                    crossing_position = rac_current.nodes[crossing_node['id']]
+                    crossing_position = rac_h.nodes[crossing_node['id']]
                     if Point(crossing_position).distance(intersection) < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
                         return True
             return False

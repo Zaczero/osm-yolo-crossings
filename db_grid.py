@@ -121,7 +121,7 @@ def iter_grid() -> Generator[Cell, None, None]:
 
                 if not is_grid_valid(box):
                     next_index += param.size_index
-                    return
+                    continue
 
                 if layer_index + 1 < len(grid_params):
                     yield from traverse(layer_index + 1, box)

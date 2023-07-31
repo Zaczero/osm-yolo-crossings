@@ -296,13 +296,16 @@ async def main() -> None:
             cell, orto_img = await fetch_tasks.pop(0)
 
             # start a new fetch task immediately
-            for cell in islice(cells_gen, 1):
-                fetch_tasks.append(asyncio.create_task(fetch_orto_with_cell(cell)))
+            for cell_ in islice(cells_gen, 1):
+                fetch_tasks.append(asyncio.create_task(fetch_orto_with_cell(cell_)))
 
             valid_instructions = _process_orto_img(cell, orto_img)
             if valid_instructions:
                 print(f'[CELL] 📦 Processed: {len(processed)} + {len(valid_instructions)}')
                 processed.extend(valid_instructions)
+
+                for inst in valid_instructions:
+                    print(f'[CELL] 🦓 {inst.position}: {inst.crossing_type}')
 
             if not processed:
                 set_last_cell(cell)
