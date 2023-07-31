@@ -37,7 +37,7 @@ WEB_CONCURRENCY = int(os.getenv('WEB_CONCURRENCY', '32'))
 
 SCORER_VERSION = 1  # changing this will invalidate previous results
 
-VERSION = '1.0'
+VERSION = '1.1'
 CREATED_BY = f'osm-yolo-crossings {VERSION}'
 WEBSITE = 'https://github.com/Zaczero/osm-yolo-crossings'
 USER_AGENT = f'osm-yolo-crossings/{VERSION} (+{WEBSITE})'
