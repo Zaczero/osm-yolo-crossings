@@ -324,6 +324,4 @@ async def main() -> None:
 
 
 if __name__ == '__main__':
-    # create_attrib_dataset(200)
-    # create_attrib_model()
     asyncio.run(main())
