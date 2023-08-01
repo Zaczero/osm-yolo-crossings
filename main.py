@@ -1,5 +1,4 @@
 import asyncio
-import json
 import random
 from functools import cache
 from itertools import islice
@@ -8,16 +7,14 @@ from typing import Sequence
 
 import numpy as np
 from skimage import draw
-from sklearn.neighbors import BallTree
 
 from attrib_dataset import create_attrib_dataset
 from attrib_model import create_attrib_model
 from attrib_tuned_model import AttribTunedModel
 from box import Box
-from config import (ADDED_SEARCH_RADIUS, ATTRIB_MODEL_RESOLUTION,
-                    ATTRIB_POSITION_EXTEND, CROSSING_BOX_EXTEND, DATA_DIR,
-                    DRY_RUN, MIN_IMPORT_SIZE, PROCESS_NICE, SEED,
-                    SLEEP_AFTER_GRID_ITER, WEB_CONCURRENCY,
+from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND,
+                    CROSSING_BOX_EXTEND, DATA_DIR, DRY_RUN, MIN_IMPORT_SIZE,
+                    PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER, WEB_CONCURRENCY,
                     YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
@@ -30,8 +27,7 @@ from orto import fetch_orto, fetch_orto_async
 from osm_change import create_instructed_change
 from processor import normalize_attrib_image, normalize_yolo_image
 from transform_geo_px import transform_px_to_rad
-from utils import (index_box_centered, meters_to_lat, print_run_time,
-                   save_image, set_nice)
+from utils import index_box_centered, print_run_time, save_image, set_nice
 from yolo_dataset import create_yolo_dataset
 from yolo_model import create_yolo_model
 from yolo_tuned_model import YoloTunedModel
@@ -238,27 +234,8 @@ def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeIn
     ):
         return 0
 
-    positions = tuple(i.position for i in instructions)
-    tree = BallTree(positions, metric='haversine')
-    query = tree.query_radius(positions, meters_to_lat(ADDED_SEARCH_RADIUS))
-
-    added: set[int] = set()
-
-    for i, query_indices in enumerate(query):
-        # deduplicate
-        if len(query_indices) > 1 and any(i in added for i in query_indices):
-            continue
-
-        added.add(i)
-
-    if len(instructions) != len(added):
-        print(f'[UPLOAD] Removed {len(instructions) - len(added)} duplicates')
-
-    added_instructions = tuple(instructions[i] for i in added)
-    added_positions = tuple(i.position for i in added_instructions)
-
     with print_run_time('Create OSM change'):
-        osm_change = create_instructed_change(added_instructions)
+        osm_change, added_positions = create_instructed_change(instructions)
 
     with print_run_time('Upload OSM change'):
         if DRY_RUN:
@@ -268,8 +245,9 @@ def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeIn
             changeset_id = osm.upload_osm_change(osm_change)
 
     mark_added(added_positions, reason='added', changeset_id=changeset_id)
-    print(f'[UPLOAD] ✅ Import successful: https://www.openstreetmap.org/changeset/{changeset_id} ({len(added)})')
-    return len(added)
+    print(f'[UPLOAD] ✅ Import successful: https://www.openstreetmap.org/changeset/{changeset_id} '
+          f'({len(added_positions)})')
+    return len(added_positions)
 
 
 async def main() -> None:
