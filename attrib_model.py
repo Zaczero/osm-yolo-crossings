@@ -5,8 +5,7 @@ from typing import Sequence
 import numpy as np
 import tensorflow as tf
 from keras.applications import MobileNetV3Large
-from keras.callbacks import (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau,
-                             TensorBoard, TerminateOnNaN)
+from keras.callbacks import ModelCheckpoint, TensorBoard, TerminateOnNaN
 from keras.experimental import CosineDecay
 from keras.layers import BatchNormalization, Dense, Dropout, Flatten, Input
 from keras.losses import BinaryFocalCrossentropy
@@ -30,6 +29,7 @@ _EPOCHS = 100
 def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.ndarray]:
     X = np.stack(tuple(map(lambda x: x.image, dataset)))
     y = np.array(tuple(map(lambda x: x.labels.encode(), dataset)), dtype=float)
+    # TODO: at some point, existence-dependant features should be moved to a 2nd stage model
     return X, y
 
 
