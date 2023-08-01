@@ -33,6 +33,7 @@ class CrossingMergeInstructions(NamedTuple):
 class PerpendicularPosition(NamedTuple):
     point: Point
     way_id: int
+    way: dict
     way_geom: Sequence[LatLon]
     p1: LatLon
     p2: LatLon
@@ -101,7 +102,7 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
                     if isclose(LineString([p1, p2]).distance(p), 0, abs_tol=1e-8):
                         way_direction_vector = np.array(p2) - np.array(p1)
                         way_direction_vector /= np.linalg.norm(way_direction_vector)
-                        return PerpendicularPosition(p, way['id'], way_geom, p1, p2, way_direction_vector)
+                        return PerpendicularPosition(p, way['id'], way, way_geom, p1, p2, way_direction_vector)
 
             intersection = way_line.intersection(section_line)
             if intersection.geom_type == 'Point':  # single intersection point
@@ -164,11 +165,11 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
         # create merge instructions
         for pp in perpendicular_positions:
 
-            after_node_id = way['nodes'][pp.way_geom.index(pp.p1)]
+            after_node_id = pp.way['nodes'][pp.way_geom.index(pp.p1)]
             after_distance = haversine_distance(pp.position, pp.p1)
             after_threshold = NODE_MERGE_THRESHOLD_PRIORITY if after_node_id in paths_nodes_ids else NODE_MERGE_THRESHOLD
 
-            before_node_id = way['nodes'][pp.way_geom.index(pp.p2)]
+            before_node_id = pp.way['nodes'][pp.way_geom.index(pp.p2)]
             before_distance = haversine_distance(pp.position, pp.p2)
             before_threshold = NODE_MERGE_THRESHOLD_PRIORITY if before_node_id in paths_nodes_ids else NODE_MERGE_THRESHOLD
 

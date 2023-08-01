@@ -241,7 +241,7 @@ def query_roads_and_crossings_historical(boxes: Sequence[Box]) -> Sequence[Seque
     result = tuple([] for _ in boxes)
 
     for years_ago in (0, 0.3, 1, 2):
-        result_historical = tuple(QueriedRoadsAndCrossings([], [], {}) for _ in boxes)
+        result_historical = tuple(QueriedRoadsAndCrossings([], [], [], {}) for _ in boxes)
 
         timeout = 90
         query = _build_roads_query(boxes, timeout)
