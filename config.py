@@ -93,8 +93,8 @@ ATTRIB_CONFIDENCES = (
 
 GRID_FILTER_INTERPOLATE = 10  # meters
 
-_RANGE = 4.5  # meters
-ADDED_SEARCH_RADIUS = _RANGE + 0.1  # meters
+_RANGE = 5  # meters
+ADDED_SEARCH_RADIUS = _RANGE + 0.05  # meters
 CROSSING_BOX_EXTEND = 15  # meters
 
 # see for picking good values: https://www.openstreetmap.org/node/4464489698
