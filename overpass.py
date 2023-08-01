@@ -21,6 +21,7 @@ class QueriedCrossing(NamedTuple):
 class QueriedRoadsAndCrossings(NamedTuple):
     roads: Sequence[dict]
     crossings: Sequence[dict]
+    paths: Sequence[dict]
     nodes: dict[int, LatLon]
 
 
@@ -117,6 +118,21 @@ def _is_road(element: dict) -> bool:
             'primary',
             'living_street',
             'road',
+        } and
+        tags.get('area', 'no') == 'no'
+    )
+
+
+def _is_path(element: dict) -> bool:
+    tags = element.get('tags', {})
+
+    return (
+        tags.get('highway', '') in {
+            'path',
+            'footway',
+            'cycleway',
+            'pedestrian',
+            'steps',
         } and
         tags.get('area', 'no') == 'no'
     )
@@ -249,6 +265,8 @@ def query_roads_and_crossings_historical(boxes: Sequence[Box]) -> Sequence[Seque
                 if e['type'] == 'way':
                     if _is_road(e):
                         result_historical[i].roads.append(e)
+                    if _is_path(e):
+                        result_historical[i].paths.append(e)
                 elif e['type'] == 'node':
                     if _is_crossing(e):
                         result_historical[i].crossings.append(e)

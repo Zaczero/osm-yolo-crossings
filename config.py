@@ -110,12 +110,15 @@ BOX_VALID_MAX_ROAD_COUNT = 2
 # minimum distance between crossings (circular)
 BOX_VALID_MIN_CROSSING_DISTANCE = _RANGE  # meters
 
-# minimum distance between crossings (linear)
-BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR = 15  # meters
-BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR_ANGLE = 30  # degrees
+# minimum distance between crossings (cone)
+BOX_VALID_MIN_CROSSING_DISTANCE_CONE = 15  # meters
+BOX_VALID_MIN_CROSSING_DISTANCE_CONE_ANGLE = 30  # degrees
 
 # maximum distance to reuse an existing node
-NODE_MERGE_THRESHOLD = _RANGE - 0.1  # meters
+NODE_MERGE_THRESHOLD = 1.5  # meters
+
+# maximum distance to reuse an existing node, if it's also used by a path/footway/...
+NODE_MERGE_THRESHOLD_PRIORITY = _RANGE  # meters
 
 DB_PATH = DATA_DIR / 'db.json'
 DB = TinyDB(DB_PATH, storage=ORJSONStorage)

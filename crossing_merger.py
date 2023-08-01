@@ -1,3 +1,4 @@
+from itertools import chain
 from math import degrees, isclose
 from typing import NamedTuple, Sequence
 
@@ -7,9 +8,9 @@ from shapely.ops import nearest_points
 
 from config import (BOX_VALID_MAX_CENTER_DISTANCE, BOX_VALID_MAX_ROAD_ANGLE,
                     BOX_VALID_MAX_ROAD_COUNT, BOX_VALID_MIN_CROSSING_DISTANCE,
-                    BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR,
-                    BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR_ANGLE,
-                    NODE_MERGE_THRESHOLD)
+                    BOX_VALID_MIN_CROSSING_DISTANCE_CONE,
+                    BOX_VALID_MIN_CROSSING_DISTANCE_CONE_ANGLE,
+                    NODE_MERGE_THRESHOLD, NODE_MERGE_THRESHOLD_PRIORITY)
 from crossing_suggestion import CrossingSuggestion
 from crossing_type import CrossingType
 from latlon import LatLon
@@ -43,11 +44,12 @@ class PerpendicularPosition(NamedTuple):
 
 
 def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[CrossingMergeInstructions]:
-    roads_and_crossings = query_roads_and_crossings_historical(tuple(s.box for s in suggestions))
+    queried = query_roads_and_crossings_historical(tuple(s.box for s in suggestions))
     result = tuple(CrossingMergeInstructions(s.box.center(), s.crossing_type, [], []) for s in suggestions)
 
-    for i, (rac, s) in enumerate(zip(roads_and_crossings, suggestions)):
+    for i, (rac, s) in enumerate(zip(queried, suggestions)):
         rac_current = rac[0]
+        paths_nodes_ids = set(chain.from_iterable(p['nodes'] for p in rac_current.paths))
         s_box_center = s.box.center()
         skip = False
 
@@ -138,7 +140,7 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
                     if crossing_distance < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
                         return True
 
-                    if crossing_distance < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR):
+                    if crossing_distance < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE_CONE):
                         # calculate the angle between the crossing vector and the road direction
                         crossing_vector /= crossing_distance
                         crossing_angle = np.arccos(np.clip(np.dot(pp.way_direction_vector, crossing_vector), -1.0, 1.0))
@@ -149,7 +151,7 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
                             crossing_angle = 180 - crossing_angle
 
                         # check if the crossing lies within the forward or backward cone
-                        if crossing_angle < BOX_VALID_MIN_CROSSING_DISTANCE_LINEAR_ANGLE:
+                        if crossing_angle < BOX_VALID_MIN_CROSSING_DISTANCE_CONE_ANGLE:
                             return True
             return False
 
@@ -161,13 +163,17 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
 
         # create merge instructions
         for pp in perpendicular_positions:
+
             after_node_id = way['nodes'][pp.way_geom.index(pp.p1)]
             after_distance = haversine_distance(pp.position, pp.p1)
+            after_threshold = NODE_MERGE_THRESHOLD_PRIORITY if after_node_id in paths_nodes_ids else NODE_MERGE_THRESHOLD
+
             before_node_id = way['nodes'][pp.way_geom.index(pp.p2)]
             before_distance = haversine_distance(pp.position, pp.p2)
+            before_threshold = NODE_MERGE_THRESHOLD_PRIORITY if before_node_id in paths_nodes_ids else NODE_MERGE_THRESHOLD
 
             # merge to the closest node
-            if after_distance < NODE_MERGE_THRESHOLD or before_distance < NODE_MERGE_THRESHOLD:
+            if after_distance < after_threshold or before_distance < before_threshold:
                 to_node_id = after_node_id if after_distance < before_distance else before_node_id
                 result[i].to_nodes_ids.append(to_node_id)
 
