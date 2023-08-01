@@ -3,6 +3,7 @@ import random
 from functools import reduce
 from math import ceil
 from operator import mul
+from time import time
 from typing import Generator, NamedTuple, Sequence
 
 from numpy import arange
@@ -11,7 +12,7 @@ from box import Box
 from config import CACHE_DIR, DB_GRID
 from grid_filter import is_grid_valid
 from latlon import LatLon
-from utils import meters_to_lat, meters_to_lon
+from utils import format_eta, meters_to_lat, meters_to_lon
 
 # _COUNTRY_BB = Box(LatLon(49.0, 14.0),
 #                   LatLon(55.0, 24.25) - LatLon(49.0, 14.0))
@@ -105,6 +106,8 @@ def iter_grid() -> Generator[Cell, None, None]:
     if last_index > -1:
         print(f'[GRID] ⏭️ Resume from last index {last_index}')
 
+    start_time = time()
+
     def traverse(layer_index: int, parent_box: Box):
         nonlocal next_index
 
@@ -128,7 +131,9 @@ def iter_grid() -> Generator[Cell, None, None]:
                 else:
                     if next_index > last_index:
                         progress = next_index / grid_size_index
-                        print(f'[GRID] ☑️ Yield index {next_index} ({progress:.4%})')
+                        elapsed_time = time() - start_time
+                        eta = int((grid_size_index - next_index) / (next_index - last_index) * elapsed_time)
+                        print(f'[{progress:.4%}] Yield index {next_index} - ETA: {format_eta(eta)}')
                         yield Cell(next_index, box)
                     next_index += 1
 

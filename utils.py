@@ -141,3 +141,16 @@ def make_way_geometry(way: dict, nodes: dict[str, LatLon]) -> Sequence[LatLon]:
 
 def set_nice(value: int) -> None:
     os.nice(value - os.nice(0))
+
+
+def format_eta(seconds: int) -> str:
+    if seconds <= 0:
+        return '0s'
+    units = [('y', 60*60*24*365), ('d', 60*60*24), ('h', 60*60), ('m', 60), ('s', 1)]
+    parts = []
+    for unit, size in units:
+        if seconds >= size:
+            amount = seconds // size
+            seconds -= amount * size
+            parts.append(f'{amount}{unit}')
+    return ' '.join(parts)
