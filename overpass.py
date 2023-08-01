@@ -6,7 +6,7 @@ import httpx
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 from box import Box
-from config import (GRID_FILTER_INTERPOLATE, OVERPASS_API_INTERPRETER,
+from config import (GRID_FILTER_ROAD_INTERPOLATE, OVERPASS_API_INTERPRETER,
                     SEARCH_RELATION)
 from latlon import LatLon
 from utils import haversine_distance, http_headers
@@ -224,7 +224,7 @@ def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[
                 n2_pos = roads_nodes_position_map[n2_id]
 
                 distance = haversine_distance(n1_pos, n2_pos)
-                num_interpolated = int(distance / GRID_FILTER_INTERPOLATE)
+                num_interpolated = int(distance / GRID_FILTER_ROAD_INTERPOLATE)
 
                 for i in range(1, num_interpolated + 1):
                     ratio = i / (num_interpolated + 1)

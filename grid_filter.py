@@ -7,25 +7,49 @@ from numpy import arange
 from rtree.index import Index
 
 from box import Box
-from config import CACHE_DIR
+from config import CACHE_DIR, GRID_FILTER_BUILDING_DISTANCE
 from latlon import LatLon
 from overpass import query_buildings_roads
 from utils import print_run_time
 
 _STATE_GRID_SIZE = 0.2
-_MIN_ROAD_NODES = 1
 
 
 class GridFilterState(NamedTuple):
+    lat: float
+    lon: float
     buildings: Sequence[LatLon]
     roads: Sequence[LatLon]
 
+    def make_index(self) -> Index:
+        path = CACHE_DIR / f'FilterStateIndex_{self.lat:.2f}_{self.lon:.2f}'
+        dat_path = path.with_name(path.name + '.dat')
+        idx_path = path.with_name(path.name + '.idx')
 
-def _make_index(elements: Sequence[LatLon]) -> Index:
-    index = Index()
-    for i, e in enumerate(elements):
-        index.insert(i, (e.lat, e.lon, e.lat, e.lon))
-    return index
+        if not dat_path.is_file() or not idx_path.is_file():
+            dat_path.unlink(missing_ok=True)
+            idx_path.unlink(missing_ok=True)
+            temp_path = idx_path.with_name(path.name + '.temp')
+            temp_dat_path = temp_path.with_name(temp_path.name + '.dat')
+            temp_dat_path.unlink(missing_ok=True)
+            temp_idx_path = temp_path.with_name(temp_path.name + '.idx')
+            temp_idx_path.unlink(missing_ok=True)
+            index = Index(str(temp_path))
+
+            for i, e in enumerate(self.buildings):
+                bbox = Box(point=e, size=LatLon(0, 0)).extend(meters=GRID_FILTER_BUILDING_DISTANCE)
+                p1 = bbox.point
+                p2 = bbox.point + bbox.size
+                index.insert(i, (p1.lat, p1.lon, p2.lat, p2.lon))
+
+            for i, e in enumerate(self.roads, i + 1):
+                index.insert(i, (e.lat, e.lon, e.lat, e.lon))
+
+            index.close()
+            temp_dat_path.rename(dat_path)
+            temp_idx_path.rename(idx_path)
+
+        return Index(str(path))
 
 
 @cached(TTLCache(64, ttl=3600))
@@ -35,13 +59,15 @@ def _load_index(lat: float, lon: float) -> Index:
         state = pickle.loads(cache_path.read_bytes())
     else:
         with print_run_time(f'Query grid filter: ({lat:.2f}, {lon:.2f})'):
-            buildings, roads = query_buildings_roads(Box(
+            query_bbox = Box(
                 point=LatLon(lat, lon),
-                size=LatLon(_STATE_GRID_SIZE, _STATE_GRID_SIZE)))
+                size=LatLon(_STATE_GRID_SIZE, _STATE_GRID_SIZE)) \
+                .extend(meters=GRID_FILTER_BUILDING_DISTANCE)
+            buildings, roads = query_buildings_roads(query_bbox)
 
-        state = GridFilterState(buildings, roads)
+        state = GridFilterState(lat, lon, buildings, roads)
         cache_path.write_bytes(pickle.dumps(state))
-    return _make_index(state.roads)
+    return state.make_index()
 
 
 def _iter_indexes(box: Box) -> Iterable[Index]:
@@ -55,17 +81,14 @@ def _iter_indexes(box: Box) -> Iterable[Index]:
 
 
 def is_grid_valid(box: Box) -> bool:
-    sum_road_nodes = 0
-
-    for road_index in _iter_indexes(box):
-        roads = road_index.intersection((
+    for index in _iter_indexes(box):
+        query = index.intersection((
             box.point.lat,
             box.point.lon,
             box.point.lat + box.size.lat,
             box.point.lon + box.size.lon))
 
-        sum_road_nodes += sum(1 for _ in roads)
-        if sum_road_nodes >= _MIN_ROAD_NODES:
+        if any(query):
             return True
 
     return False

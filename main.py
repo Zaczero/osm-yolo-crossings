@@ -13,7 +13,7 @@ from attrib_model import create_attrib_model
 from attrib_tuned_model import AttribTunedModel
 from box import Box
 from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND,
-                    CROSSING_BOX_EXTEND, DATA_DIR, DRY_RUN, MIN_IMPORT_SIZE,
+                    CROSSING_BOX_EXTEND, DRY_RUN, MIN_IMPORT_SIZE,
                     PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER, WEB_CONCURRENCY,
                     YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings

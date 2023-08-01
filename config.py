@@ -91,7 +91,8 @@ ATTRIB_CONFIDENCES = (
     (0.090, 1.111),  # signals (..., 0.945)
 )
 
-GRID_FILTER_INTERPOLATE = 10  # meters
+GRID_FILTER_BUILDING_DISTANCE = 1000  # meters
+GRID_FILTER_ROAD_INTERPOLATE = 10  # meters
 
 _RANGE = 5  # meters
 ADDED_SEARCH_RADIUS = _RANGE + 0.05  # meters
