@@ -1,8 +1,10 @@
 import asyncio
 import random
+from concurrent.futures import ProcessPoolExecutor
 from functools import cache
+from heapq import heappop, heappush
 from itertools import islice
-from multiprocessing import Pool
+from math import inf
 from time import sleep
 from typing import Sequence
 
@@ -15,12 +17,12 @@ from attrib_tuned_model import AttribTunedModel
 from box import Box
 from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND, CPU_COUNT,
                     CROSSING_BOX_EXTEND, DRY_RUN, MIN_IMPORT_SIZE,
-                    PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER, WEB_CONCURRENCY,
+                    PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER,
                     YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
 from db_added import filter_not_added, mark_added
-from db_grid import Cell, iter_grid, set_last_cell
+from db_grid import Cell, iter_grid, set_last_cell_index
 from import_speed_limit import ImportSpeedLimit
 from latlon import LatLon
 from openstreetmap import OpenStreetMap
@@ -186,14 +188,17 @@ def _process_interesting_box(box: Box) -> CrossingSuggestion | None:
     )
 
 
-def _process_orto_img(cell: Box, orto_img: np.ndarray) -> Sequence[CrossingMergeInstructions]:
+def _process_cell(cell: Cell) -> Sequence[CrossingMergeInstructions]:
+    # with print_run_time('Fetching ortophoto'):
+    orto_img = fetch_orto(cell.box, YOLO_MODEL_RESOLUTION)
+
     if orto_img is None:
         print('[CELL] ⏭️ Nothing to do: missing ortophoto')
         return ()
 
-    with print_run_time('Processing ortophoto'):
-        yolo_img = normalize_yolo_image(orto_img)
-        interesting_boxes = _process_object_detection(cell.box, yolo_img)
+    # with print_run_time('Processing ortophoto'):
+    yolo_img = normalize_yolo_image(orto_img)
+    interesting_boxes = _process_object_detection(cell.box, yolo_img)
 
     if not interesting_boxes:
         # this message prints too often
@@ -262,48 +267,51 @@ async def main() -> None:
         print(f'👤 Welcome, {display_name}!')
         # changeset_max_size = osm.get_changeset_max_size()
 
-    with Pool(CPU_COUNT) as pool:
+    with ProcessPoolExecutor(CPU_COUNT) as executor:
         while True:
-            async def fetch_orto_with_cell(cell: Cell):
-                return cell, await fetch_orto_async(cell.box, YOLO_MODEL_RESOLUTION)
-
             processed: list[CrossingMergeInstructions] = []
+
             cells_gen = iter_grid()
-            fetch_tasks = [
-                asyncio.create_task(fetch_orto_with_cell(cell))
-                for cell in islice(cells_gen, WEB_CONCURRENCY)]
+            process_futures: dict[int, asyncio.Future] = {}
+            processed_heap = []
 
-            while fetch_tasks:
-                wait_fetch_tasks, fetch_tasks = fetch_tasks[:CPU_COUNT], fetch_tasks[CPU_COUNT:]
+            while True:
+                # get process results
+                for key, future in tuple(process_futures.items()):
+                    if future.done():
+                        process_futures.pop(key)
+                        result = future.result()
+                        heappush(processed_heap, (key, result))
 
-                # get all completed tasks
-                await asyncio.wait(wait_fetch_tasks, return_when=asyncio.ALL_COMPLETED)
+                # submit processes
+                for cell_ in islice(cells_gen, CPU_COUNT - len(process_futures)):
+                    process_futures[cell_.index] = executor.submit(_process_cell, cell_)
 
-                # start new fetch tasks immediately
-                for cell_ in islice(cells_gen, len(wait_fetch_tasks)):
-                    fetch_tasks.append(asyncio.create_task(fetch_orto_with_cell(cell_)))
+                # process results from the queue
+                while processed_heap and processed_heap[0][0] < min(process_futures, default=inf):
+                    cell_index, instructions = heappop(processed_heap)
 
-                args = tuple(t.result() for t in wait_fetch_tasks)
+                    if instructions:
+                        print(f'[CELL] 📦 Processed: {len(processed)} + {len(instructions)}')
+                        processed.extend(instructions)
 
-                for valid_instructions in pool.starmap(_process_orto_img, args):
-                    if valid_instructions:
-                        print(f'[CELL] 📦 Processed: {len(processed)} + {len(valid_instructions)}')
-                        processed.extend(valid_instructions)
-
-                        for inst in valid_instructions:
+                        for inst in instructions:
                             print(f'[CELL] 🦓 {inst.position}: {inst.crossing_type}')
 
-                last_cell = args[-1][0]
+                    if not processed:
+                        set_last_cell_index(cell_index)
+                    elif (submit_size := _submit_processed(osm, processed)):
+                        set_last_cell_index(cell_index)
+                        import_speed_limit.sleep(submit_size)
+                        processed.clear()
 
-                if not processed:
-                    set_last_cell(last_cell)
-                elif (submit_size := _submit_processed(osm, processed)):
-                    set_last_cell(last_cell)
-                    import_speed_limit.sleep(submit_size)
-                    processed.clear()
+                # check if we are done
+                if not process_futures:
+                    assert not processed_heap
+                    break
 
             submit_size = _submit_processed(osm, processed, force=True)
-            set_last_cell(None)
+            set_last_cell_index(None)
             import_speed_limit.sleep(submit_size)
 
             if SLEEP_AFTER_GRID_ITER:

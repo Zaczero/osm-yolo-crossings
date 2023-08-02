@@ -140,8 +140,8 @@ def iter_grid() -> Generator[Cell, None, None]:
     yield from traverse(0, _COUNTRY_BB)
 
 
-def set_last_cell(cell: Cell | None) -> None:
-    last_index = cell.index if cell else -1
+def set_last_cell_index(cell_index: int | None) -> None:
+    last_index = cell_index or -1
     print(f'[GRID] ⏭️ Set last index to {last_index}')
     _set_last_index(last_index)
 

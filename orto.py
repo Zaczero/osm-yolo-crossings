@@ -9,7 +9,7 @@ from utils import http_headers
 
 
 @retry(wait=wait_exponential(), stop=stop_after_attempt(8))
-async def fetch_orto_async(box: Box, resolution: int) -> httpx.Response:
+async def fetch_orto_async(box: Box, resolution: int) -> np.ndarray | None:
     assert resolution <= 4096, 'This resolution is not supported by the WMS service'
 
     async with httpx.AsyncClient() as http:

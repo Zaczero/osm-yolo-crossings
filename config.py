@@ -33,7 +33,6 @@ assert OSM_USERNAME and OSM_PASSWORD, 'OSM credentials not set'
 SEARCH_RELATION = 49715  # Poland
 
 CPU_COUNT = min(int(os.getenv('CPU_COUNT', '1')), len(os.sched_getaffinity(0)))
-WEB_CONCURRENCY = int(os.getenv('WEB_CONCURRENCY', '32'))
 
 SCORER_VERSION = 1  # changing this will invalidate previous results
 
