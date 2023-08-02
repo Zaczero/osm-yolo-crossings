@@ -87,8 +87,8 @@ ATTRIB_PRECISION = (
     0.995,  # signals
 )
 ATTRIB_CONFIDENCES = (
-    0.925,  # valid
-    (0.090, 1.111),  # signals (..., 0.945)
+    0.730,  # valid
+    (0.060, 1.111),  # signals (..., 0.995)
 )
 
 GRID_FILTER_BUILDING_DISTANCE = 1000  # meters
