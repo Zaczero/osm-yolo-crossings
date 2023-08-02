@@ -144,7 +144,7 @@ def _is_crossing(element: dict) -> bool:
     return tags.get('highway', '') == 'crossing'
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(8))
+@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
 def query_elements_position(query: str) -> Sequence[LatLon]:
     timeout = 180
     query = _build_elements_query(timeout, query)
@@ -160,7 +160,7 @@ def query_elements_position(query: str) -> Sequence[LatLon]:
     return result
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(8))
+@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
 def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossing]:
     timeout = 180
     query = _build_specific_crossings_query(box, timeout, specific)
@@ -183,7 +183,7 @@ def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossin
     return tuple(result)
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(8))
+@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
 def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[Sequence[LatLon], Sequence[LatLon]]:
     timeout = 180
     query = _build_buildings_roads_query(box, timeout)
@@ -236,7 +236,7 @@ def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[
     return buildings, tuple(roads)
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(8))
+@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
 def query_roads_and_crossings_historical(boxes: Sequence[Box]) -> Sequence[Sequence[QueriedRoadsAndCrossings]]:
     result = tuple([] for _ in boxes)
 
