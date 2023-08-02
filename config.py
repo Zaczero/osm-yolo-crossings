@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+from pymongo import GEOSPHERE, MongoClient
 from tinydb import TinyDB
 
 from orjson_storage import ORJSONStorage
@@ -38,9 +39,10 @@ CPU_COUNT = min(int(os.getenv('CPU_COUNT', '1')), len(os.sched_getaffinity(0)))
 SCORER_VERSION = 1  # changing this will invalidate previous results
 
 VERSION = '1.2'
-CREATED_BY = f'osm-yolo-crossings {VERSION}'
+NAME = 'osm-yolo-crossings'
+CREATED_BY = f'{NAME} {VERSION}'
 WEBSITE = 'https://github.com/Zaczero/osm-yolo-crossings'
-USER_AGENT = f'osm-yolo-crossings/{VERSION} (+{WEBSITE})'
+USER_AGENT = f'{NAME}/{VERSION} (+{WEBSITE})'
 
 CHANGESET_ID_PLACEHOLDER = '__CHANGESET_ID_PLACEHOLDER__'
 
@@ -123,6 +125,12 @@ NODE_MERGE_THRESHOLD_PRIORITY = _RANGE  # meters
 
 DB_PATH = DATA_DIR / 'db.json'
 DB = TinyDB(DB_PATH, storage=ORJSONStorage)
-DB_ADDED = DB.table('added')
-DB_ADDED_INDEX = DB.table('added_index')
 DB_GRID = DB.table('grid')
+
+MONGO_URL = os.getenv('MONGO_URL', 'mongodb://localhost:27017')
+MONGO = MongoClient(MONGO_URL)
+MONGO_DB = MONGO[NAME]
+MONGO_ADDED = MONGO_DB['added']
+MONGO_ADDED.create_index('scorer_version')
+MONGO_ADDED.create_index('reason')
+MONGO_ADDED.create_index([('position', GEOSPHERE)])

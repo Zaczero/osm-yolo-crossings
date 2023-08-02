@@ -1,47 +1,45 @@
 from time import time
-from typing import Sequence
+from typing import Iterable, Sequence
 
-from sklearn.neighbors import BallTree
-from tinydb import Query
-
-from config import ADDED_SEARCH_RADIUS, DB_ADDED, SCORER_VERSION, VERSION
+from config import ADDED_SEARCH_RADIUS, MONGO_ADDED, SCORER_VERSION, VERSION
 from latlon import LatLon
-from utils import meters_to_lat
-
-_tree: BallTree | None = None
 
 
-def _get_tree() -> BallTree:
-    global _tree
-    if _tree is None:
-        entry = Query()
-        docs = DB_ADDED.search((entry.scorer_version >= SCORER_VERSION) | (entry.reason == 'added'))
+def mask_not_added(positions: Iterable[LatLon]) -> Sequence[bool]:
+    result = []
 
-        if not docs:
-            positions = ((0, 0),)
-        else:
-            positions = tuple(LatLon(*doc['position']) for doc in docs)
+    for p in positions:
+        doc = MONGO_ADDED.find_one({
+            "$and": [
+                {"$or": [
+                    {"scorer_version": {"$gte": SCORER_VERSION}},
+                    {"reason": "added"}
+                ]},
+                {"position": {
+                    "$nearSphere": {
+                        "$geometry": {
+                            "type": "Point",
+                            "coordinates": (p.lon, p.lat)
+                        },
+                        "$maxDistance": ADDED_SEARCH_RADIUS
+                    }
+                }}
+            ]
+        })
 
-        _tree = BallTree(positions, metric='haversine')
-    return _tree
+        result.append(doc is None)
 
-
-def filter_not_added(positions: Sequence[LatLon]) -> Sequence[bool]:
-    query = _get_tree().query_radius(positions, meters_to_lat(ADDED_SEARCH_RADIUS), count_only=True)
-    return tuple(q == 0 for q in query)
+    return tuple(result)
 
 
 def mark_added(positions: Sequence[LatLon], **kwargs) -> Sequence[int]:
     if not positions:
-        return tuple()
+        return ()
 
-    # clear cache
-    global _tree
-    _tree = None
-
-    return DB_ADDED.insert_multiple({
+    return MONGO_ADDED.insert_many([{
         'timestamp': time(),
-        'position': tuple(p),
+        'position': (p.lon, p.lat),
         'app_version': VERSION,
         'scorer_version': SCORER_VERSION,
-    } | kwargs for p in positions)
+        **kwargs,
+    } for p in positions]).inserted_ids

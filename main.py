@@ -21,7 +21,7 @@ from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND, CPU_COUNT,
                     YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
-from db_added import filter_not_added, mark_added
+from db_added import mark_added, mask_not_added
 from db_grid import Cell, iter_grid, set_last_cell_index
 from import_speed_limit import ImportSpeedLimit
 from latlon import LatLon
@@ -146,7 +146,7 @@ def _process_object_detection(cell_box: Box, orto_img: np.ndarray) -> Sequence[B
 
 
 def _filter_added_boxes(boxes: Sequence[Box]) -> Sequence[Box]:
-    mask = filter_not_added(tuple(b.center() for b in boxes))
+    mask = mask_not_added(b.center() for b in boxes)
     return tuple(b for b, m in zip(boxes, mask) if m)
 
 
@@ -260,6 +260,7 @@ def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeIn
 async def main() -> None:
     set_nice(PROCESS_NICE)
     import_speed_limit = ImportSpeedLimit()
+    loop = asyncio.get_running_loop()
 
     with print_run_time('Logging in'):
         osm = OpenStreetMap()
@@ -276,16 +277,20 @@ async def main() -> None:
             processed_heap = []
 
             while True:
-                # get process results
-                for key, future in tuple(process_futures.items()):
-                    if future.done():
-                        process_futures.pop(key)
-                        result = future.result()
-                        heappush(processed_heap, (key, result))
+                if process_futures:
+                    await asyncio.wait(process_futures.values(), return_when=asyncio.FIRST_COMPLETED)
+
+                    # get process results
+                    for key, future in tuple(process_futures.items()):
+                        if future.done():
+                            process_futures.pop(key)
+                            result = future.result()
+                            heappush(processed_heap, (key, result))
 
                 # submit processes
                 for cell_ in islice(cells_gen, CPU_COUNT - len(process_futures)):
-                    process_futures[cell_.index] = executor.submit(_process_cell, cell_)
+                    future = loop.run_in_executor(executor, _process_cell, cell_)
+                    process_futures[cell_.index] = future
 
                 # process results from the queue
                 while processed_heap and processed_heap[0][0] < min(process_futures, default=inf):

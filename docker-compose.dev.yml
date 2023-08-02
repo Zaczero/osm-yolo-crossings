@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  db:
+    image: mongo
+    command: mongod --bind_ip_all
+
+    ports:
+      - 127.0.0.1:27017:27017
+
+    volumes:
+      - ./data/db:/data/db
