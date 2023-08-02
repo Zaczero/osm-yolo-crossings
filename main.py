@@ -289,7 +289,8 @@ async def main() -> None:
 
                 # submit processes
                 for cell_ in islice(cells_gen, CPU_COUNT - len(process_futures)):
-                    future = loop.run_in_executor(executor, _process_cell, cell_)
+                    executor_ = executor if CPU_COUNT > 1 else None
+                    future = loop.run_in_executor(executor_, _process_cell, cell_)
                     process_futures[cell_.index] = future
 
                 # process results from the queue
