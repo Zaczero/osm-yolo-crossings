@@ -40,7 +40,7 @@ def _initialize_osm_change_structure() -> dict:
 
 
 def create_instructed_change(instructions: Sequence[CrossingMergeInstructions]) -> tuple[str, Sequence[LatLon]]:
-    added_positions = []
+    added_positions = [(-1000, -1000)]
 
     def _make_tree() -> BallTree:
         return BallTree(added_positions, metric='haversine')
