@@ -50,13 +50,13 @@ class OpenStreetMap:
     @cached(TTLCache(1024, ttl=60))
     @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
     def _get_elements(self, elements_type: str, element_ids: Sequence[str]) -> list[dict]:
-        if not element_ids:
-            return results
-
         batch_size = 500
         results = []
 
-        def _get_batch(elements_type: str, batch: Sequence[str]) -> list[dict]:
+        if not element_ids:
+            return results
+
+        def _get_batch(batch: Sequence[str]) -> list[dict]:
             with self._get_http_client() as http:
                 r = http.get(f'/0.6/{elements_type}', params={elements_type: ','.join(map(str, batch))})
                 r.raise_for_status()
@@ -71,7 +71,7 @@ class OpenStreetMap:
 
         for i in range(0, len(element_ids), batch_size):
             batch = element_ids[i:i + batch_size]
-            results.extend(_get_batch(elements_type, batch))
+            results.extend(_get_batch(batch))
 
         return results
 
