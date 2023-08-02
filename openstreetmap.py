@@ -51,19 +51,29 @@ class OpenStreetMap:
     @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
     def _get_elements(self, elements_type: str, element_ids: Sequence[str]) -> list[dict]:
         if not element_ids:
-            return []
+            return results
 
-        with self._get_http_client() as http:
-            r = http.get(f'/0.6/{elements_type}', params={elements_type: ','.join(map(str, element_ids))})
-            r.raise_for_status()
+        batch_size = 500
+        results = []
 
-        data = xmltodict.parse(
-            r.text,
-            postprocessor=xmltodict_postprocessor,
-            force_list=('node', 'way', 'relation', 'member', 'tag', 'nd'),
-        )['osm']
+        def _get_batch(elements_type: str, batch: Sequence[str]) -> list[dict]:
+            with self._get_http_client() as http:
+                r = http.get(f'/0.6/{elements_type}', params={elements_type: ','.join(map(str, batch))})
+                r.raise_for_status()
 
-        return data[elements_type[:-1]]
+            data = xmltodict.parse(
+                r.text,
+                postprocessor=xmltodict_postprocessor,
+                force_list=('node', 'way', 'relation', 'member', 'tag', 'nd'),
+            )['osm']
+
+            return data[elements_type[:-1]]
+
+        for i in range(0, len(element_ids), batch_size):
+            batch = element_ids[i:i + batch_size]
+            results.extend(_get_batch(elements_type, batch))
+
+        return results
 
     @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
     def get_way_full(self, way_id: str | int,) -> dict:
