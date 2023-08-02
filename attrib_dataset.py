@@ -28,11 +28,15 @@ from utils import save_image
 class AttribDatasetLabel(NamedTuple):
     labels: Sequence[int]
 
-    def encode(self) -> np.ndarray:
-        return MultiLabelBinarizer(classes=range(ATTRIB_NUM_CLASSES)).fit_transform([self.labels])[0]
+    @property
+    def is_valid(self) -> bool:
+        return 0 in self.labels
 
-    def encode_num(self) -> int:
-        return int(''.join(map(str, self.encode())), 2)
+    # def encode(self) -> np.ndarray:
+    #     return MultiLabelBinarizer(classes=range(ATTRIB_NUM_CLASSES)).fit_transform([self.labels])[0]
+
+    # def encode_num(self) -> int:
+    #     return int(''.join(map(str, self.encode())), 2)
 
 
 class AttribDatasetEntry(NamedTuple):
@@ -75,14 +79,14 @@ def _iter_dataset_identifier(identifier: str, raw_path: Path, annotation: dict) 
     image = img_as_float(image)
     image = normalize_attrib_image(image)
 
-    center_x = image.shape[1] / 2
-    center_y = image.shape[0] / 2
-    center = (center_y, center_x)
+    # center_x = image.shape[1] / 2
+    # center_y = image.shape[0] / 2
+    # center = (center_y, center_x)
 
-    rr, cc = draw.disk(center, radius=6, shape=image.shape[:2])
-    image[rr, cc] = (0, 0, 0)
-    rr, cc = draw.disk(center, radius=4, shape=image.shape[:2])
-    image[rr, cc] = (1, 1, 1)
+    # rr, cc = draw.disk(center, radius=6, shape=image.shape[:2])
+    # image[rr, cc] = (0, 0, 0)
+    # rr, cc = draw.disk(center, radius=4, shape=image.shape[:2])
+    # image[rr, cc] = (1, 1, 1)
 
     save_image(image, 'dataset_attrib_1')
 
