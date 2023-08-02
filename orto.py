@@ -2,13 +2,14 @@ import httpx
 import numpy as np
 from skimage import img_as_float
 from skimage.io import imread
-from tenacity import retry, stop_after_attempt, wait_exponential
+from tenacity import retry, stop_after_delay, wait_exponential
 
 from box import Box
+from config import RETRY_TIME_LIMIT
 from utils import http_headers
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
+@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
 async def fetch_orto_async(box: Box, resolution: int) -> np.ndarray | None:
     assert resolution <= 4096, 'This resolution is not supported by the WMS service'
 
@@ -36,7 +37,7 @@ async def fetch_orto_async(box: Box, resolution: int) -> np.ndarray | None:
     return img_as_float(img)
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
+@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def fetch_orto(box: Box, resolution: int) -> np.ndarray | None:
     assert resolution <= 4096, 'This resolution is not supported by the WMS service'
 

@@ -3,11 +3,12 @@ from itertools import pairwise
 from typing import Iterable, NamedTuple, Sequence
 
 import httpx
-from tenacity import retry, stop_after_attempt, wait_exponential
+from tenacity import (retry, stop_after_attempt, stop_after_delay,
+                      wait_exponential)
 
 from box import Box
 from config import (GRID_FILTER_ROAD_INTERPOLATE, OVERPASS_API_INTERPRETER,
-                    SEARCH_RELATION)
+                    RETRY_TIME_LIMIT, SEARCH_RELATION)
 from latlon import LatLon
 from utils import haversine_distance, http_headers
 
@@ -144,7 +145,7 @@ def _is_crossing(element: dict) -> bool:
     return tags.get('highway', '') == 'crossing'
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
+@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def query_elements_position(query: str) -> Sequence[LatLon]:
     timeout = 180
     query = _build_elements_query(timeout, query)
@@ -160,7 +161,7 @@ def query_elements_position(query: str) -> Sequence[LatLon]:
     return result
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
+@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossing]:
     timeout = 180
     query = _build_specific_crossings_query(box, timeout, specific)
@@ -183,7 +184,7 @@ def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossin
     return tuple(result)
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
+@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[Sequence[LatLon], Sequence[LatLon]]:
     timeout = 180
     query = _build_buildings_roads_query(box, timeout)
@@ -236,7 +237,7 @@ def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[
     return buildings, tuple(roads)
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(15))
+@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def query_roads_and_crossings_historical(boxes: Sequence[Box]) -> Sequence[Sequence[QueriedRoadsAndCrossings]]:
     result = tuple([] for _ in boxes)
 

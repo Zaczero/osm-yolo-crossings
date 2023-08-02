@@ -16,6 +16,7 @@ MIN_IMPORT_SIZE = int(os.getenv('MIN_IMPORT_SIZE', '30'))
 MIN_SLEEP_AFTER_IMPORT = float(os.getenv('MIN_SLEEP_AFTER_IMPORT', '300'))  # let overpass-api update
 SLEEP_AFTER_GRID_ITER = float(os.getenv('SLEEP_DAYS_AFTER_GRID_ITER', '30')) * 24 * 3600
 PROCESS_NICE = int(os.getenv('PROCESS_NICE', '15'))
+RETRY_TIME_LIMIT = float(os.getenv('RETRY_TIME_LIMIT', '10800'))  # 3h
 
 if DRY_RUN:
     print('🦺 TEST MODE 🦺')

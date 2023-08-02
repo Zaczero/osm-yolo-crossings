@@ -3,10 +3,11 @@ from typing import Iterable, Sequence
 import httpx
 import xmltodict
 from cachetools import TTLCache, cached
-from tenacity import retry, stop_after_attempt, wait_exponential
+from tenacity import (retry, stop_after_attempt, stop_after_delay,
+                      wait_exponential)
 
 from config import (CHANGESET_ID_PLACEHOLDER, DEFAULT_CHANGESET_TAGS,
-                    OSM_PASSWORD, OSM_USERNAME)
+                    OSM_PASSWORD, OSM_USERNAME, RETRY_TIME_LIMIT)
 from utils import http_headers
 from xmltodict_postprocessor import xmltodict_postprocessor
 
@@ -46,7 +47,7 @@ class OpenStreetMap:
         return self._get_elements('nodes', node_ids)
 
     @cached(TTLCache(1024, ttl=60))
-    @retry(wait=wait_exponential(), stop=stop_after_attempt(15))
+    @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
     def _get_elements(self, elements_type: str, element_ids: Sequence[str]) -> list[dict]:
         if not element_ids:
             return []
@@ -63,7 +64,7 @@ class OpenStreetMap:
 
         return data[elements_type[:-1]]
 
-    @retry(wait=wait_exponential(), stop=stop_after_attempt(15))
+    @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
     def get_way_full(self, way_id: str | int,) -> dict:
         with self._get_http_client() as http:
             r = http.get(f'/0.6/way/{way_id}/full')
