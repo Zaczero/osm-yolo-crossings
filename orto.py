@@ -10,34 +10,6 @@ from utils import http_headers
 
 
 @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
-async def fetch_orto_async(box: Box, resolution: int) -> np.ndarray | None:
-    assert resolution <= 4096, 'This resolution is not supported by the WMS service'
-
-    async with httpx.AsyncClient() as http:
-        r = await http.get('https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/WMS/StandardResolution', params={
-            'LAYERS': 'Raster',
-            'STYLES': 'default',
-            'FORMAT': 'image/jpeg',
-            'CRS': 'EPSG:4326',
-            'WIDTH': resolution,
-            'HEIGHT': resolution,
-            'BBOX': str(box),
-            'VERSION': '1.3.0',
-            'SERVICE': 'WMS',
-            'REQUEST': 'GetMap',
-        }, headers=http_headers(), timeout=200)
-
-    r.raise_for_status()
-
-    img = imread(r.content, plugin='imageio')
-
-    if img.min() == img.max():
-        return None
-
-    return img_as_float(img)
-
-
-@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def fetch_orto(box: Box, resolution: int) -> np.ndarray | None:
     assert resolution <= 4096, 'This resolution is not supported by the WMS service'
 
@@ -52,7 +24,7 @@ def fetch_orto(box: Box, resolution: int) -> np.ndarray | None:
         'VERSION': '1.3.0',
         'SERVICE': 'WMS',
         'REQUEST': 'GetMap',
-    }, headers=http_headers(), timeout=200)
+    }, headers=http_headers(), timeout=120)
 
     r.raise_for_status()
 

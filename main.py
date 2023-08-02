@@ -26,7 +26,7 @@ from db_grid import Cell, iter_grid, set_last_cell_index
 from import_speed_limit import ImportSpeedLimit
 from latlon import LatLon
 from openstreetmap import OpenStreetMap
-from orto import fetch_orto, fetch_orto_async
+from orto import fetch_orto
 from osm_change import create_instructed_change
 from processor import normalize_attrib_image, normalize_yolo_image
 from transform_geo_px import transform_px_to_rad

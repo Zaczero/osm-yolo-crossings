@@ -3,8 +3,7 @@ from itertools import pairwise
 from typing import Iterable, NamedTuple, Sequence
 
 import httpx
-from tenacity import (retry, stop_after_attempt, stop_after_delay,
-                      wait_exponential)
+from tenacity import retry, stop_after_delay, wait_exponential
 
 from box import Box
 from config import (GRID_FILTER_ROAD_INTERPOLATE, OVERPASS_API_INTERPRETER,

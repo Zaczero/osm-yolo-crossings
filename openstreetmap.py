@@ -1,4 +1,4 @@
-from typing import Iterable, Sequence
+from typing import Sequence
 
 import httpx
 import xmltodict
@@ -16,7 +16,8 @@ class OpenStreetMap:
     def _get_http_client(self) -> httpx.Client:
         return httpx.Client(base_url='https://api.openstreetmap.org/api',
                             headers=http_headers(),
-                            auth=(OSM_USERNAME, OSM_PASSWORD))
+                            auth=(OSM_USERNAME, OSM_PASSWORD),
+                            timeout=60)
 
     @retry(wait=wait_exponential(), stop=stop_after_attempt(3))
     def get_changeset_max_size(self) -> int:
