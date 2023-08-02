@@ -2,6 +2,7 @@ from itertools import chain
 from math import isclose
 from typing import Sequence
 
+import numpy as np
 import xmltodict
 from shapely.geometry import LineString, Point
 from sklearn.neighbors import BallTree
@@ -41,9 +42,10 @@ def _initialize_osm_change_structure() -> dict:
 
 def create_instructed_change(instructions: Sequence[CrossingMergeInstructions]) -> tuple[str, Sequence[LatLon]]:
     added_positions = []
+    query_radius = np.deg2rad(meters_to_lat(ADDED_SEARCH_RADIUS))
 
     def _make_tree() -> BallTree:
-        data = added_positions if added_positions else [(-1000, -1000)]
+        data = np.deg2rad(added_positions) if added_positions else [(-1000, -1000)]
         return BallTree(data, metric='haversine')
 
     tree = _make_tree()
@@ -51,7 +53,7 @@ def create_instructed_change(instructions: Sequence[CrossingMergeInstructions]) 
     def _try_add(position: LatLon) -> bool:
         nonlocal added_positions
         nonlocal tree
-        query = tree.query_radius((position,), meters_to_lat(ADDED_SEARCH_RADIUS), count_only=True)[0]
+        query = tree.query_radius(np.deg2rad((position,)), query_radius, count_only=True)[0]
         if query > 0:
             return False
         added_positions.append(position)
