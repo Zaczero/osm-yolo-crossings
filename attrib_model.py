@@ -26,15 +26,6 @@ _BATCH_SIZE = 32
 _EPOCHS = 100
 
 
-def _setup_gpu():
-    gpus = tf.config.list_physical_devices('GPU')
-    if gpus:
-        for gpu in gpus:
-            tf.config.experimental.set_memory_growth(gpu, True)
-        logical_gpus = tf.config.list_logical_devices('GPU')
-        print(len(gpus), 'Physical GPUs,', len(logical_gpus), 'Logical GPUs')
-
-
 def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.ndarray]:
     X = np.stack(tuple(map(lambda x: x.image, dataset)))
     y = np.array(tuple(map(lambda x: x.labels.encode(), dataset)), dtype=float)
@@ -70,8 +61,6 @@ def get_attrib_model(imagenet_weights: bool = True) -> Model:
 
 
 def create_attrib_model():
-    _setup_gpu()
-
     dataset = tuple(iter_attrib_dataset())
 
     train, holdout = train_test_split(dataset,

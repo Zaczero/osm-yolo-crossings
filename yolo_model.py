@@ -28,15 +28,6 @@ _BATCH_SIZE = 32
 _BOXES_COUNT = 4
 
 
-def _setup_gpu():
-    gpus = tf.config.list_physical_devices('GPU')
-    if gpus:
-        for gpu in gpus:
-            tf.config.experimental.set_memory_growth(gpu, True)
-        logical_gpus = tf.config.list_logical_devices('GPU')
-        print(len(gpus), 'Physical GPUs,', len(logical_gpus), 'Logical GPUs')
-
-
 def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE, *, transform: bool = True) -> Generator[tuple[np.ndarray, dict], None, None]:
     if transform:
         datagen = ImageDataGenerator(
@@ -135,8 +126,6 @@ def get_yolo_model(coco_weights: bool = True) -> Model:
 
 
 def create_yolo_model():
-    _setup_gpu()
-
     # dataset_iterator = iter_yolo_dataset()
     # dataset = tuple(next(dataset_iterator) for _ in range(100))
     dataset = tuple(iter_yolo_dataset())

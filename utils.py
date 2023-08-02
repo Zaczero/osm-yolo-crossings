@@ -7,6 +7,7 @@ from typing import Generator, Sequence
 
 import cv2
 import numpy as np
+import tensorflow as tf
 from numba import njit
 from skimage import img_as_ubyte
 from skimage.io import imsave
@@ -141,6 +142,15 @@ def make_way_geometry(way: dict, nodes: dict[str, LatLon]) -> Sequence[LatLon]:
 
 def set_nice(value: int) -> None:
     os.nice(value - os.nice(0))
+
+
+def setup_gpu():
+    gpus = tf.config.list_physical_devices('GPU')
+    if gpus:
+        for gpu in gpus:
+            tf.config.experimental.set_memory_growth(gpu, True)
+        logical_gpus = tf.config.list_logical_devices('GPU')
+        print(len(gpus), 'Physical GPUs,', len(logical_gpus), 'Logical GPUs')
 
 
 def format_eta(seconds: int) -> str:

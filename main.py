@@ -27,7 +27,8 @@ from orto import fetch_orto, fetch_orto_async
 from osm_change import create_instructed_change
 from processor import normalize_attrib_image, normalize_yolo_image
 from transform_geo_px import transform_px_to_rad
-from utils import index_box_centered, print_run_time, save_image, set_nice
+from utils import (index_box_centered, print_run_time, save_image, set_nice,
+                   setup_gpu)
 from yolo_dataset import create_yolo_dataset
 from yolo_model import create_yolo_model
 from yolo_tuned_model import YoloTunedModel
@@ -302,4 +303,5 @@ async def main() -> None:
 
 
 if __name__ == '__main__':
+    setup_gpu()
     asyncio.run(main())
