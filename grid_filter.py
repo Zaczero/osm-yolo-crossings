@@ -93,7 +93,7 @@ def is_grid_valid(box: Box) -> bool:
 
     for indexes in _iter_indexes(box):
         # true when all index layers have at least one intersection
-        if all(any(i.intersection((p1.lat, p1.lon, p2.lat, p2.lon)) for i in indexes)):
+        if all(any(i.intersection((p1.lat, p1.lon, p2.lat, p2.lon))) for i in indexes):
             return True
 
     return False
