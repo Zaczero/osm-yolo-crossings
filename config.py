@@ -83,15 +83,18 @@ YOLO_CONFIDENCE = 0.4
 ATTRIB_POSITION_EXTEND = 9  # meters
 ATTRIB_MODEL_PATH = MODEL_DIR / 'attrib.h5'
 ATTRIB_MODEL_RESOLUTION = 224
+ATTRIB_PRECISION = 0.998
+ATTRIB_CONFIDENCE = 0.9937713742256165
+
 ATTRIB_NUM_CLASSES = 2
-ATTRIB_PRECISION = (
-    0.995,  # valid
-    0.995,  # signals
-)
-ATTRIB_CONFIDENCES = (
-    0.730,  # valid
-    (0.060, 1.111),  # signals (..., 0.995)
-)
+# ATTRIB_PRECISION = (
+#     0.995,  # valid
+#     0.995,  # signals
+# )
+# ATTRIB_CONFIDENCES = (
+#     0.730,  # valid
+#     (0.060, 1.111),  # signals (..., 0.995)
+# )
 
 GRID_FILTER_BUILDING_DISTANCE = 1000  # meters
 GRID_FILTER_ROAD_INTERPOLATE = 10  # meters
