@@ -1,4 +1,4 @@
-.PHONY: update version start-dev stop-dev
+.PHONY: update version start-dev stop-dev logs-dev
 
 IMAGE_NAME=docker.monicz.pl/osm-budynki-orto-import
 
@@ -13,3 +13,6 @@ start-dev:
 
 stop-dev:
 	docker compose -f docker-compose.dev.yml down
+
+logs-dev:
+	docker compose -f docker-compose.dev.yml logs -f
