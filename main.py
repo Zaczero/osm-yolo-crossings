@@ -2,6 +2,7 @@ import asyncio
 import random
 from functools import cache
 from itertools import islice
+from multiprocessing import Pool
 from time import sleep
 from typing import Sequence
 
@@ -12,7 +13,7 @@ from attrib_dataset import create_attrib_dataset
 from attrib_model import create_attrib_model
 from attrib_tuned_model import AttribTunedModel
 from box import Box
-from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND,
+from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND, CPU_COUNT,
                     CROSSING_BOX_EXTEND, DRY_RUN, MIN_IMPORT_SIZE,
                     PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER, WEB_CONCURRENCY,
                     YOLO_MODEL_RESOLUTION)
@@ -261,45 +262,53 @@ async def main() -> None:
         print(f'👤 Welcome, {display_name}!')
         # changeset_max_size = osm.get_changeset_max_size()
 
-    while True:
-        async def fetch_orto_with_cell(cell: Cell):
-            return cell, await fetch_orto_async(cell.box, YOLO_MODEL_RESOLUTION)
+    with Pool(CPU_COUNT) as pool:
+        while True:
+            async def fetch_orto_with_cell(cell: Cell):
+                return cell, await fetch_orto_async(cell.box, YOLO_MODEL_RESOLUTION)
 
-        processed: list[CrossingMergeInstructions] = []
-        cells_gen = iter_grid()
-        fetch_tasks = [
-            asyncio.create_task(fetch_orto_with_cell(cell))
-            for cell in islice(cells_gen, WEB_CONCURRENCY)]
+            processed: list[CrossingMergeInstructions] = []
+            cells_gen = iter_grid()
+            fetch_tasks = [
+                asyncio.create_task(fetch_orto_with_cell(cell))
+                for cell in islice(cells_gen, WEB_CONCURRENCY)]
 
-        while fetch_tasks:
-            cell, orto_img = await fetch_tasks.pop(0)
+            while fetch_tasks:
+                wait_fetch_tasks, fetch_tasks = fetch_tasks[:CPU_COUNT], fetch_tasks[CPU_COUNT:]
 
-            # start a new fetch task immediately
-            for cell_ in islice(cells_gen, 1):
-                fetch_tasks.append(asyncio.create_task(fetch_orto_with_cell(cell_)))
+                # get all completed tasks
+                await asyncio.wait(wait_fetch_tasks, return_when=asyncio.ALL_COMPLETED)
 
-            valid_instructions = _process_orto_img(cell, orto_img)
-            if valid_instructions:
-                print(f'[CELL] 📦 Processed: {len(processed)} + {len(valid_instructions)}')
-                processed.extend(valid_instructions)
+                # start new fetch tasks immediately
+                for cell_ in islice(cells_gen, len(wait_fetch_tasks)):
+                    fetch_tasks.append(asyncio.create_task(fetch_orto_with_cell(cell_)))
 
-                for inst in valid_instructions:
-                    print(f'[CELL] 🦓 {inst.position}: {inst.crossing_type}')
+                args = tuple(t.result() for t in wait_fetch_tasks)
 
-            if not processed:
-                set_last_cell(cell)
-            elif (submit_size := _submit_processed(osm, processed)):
-                set_last_cell(cell)
-                import_speed_limit.sleep(submit_size)
-                processed.clear()
+                for valid_instructions in pool.starmap(_process_orto_img, args):
+                    if valid_instructions:
+                        print(f'[CELL] 📦 Processed: {len(processed)} + {len(valid_instructions)}')
+                        processed.extend(valid_instructions)
 
-        submit_size = _submit_processed(osm, processed, force=True)
-        set_last_cell(None)
-        import_speed_limit.sleep(submit_size)
+                        for inst in valid_instructions:
+                            print(f'[CELL] 🦓 {inst.position}: {inst.crossing_type}')
 
-        if SLEEP_AFTER_GRID_ITER:
-            print(f'[SLEEP-GRID] 💤 Sleeping for {SLEEP_AFTER_GRID_ITER} seconds...')
-            sleep(SLEEP_AFTER_GRID_ITER)
+                last_cell = args[-1][0]
+
+                if not processed:
+                    set_last_cell(last_cell)
+                elif (submit_size := _submit_processed(osm, processed)):
+                    set_last_cell(last_cell)
+                    import_speed_limit.sleep(submit_size)
+                    processed.clear()
+
+            submit_size = _submit_processed(osm, processed, force=True)
+            set_last_cell(None)
+            import_speed_limit.sleep(submit_size)
+
+            if SLEEP_AFTER_GRID_ITER:
+                print(f'[SLEEP-GRID] 💤 Sleeping for {SLEEP_AFTER_GRID_ITER} seconds...')
+                sleep(SLEEP_AFTER_GRID_ITER)
 
 
 if __name__ == '__main__':
