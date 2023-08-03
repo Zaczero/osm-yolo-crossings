@@ -5,7 +5,7 @@
 [![Support my work](https://shields.monicz.dev/badge/%E2%99%A5%EF%B8%8F%20Support%20my%20work-purple)](https://monicz.dev/#support-my-work)
 [![GitHub repo stars](https://shields.monicz.dev/github/stars/Zaczero/osm-yolo-crossings?style=social)](https://github.com/Zaczero/osm-yolo-crossings)
 
-<img src="https://github.com/Zaczero/osm-yolo-crossings/raw/main/resources/icon.webp" height="128">
+<img src="https://github.com/Zaczero/osm-yolo-crossings/raw/main/resources/card.png" width="40%">
 
 🦓 OpenStreetMap, AI import tool for zebra crossings
 
