@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>28</id>
+      <size>500</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-07-31 21:39:36.707162+00:00</created>
+      <updated>2023-07-31 22:03:03.982587+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>499</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>28</id>
+          <start>0</start>
+          <stop>499</stop>
+          <url>https://label.monicz.pl/api/jobs/28</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>admin</username>
+        <email>admin@localhost.invalid</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>valid</name>
+          <color>#24b353</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>signals</name>
+          <color>#b83df5</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>raised</name>
+          <color>#ff6a4d</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>invalid</name>
+          <color>#fa3253</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2023-07-31 22:03:07.422207+00:00</dumped>
+  </meta>
+  <image id="0" name="highway_signals/49_56630110,22_20496740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="highway_signals/49_71476520,19_02319430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="highway_signals/49_78235670,22_77479910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="highway_signals/49_78603040,22_76129050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="highway_signals/49_79315950,22_77077750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="highway_signals/49_80288460,19_04687690.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="highway_signals/49_81573680,19_04434520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="highway_signals/49_81584700,19_04402730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="8" name="highway_signals/49_83923890,19_03794400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="9" name="highway_signals/49_84547900,19_03306540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="highway_signals/50_00187460,19_92224240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="highway_signals/50_01221540,20_08400660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="highway_signals/50_01447310,21_01348020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="highway_signals/50_03123160,22_00333710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="highway_signals/50_03180690,21_99947380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="highway_signals/50_03233710,21_99841030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="highway_signals/50_03867610,19_22451610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="highway_signals/50_04006730,22_00802620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="highway_signals/50_04622300,21_99956320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="highway_signals/50_04884580,19_93265870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="20" name="highway_signals/50_04885170,19_90375190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="21" name="highway_signals/50_04984030,21_40853190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="22" name="highway_signals/50_05242080,19_98922410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="23" name="highway_signals/50_05930450,21_47779140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="24" name="highway_signals/50_06381730,19_92406080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="25" name="highway_signals/50_06663670,19_97446640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="26" name="highway_signals/50_06681510,20_00439010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="27" name="highway_signals/50_08820110,18_75780790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="28" name="highway_signals/50_08836830,19_89967900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="29" name="highway_signals/50_09142660,20_01018520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="30" name="highway_signals/50_09182610,19_96054540.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="31" name="highway_signals/50_10496150,18_57222500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="32" name="highway_signals/50_10596870,18_97375850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="33" name="highway_signals/50_14342200,19_41470710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="34" name="highway_signals/50_14968950,19_26791890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="35" name="highway_signals/50_18792740,18_91921800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="36" name="highway_signals/50_19092830,19_16234330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="37" name="highway_signals/50_19236910,18_44957240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="38" name="highway_signals/50_22616450,18_99496110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="39" name="highway_signals/50_23269810,18_64676070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="40" name="highway_signals/50_25767570,19_02029210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="41" name="highway_signals/50_26187640,19_03546020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="42" name="highway_signals/50_26641680,18_93740670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="43" name="highway_signals/50_26732730,18_99008140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="44" name="highway_signals/50_27949590,18_94357660.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="45" name="highway_signals/50_28046270,18_85871310.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="46" name="highway_signals/50_28057310,18_85893620.png" width="224" height="224">
+  </image>
+  <image id="47" name="highway_signals/50_29542450,18_65196830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="48" name="highway_signals/50_29982500,18_85336120.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="49" name="highway_signals/50_30566650,18_76741330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="50" name="highway_signals/50_30970180,18_66999780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="51" name="highway_signals/50_31417230,19_19520030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="52" name="highway_signals/50_31789200,19_19534070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="53" name="highway_signals/50_32419150,19_19095880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="54" name="highway_signals/50_32420870,19_20067740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="55" name="highway_signals/50_40440890,18_90240060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="56" name="highway_signals/50_48172930,17_33674810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="57" name="highway_signals/50_50712340,18_31219540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="58" name="highway_signals/50_66405050,17_94194650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="59" name="highway_signals/50_68813850,17_81177680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="60" name="highway_signals/50_75115770,19_15191300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="61" name="highway_signals/50_79343320,19_12719650.png" width="224" height="224">
+  </image>
+  <image id="62" name="highway_signals/50_83742820,19_11424170.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="63" name="highway_signals/50_85641000,20_63774820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="64" name="highway_signals/50_85862230,17_47586180.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="65" name="highway_signals/50_86037220,16_48956280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="66" name="highway_signals/50_86677910,20_64147180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="67" name="highway_signals/50_87461670,20_60261020.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="68" name="highway_signals/50_87879120,15_75890640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="69" name="highway_signals/50_88544930,20_63773030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="70" name="highway_signals/50_89324490,20_65342920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="71" name="highway_signals/50_89810040,15_67967900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="72" name="highway_signals/50_92489630,21_39783840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="73" name="highway_signals/50_94423470,21_39017020.png" width="224" height="224">
+  </image>
+  <image id="74" name="highway_signals/51_06937550,17_00527420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="75" name="highway_signals/51_06956590,17_00450560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="76" name="highway_signals/51_08530200,17_04773210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="77" name="highway_signals/51_08965730,17_02543920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="78" name="highway_signals/51_09349710,17_00863350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="79" name="highway_signals/51_09420550,17_03292890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="80" name="highway_signals/51_09628270,16_98686320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="81" name="highway_signals/51_10087610,17_04154110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="82" name="highway_signals/51_11199980,17_00585410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="83" name="highway_signals/51_12833880,17_05478120.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="84" name="highway_signals/51_13627880,16_99807960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="85" name="highway_signals/51_20917020,17_38361920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="86" name="highway_signals/51_21722460,19_30212490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="87" name="highway_signals/51_23117530,22_48185900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="88" name="highway_signals/51_24004370,22_57263110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="89" name="highway_signals/51_25082780,22_57537970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="90" name="highway_signals/51_25167400,22_56801810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="91" name="highway_signals/51_26923600,15_56235930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="92" name="highway_signals/51_27746600,22_54431890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="93" name="highway_signals/51_38956560,16_19948780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="94" name="highway_signals/51_40140170,16_20160980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="95" name="highway_signals/51_41095510,21_13399360.png" width="224" height="224">
+  </image>
+  <image id="96" name="highway_signals/51_41785280,21_13750700.png" width="224" height="224">
+  </image>
+  <image id="97" name="highway_signals/51_42533230,21_16272790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="98" name="highway_signals/51_62954830,17_79711800.png" width="224" height="224">
+  </image>
+  <image id="99" name="highway_signals/51_64843680,16_07895150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="100" name="highway_signals/51_65265330,17_82364500.png" width="224" height="224">
+  </image>
+  <image id="101" name="highway_signals/51_65351100,17_83849340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="102" name="highway_signals/51_66905260,19_37854980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="103" name="highway_signals/51_75200700,18_13115790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="104" name="highway_signals/51_75592890,19_45890340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="105" name="highway_signals/51_75642480,19_43421930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="106" name="highway_signals/51_75768140,18_07504540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="107" name="highway_signals/51_75833190,18_08109740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="108" name="highway_signals/51_77082660,18_09449670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="109" name="highway_signals/51_79652260,19_51458550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="110" name="highway_signals/51_82617080,19_42765100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="111" name="highway_signals/51_82858870,19_42666420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="112" name="highway_signals/51_82894400,19_42590410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="113" name="highway_signals/51_84205230,16_59385090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="114" name="highway_signals/51_85109900,16_56990890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="115" name="highway_signals/51_85503030,19_40602760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="116" name="highway_signals/51_93104940,15_48915550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="117" name="highway_signals/51_93712800,15_51199350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="118" name="highway_signals/51_95325810,18_39129690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="119" name="highway_signals/51_95983060,19_71064430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="120" name="highway_signals/51_97789020,20_83926000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="121" name="highway_signals/52_04155100,21_38511930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="122" name="highway_signals/52_08168080,21_01539480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="123" name="highway_signals/52_09716410,20_80663210.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="124" name="highway_signals/52_11763430,21_01873840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="125" name="highway_signals/52_11830950,19_94979820.png" width="224" height="224">
+  </image>
+  <image id="126" name="highway_signals/52_12147690,20_67950410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="127" name="highway_signals/52_12795420,21_01797720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="128" name="highway_signals/52_12917040,20_70846050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="129" name="highway_signals/52_12931590,20_70816330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="130" name="highway_signals/52_13076850,21_09776500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="131" name="highway_signals/52_13928500,21_01800370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="132" name="highway_signals/52_15856280,20_92113910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="133" name="highway_signals/52_16081850,21_04927070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="134" name="highway_signals/52_16874710,20_98501060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="135" name="highway_signals/52_16989940,21_04058950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="136" name="highway_signals/52_17918940,21_57248500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="137" name="highway_signals/52_18468990,21_55155640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="138" name="highway_signals/52_19321760,21_01487510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="139" name="highway_signals/52_20205800,21_38025730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="140" name="highway_signals/52_20511330,21_00923260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="141" name="highway_signals/52_21644430,20_87304440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="142" name="highway_signals/52_22014110,21_01552370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="143" name="highway_signals/52_22497990,20_91665320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="144" name="highway_signals/52_22727540,21_14673380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="145" name="highway_signals/52_23113320,18_23574440.png" width="224" height="224">
+  </image>
+  <image id="146" name="highway_signals/52_23131170,18_23551070.png" width="224" height="224">
+  </image>
+  <image id="147" name="highway_signals/52_23245190,20_97718230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="148" name="highway_signals/52_23471170,19_35276740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="149" name="highway_signals/52_23539400,20_91423720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="150" name="highway_signals/52_23781160,21_05142410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="151" name="highway_signals/52_24125380,21_02197610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="152" name="highway_signals/52_24209520,20_91210970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="153" name="highway_signals/52_24719500,20_98914860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="154" name="highway_signals/52_24729960,20_95685440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="155" name="highway_signals/52_25413150,20_98186780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="156" name="highway_signals/52_26864500,20_98557490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="157" name="highway_signals/52_26875190,21_03810060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="158" name="highway_signals/52_28281650,21_03336790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="159" name="highway_signals/52_28573490,21_14005530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="160" name="highway_signals/52_29647330,17_57881500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="161" name="highway_signals/52_31448290,20_92075270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="162" name="highway_signals/52_31813630,17_07639790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="163" name="highway_signals/52_33588710,16_80810070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="164" name="highway_signals/52_35884150,21_13455000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="165" name="highway_signals/52_37998050,16_94263870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="166" name="highway_signals/52_38497820,16_84026540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="167" name="highway_signals/52_38554180,16_97316320.png" width="224" height="224">
+  </image>
+  <image id="168" name="highway_signals/52_39265010,20_93508020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="169" name="highway_signals/52_39366980,16_94895330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="170" name="highway_signals/52_40179020,16_87591800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="171" name="highway_signals/52_41171350,16_86465680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="172" name="highway_signals/52_41225460,16_83210040.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="173" name="highway_signals/52_44307470,16_92926460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="174" name="highway_signals/52_44746020,16_99718410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="175" name="highway_signals/52_44764990,16_94489530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="176" name="highway_signals/52_48032130,17_27910170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="177" name="highway_signals/52_51328050,16_97501540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="178" name="highway_signals/52_53342630,19_13690730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="179" name="highway_signals/52_55270220,19_69229710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="180" name="highway_signals/52_55505480,16_08396310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="181" name="highway_signals/52_61768570,16_58390840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="182" name="highway_signals/52_64266570,16_80887640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="183" name="highway_signals/52_69501390,18_97615420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="184" name="highway_signals/52_69541400,18_97585950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="185" name="highway_signals/52_75338170,18_25626970.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="186" name="highway_signals/52_76754850,23_18416230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="187" name="highway_signals/52_85408670,19_66882290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="188" name="highway_signals/53_10560150,23_18534150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="189" name="highway_signals/53_10799370,18_04450660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="190" name="highway_signals/53_11649190,18_62546220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="191" name="highway_signals/53_11719630,18_03465270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="192" name="highway_signals/53_12508460,18_07754870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="193" name="highway_signals/53_12598650,18_02018290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="194" name="highway_signals/53_12834130,18_00612170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="195" name="highway_signals/53_12966270,17_97875530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="196" name="highway_signals/53_13212500,23_16065340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="197" name="highway_signals/53_13595690,18_02435940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="198" name="highway_signals/53_13595890,23_15946470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="199" name="highway_signals/53_13617550,23_15248830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="200" name="highway_signals/53_13633800,18_02423410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="201" name="highway_signals/53_13637580,23_16580980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="202" name="highway_signals/53_14388370,23_14929620.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="203" name="highway_signals/53_14706250,23_13653990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="204" name="highway_signals/53_15144310,16_73490340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="205" name="highway_signals/53_15267290,16_70864880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="206" name="highway_signals/53_15274130,16_70797200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="207" name="highway_signals/53_16030190,22_07520800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="208" name="highway_signals/53_18812470,18_07207030.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="209" name="highway_signals/53_27723920,16_48559220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="210" name="highway_signals/53_34146410,15_00412660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="211" name="highway_signals/53_38275700,14_66305910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="212" name="highway_signals/53_38813260,14_51414660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="213" name="highway_signals/53_42801880,14_55621260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="214" name="highway_signals/53_43537770,14_56073610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="215" name="highway_signals/53_43773410,14_57479600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="216" name="highway_signals/53_44070290,14_51315210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="217" name="highway_signals/53_45643340,14_48675860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="218" name="highway_signals/53_47491790,18_74532020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="219" name="highway_signals/53_53588990,16_85237850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="220" name="highway_signals/53_68489510,17_42727790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="221" name="highway_signals/53_75826630,20_49929860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="222" name="highway_signals/53_76490510,20_49446530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="223" name="highway_signals/53_78183940,20_50729470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="224" name="highway_signals/54_03537890,19_02816980.png" width="224" height="224">
+  </image>
+  <image id="225" name="highway_signals/54_09568450,18_78755070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="226" name="highway_signals/54_17588550,15_59375420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="227" name="highway_signals/54_18506280,18_67841440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="228" name="highway_signals/54_19591750,16_17419180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="229" name="highway_signals/54_20336220,16_15928280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="230" name="highway_signals/54_33789490,18_59996740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="231" name="highway_signals/54_34834430,18_66987870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="232" name="highway_signals/54_35786400,18_58059090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="233" name="highway_signals/54_35953100,18_64077650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="234" name="highway_signals/54_38020820,18_36201760.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="235" name="highway_signals/54_38783540,18_62193490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="236" name="highway_signals/54_41979210,18_58351040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="237" name="highway_signals/54_42323330,18_56418870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="238" name="highway_signals/54_44033600,18_41462060.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="239" name="highway_signals/54_44979440,18_55539040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="240" name="highway_signals/54_45888290,18_55447260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="241" name="highway_signals/54_48546460,18_54548050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="242" name="highway_signals/54_49833170,18_50007420.png" width="224" height="224">
+  </image>
+  <image id="243" name="highway_signals/54_50044910,18_46300750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="244" name="highway_signals/54_52337200,18_53901640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="245" name="highway_signals/54_52677530,18_51907700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="246" name="highway_signals/54_54415210,18_45261450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="247" name="highway_signals/54_55157500,18_50652930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="248" name="highway_signals/54_58036810,16_86180010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="249" name="highway_signals/54_60420030,18_24768560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="250" name="unmarked_tactile/49_82071310,19_06768520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="251" name="unmarked_tactile/49_94962420,18_58202060.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="252" name="unmarked_tactile/50_00554120,19_94508050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="253" name="unmarked_tactile/50_01528240,19_88924690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="254" name="unmarked_tactile/50_03491150,19_94141030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="255" name="unmarked_tactile/50_04079530,19_93730410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="256" name="unmarked_tactile/50_05052670,19_94410020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="257" name="unmarked_tactile/50_05137640,19_92704390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="258" name="unmarked_tactile/50_06199420,19_92759110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="259" name="unmarked_tactile/50_06704110,19_97524450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="260" name="unmarked_tactile/50_06937680,19_92314300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="261" name="unmarked_tactile/50_07028070,20_04463630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="262" name="unmarked_tactile/50_07215150,20_02840360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="263" name="unmarked_tactile/50_07499030,19_91215100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="264" name="unmarked_tactile/50_07554980,20_03473260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="265" name="unmarked_tactile/50_07795200,20_00343260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="266" name="unmarked_tactile/50_07997340,19_88054950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="267" name="unmarked_tactile/50_08277160,19_99935870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="268" name="unmarked_tactile/50_08407040,19_88612980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="269" name="unmarked_tactile/50_08407900,19_88584310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="270" name="unmarked_tactile/50_08730900,20_02769580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="271" name="unmarked_tactile/50_08993160,19_96348970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="272" name="unmarked_tactile/50_09003760,19_91773970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="273" name="unmarked_tactile/50_09011730,20_02343980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="274" name="unmarked_tactile/50_10879420,19_81799350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="275" name="unmarked_tactile/50_23200010,18_66163750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="276" name="unmarked_tactile/50_24016690,18_98084690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="277" name="unmarked_tactile/50_24393090,19_01011220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="278" name="unmarked_tactile/50_24491700,18_99208420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="279" name="unmarked_tactile/50_28642600,19_19367260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="280" name="unmarked_tactile/50_28830040,19_19490980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="281" name="unmarked_tactile/50_29127120,18_66663940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="282" name="unmarked_tactile/50_29412480,18_67462410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="283" name="unmarked_tactile/50_29448600,18_69083070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="284" name="unmarked_tactile/50_32372880,18_76609600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="285" name="unmarked_tactile/50_32514670,19_19240220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="286" name="unmarked_tactile/50_33548920,19_22166700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="287" name="unmarked_tactile/50_54227420,22_70615200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="288" name="unmarked_tactile/50_86098670,20_59791590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="289" name="unmarked_tactile/50_87349520,20_62920600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="290" name="unmarked_tactile/50_87555250,20_61262840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="291" name="unmarked_tactile/50_87855570,20_62418960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="292" name="unmarked_tactile/50_88327800,20_62724770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="293" name="unmarked_tactile/50_88389620,20_62724490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="294" name="unmarked_tactile/50_89477470,20_64629710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="295" name="unmarked_tactile/50_89520620,20_64341570.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="296" name="unmarked_tactile/50_90214020,20_67953940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="297" name="unmarked_tactile/51_05194320,17_01915630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="298" name="unmarked_tactile/51_05369510,17_05659340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="299" name="unmarked_tactile/51_05672210,17_00762060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="300" name="unmarked_tactile/51_05678670,17_00751530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="301" name="unmarked_tactile/51_09101100,17_03799800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="302" name="unmarked_tactile/51_09104210,17_03756450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="303" name="unmarked_tactile/51_09115240,17_03781430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="304" name="unmarked_tactile/51_10967180,17_12055960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="305" name="unmarked_tactile/51_11161110,17_05564040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="306" name="unmarked_tactile/51_11194170,17_05544830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="307" name="unmarked_tactile/51_11774760,17_02440350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="308" name="unmarked_tactile/51_15493120,17_02893220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="309" name="unmarked_tactile/51_15501210,17_02896220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="310" name="unmarked_tactile/51_25178400,22_52499430.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="311" name="unmarked_tactile/51_26661190,22_55922030.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="312" name="unmarked_tactile/51_27202640,22_57947740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="313" name="unmarked_tactile/51_59334190,18_71530930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="314" name="unmarked_tactile/52_09156400,21_04876290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="315" name="unmarked_tactile/52_10146170,21_29501450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="316" name="unmarked_tactile/52_10263950,21_26207610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="317" name="unmarked_tactile/52_10420030,21_26266960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="318" name="unmarked_tactile/52_10694050,21_26638300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="319" name="unmarked_tactile/52_11545070,21_25143730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="320" name="unmarked_tactile/52_11854940,21_25018770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="321" name="unmarked_tactile/52_13097410,21_06459610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="322" name="unmarked_tactile/52_14232310,21_02650270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="323" name="unmarked_tactile/52_14371160,21_02514460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="324" name="unmarked_tactile/52_14423550,21_02531770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="325" name="unmarked_tactile/52_15661410,20_99391890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="326" name="unmarked_tactile/52_15683750,21_00222580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="327" name="unmarked_tactile/52_16181720,20_99382410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="328" name="unmarked_tactile/52_16499190,20_77848970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="329" name="unmarked_tactile/52_17168040,20_93571740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="330" name="unmarked_tactile/52_17201400,20_93564150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="331" name="unmarked_tactile/52_17211260,21_00131640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="332" name="unmarked_tactile/52_17309050,20_99984150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="333" name="unmarked_tactile/52_17377760,21_05578810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="334" name="unmarked_tactile/52_17439010,21_05106480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="335" name="unmarked_tactile/52_17544600,20_99778330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="336" name="unmarked_tactile/52_17807050,20_98255900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="337" name="unmarked_tactile/52_17824430,20_98957520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="338" name="unmarked_tactile/52_17826700,20_94580930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="339" name="unmarked_tactile/52_17828790,20_98940400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="340" name="unmarked_tactile/52_17830620,20_94585560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="341" name="unmarked_tactile/52_17833160,20_98911640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="342" name="unmarked_tactile/52_18111100,21_02234620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="343" name="unmarked_tactile/52_18182700,20_97373420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="344" name="unmarked_tactile/52_18187200,20_97361520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="345" name="unmarked_tactile/52_18330600,21_01479620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="346" name="unmarked_tactile/52_18331300,21_02309190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="347" name="unmarked_tactile/52_18333520,20_87014770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="348" name="unmarked_tactile/52_18346160,21_00390840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="349" name="unmarked_tactile/52_18372330,20_87025560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="350" name="unmarked_tactile/52_18448280,21_13555320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="351" name="unmarked_tactile/52_18499510,20_95309470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="352" name="unmarked_tactile/52_18535410,21_00172460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="353" name="unmarked_tactile/52_18755980,20_98816820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="354" name="unmarked_tactile/52_19092600,20_95556610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="355" name="unmarked_tactile/52_19103800,20_98176920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="356" name="unmarked_tactile/52_19145790,20_88343860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="357" name="unmarked_tactile/52_19211750,20_98911440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="358" name="unmarked_tactile/52_19239680,20_98763350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="359" name="unmarked_tactile/52_19254670,21_02061640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="360" name="unmarked_tactile/52_19376630,20_98832920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="361" name="unmarked_tactile/52_19394370,21_01843750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="362" name="unmarked_tactile/52_19402130,20_96116240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="363" name="unmarked_tactile/52_19429450,21_55495000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="364" name="unmarked_tactile/52_19614160,20_98390960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="365" name="unmarked_tactile/52_19628800,20_99742160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="366" name="unmarked_tactile/52_19687710,20_98414600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="367" name="unmarked_tactile/52_19892790,20_88810370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="368" name="unmarked_tactile/52_19933520,21_11863700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="369" name="unmarked_tactile/52_19964970,20_93314170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="370" name="unmarked_tactile/52_20124620,20_98438360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="371" name="unmarked_tactile/52_20136140,20_96270690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="372" name="unmarked_tactile/52_20155080,20_96079740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="373" name="unmarked_tactile/52_20175670,20_97897600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="374" name="unmarked_tactile/52_20181520,20_96611240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="375" name="unmarked_tactile/52_20282670,20_94997090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="376" name="unmarked_tactile/52_20664410,21_02960260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="377" name="unmarked_tactile/52_21017870,20_96906900.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="378" name="unmarked_tactile/52_21076730,21_00749020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="379" name="unmarked_tactile/52_21619110,20_87682450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="380" name="unmarked_tactile/52_21664500,20_89331680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="381" name="unmarked_tactile/52_21665190,20_88689990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="382" name="unmarked_tactile/52_21698410,20_99711500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="383" name="unmarked_tactile/52_21716670,21_22750300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="384" name="unmarked_tactile/52_21783180,21_14514870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="385" name="unmarked_tactile/52_21886650,20_99998540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="386" name="unmarked_tactile/52_22039010,20_98164630.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="387" name="unmarked_tactile/52_22056100,20_90439080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="388" name="unmarked_tactile/52_22106880,20_90631130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="389" name="unmarked_tactile/52_22140110,21_09798410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="390" name="unmarked_tactile/52_22215380,21_10188210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="391" name="unmarked_tactile/52_22361770,20_99021140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="392" name="unmarked_tactile/52_22366840,20_99025240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="393" name="unmarked_tactile/52_22380340,20_93224620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="394" name="unmarked_tactile/52_22380750,20_98955510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="395" name="unmarked_tactile/52_22395480,20_90805900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="396" name="unmarked_tactile/52_22404830,20_97040660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="397" name="unmarked_tactile/52_22487300,20_92962300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="398" name="unmarked_tactile/52_22599190,20_77279320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="399" name="unmarked_tactile/52_22659080,20_98723960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="400" name="unmarked_tactile/52_22671150,20_96783520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="401" name="unmarked_tactile/52_22743350,20_98291640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="402" name="unmarked_tactile/52_22758260,21_00576620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="403" name="unmarked_tactile/52_22795950,21_06599320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="404" name="unmarked_tactile/52_22818480,20_98679850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="405" name="unmarked_tactile/52_22857860,21_02310100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="406" name="unmarked_tactile/52_22868510,20_91261890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="407" name="unmarked_tactile/52_22878080,20_87128980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="408" name="unmarked_tactile/52_22959740,20_98450950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="409" name="unmarked_tactile/52_23049550,20_83247680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="410" name="unmarked_tactile/52_23164300,21_00339560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="411" name="unmarked_tactile/52_23202240,20_91659060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="412" name="unmarked_tactile/52_23483630,21_03433070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="413" name="unmarked_tactile/52_23528360,20_78082050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="414" name="unmarked_tactile/52_23647030,21_00908990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="415" name="unmarked_tactile/52_23648360,21_01570360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="416" name="unmarked_tactile/52_23655040,21_05013620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="417" name="unmarked_tactile/52_23664020,21_00903310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="418" name="unmarked_tactile/52_23674300,21_00617730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="419" name="unmarked_tactile/52_23679780,21_04719700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="420" name="unmarked_tactile/52_23867230,21_12057220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="421" name="unmarked_tactile/52_23904090,21_01451650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="422" name="unmarked_tactile/52_23927650,21_11520000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="423" name="unmarked_tactile/52_24354960,21_11713040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="424" name="unmarked_tactile/52_24362030,21_11703250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="425" name="unmarked_tactile/52_24512810,21_11028070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="426" name="unmarked_tactile/52_24530580,21_10918990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="427" name="unmarked_tactile/52_24536550,21_10814280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="428" name="unmarked_tactile/52_24579110,21_10642040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="429" name="unmarked_tactile/52_24592140,21_10667330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="430" name="unmarked_tactile/52_24632490,21_01917760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="431" name="unmarked_tactile/52_24807600,21_10966100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="432" name="unmarked_tactile/52_24937830,21_00911380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="433" name="unmarked_tactile/52_25070750,20_97971940.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="434" name="unmarked_tactile/52_25272450,21_03066270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="435" name="unmarked_tactile/52_25313440,20_98192840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="436" name="unmarked_tactile/52_25814880,20_89796370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="437" name="unmarked_tactile/52_26025180,21_04142250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="438" name="unmarked_tactile/52_26029600,21_15368950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="439" name="unmarked_tactile/52_26130270,21_04570220.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="440" name="unmarked_tactile/52_26244500,20_98264210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="441" name="unmarked_tactile/52_26476500,20_98443880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="442" name="unmarked_tactile/52_27091270,20_96245790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="443" name="unmarked_tactile/52_27778470,21_05951850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="444" name="unmarked_tactile/52_27784360,21_05932680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="445" name="unmarked_tactile/52_27834830,21_05994280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="446" name="unmarked_tactile/52_27839720,21_05978350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="447" name="unmarked_tactile/52_28060230,21_06042870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="448" name="unmarked_tactile/52_28210310,20_94811890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="449" name="unmarked_tactile/52_28213760,21_05482870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="450" name="unmarked_tactile/52_28339640,21_07184970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="451" name="unmarked_tactile/52_28340790,21_05963020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="452" name="unmarked_tactile/52_28346440,21_05942730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="453" name="unmarked_tactile/52_28437610,20_92785720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="454" name="unmarked_tactile/52_28599690,21_07347890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="455" name="unmarked_tactile/52_28649720,21_07256670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="456" name="unmarked_tactile/52_28819850,21_07332270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="457" name="unmarked_tactile/52_28946160,21_02704370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="458" name="unmarked_tactile/52_28950080,21_02687300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="459" name="unmarked_tactile/52_29039750,21_07223690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="460" name="unmarked_tactile/52_29079150,21_06772830.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="461" name="unmarked_tactile/52_29109410,21_07135130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="462" name="unmarked_tactile/52_29140010,21_05754210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="463" name="unmarked_tactile/52_29145330,21_05733530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="464" name="unmarked_tactile/52_29174380,21_05395510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="465" name="unmarked_tactile/52_29278490,21_04834600.png" width="224" height="224">
+  </image>
+  <image id="466" name="unmarked_tactile/52_29480910,21_05648040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="467" name="unmarked_tactile/52_30343210,21_10247940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="468" name="unmarked_tactile/52_30420090,20_99096940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="469" name="unmarked_tactile/52_31533040,21_15005620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="470" name="unmarked_tactile/52_32694560,20_93691050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="471" name="unmarked_tactile/52_32837150,20_95672700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="472" name="unmarked_tactile/52_33941230,21_24922930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="473" name="unmarked_tactile/52_33996580,20_94663820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="474" name="unmarked_tactile/52_34046650,20_94787030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="475" name="unmarked_tactile/52_39930060,16_95298550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="476" name="unmarked_tactile/52_72215140,15_22947580.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="477" name="unmarked_tactile/52_72295610,15_22908460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="478" name="unmarked_tactile/52_86975850,21_09267410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="479" name="unmarked_tactile/53_11484120,23_15050230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="480" name="unmarked_tactile/53_11525410,23_13506800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="481" name="unmarked_tactile/53_13409210,23_15766800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="482" name="unmarked_tactile/53_41210200,14_71276210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="483" name="unmarked_tactile/53_41236970,14_71403410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="484" name="unmarked_tactile/53_42860250,14_53490950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="485" name="unmarked_tactile/53_42961450,14_53509470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="486" name="unmarked_tactile/53_43117300,14_53589780.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="487" name="unmarked_tactile/53_43122360,14_53606250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="488" name="unmarked_tactile/53_43125070,14_54312050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="489" name="unmarked_tactile/53_43164590,14_54023830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="490" name="unmarked_tactile/53_43581170,14_53511650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="491" name="unmarked_tactile/53_44591740,14_56723110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="492" name="unmarked_tactile/53_45008830,14_55041860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="493" name="unmarked_tactile/54_35343500,18_61396160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="494" name="unmarked_tactile/54_38013390,18_58313180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="495" name="unmarked_tactile/54_38489390,18_61057680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="496" name="unmarked_tactile/54_38502100,18_61100000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="497" name="unmarked_tactile/54_41870040,18_57140910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="498" name="unmarked_tactile/54_42064960,18_57053130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="499" name="unmarked_tactile/54_51907450,18_55136360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+</annotations>

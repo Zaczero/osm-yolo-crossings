@@ -306,6 +306,3 @@ poetry.toml
 
 data/*
 images/*
-
-# TODO:
-dataset/*

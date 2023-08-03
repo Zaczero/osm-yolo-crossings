@@ -1,0 +1,3540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>19</id>
+      <name>4-chess</name>
+      <size>20</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-07-30 11:17:00.215233+00:00</created>
+      <updated>2023-07-30 11:18:07.513440+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>19</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>19</id>
+          <start>0</start>
+          <stop>19</stop>
+          <url>https://label.monicz.pl/api/jobs/19</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>admin</username>
+        <email>admin@localhost.invalid</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>valid</name>
+          <color>#24b353</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>signals</name>
+          <color>#b83df5</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>raised</name>
+          <color>#ff6a4d</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>invalid</name>
+          <color>#fa3253</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </task>
+    <dumped>2023-07-30 11:30:51.207584+00:00</dumped>
+  </meta>
+  <image id="0" name="chess/49_35088440,20_88735270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="chess/50_03445500,19_99426440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="chess/50_03506900,20_22043780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="chess/50_08292140,20_02491060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="chess/50_18128860,18_89064730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="chess/50_65141290,20_29062990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="chess/50_74450990,20_64337190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="chess/51_12308680,17_03116410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="8" name="chess/51_12314150,17_03110380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="9" name="chess/51_79570930,19_38421080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="chess/52_29083650,21_03355460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="chess/52_64550270,16_08601270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="chess/52_73291090,15_23307780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="chess/53_42285340,14_53716610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="chess/53_43258920,14_54863860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="chess/53_43295120,14_54759250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="chess/53_53929500,14_54985300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="chess/54_41301700,18_62346790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="chess/54_42232130,18_59437140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="chess/54_51293680,18_52402100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="0" name="concrete_plates/49_14752760,22_52052080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="concrete_plates/49_34867890,20_17539120.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="concrete_plates/49_41312520,22_48094410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="concrete_plates/49_72114010,18_72872410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="concrete_plates/49_74030400,18_66458880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="concrete_plates/49_75621870,20_73567380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="concrete_plates/49_76776870,18_71805380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="concrete_plates/49_90939650,18_75760720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="8" name="concrete_plates/49_91039510,18_75850650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="9" name="concrete_plates/49_93255700,18_33432080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="concrete_plates/49_94191010,19_94902670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="concrete_plates/49_98947740,21_93526850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="concrete_plates/50_01165460,19_94549150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="concrete_plates/50_01195520,18_68701220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="concrete_plates/50_03338740,19_88812850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="concrete_plates/50_05220480,20_06052450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="concrete_plates/50_06287410,20_09050810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="concrete_plates/50_07939350,19_29954300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="concrete_plates/50_07958620,19_89841570.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="concrete_plates/50_08295770,18_19317340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="20" name="concrete_plates/50_08317720,19_27225770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="21" name="concrete_plates/50_08857410,18_54074260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="22" name="concrete_plates/50_09500290,18_22047910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="23" name="concrete_plates/50_10998250,18_95541040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="24" name="concrete_plates/50_12309770,18_54354170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="25" name="concrete_plates/50_12997190,19_38442220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="26" name="concrete_plates/50_14390240,19_63822070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="27" name="concrete_plates/50_15404880,20_14436930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="28" name="concrete_plates/50_17220400,19_52364290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="29" name="concrete_plates/50_19243330,19_20009060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="30" name="concrete_plates/50_21951710,18_56668640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="31" name="concrete_plates/50_23085080,18_97106070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="32" name="concrete_plates/50_23416260,19_28585390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="33" name="concrete_plates/50_23628630,19_29944040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="34" name="concrete_plates/50_26640310,21_77298650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="35" name="concrete_plates/50_27452630,19_14820050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="36" name="concrete_plates/50_27487970,18_46564910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="37" name="concrete_plates/50_28244220,19_19317510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="38" name="concrete_plates/50_29138390,21_42406290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="39" name="concrete_plates/50_29858400,19_07273140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="40" name="concrete_plates/50_30209160,19_32810310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="41" name="concrete_plates/50_31746280,19_31253580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="42" name="concrete_plates/50_37021390,22_74018910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="43" name="concrete_plates/50_40337450,23_74775460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="44" name="concrete_plates/50_41479570,23_74652050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="45" name="concrete_plates/50_43130000,17_29559930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="46" name="concrete_plates/50_44437080,19_21621770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="47" name="concrete_plates/50_44470070,19_21681420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="48" name="concrete_plates/50_51754550,21_52933130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="49" name="concrete_plates/50_52872740,23_52727180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="50" name="concrete_plates/50_52973510,22_71990540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="51" name="concrete_plates/50_53248850,19_39572670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="52" name="concrete_plates/50_54097540,22_73830810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="53" name="concrete_plates/50_55834060,21_77730680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="54" name="concrete_plates/50_56113800,21_66382000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="55" name="concrete_plates/50_56544240,22_05634990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="56" name="concrete_plates/50_57174580,21_80005990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="57" name="concrete_plates/50_78718780,19_08520590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="58" name="concrete_plates/50_79396640,20_61026040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="59" name="concrete_plates/50_87491250,20_59217390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="60" name="concrete_plates/50_90315170,15_76370810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="61" name="concrete_plates/51_04499810,20_83854180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="62" name="concrete_plates/51_05922890,17_02370830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="63" name="concrete_plates/51_09424150,17_02474410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="64" name="concrete_plates/51_10203500,17_02252070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="65" name="concrete_plates/51_10686110,17_05084290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="66" name="concrete_plates/51_11007610,16_99898860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="67" name="concrete_plates/51_11082110,16_99813230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="68" name="concrete_plates/51_11762750,17_06322890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="69" name="concrete_plates/51_11772690,17_05763890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="70" name="concrete_plates/51_12185600,16_97093570.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="71" name="concrete_plates/51_12233300,16_97378280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="72" name="concrete_plates/51_12356280,16_96767710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="73" name="concrete_plates/51_12686040,20_87605700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="74" name="concrete_plates/51_14260880,23_45097740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="75" name="concrete_plates/51_14269770,23_43858790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="76" name="concrete_plates/51_14287440,23_43814320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="77" name="concrete_plates/51_14373210,17_08169020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="78" name="concrete_plates/51_15508950,17_11807290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="79" name="concrete_plates/51_15839740,17_02548000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="80" name="concrete_plates/51_20916460,16_94433960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="81" name="concrete_plates/51_22492180,18_56464480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="82" name="concrete_plates/51_22688840,22_38477560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="83" name="concrete_plates/51_23528200,22_65415300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="84" name="concrete_plates/51_27720080,15_93975700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="85" name="concrete_plates/51_30143250,18_15941160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="86" name="concrete_plates/51_36931780,22_22748800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="87" name="concrete_plates/51_40045420,21_98267820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="88" name="concrete_plates/51_40047680,21_97805460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="89" name="concrete_plates/51_56829080,18_70325980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="90" name="concrete_plates/51_58341030,18_93377600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="91" name="concrete_plates/51_70080800,17_43892830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="92" name="concrete_plates/51_70107380,17_43288830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="93" name="concrete_plates/51_70133150,17_43222530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="94" name="concrete_plates/51_71414250,19_48045010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="95" name="concrete_plates/51_73868260,19_40489240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="96" name="concrete_plates/51_74433590,19_56744490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="97" name="concrete_plates/51_77732220,19_50310950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="98" name="concrete_plates/51_80650190,19_40990230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="99" name="concrete_plates/51_89864960,19_94142790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="100" name="concrete_plates/52_03962600,22_94783610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="101" name="concrete_plates/52_10753730,20_90737290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="102" name="concrete_plates/52_16084930,21_02568500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="103" name="concrete_plates/52_16084970,21_02561190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="104" name="concrete_plates/52_16128290,20_99044200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="105" name="concrete_plates/52_16436150,20_82194120.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="106" name="concrete_plates/52_18796300,16_84421990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="107" name="concrete_plates/52_20179450,20_88226610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="108" name="concrete_plates/52_21136960,21_05267000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="109" name="concrete_plates/52_22024530,20_92757320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="110" name="concrete_plates/52_23665640,18_27236860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="111" name="concrete_plates/52_30899950,16_12523400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="112" name="concrete_plates/52_31411860,15_06212320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="113" name="concrete_plates/52_35006550,21_16079150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="114" name="concrete_plates/52_35977440,21_18697930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="115" name="concrete_plates/52_38260900,16_86178160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="116" name="concrete_plates/52_43007250,16_84684250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="117" name="concrete_plates/52_51232150,19_76743880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="118" name="concrete_plates/52_53183580,19_71263870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="119" name="concrete_plates/52_53549230,19_71493710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="120" name="concrete_plates/52_58545120,21_44768550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="121" name="concrete_plates/52_58653950,14_64436330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="122" name="concrete_plates/52_73798780,15_40913030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="123" name="concrete_plates/52_96645400,14_39766540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="124" name="concrete_plates/52_97222810,15_77400160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="125" name="concrete_plates/53_00955100,18_59303020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="126" name="concrete_plates/53_03565850,16_45364620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="127" name="concrete_plates/53_04039370,18_68482450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="128" name="concrete_plates/53_05425810,15_48255220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="129" name="concrete_plates/53_09952900,18_11329590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="130" name="concrete_plates/53_10124910,18_11403560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="131" name="concrete_plates/53_10185280,18_11057880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="132" name="concrete_plates/53_11964320,18_03691930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="133" name="concrete_plates/53_15668570,18_12157180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="134" name="concrete_plates/53_26514950,14_96933630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="135" name="concrete_plates/53_34806090,14_56837590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="136" name="concrete_plates/53_35405020,14_56929720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="137" name="concrete_plates/53_35722640,14_58448330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="138" name="concrete_plates/53_35958150,14_59926860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="139" name="concrete_plates/53_36233290,14_59229280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="140" name="concrete_plates/53_36466300,14_58686040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="141" name="concrete_plates/53_36519050,14_58603760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="142" name="concrete_plates/53_37301670,14_62490620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="143" name="concrete_plates/53_37383420,14_60953710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="144" name="concrete_plates/53_37639420,14_61195190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="145" name="concrete_plates/53_38388510,14_62008100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="146" name="concrete_plates/53_38820280,14_47277800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="147" name="concrete_plates/53_42205410,14_49908210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="148" name="concrete_plates/53_43057310,14_52597180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="149" name="concrete_plates/53_44201400,14_56872880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="150" name="concrete_plates/53_44395890,19_61220710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="151" name="concrete_plates/53_45171450,14_47091260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="152" name="concrete_plates/53_46137370,14_46040990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="153" name="concrete_plates/53_46530330,14_46896990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="154" name="concrete_plates/53_46604470,14_46748500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="155" name="concrete_plates/53_46629630,14_55963370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="156" name="concrete_plates/53_69146610,17_58405280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="157" name="concrete_plates/53_79181060,15_83687860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="158" name="concrete_plates/53_79236070,20_44133690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="159" name="concrete_plates/53_82206050,22_35709060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="160" name="concrete_plates/53_98630460,14_84982460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="161" name="concrete_plates/54_00724470,17_76705380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="162" name="concrete_plates/54_00894540,19_20577490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="163" name="concrete_plates/54_03040510,15_53740680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="164" name="concrete_plates/54_05209210,19_65397510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="165" name="concrete_plates/54_05765670,18_82806540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="166" name="concrete_plates/54_14542320,18_93934250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="167" name="concrete_plates/54_14850190,15_64116380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="168" name="concrete_plates/54_15615980,15_40023080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="169" name="concrete_plates/54_16812590,19_45195100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="170" name="concrete_plates/54_16944790,15_55088280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="171" name="concrete_plates/54_18037490,15_63588640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="172" name="concrete_plates/54_19238320,15_67519290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="173" name="concrete_plates/54_21256350,16_18865090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="174" name="concrete_plates/54_25433020,16_04040910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="175" name="concrete_plates/54_25502570,16_05186380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="176" name="concrete_plates/54_32001810,18_67248790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="177" name="concrete_plates/54_32432940,18_55452460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="178" name="concrete_plates/54_33010860,18_25885810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="179" name="concrete_plates/54_33544420,18_61970210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="180" name="concrete_plates/54_33947780,18_82241580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="181" name="concrete_plates/54_35351420,18_54413150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="182" name="concrete_plates/54_35619170,18_60689440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="183" name="concrete_plates/54_35708880,18_51487310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="184" name="concrete_plates/54_36743960,18_33149780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="185" name="concrete_plates/54_37391650,18_44497310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="186" name="concrete_plates/54_37819140,19_44242500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="187" name="concrete_plates/54_39574500,18_64795240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="188" name="concrete_plates/54_40663860,18_62516290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="189" name="concrete_plates/54_40958650,18_61065070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="190" name="concrete_plates/54_41339680,18_47028300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="191" name="concrete_plates/54_42554190,18_47276180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="192" name="concrete_plates/54_47511110,18_51062260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="193" name="concrete_plates/54_48204590,18_52666850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="194" name="concrete_plates/54_48799210,18_54545670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="195" name="concrete_plates/54_49960150,18_45906940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="196" name="concrete_plates/54_50136900,18_45600780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="197" name="concrete_plates/54_55554460,18_46981960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="198" name="concrete_plates/54_58948370,18_23239960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="199" name="concrete_plates/54_60660360,18_21465540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="0" name="lines/50_27590640,19_13244020.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="lines/50_27606730,19_13247890.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="lines/50_28751310,18_15540910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="lines/50_29086990,19_13375220.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="lines/50_29495830,19_18314800.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="lines/50_29952800,19_18074630.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="lines/50_93026130,17_29975960.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="lines/52_11271970,20_64519640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="8" name="lines/52_23209990,19_35787200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="9" name="lines/52_23211180,19_35740500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="lines/52_24749930,20_96505490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="lines/54_01339270,16_97503220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="lines/54_09836980,18_55550810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="lines/54_45232230,17_01681430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="lines/54_45279060,17_01756040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="lines/54_45440080,17_01431180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="lines/54_45527820,17_00853810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="lines/54_45572860,16_98553500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="lines/54_45621550,16_98711540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="lines/54_45631640,16_98834820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="20" name="lines/54_45633410,17_00140900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="21" name="lines/54_45633650,17_00139300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="22" name="lines/54_45645840,16_98876470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="23" name="lines/54_45651730,17_00035150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="24" name="lines/54_45665420,16_99929550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="25" name="lines/54_45784420,16_99243510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="26" name="lines/54_46081540,16_98171690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="27" name="lines/54_46235760,16_98235160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="28" name="lines/54_46236720,16_98230670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="29" name="lines/54_46356810,16_98903060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="30" name="lines/54_46580650,16_98369600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="31" name="lines/54_46627660,16_99641320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="32" name="lines/54_46636600,16_99568770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="33" name="lines/54_47025230,17_01876930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="34" name="lines/54_47363850,17_00813740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="35" name="lines/54_47496730,16_99514930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="36" name="lines/54_47531610,16_99285310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="37" name="lines/54_47559890,16_99135870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="38" name="lines/54_47664250,16_98424950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="39" name="lines/54_47668610,16_98392480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="40" name="lines/54_47710490,16_98086100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="41" name="lines/54_47746450,16_97826670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="42" name="lines/54_47861170,16_97229670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="43" name="lines/54_47951970,16_96730400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="44" name="lines/54_48087820,16_96030830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="45" name="lines/54_48154830,16_95005810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="46" name="lines/54_48190140,16_94489200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="47" name="lines/54_48234040,16_93834460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="48" name="lines/54_48355520,16_92870120.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="49" name="lines/54_48526110,16_92262600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="0" name="roof_white/50_05525420,19_95660510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="roof_white/50_05635150,20_06215030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="roof_white/50_06584010,18_55731890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="roof_white/50_06584850,18_55746450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="roof_white/50_06592730,18_55727960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="roof_white/50_06630390,18_55794630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="roof_white/50_08443240,18_62950340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="roof_white/50_08774450,18_56886860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="8" name="roof_white/50_08778910,21_38388450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="9" name="roof_white/50_08997650,18_56522900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="roof_white/50_11459530,21_39878040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="roof_white/50_18277110,18_45992020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="roof_white/50_29174150,21_43179550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="roof_white/50_30446870,19_27302520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="roof_white/50_30479920,19_26450660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="roof_white/50_30726610,19_26475150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="roof_white/50_31276540,19_24955410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="roof_white/50_31282050,19_26863660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="roof_white/50_31295490,19_28340460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="roof_white/50_31296450,19_26861710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="20" name="roof_white/50_31339480,19_24804850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="21" name="roof_white/50_31492520,19_27961060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="22" name="roof_white/50_31548970,19_24859810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="23" name="roof_white/50_31562560,19_28673490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="24" name="roof_white/50_31568660,19_26936510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="25" name="roof_white/50_31578120,19_26252340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="26" name="roof_white/50_31696010,19_28639690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="27" name="roof_white/50_31752540,19_28426870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="28" name="roof_white/50_31854110,19_21218760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="29" name="roof_white/50_31867070,19_28443190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="30" name="roof_white/50_31938860,19_28579370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="31" name="roof_white/50_32393390,19_25465320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="32" name="roof_white/50_33751110,19_22434880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="33" name="roof_white/50_34271340,19_22098700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="34" name="roof_white/50_38802350,19_32075620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="35" name="roof_white/50_42351870,19_27573650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="36" name="roof_white/50_42400940,19_25632340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="37" name="roof_white/50_42638230,19_25963030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="38" name="roof_white/50_42728050,19_25893270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="39" name="roof_white/50_42740160,19_25876090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="40" name="roof_white/50_43062930,19_24577460.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="41" name="roof_white/50_67858540,16_61557600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="42" name="roof_white/50_68010520,16_61746790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="43" name="roof_white/50_68017000,16_61754250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="44" name="roof_white/50_68320720,16_61944310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="45" name="roof_white/50_68386320,16_62036840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="46" name="roof_white/50_86022420,21_04848870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="47" name="roof_white/51_07216610,16_96432890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="48" name="roof_white/51_08116900,19_45025690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="49" name="roof_white/51_40910470,21_14665710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="50" name="roof_white/51_40945180,21_14677190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="51" name="roof_white/51_51033280,18_06699930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="52" name="roof_white/51_56983620,17_68616290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="53" name="roof_white/51_56984240,17_68612030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="54" name="roof_white/51_56993410,17_68630820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="55" name="roof_white/51_72971210,19_50474880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="56" name="roof_white/51_78305480,19_45354080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="57" name="roof_white/51_78305870,19_45362430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="58" name="roof_white/51_78314150,19_45352720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="59" name="roof_white/51_80741030,19_47205960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="60" name="roof_white/51_80764510,19_47326080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="61" name="roof_white/52_12255630,20_76555140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="62" name="roof_white/52_24061970,21_00944070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="63" name="roof_white/52_24074090,21_00953300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="64" name="roof_white/52_24089730,21_01127870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="65" name="roof_white/52_24089730,21_01127890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="66" name="roof_white/52_24092950,21_01126540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="67" name="roof_white/52_24094240,21_01135110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="68" name="roof_white/52_24094250,21_01135130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="69" name="roof_white/52_24096190,21_01125210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="70" name="roof_white/52_24097490,21_01133790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="71" name="roof_white/52_25575810,20_95216540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="72" name="roof_white/52_25576850,20_95213450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="73" name="roof_white/52_25578790,20_95211370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="74" name="roof_white/52_25580710,20_95213080.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="75" name="roof_white/52_31088800,21_15350890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="76" name="roof_white/52_43089180,16_90026250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="77" name="roof_white/52_43105000,16_90035140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="78" name="roof_white/52_45760940,15_57567750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="79" name="roof_white/52_45825060,15_57504500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="80" name="roof_white/52_45841610,15_57487840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="81" name="roof_white/52_45856670,15_57468960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="82" name="roof_white/52_53676910,17_59215110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="83" name="roof_white/52_53679990,17_59204000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="84" name="roof_white/53_03821940,18_62510270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="85" name="roof_white/53_43311180,14_51417910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="86" name="roof_white/53_45565310,19_72743370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="87" name="roof_white/53_45565320,19_72743370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="88" name="roof_white/53_45568770,19_72741230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="89" name="roof_white/53_45569370,19_72740850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="90" name="roof_white/53_45581830,19_72820470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="91" name="roof_white/53_45582420,19_72820100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="92" name="roof_white/53_45586480,19_72817520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="93" name="roof_white/53_81685570,22_38264070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="94" name="roof_white/54_33705500,18_20847000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="95" name="roof_white/54_34987070,18_65225820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="96" name="roof_white/54_34996500,18_65228360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="97" name="roof_white/54_34996860,18_65249000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="98" name="roof_white/54_34998810,18_65233160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="0" name="unmarked/49_38472210,20_95251630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="unmarked/49_39708880,21_02401010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="unmarked/49_51180750,22_26300550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="unmarked/49_58529430,21_79546470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="unmarked/49_58869830,21_94643870.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="unmarked/49_59186320,21_79573150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="unmarked/49_61826710,22_11182570.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="unmarked/49_63645320,20_02047050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="8" name="unmarked/49_65408190,21_15877540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="9" name="unmarked/49_65919490,21_15410320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="unmarked/49_68107840,21_76665400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="unmarked/49_68290680,21_77179410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="unmarked/49_68711040,21_75170380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="unmarked/49_68862890,19_18561220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="unmarked/49_69038300,21_72540590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="unmarked/49_69059300,21_72784950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="unmarked/49_69648430,21_75373870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="unmarked/49_70055620,21_76233440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="unmarked/49_70175450,21_74539890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="unmarked/49_70978650,19_68766120.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="20" name="unmarked/49_71032020,19_20903640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="21" name="unmarked/49_72716280,19_67851130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="22" name="unmarked/49_75176820,19_96704110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="23" name="unmarked/49_81484960,19_00455670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="24" name="unmarked/49_81593460,19_01812040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="25" name="unmarked/49_81961470,19_05331940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="26" name="unmarked/49_83359570,19_79655510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="27" name="unmarked/49_85753540,19_34747900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="28" name="unmarked/49_86943560,19_50514130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="29" name="unmarked/49_87307650,19_49809000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="30" name="unmarked/49_89034230,20_44955110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="31" name="unmarked/49_94372800,19_74119600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="32" name="unmarked/49_94520480,21_91112710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="33" name="unmarked/49_94572210,22_82427640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="34" name="unmarked/49_97697430,21_92756720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="35" name="unmarked/49_97762280,19_94542300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="36" name="unmarked/49_98696180,18_26544830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="37" name="unmarked/49_99741790,22_01787140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="38" name="unmarked/49_99971030,19_89586900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="39" name="unmarked/50_00267040,19_92243370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="40" name="unmarked/50_00402720,19_98866580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="41" name="unmarked/50_01694080,22_68336380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="42" name="unmarked/50_01777000,19_92322000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="43" name="unmarked/50_01858380,19_98025450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="44" name="unmarked/50_02543590,19_92037820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="45" name="unmarked/50_02832750,21_92700620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="46" name="unmarked/50_02897220,22_72244580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="47" name="unmarked/50_03255380,18_61518650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="48" name="unmarked/50_03649240,19_98791280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="49" name="unmarked/50_03745960,19_99912280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="50" name="unmarked/50_03807070,22_03916220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="51" name="unmarked/50_03884880,22_03263580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="52" name="unmarked/50_04490510,21_96930310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="53" name="unmarked/50_04502170,19_96743640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="54" name="unmarked/50_04831330,19_92715100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="55" name="unmarked/50_05063330,19_92962660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="56" name="unmarked/50_05457030,19_95572060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="57" name="unmarked/50_05514590,21_97758540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="58" name="unmarked/50_05569260,22_00515950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="59" name="unmarked/50_05677640,22_00591900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="60" name="unmarked/50_05988770,21_95145930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="61" name="unmarked/50_06434200,22_22400240.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="62" name="unmarked/50_06577160,19_95715060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="63" name="unmarked/50_06927940,19_98248940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="64" name="unmarked/50_06970870,19_98079600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="65" name="unmarked/50_07240920,19_90356020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="66" name="unmarked/50_07867260,20_03501760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="67" name="unmarked/50_07916200,19_91816240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="68" name="unmarked/50_07989470,19_88618470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="69" name="unmarked/50_08356020,19_90588280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="70" name="unmarked/50_08583470,18_99970870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="71" name="unmarked/50_08951790,19_99296880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="72" name="unmarked/50_09241420,18_25803180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="73" name="unmarked/50_09306010,18_54208930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="74" name="unmarked/50_09499230,20_00378830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="75" name="unmarked/50_09643380,18_52636510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="76" name="unmarked/50_09889410,18_52744730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="77" name="unmarked/50_11897160,20_63711940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="78" name="unmarked/50_13539720,18_55047660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="79" name="unmarked/50_14279380,18_63216000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="80" name="unmarked/50_15930160,18_92500700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="81" name="unmarked/50_16088370,18_36987740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="82" name="unmarked/50_16585840,19_97821020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="83" name="unmarked/50_16758960,18_54063170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="84" name="unmarked/50_19811310,18_57931880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="85" name="unmarked/50_23144050,18_98889290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="86" name="unmarked/50_24768340,21_77130100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="87" name="unmarked/50_24859690,21_76725150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="88" name="unmarked/50_25260810,19_00409480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="89" name="unmarked/50_25914230,21_68368490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="90" name="unmarked/50_25997230,21_72747650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="91" name="unmarked/50_26110830,19_02532010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="92" name="unmarked/50_26328180,21_65579310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="93" name="unmarked/50_26654660,19_04725330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="94" name="unmarked/50_27340170,18_64921610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="95" name="unmarked/50_27678730,18_65923060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="96" name="unmarked/50_27769930,18_65526830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="97" name="unmarked/50_27906310,18_68182410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="98" name="unmarked/50_27971140,18_67140760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="99" name="unmarked/50_28237760,22_43051630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="100" name="unmarked/50_28344350,18_67536600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="101" name="unmarked/50_28409360,18_67954840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="102" name="unmarked/50_28734270,18_66713430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="103" name="unmarked/50_29321230,18_64456960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="104" name="unmarked/50_29352890,18_64702870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="105" name="unmarked/50_29419330,18_92406210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="106" name="unmarked/50_29602030,18_64280160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="107" name="unmarked/50_29673630,18_77666740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="108" name="unmarked/50_29799250,18_78343920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="109" name="unmarked/50_29810730,18_78489860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="110" name="unmarked/50_29826660,18_77550020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="111" name="unmarked/50_29939370,19_00667940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="112" name="unmarked/50_29967090,18_97403430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="113" name="unmarked/50_30104040,18_77896960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="114" name="unmarked/50_30283440,18_68428930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="115" name="unmarked/50_30394050,19_00966030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="116" name="unmarked/50_30436330,19_03055530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="117" name="unmarked/50_30649670,18_84764260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="118" name="unmarked/50_30714480,18_62426880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="119" name="unmarked/50_31099410,18_85386500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="120" name="unmarked/50_31225880,18_68085090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="121" name="unmarked/50_31313050,18_66969960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="122" name="unmarked/50_31429470,18_67260680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="123" name="unmarked/50_31470240,18_67491790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="124" name="unmarked/50_31549910,19_17183290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="125" name="unmarked/50_31814440,19_07300790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="126" name="unmarked/50_32279910,18_59531700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="127" name="unmarked/50_32734040,18_59151110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="128" name="unmarked/50_33720380,18_63759440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="129" name="unmarked/50_34105550,18_62640310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="130" name="unmarked/50_34392820,18_62112590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="131" name="unmarked/50_34474360,18_93940950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="132" name="unmarked/50_34797430,21_73888580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="133" name="unmarked/50_34977580,18_84921760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="134" name="unmarked/50_44888800,21_06550500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="135" name="unmarked/50_44926180,20_58882960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="136" name="unmarked/50_45325280,21_06611410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="137" name="unmarked/50_46415550,22_92210260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="138" name="unmarked/50_46750910,22_88094800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="139" name="unmarked/50_49825740,19_43720780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="140" name="unmarked/50_53824410,22_72395620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="141" name="unmarked/50_55789160,21_16148380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="142" name="unmarked/50_56506770,21_15044050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="143" name="unmarked/50_62112940,21_10606180.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="144" name="unmarked/50_63800900,20_30569480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="145" name="unmarked/50_65545950,20_00728510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="146" name="unmarked/50_66332970,20_07494960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="147" name="unmarked/50_66515810,17_81475750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="148" name="unmarked/50_68109350,16_61509210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="149" name="unmarked/50_72183710,23_22408890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="150" name="unmarked/50_72622240,20_09988890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="151" name="unmarked/50_74434400,20_61689110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="152" name="unmarked/50_80261710,19_11564350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="153" name="unmarked/50_85833230,20_63815000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="154" name="unmarked/50_86623140,18_82635140.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="155" name="unmarked/50_86643030,20_61792150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="156" name="unmarked/50_86800610,20_61851230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="157" name="unmarked/50_87259870,20_63256540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="158" name="unmarked/50_87276480,20_63893450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="159" name="unmarked/50_87454090,20_61988030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="160" name="unmarked/50_87555250,20_61262840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="161" name="unmarked/50_88533740,20_58504100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="162" name="unmarked/50_88566580,20_58446400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="163" name="unmarked/50_89114470,20_61972430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="164" name="unmarked/50_89734060,20_66589660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="165" name="unmarked/50_91320930,15_33984280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="166" name="unmarked/50_94658750,17_30506500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="167" name="unmarked/50_95659710,19_35237370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="168" name="unmarked/50_96454670,17_19067910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="169" name="unmarked/50_97795290,22_03716510.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="170" name="unmarked/50_98465180,23_18224280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="171" name="unmarked/51_02256280,21_19297140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="172" name="unmarked/51_02792120,18_41408940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="173" name="unmarked/51_02889040,16_97100700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="174" name="unmarked/51_05938120,21_05356600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="175" name="unmarked/51_08536420,20_86489390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="176" name="unmarked/51_08657420,16_90320910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="177" name="unmarked/51_09248550,19_45740730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="178" name="unmarked/51_09791550,16_93576960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="179" name="unmarked/51_10648020,17_10042320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="180" name="unmarked/51_10911200,20_75604340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="181" name="unmarked/51_11094800,15_58858340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="182" name="unmarked/51_11383790,20_86241750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="183" name="unmarked/51_11511990,20_86092690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="184" name="unmarked/51_11635770,17_06311520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="185" name="unmarked/51_11688270,20_88024450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="186" name="unmarked/51_11756220,20_85530260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="187" name="unmarked/51_11883370,17_03336200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="188" name="unmarked/51_12643270,20_86944870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="189" name="unmarked/51_12662390,23_46928230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="190" name="unmarked/51_13448040,16_89144500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="191" name="unmarked/51_14522540,17_10766400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="192" name="unmarked/51_20219530,22_55003290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="193" name="unmarked/51_21934770,22_63034790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="194" name="unmarked/51_22244860,19_30449750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="195" name="unmarked/51_22360050,22_49636880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="196" name="unmarked/51_24924520,21_08378070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="197" name="unmarked/51_25247300,22_51910640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="198" name="unmarked/51_25462400,22_52191500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="199" name="unmarked/51_25595170,22_49177250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="200" name="unmarked/51_28085530,15_68035060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="201" name="unmarked/51_28439370,22_21405020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="202" name="unmarked/51_28823030,22_21422240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="203" name="unmarked/51_29035010,18_16326410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="204" name="unmarked/51_29339970,22_14782920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="205" name="unmarked/51_35110140,22_34595990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="206" name="unmarked/51_35961630,22_31435580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="207" name="unmarked/51_36940990,22_59218000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="208" name="unmarked/51_40649230,19_70556550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="209" name="unmarked/51_45163470,22_62302850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="210" name="unmarked/51_46001300,22_60523970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="211" name="unmarked/51_54950650,21_88604040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="212" name="unmarked/51_55535420,23_55746730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="213" name="unmarked/51_56380260,15_49431730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="214" name="unmarked/51_58789370,18_71272920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="215" name="unmarked/51_64101650,22_43702530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="216" name="unmarked/51_64160140,22_42342160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="217" name="unmarked/51_64337760,20_95847900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="218" name="unmarked/51_64385610,20_94743090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="219" name="unmarked/51_64449500,20_92649110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="220" name="unmarked/51_64488430,22_45123310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="221" name="unmarked/51_64534440,20_95744610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="222" name="unmarked/51_64751650,20_94177060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="223" name="unmarked/51_66592910,19_68768690.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="224" name="unmarked/51_70693060,17_42161170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="225" name="unmarked/51_70715980,18_62262660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="226" name="unmarked/51_71191820,18_62251920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="227" name="unmarked/51_73956040,19_61357330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="228" name="unmarked/51_75247180,19_45264600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="229" name="unmarked/51_75528630,19_21057950.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="230" name="unmarked/51_75608790,19_46077290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="231" name="unmarked/51_77341130,16_93570600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="232" name="unmarked/51_77492820,19_41446470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="233" name="unmarked/51_82325590,16_58994020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="234" name="unmarked/51_85983110,20_86770270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="235" name="unmarked/51_86577720,16_57287240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="236" name="unmarked/51_88527140,17_79222820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="237" name="unmarked/51_97711670,21_21235950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="238" name="unmarked/51_97958640,21_21573210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="239" name="unmarked/51_98159150,21_21450200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="240" name="unmarked/51_98382090,16_50412030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="241" name="unmarked/51_98386670,21_21860180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="242" name="unmarked/51_98410820,21_21854940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="243" name="unmarked/52_03931390,23_10389730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="244" name="unmarked/52_06958670,23_59960230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="245" name="unmarked/52_06988330,21_02541780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="246" name="unmarked/52_07571310,20_77160740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="247" name="unmarked/52_08309250,17_00643730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="248" name="unmarked/52_08449180,21_06372580.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="249" name="unmarked/52_08598100,20_61150920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="250" name="unmarked/52_09638030,21_00163730.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="251" name="unmarked/52_09809600,21_05504590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="252" name="unmarked/52_11370800,21_26483030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="253" name="unmarked/52_12331030,21_09876270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="254" name="unmarked/52_13381340,21_06004030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="255" name="unmarked/52_14165890,20_70345050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="256" name="unmarked/52_14623450,21_04018190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="257" name="unmarked/52_15735070,21_03157590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="258" name="unmarked/52_16100170,20_39131770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="259" name="unmarked/52_16420240,20_78976520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="260" name="unmarked/52_16516720,21_10908630.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="261" name="unmarked/52_16575090,21_16363280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="262" name="unmarked/52_16714250,20_97811730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="263" name="unmarked/52_16877420,21_56865700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="264" name="unmarked/52_17108550,21_06674790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="265" name="unmarked/52_17489820,20_93088230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="266" name="unmarked/52_17793470,21_56258160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="267" name="unmarked/52_17826700,20_94580930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="268" name="unmarked/52_18130480,20_90481160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="269" name="unmarked/52_18355020,21_00773530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="270" name="unmarked/52_19158690,21_56183910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="271" name="unmarked/52_19259560,21_02089140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="272" name="unmarked/52_19489340,20_98535150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="273" name="unmarked/52_19528650,20_89075960.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="274" name="unmarked/52_19705510,20_96363540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="275" name="unmarked/52_19735130,18_65473430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="276" name="unmarked/52_20067180,20_94739930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="277" name="unmarked/52_20115620,20_87077910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="278" name="unmarked/52_20152780,20_96357420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="279" name="unmarked/52_20338200,18_64166310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="280" name="unmarked/52_20446780,20_94390110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="281" name="unmarked/52_20631400,20_89466200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="282" name="unmarked/52_20731130,20_98514510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="283" name="unmarked/52_20840760,21_02509090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="284" name="unmarked/52_20842000,21_00725910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="285" name="unmarked/52_20874350,20_99091850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="286" name="unmarked/52_20884670,21_02939570.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="287" name="unmarked/52_21042580,20_98841720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="288" name="unmarked/52_21076080,18_62276480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="289" name="unmarked/52_21079610,16_93641700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="290" name="unmarked/52_21113060,21_00949930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="291" name="unmarked/52_21664490,21_03997760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="292" name="unmarked/52_21769150,20_98618310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="293" name="unmarked/52_21886650,20_99998540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="294" name="unmarked/52_22069450,21_14520710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="295" name="unmarked/52_22473550,20_95911200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="296" name="unmarked/52_22565080,20_98794050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="297" name="unmarked/52_22679850,20_98218100.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="298" name="unmarked/52_22730600,18_65034830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="299" name="unmarked/52_22736790,20_98892910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="300" name="unmarked/52_22761690,16_83550020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="301" name="unmarked/52_22771830,21_10544560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="302" name="unmarked/52_22882690,20_89034420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="303" name="unmarked/52_22987110,20_90883780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="304" name="unmarked/52_23039450,20_22745510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="305" name="unmarked/52_23115370,20_96857280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="306" name="unmarked/52_23240770,21_13188580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="307" name="unmarked/52_23487930,21_12481510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="308" name="unmarked/52_23605080,21_12749480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="309" name="unmarked/52_23997520,17_09847130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="310" name="unmarked/52_24004140,21_12421170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="311" name="unmarked/52_24034120,20_24471140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="312" name="unmarked/52_24226350,16_86521280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="313" name="unmarked/52_24285150,21_00431010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="314" name="unmarked/52_24416700,20_92420960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="315" name="unmarked/52_24421090,21_10769200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="316" name="unmarked/52_24499150,16_85283020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="317" name="unmarked/52_24564050,20_96875120.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="318" name="unmarked/52_24632800,17_09476860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="319" name="unmarked/52_24713670,21_10729600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="320" name="unmarked/52_24837130,21_10850390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="321" name="unmarked/52_25049440,20_92213960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="322" name="unmarked/52_25300510,20_87201430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="323" name="unmarked/52_25302960,17_08212910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="324" name="unmarked/52_25321210,21_00609000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="325" name="unmarked/52_25436980,21_16605980.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="326" name="unmarked/52_26307010,20_92976860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="327" name="unmarked/52_26410060,16_87091810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="328" name="unmarked/52_26484460,21_16104000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="329" name="unmarked/52_26526240,21_12695330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="330" name="unmarked/52_26838790,21_15271220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="331" name="unmarked/52_27574670,16_85370880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="332" name="unmarked/52_27674990,16_87246240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="333" name="unmarked/52_28058750,21_13393620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="334" name="unmarked/52_28101840,21_05240230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="335" name="unmarked/52_28120050,16_84362800.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="336" name="unmarked/52_28143470,20_98136640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="337" name="unmarked/52_28176650,16_70791520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="338" name="unmarked/52_28210310,20_94811890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="339" name="unmarked/52_28214190,21_12958920.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="340" name="unmarked/52_28292850,21_03031500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="341" name="unmarked/52_28306880,21_10547630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="342" name="unmarked/52_28645850,21_09094170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="343" name="unmarked/52_28746640,21_07139290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="344" name="unmarked/52_28805080,21_05690730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="345" name="unmarked/52_28841450,20_94108420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="346" name="unmarked/52_28937750,21_01927400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="347" name="unmarked/52_28938290,16_85451600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="348" name="unmarked/52_29059180,21_07523480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="349" name="unmarked/52_29078400,21_05929160.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="350" name="unmarked/52_29132520,16_84569330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="351" name="unmarked/52_30507240,21_08534560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="352" name="unmarked/52_31221010,16_79288260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="353" name="unmarked/52_31631890,16_91230470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="354" name="unmarked/52_32366820,21_16729770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="355" name="unmarked/52_33613440,21_20968320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="356" name="unmarked/52_33643490,16_82637880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="357" name="unmarked/52_33762120,16_79265450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="358" name="unmarked/52_33867140,16_89183680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="359" name="unmarked/52_34108380,16_89283530.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="360" name="unmarked/52_34296300,16_87145830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="361" name="unmarked/52_34572610,16_87672870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="362" name="unmarked/52_34747030,16_87942320.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="363" name="unmarked/52_34962490,16_87150550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="364" name="unmarked/52_35008290,16_87061450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="365" name="unmarked/52_35077750,16_68434290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="366" name="unmarked/52_35115440,16_87120220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="367" name="unmarked/52_35154580,16_85995300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="368" name="unmarked/52_36234600,16_90425370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="369" name="unmarked/52_36636190,16_80930440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="370" name="unmarked/52_36841910,16_66581720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="371" name="unmarked/52_38601540,16_83858220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="372" name="unmarked/52_38878320,16_78259040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="373" name="unmarked/52_39182810,16_78450210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="374" name="unmarked/52_39301360,16_78190170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="375" name="unmarked/52_39499360,16_79835950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="376" name="unmarked/52_39578900,16_88794710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="377" name="unmarked/52_39635480,16_80115420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="378" name="unmarked/52_39709670,16_71866330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="379" name="unmarked/52_39720180,16_78430840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="380" name="unmarked/52_39925900,16_80075710.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="381" name="unmarked/52_39951070,16_97169350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="382" name="unmarked/52_40099010,16_79867640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="383" name="unmarked/52_40424450,20_91719860.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="384" name="unmarked/52_40815630,16_91152810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="385" name="unmarked/52_40866740,16_93612780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="386" name="unmarked/52_40909690,16_87214570.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="387" name="unmarked/52_41095420,16_82756670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="388" name="unmarked/52_41227580,16_87118630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="389" name="unmarked/52_41231740,16_86999850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="390" name="unmarked/52_41596500,16_97988300.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="391" name="unmarked/52_41698810,16_89105660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="392" name="unmarked/52_41788630,16_89592630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="393" name="unmarked/52_42972070,16_91270650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="394" name="unmarked/52_43232460,16_93616470.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="395" name="unmarked/52_43281410,16_94493520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="396" name="unmarked/52_43398960,16_78166750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="397" name="unmarked/52_44169340,21_05566570.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="398" name="unmarked/52_44499680,16_95706810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="399" name="unmarked/52_44806020,16_71689290.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="400" name="unmarked/52_45311070,16_94460170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="401" name="unmarked/52_46515220,16_92942520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="402" name="unmarked/52_53544150,19_72521280.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="403" name="unmarked/52_53636930,19_72227420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="404" name="unmarked/52_53875750,19_70978610.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="405" name="unmarked/52_53909200,19_72272560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="406" name="unmarked/52_54113270,19_69245210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="407" name="unmarked/52_54380550,19_74914750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="408" name="unmarked/52_54781500,19_70242580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="409" name="unmarked/52_55961110,19_71019140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="410" name="unmarked/52_56758080,19_65163370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="411" name="unmarked/52_62197160,20_36057170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="412" name="unmarked/52_66457530,14_77942280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="413" name="unmarked/52_69975580,17_02101370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="414" name="unmarked/52_73813400,14_70970240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="415" name="unmarked/52_86602230,21_10111190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="416" name="unmarked/53_01075610,18_59525750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="417" name="unmarked/53_01506050,18_59425380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="418" name="unmarked/53_10255320,18_79041520.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="419" name="unmarked/53_12622820,18_00740180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="420" name="unmarked/53_12817270,18_04666750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="421" name="unmarked/53_12874720,18_02213130.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="422" name="unmarked/53_14946690,23_19815280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="423" name="unmarked/53_15144290,23_03076560.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="424" name="unmarked/53_15151420,18_14458500.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="425" name="unmarked/53_15538590,18_14848790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="426" name="unmarked/53_18126780,18_06409370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="427" name="unmarked/53_18142180,18_06430410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="428" name="unmarked/53_18312210,23_18725450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="429" name="unmarked/53_18509720,18_08374870.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="430" name="unmarked/53_18890260,18_07519130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="431" name="unmarked/53_19017290,18_09794430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="432" name="unmarked/53_19906390,18_07300440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="433" name="unmarked/53_23779890,18_14878660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="434" name="unmarked/53_25425600,20_89706450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="435" name="unmarked/53_36248950,21_56605720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="436" name="unmarked/53_37899510,14_63574770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="437" name="unmarked/53_39376620,14_50255450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="438" name="unmarked/53_39805850,14_52259810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="439" name="unmarked/53_41468620,14_52812030.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="440" name="unmarked/53_43106710,14_53599390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="441" name="unmarked/53_43682820,14_53688580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="442" name="unmarked/53_44512540,14_51226910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="443" name="unmarked/53_44688590,14_55280490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="444" name="unmarked/53_44964890,14_55489090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="445" name="unmarked/53_45448440,14_55283700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="446" name="unmarked/53_46086900,14_78347620.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="447" name="unmarked/53_48149870,14_54115190.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="448" name="unmarked/53_49168940,18_77675490.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="449" name="unmarked/53_49967240,18_76347370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="450" name="unmarked/53_53040460,14_58988720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="451" name="unmarked/53_62768080,21_80738210.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="452" name="unmarked/53_65196560,15_59203010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="453" name="unmarked/53_72529730,20_48760680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="454" name="unmarked/53_73780460,20_48244960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="455" name="unmarked/53_75125530,21_34135860.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="456" name="unmarked/53_76810610,20_53664010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="457" name="unmarked/53_76973410,20_52343550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="458" name="unmarked/53_77310070,20_52547480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="459" name="unmarked/53_77499270,20_46041820.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="460" name="unmarked/53_78278140,20_48790810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="461" name="unmarked/53_78931580,20_49567930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="462" name="unmarked/53_79271550,21_58492330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="463" name="unmarked/53_99246380,16_95641270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="464" name="unmarked/54_00103560,16_97950500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="465" name="unmarked/54_05446250,15_27732060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="466" name="unmarked/54_05583210,15_25324210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="467" name="unmarked/54_06144680,15_28410410.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="468" name="unmarked/54_06407160,18_77332070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="469" name="unmarked/54_06984100,15_07491280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="470" name="unmarked/54_13762100,19_45586500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="471" name="unmarked/54_14414700,15_30246550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="472" name="unmarked/54_15033990,15_33512900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="473" name="unmarked/54_15196230,15_34799040.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="474" name="unmarked/54_16818900,18_70331220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="475" name="unmarked/54_16980310,18_70152330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="476" name="unmarked/54_17113370,19_40698750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="477" name="unmarked/54_18534570,15_59005920.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="478" name="unmarked/54_24254210,22_04156580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="479" name="unmarked/54_25224070,22_65607640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="480" name="unmarked/54_25395720,20_80751770.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="481" name="unmarked/54_26373050,20_79672180.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="482" name="unmarked/54_33034730,19_10078600.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="483" name="unmarked/54_35776100,18_57440000.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="484" name="unmarked/54_36273030,18_49205360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="485" name="unmarked/54_36644540,18_62005830.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="486" name="unmarked/54_38748660,18_59260540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="487" name="unmarked/54_40306020,18_63225140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="488" name="unmarked/54_41382980,18_60117990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="489" name="unmarked/54_43001010,18_56327910.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="490" name="unmarked/54_43759840,18_39674360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="491" name="unmarked/54_45610240,17_00300010.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="492" name="unmarked/54_46058670,16_99359970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="493" name="unmarked/54_46097720,16_98934630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="494" name="unmarked/54_46501350,16_99147850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="495" name="unmarked/54_46602080,16_99934590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="496" name="unmarked/54_46618710,16_98483850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="497" name="unmarked/54_49851880,18_50009060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="498" name="unmarked/54_53435810,18_51451810.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="499" name="unmarked/54_55167570,18_51468790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+</annotations>
