@@ -172,30 +172,21 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
             before_distance = haversine_distance(pp.position, pp.p2)
             before_priority = before_node_id in paths_nodes_ids
 
-            if after_priority and before_priority:
-                if after_distance < NODE_MERGE_THRESHOLD_PRIORITY and before_distance < NODE_MERGE_THRESHOLD_PRIORITY:
-                    to_node_id = after_node_id if after_distance < before_distance else before_node_id
-                    result[i].to_nodes_ids.append(to_node_id)
-                    continue
-                elif after_distance < NODE_MERGE_THRESHOLD_PRIORITY:
-                    result[i].to_nodes_ids.append(after_node_id)
-                    continue
-                elif before_distance < NODE_MERGE_THRESHOLD_PRIORITY:
-                    result[i].to_nodes_ids.append(before_node_id)
-                    continue
+            if after_priority and before_priority and (
+                    after_distance < NODE_MERGE_THRESHOLD_PRIORITY or before_distance < NODE_MERGE_THRESHOLD_PRIORITY):
+                closest_node_id = after_node_id if after_distance < before_distance else before_node_id
+                result[i].to_nodes_ids.append(closest_node_id)
 
-            if after_priority and after_distance < NODE_MERGE_THRESHOLD_PRIORITY:
+            elif after_priority and after_distance < NODE_MERGE_THRESHOLD_PRIORITY:
                 result[i].to_nodes_ids.append(after_node_id)
-                continue
 
-            if before_priority and before_distance < NODE_MERGE_THRESHOLD_PRIORITY:
+            elif before_priority and before_distance < NODE_MERGE_THRESHOLD_PRIORITY:
                 result[i].to_nodes_ids.append(before_node_id)
-                continue
 
             # merge to the closest node
-            if after_distance < NODE_MERGE_THRESHOLD or before_distance < NODE_MERGE_THRESHOLD:
-                to_node_id = after_node_id if after_distance < before_distance else before_node_id
-                result[i].to_nodes_ids.append(to_node_id)
+            elif after_distance < NODE_MERGE_THRESHOLD or before_distance < NODE_MERGE_THRESHOLD:
+                closest_node_id = after_node_id if after_distance < before_distance else before_node_id
+                result[i].to_nodes_ids.append(closest_node_id)
 
             # merge to the way (new node)
             else:
