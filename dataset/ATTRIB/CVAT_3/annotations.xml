@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>18</id>
+      <size>39</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-07-26 23:32:51.586758+00:00</created>
+      <updated>2023-07-26 23:34:08.672962+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>38</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>18</id>
+          <start>0</start>
+          <stop>38</stop>
+          <url>https://label.monicz.pl/api/jobs/18</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>admin</username>
+        <email>admin@localhost.invalid</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>valid</name>
+          <color>#24b353</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>signals</name>
+          <color>#b83df5</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>raised</name>
+          <color>#ff6a4d</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>invalid</name>
+          <color>#fa3253</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2023-07-26 23:34:11.713134+00:00</dumped>
+  </meta>
+  <image id="0" name="generic/50_05306290,21_97028940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="generic/50_05376930,21_96958150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="generic/50_05385090,21_96949440.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="generic/50_05402900,21_97032510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="generic/50_70094490,22_42089850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="generic/50_71908100,16_82486350.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="generic/51_05608390,16_95935680.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="generic/51_06810480,17_00395950.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="8" name="generic/51_06820530,17_00397390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="9" name="generic/51_06823100,17_00421480.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="generic/51_17589470,17_08901500.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="generic/51_17644450,17_09129900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="generic/51_24796450,17_04414000.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="generic/51_24811700,17_04424840.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="generic/51_24817660,17_04411150.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="generic/51_26019980,15_68315270.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="generic/51_26020120,15_68307140.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="generic/51_26024210,15_68295130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="generic/51_26025980,15_68329050.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="generic/51_26056530,15_68413630.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="20" name="generic/51_26062000,15_68432450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="21" name="generic/51_78430240,19_32262240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="22" name="generic/51_78590040,19_32201640.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="23" name="generic/52_19517980,21_05385430.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="24" name="generic/52_19531490,21_05353720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="25" name="generic/52_21030080,20_18907650.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="26" name="generic/52_21113460,20_19051400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="27" name="generic/52_21153570,20_19103330.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="28" name="generic/52_22882460,21_00761790.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="29" name="generic/52_99186250,15_21010510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="30" name="generic/53_33782780,14_56133720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="31" name="generic/53_37440370,14_59605540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="32" name="generic/53_37444350,14_59691420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="33" name="generic/54_14453730,15_30119250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="34" name="generic/54_14461770,15_30098850.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="35" name="generic/54_18964360,16_19464200.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="36" name="generic/54_18969750,16_19445700.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="37" name="generic/54_19106610,16_19449420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="38" name="generic/54_19165210,16_19400340.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+</annotations>

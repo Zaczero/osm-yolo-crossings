@@ -1,0 +1,2477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>17</id>
+      <size>468</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-07-26 23:06:19.440240+00:00</created>
+      <updated>2023-07-26 23:20:48.466664+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>467</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>17</id>
+          <start>0</start>
+          <stop>467</stop>
+          <url>https://label.monicz.pl/api/jobs/17</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>admin</username>
+        <email>admin@localhost.invalid</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>valid</name>
+          <color>#24b353</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>signals</name>
+          <color>#b83df5</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>raised</name>
+          <color>#ff6a4d</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>invalid</name>
+          <color>#fa3253</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2023-07-26 23:34:39.376349+00:00</dumped>
+  </meta>
+  <image id="0" name="signals/49_54138090,20_64759300.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="signals/49_54145760,20_64722870.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="signals/49_54152130,20_64744930.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="signals/49_74882210,21_47353420.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="signals/49_74894820,21_47320370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="signals/49_80093430,19_04231990.png" width="224" height="224">
+  </image>
+  <image id="6" name="signals/49_80096220,19_04226380.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="signals/49_80096560,19_04243570.png" width="224" height="224">
+  </image>
+  <image id="8" name="signals/49_80098970,19_04257040.png" width="224" height="224">
+  </image>
+  <image id="9" name="signals/49_80099760,19_04242420.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="signals/49_80102290,19_04255580.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="signals/49_80118080,19_04222730.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="signals/49_80263790,19_04660180.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="signals/49_80281720,19_04678340.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="signals/49_96688160,18_71942490.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="signals/49_98102130,20_25431060.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="signals/49_99005430,20_08090540.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="signals/49_99428230,20_04192300.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="signals/49_99428470,20_04207410.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="signals/49_99436160,20_04200170.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="20" name="signals/49_99442000,20_04199640.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="21" name="signals/50_01175680,21_99927930.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="22" name="signals/50_01197580,21_99947160.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="23" name="signals/50_02146530,22_01700340.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="24" name="signals/50_02146610,22_01719290.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="25" name="signals/50_02158200,22_01685880.png" width="224" height="224">
+  </image>
+  <image id="26" name="signals/50_02158250,22_01681180.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="27" name="signals/50_02164740,22_01685430.png" width="224" height="224">
+  </image>
+  <image id="28" name="signals/50_02165050,22_01680930.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="29" name="signals/50_03063180,22_01675910.png" width="224" height="224">
+  </image>
+  <image id="30" name="signals/50_03063360,22_01693570.png" width="224" height="224">
+  </image>
+  <image id="31" name="signals/50_03066580,22_01675830.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="32" name="signals/50_03066740,22_01693440.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="33" name="signals/50_03088750,22_01707550.png" width="224" height="224">
+  </image>
+  <image id="34" name="signals/50_03089010,22_01712410.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="35" name="signals/50_03126000,22_00331390.png" width="224" height="224">
+  </image>
+  <image id="36" name="signals/50_03126100,22_00272790.png" width="224" height="224">
+  </image>
+  <image id="37" name="signals/50_03126940,22_00268000.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="38" name="signals/50_03129280,22_00329340.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="39" name="signals/50_03131870,22_00310720.png" width="224" height="224">
+  </image>
+  <image id="40" name="signals/50_03132110,22_00274650.png" width="224" height="224">
+  </image>
+  <image id="41" name="signals/50_03132690,22_00269670.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="42" name="signals/50_03133430,22_00314230.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="43" name="signals/50_03134760,22_00308080.png" width="224" height="224">
+  </image>
+  <image id="44" name="signals/50_03136630,22_00311430.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="45" name="signals/50_03137330,22_00305700.png" width="224" height="224">
+  </image>
+  <image id="46" name="signals/50_03138360,22_00309900.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="47" name="signals/50_03174970,21_99932280.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="48" name="signals/50_03183440,21_99941060.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="49" name="signals/50_04049710,19_97773070.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="50" name="signals/50_04053400,19_97772730.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="51" name="signals/50_04057580,19_98136050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="52" name="signals/50_04061440,19_97772230.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="53" name="signals/50_04065670,19_97771890.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="54" name="signals/50_04072500,19_97771340.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="55" name="signals/50_04076440,19_98136050.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="56" name="signals/50_06334680,22_01078120.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="57" name="signals/50_06339840,22_01060680.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="58" name="signals/50_07451990,20_04701820.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="59" name="signals/50_07456990,20_04668790.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="60" name="signals/50_07470610,20_04720990.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="61" name="signals/50_07473200,20_04658000.png" width="224" height="224">
+  </image>
+  <image id="62" name="signals/50_07487310,20_04710840.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="63" name="signals/50_07493850,20_04676200.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="64" name="signals/50_08293790,19_95256520.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="65" name="signals/50_08311730,19_95207090.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="66" name="signals/50_08315010,19_95251700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="67" name="signals/50_08319520,19_95236670.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="68" name="signals/50_08721170,19_95600220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="69" name="signals/50_08737370,19_95559070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="70" name="signals/50_08863770,19_95739970.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="71" name="signals/50_08864610,19_95718130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="72" name="signals/50_08868100,19_95730210.png" width="224" height="224">
+  </image>
+  <image id="73" name="signals/50_08902000,19_95793590.png" width="224" height="224">
+    <tag label="signals" source="manual">
+    </tag>
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="74" name="signals/50_08917950,19_95799000.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="75" name="signals/50_08922620,19_95787840.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="76" name="signals/50_09279310,18_54802670.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="77" name="signals/50_09292440,18_54827330.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="78" name="signals/50_09293110,18_54822600.png" width="224" height="224">
+  </image>
+  <image id="79" name="signals/50_09297900,18_54788300.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="80" name="signals/50_09312120,18_54811190.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="81" name="signals/50_15607430,23_12438600.png" width="224" height="224">
+  </image>
+  <image id="82" name="signals/50_15622140,23_12375400.png" width="224" height="224">
+  </image>
+  <image id="83" name="signals/50_15637260,23_12442990.png" width="224" height="224">
+  </image>
+  <image id="84" name="signals/50_32381960,19_20084970.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="85" name="signals/50_32421580,19_20043710.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="86" name="signals/50_34972730,18_22592740.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="87" name="signals/50_34977280,18_22603550.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="88" name="signals/50_34980020,18_22619000.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="89" name="signals/50_34980420,18_22628510.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="90" name="signals/50_34983280,18_22591220.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="91" name="signals/50_34989790,18_22583590.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="92" name="signals/50_34992350,18_22595520.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="93" name="signals/50_34996460,18_22610810.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="94" name="signals/50_35003570,18_22621980.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="95" name="signals/50_35060510,18_16700090.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="96" name="signals/50_54360740,22_72595610.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="97" name="signals/50_54368530,22_72567250.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="98" name="signals/50_79943030,19_11137220.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="99" name="signals/50_79944560,19_11122090.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="100" name="signals/50_79954700,19_11102880.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="101" name="signals/50_79961660,19_11104480.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="102" name="signals/50_79971910,19_11145730.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="103" name="signals/50_79973560,19_11130400.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="104" name="signals/50_82539800,20_52613070.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="105" name="signals/50_82553270,20_52610030.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="106" name="signals/50_82577050,20_52630640.png" width="224" height="224">
+  </image>
+  <image id="107" name="signals/50_82578190,20_52629190.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="108" name="signals/50_85642270,20_63782040.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="109" name="signals/50_85660050,20_63768860.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="110" name="signals/50_85662550,20_63785090.png" width="224" height="224">
+  </image>
+  <image id="111" name="signals/50_85664210,20_63749350.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="112" name="signals/50_85695740,20_63784620.png" width="224" height="224">
+  </image>
+  <image id="113" name="signals/50_85696610,20_63739390.png" width="224" height="224">
+  </image>
+  <image id="114" name="signals/50_85698780,20_63737290.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="115" name="signals/50_85699090,20_63786080.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="116" name="signals/50_85699440,20_63766040.png" width="224" height="224">
+  </image>
+  <image id="117" name="signals/50_85700690,20_63749390.png" width="224" height="224">
+  </image>
+  <image id="118" name="signals/50_85702760,20_63767520.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="119" name="signals/50_85702990,20_63747070.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="120" name="signals/50_85713970,20_63751580.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="121" name="signals/50_85714570,20_63756140.png" width="224" height="224">
+  </image>
+  <image id="122" name="signals/50_90644940,15_74483870.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="123" name="signals/50_90649560,15_74551870.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="124" name="signals/51_03346160,16_75107690.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="125" name="signals/51_03468420,16_75790320.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="126" name="signals/51_07855590,17_06327200.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="127" name="signals/51_08026010,17_06235330.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="128" name="signals/51_08034440,17_06200540.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="129" name="signals/51_08045540,17_06258880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="130" name="signals/51_10749850,17_03741490.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="131" name="signals/51_10749890,17_03889420.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="132" name="signals/51_10751720,17_03874660.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="133" name="signals/51_10753510,17_03834800.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="134" name="signals/51_10753920,17_03849930.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="135" name="signals/51_10754310,17_03911600.png" width="224" height="224">
+  </image>
+  <image id="136" name="signals/51_10762750,17_03814680.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="137" name="signals/51_10791490,17_03921890.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="138" name="signals/51_10792790,17_03900780.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="139" name="signals/51_10799870,17_03820670.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="140" name="signals/51_10800820,17_03906280.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="141" name="signals/51_10901300,17_03895380.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="142" name="signals/51_10913680,17_03868800.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="143" name="signals/51_10915270,17_03856460.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="144" name="signals/51_10935810,17_03837880.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="145" name="signals/51_10941380,17_03840200.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="146" name="signals/51_10947110,17_03879010.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="147" name="signals/51_10948600,17_03867260.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="148" name="signals/51_12506130,17_02758750.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="149" name="signals/51_12510270,17_02772020.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="150" name="signals/51_12520070,17_02763340.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="151" name="signals/51_12527350,17_02864730.png" width="224" height="224">
+  </image>
+  <image id="152" name="signals/51_12528370,17_02870110.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="153" name="signals/51_12540020,17_02812700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="154" name="signals/51_12544950,17_02857390.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="155" name="signals/51_12545970,17_02850830.png" width="224" height="224">
+  </image>
+  <image id="156" name="signals/51_12563320,17_02792490.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="157" name="signals/51_12689060,17_02775680.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="158" name="signals/51_12699780,17_02757750.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="159" name="signals/51_12700680,17_02792370.png" width="224" height="224">
+  </image>
+  <image id="160" name="signals/51_12709430,17_02757670.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="161" name="signals/51_12717750,17_02771650.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="162" name="signals/51_13345890,17_03605550.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="163" name="signals/51_13354080,17_03574940.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="164" name="signals/51_13429440,17_01610480.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="165" name="signals/51_13431070,17_01593490.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="166" name="signals/51_13439690,17_03659210.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="167" name="signals/51_13450740,17_03668210.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="168" name="signals/51_13459900,17_03651050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="169" name="signals/51_14525510,17_14753620.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="170" name="signals/51_23157450,15_39353250.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="171" name="signals/51_25846630,22_53212020.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="172" name="signals/51_25850500,22_53255980.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="173" name="signals/51_25858280,22_53169550.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="174" name="signals/51_25879500,22_53145180.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="175" name="signals/51_25909770,22_53247780.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="176" name="signals/51_25919420,22_53175220.png" width="224" height="224">
+  </image>
+  <image id="177" name="signals/51_25922960,22_53176450.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="178" name="signals/51_26114570,22_53131520.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="179" name="signals/51_40956450,21_16538410.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="180" name="signals/51_40969830,21_16555330.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="181" name="signals/51_40980310,21_16533280.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="182" name="signals/51_58085360,19_57043460.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="183" name="signals/51_58091630,19_57058330.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="184" name="signals/51_65597240,17_79905320.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="185" name="signals/51_65603520,17_79904750.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="186" name="signals/51_65618390,17_79923640.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="187" name="signals/51_65620450,17_79937600.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="188" name="signals/51_65687950,19_36666080.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="189" name="signals/51_73823570,19_47900020.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="190" name="signals/51_73837520,19_47900350.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="191" name="signals/51_73847620,19_47902880.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="192" name="signals/51_75400630,19_57466420.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="193" name="signals/51_75404380,19_57520130.png" width="224" height="224">
+  </image>
+  <image id="194" name="signals/51_75406900,19_57505620.png" width="224" height="224">
+  </image>
+  <image id="195" name="signals/51_75408410,19_57521980.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="196" name="signals/51_75410850,19_57507540.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="197" name="signals/51_81072350,19_37618900.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="198" name="signals/51_81083170,19_37627730.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="199" name="signals/51_81084020,19_37603700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="200" name="signals/51_81104250,19_37603760.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="201" name="signals/51_81106990,19_37629310.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="202" name="signals/52_00484700,17_69003700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="203" name="signals/52_00489800,17_68978550.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="204" name="signals/52_02776780,23_13676100.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="205" name="signals/52_02778770,23_13665460.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="206" name="signals/52_05652560,20_44421700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="207" name="signals/52_05666090,20_44453860.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="208" name="signals/52_09228700,16_62364310.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="209" name="signals/52_16612250,16_46225220.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="210" name="signals/52_17569510,20_94319650.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="211" name="signals/52_17643640,20_94487250.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="212" name="signals/52_17656740,20_94413710.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="213" name="signals/52_17664330,20_94511350.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="214" name="signals/52_17669720,20_94513760.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="215" name="signals/52_17680360,20_94416940.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="216" name="signals/52_17687650,20_94423010.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="217" name="signals/52_17916560,20_94731700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="218" name="signals/52_18993620,21_02414810.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="219" name="signals/52_19007110,21_02435460.png" width="224" height="224">
+  </image>
+  <image id="220" name="signals/52_19007870,21_02469720.png" width="224" height="224">
+  </image>
+  <image id="221" name="signals/52_19010070,21_02435320.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="222" name="signals/52_19011010,21_02469720.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="223" name="signals/52_19208500,21_02425640.png" width="224" height="224">
+  </image>
+  <image id="224" name="signals/52_19208780,21_02440240.png" width="224" height="224">
+  </image>
+  <image id="225" name="signals/52_19208910,21_02446030.png" width="224" height="224">
+  </image>
+  <image id="226" name="signals/52_19209080,21_02456860.png" width="224" height="224">
+  </image>
+  <image id="227" name="signals/52_19211750,21_02425400.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="228" name="signals/52_19211900,21_02440070.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="229" name="signals/52_19211960,21_02445890.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="230" name="signals/52_19211990,21_02456850.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="231" name="signals/52_21460310,19_38022450.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="232" name="signals/52_21466350,19_38016130.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="233" name="signals/52_21468150,19_38020500.png" width="224" height="224">
+  </image>
+  <image id="234" name="signals/52_21468640,19_38019950.png" width="224" height="224">
+  </image>
+  <image id="235" name="signals/52_22194130,21_06472450.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="236" name="signals/52_22209180,21_06470870.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="237" name="signals/52_22209180,21_06471210.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="238" name="signals/52_22216420,21_06510100.png" width="224" height="224">
+  </image>
+  <image id="239" name="signals/52_22217810,21_06502390.png" width="224" height="224">
+  </image>
+  <image id="240" name="signals/52_22220930,21_06507050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="241" name="signals/52_22966540,21_01695570.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="242" name="signals/52_22971310,21_01667280.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="243" name="signals/52_22979760,21_01709430.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="244" name="signals/52_22984920,21_01685270.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="245" name="signals/52_23014520,21_01357650.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="246" name="signals/52_23029460,21_01349600.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="247" name="signals/52_23055710,21_01639470.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="248" name="signals/52_23058470,21_01653320.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="249" name="signals/52_23068880,21_01616920.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="250" name="signals/52_23075050,21_01613460.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="251" name="signals/52_23077690,21_01611980.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="252" name="signals/52_23078890,21_01663920.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="253" name="signals/52_23084940,21_01660610.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="254" name="signals/52_23085150,21_01607800.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="255" name="signals/52_23087740,21_01659090.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="256" name="signals/52_23090000,21_01121710.png" width="224" height="224">
+  </image>
+  <image id="257" name="signals/52_23095290,21_01118510.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="258" name="signals/52_23095390,21_01654910.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="259" name="signals/52_23106570,21_01616280.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="260" name="signals/52_23109220,21_01629820.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="261" name="signals/52_23759160,20_95629750.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="262" name="signals/52_23763580,20_95568380.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="263" name="signals/52_23773990,20_95652230.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="264" name="signals/52_23778900,20_95548590.png" width="224" height="224">
+  </image>
+  <image id="265" name="signals/52_23779930,20_95542630.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="266" name="signals/52_23802620,20_95658770.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="267" name="signals/52_23812510,20_95554350.png" width="224" height="224">
+  </image>
+  <image id="268" name="signals/52_23812820,20_95547280.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="269" name="signals/52_23816630,20_95642950.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="270" name="signals/52_23822420,20_95643370.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="271" name="signals/52_23823250,20_95577880.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="272" name="signals/52_23827050,20_95580150.png" width="224" height="224">
+  </image>
+  <image id="273" name="signals/52_24622680,16_61278090.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="274" name="signals/52_25475130,20_98347200.png" width="224" height="224">
+  </image>
+  <image id="275" name="signals/52_25476710,20_98353660.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="276" name="signals/52_25487420,20_98341860.png" width="224" height="224">
+  </image>
+  <image id="277" name="signals/52_25488490,20_98348290.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="278" name="signals/52_25490230,20_98340600.png" width="224" height="224">
+  </image>
+  <image id="279" name="signals/52_25491330,20_98346990.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="280" name="signals/52_25498580,20_98343280.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="281" name="signals/52_25498700,20_98336800.png" width="224" height="224">
+  </image>
+  <image id="282" name="signals/52_25528270,20_98198270.png" width="224" height="224">
+  </image>
+  <image id="283" name="signals/52_25531410,20_98197890.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="284" name="signals/52_25531460,20_98218810.png" width="224" height="224">
+  </image>
+  <image id="285" name="signals/52_25532120,20_98222960.png" width="224" height="224">
+  </image>
+  <image id="286" name="signals/52_25534080,20_98217850.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="287" name="signals/52_25534630,20_98222070.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="288" name="signals/52_25535090,20_98242200.png" width="224" height="224">
+  </image>
+  <image id="289" name="signals/52_25539830,20_98239650.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="290" name="signals/52_25636250,20_98759150.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="291" name="signals/52_25644810,20_98753450.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="292" name="signals/52_25648110,20_98751180.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="293" name="signals/52_25660040,20_98744080.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="294" name="signals/52_25665900,20_98691380.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="295" name="signals/52_25667520,20_98696890.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="296" name="signals/52_25671380,20_98709500.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="297" name="signals/52_25976390,20_92321920.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="298" name="signals/52_25978460,20_92317350.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="299" name="signals/52_25984460,20_92304540.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="300" name="signals/52_25990210,20_92290640.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="301" name="signals/52_30765390,16_87462200.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="302" name="signals/52_30771070,16_87472890.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="303" name="signals/52_30781810,16_87532120.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="304" name="signals/52_40202610,16_96252370.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="305" name="signals/52_40203100,16_87570170.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="306" name="signals/52_40204910,16_96317970.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="307" name="signals/52_40212080,16_87586980.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="308" name="signals/52_40418170,16_87162750.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="309" name="signals/52_40419700,16_87548670.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="310" name="signals/52_40419820,16_87201150.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="311" name="signals/52_40423490,16_87179440.png" width="224" height="224">
+  </image>
+  <image id="312" name="signals/52_40426440,16_87179050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="313" name="signals/52_40432230,16_87523970.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="314" name="signals/52_40433840,16_87563530.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="315" name="signals/52_40445440,16_87544080.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="316" name="signals/52_41051560,16_75193270.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="317" name="signals/52_41062130,16_75188380.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="318" name="signals/52_41063230,16_75134650.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="319" name="signals/52_41065640,16_75145660.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="320" name="signals/52_42626270,16_97830040.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="321" name="signals/52_42626340,16_97998350.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="322" name="signals/52_42627340,16_97794290.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="323" name="signals/52_42628210,16_97813730.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="324" name="signals/52_42631440,16_97867310.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="325" name="signals/52_42636720,16_97997940.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="326" name="signals/52_42637190,16_97775400.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="327" name="signals/52_42640370,16_97776080.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="328" name="signals/52_42642600,16_97869910.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="329" name="signals/52_42652380,16_97794380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="330" name="signals/52_42663050,16_97841700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="331" name="signals/52_42665030,16_97825350.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="332" name="signals/52_42665910,16_97817990.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="333" name="signals/52_43451880,16_93902590.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="334" name="signals/52_43452410,16_93898060.png" width="224" height="224">
+  </image>
+  <image id="335" name="signals/52_43482140,16_93778230.png" width="224" height="224">
+  </image>
+  <image id="336" name="signals/52_43483430,16_93774780.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="337" name="signals/52_43491570,16_93933760.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="338" name="signals/52_43493220,16_93930400.png" width="224" height="224">
+  </image>
+  <image id="339" name="signals/52_43520240,16_93786050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="340" name="signals/52_43520380,16_93790930.png" width="224" height="224">
+  </image>
+  <image id="341" name="signals/52_43522480,16_93908120.png" width="224" height="224">
+  </image>
+  <image id="342" name="signals/52_43525370,16_93908050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="343" name="signals/52_43537390,16_93856780.png" width="224" height="224">
+  </image>
+  <image id="344" name="signals/52_43539380,16_93860340.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="345" name="signals/52_44557660,15_58320280.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="346" name="signals/52_49806140,20_54044250.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="347" name="signals/52_49810610,20_54060830.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="348" name="signals/52_51215750,17_59510740.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="349" name="signals/52_51383420,16_69771680.png" width="224" height="224">
+  </image>
+  <image id="350" name="signals/52_51387720,16_69739610.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="351" name="signals/52_51388980,16_69776740.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="352" name="signals/52_51407750,16_69768700.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="353" name="signals/52_53531030,19_75943810.png" width="224" height="224">
+  </image>
+  <image id="354" name="signals/52_53531640,19_75993710.png" width="224" height="224">
+  </image>
+  <image id="355" name="signals/52_53532260,19_75937780.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="356" name="signals/52_53534390,19_75995830.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="357" name="signals/52_53536550,19_75977560.png" width="224" height="224">
+  </image>
+  <image id="358" name="signals/52_53539420,19_75979850.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="359" name="signals/52_63622780,19_07979140.png" width="224" height="224">
+  </image>
+  <image id="360" name="signals/52_63627730,19_07908020.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="361" name="signals/52_63631480,19_07968740.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="362" name="signals/52_63638760,19_07907050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="363" name="signals/52_74281280,15_22580200.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="364" name="signals/52_74283320,15_22591220.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="365" name="signals/52_74291870,15_22553500.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="366" name="signals/52_74304020,15_22546230.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="367" name="signals/52_74304100,15_22613170.png" width="224" height="224">
+  </image>
+  <image id="368" name="signals/52_74316260,15_22605730.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="369" name="signals/52_74322970,15_22561390.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="370" name="signals/52_74324730,15_22573090.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="371" name="signals/52_80886430,17_21124110.png" width="224" height="224">
+  </image>
+  <image id="372" name="signals/52_80887010,17_21094170.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+  </image>
+  <image id="373" name="signals/52_98906930,18_58189430.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="374" name="signals/52_98907530,18_58222050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="375" name="signals/52_98912080,18_58210550.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="376" name="signals/53_01355860,18_56582280.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="377" name="signals/53_01373360,18_56582130.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="378" name="signals/53_01406860,18_56106790.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="379" name="signals/53_01408490,18_56101400.png" width="224" height="224">
+  </image>
+  <image id="380" name="signals/53_10779120,18_04054880.png" width="224" height="224">
+  </image>
+  <image id="381" name="signals/53_10798970,18_04056520.png" width="224" height="224">
+  </image>
+  <image id="382" name="signals/53_12006790,17_99879200.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="383" name="signals/53_12019000,17_99884120.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="384" name="signals/53_12839320,18_00597990.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="385" name="signals/53_15122960,16_72382240.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="386" name="signals/53_15130700,16_72379890.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="387" name="signals/53_35224670,18_45085900.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="388" name="signals/53_42047690,14_51518110.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="389" name="signals/53_42047720,14_51471880.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="390" name="signals/53_42065480,14_51472630.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="391" name="signals/53_42065480,14_51517160.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="392" name="signals/53_42075350,14_51491440.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="393" name="signals/53_45225520,14_53319200.png" width="224" height="224">
+  </image>
+  <image id="394" name="signals/53_45235200,14_53307110.png" width="224" height="224">
+  </image>
+  <image id="395" name="signals/53_45632660,14_48680170.png" width="224" height="224">
+  </image>
+  <image id="396" name="signals/53_45634920,14_48685050.png" width="224" height="224">
+  </image>
+  <image id="397" name="signals/53_45636710,14_48678460.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="398" name="signals/53_45637850,14_48680880.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="399" name="signals/53_45649730,14_48888930.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="400" name="signals/53_45650160,14_48895200.png" width="224" height="224">
+  </image>
+  <image id="401" name="signals/53_45657190,14_48887520.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="402" name="signals/53_45657620,14_48893780.png" width="224" height="224">
+  </image>
+  <image id="403" name="signals/53_45660680,14_48886870.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="404" name="signals/53_45661100,14_48893110.png" width="224" height="224">
+  </image>
+  <image id="405" name="signals/53_45668090,14_48885470.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="406" name="signals/53_45668510,14_48891700.png" width="224" height="224">
+  </image>
+  <image id="407" name="signals/53_45679500,14_48944010.png" width="224" height="224">
+  </image>
+  <image id="408" name="signals/53_45679870,14_48949610.png" width="224" height="224">
+  </image>
+  <image id="409" name="signals/53_45683440,14_48944810.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="410" name="signals/53_45683560,14_48946670.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="411" name="signals/53_48562250,18_66769240.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="412" name="signals/53_48565860,18_66804600.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="413" name="signals/53_69443290,17_56713180.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="414" name="signals/53_69491800,17_56969960.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="415" name="signals/53_69512860,17_56998950.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="416" name="signals/53_69522390,17_56948130.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="417" name="signals/53_69564760,17_57298170.png" width="224" height="224">
+  </image>
+  <image id="418" name="signals/53_69569510,17_57279040.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="419" name="signals/53_69576080,17_57311140.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="420" name="signals/53_69580680,17_57292060.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="421" name="signals/53_76641160,20_48730970.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="422" name="signals/53_76653330,20_48740800.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="423" name="signals/53_76689320,20_48554470.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="424" name="signals/53_76701450,20_48564130.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="425" name="signals/54_36704870,18_62648580.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="426" name="signals/54_36715750,18_62624930.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="427" name="signals/54_38780750,18_62277450.png" width="224" height="224">
+  </image>
+  <image id="428" name="signals/54_38783120,18_62206110.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="429" name="signals/54_38792380,18_62257170.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="430" name="signals/54_38792590,18_62227210.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="431" name="signals/54_45271980,18_55537350.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="432" name="signals/54_45272790,18_55528050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="433" name="signals/54_46881290,17_02957530.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="434" name="signals/54_46900660,17_02889720.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="435" name="signals/54_46920290,17_02887340.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="436" name="signals/54_46935400,17_02914490.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="437" name="signals/54_46939670,17_02937670.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="438" name="signals/54_46995570,18_49694510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="439" name="signals/54_46997450,18_49647000.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="440" name="signals/54_47008950,18_49633670.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="441" name="signals/54_47009920,18_49704910.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="442" name="signals/54_47022650,18_49642630.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="443" name="signals/54_47120290,17_02447790.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="444" name="signals/54_52392950,18_51899300.png" width="224" height="224">
+  </image>
+  <image id="445" name="signals/54_52493810,18_54343350.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="446" name="signals/54_53251100,18_48870270.png" width="224" height="224">
+  </image>
+  <image id="447" name="signals/54_53255580,18_48905340.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="448" name="signals/54_53265440,18_48819260.png" width="224" height="224">
+  </image>
+  <image id="449" name="signals/54_53282940,18_48803590.png" width="224" height="224">
+  </image>
+  <image id="450" name="signals/54_53283160,18_48957120.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="451" name="signals/54_53311440,18_48929340.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="452" name="signals/54_53313950,18_48833100.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="453" name="signals/54_53323450,18_48875860.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="454" name="signals/54_54623430,18_44114050.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="455" name="signals/54_54625220,18_44159250.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="456" name="signals/54_54625350,18_44103840.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="457" name="signals/54_54634970,18_44164420.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="458" name="signals/54_54639080,18_44087370.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="459" name="signals/54_54648830,18_44092520.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="460" name="signals/54_54650910,18_44146240.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="461" name="signals/54_54655300,18_44121100.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="462" name="signals/54_60268490,18_28401380.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="463" name="signals/54_60279080,18_28406670.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="464" name="signals/54_60528580,18_34706400.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="465" name="signals/54_60536520,18_34754400.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="466" name="signals/54_60536750,18_34717430.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+  <image id="467" name="signals/54_60539820,18_34740570.png" width="224" height="224">
+    <tag label="valid" source="manual">
+    </tag>
+    <tag label="signals" source="manual">
+    </tag>
+  </image>
+</annotations>
