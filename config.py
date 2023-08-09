@@ -18,6 +18,7 @@ MIN_SLEEP_AFTER_IMPORT = float(os.getenv('MIN_SLEEP_AFTER_IMPORT', '300'))  # le
 SLEEP_AFTER_GRID_ITER = float(os.getenv('SLEEP_DAYS_AFTER_GRID_ITER', '30')) * 24 * 3600
 PROCESS_NICE = int(os.getenv('PROCESS_NICE', '15'))
 RETRY_TIME_LIMIT = float(os.getenv('RETRY_TIME_LIMIT', '10800'))  # 3h
+BACKLOG_FACTOR = int(os.getenv('BACKLOG_FACTOR', '4'))
 
 if DRY_RUN:
     print('🦺 TEST MODE 🦺')
