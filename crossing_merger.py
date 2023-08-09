@@ -15,7 +15,8 @@ from crossing_suggestion import CrossingSuggestion
 from crossing_type import CrossingType
 from latlon import LatLon
 from overpass import query_roads_and_crossings_historical
-from utils import haversine_distance, make_way_geometry, meters_to_lat
+from utils import (haversine_distance, lat_to_meters, lon_to_meters,
+                   make_way_geometry, meters_to_lat, meters_to_lon)
 
 
 class CrossingMergeToWayInstructions(NamedTuple):
@@ -78,15 +79,21 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
         for p1, p2 in zip(closest_way_geom, closest_way_geom[1:]):
             if isclose(LineString([p1, p2]).distance(closest_point), 0, abs_tol=1e-8):
                 # calculate the unit direction vector of the closest way segment
-                closest_dir_vector = np.array(p2) - np.array(p1)
+                delta_y = lat_to_meters(p2[0] - p1[0])
+                delta_x = lon_to_meters(p2[1] - p1[1], (p2[0] + p1[0]) / 2)
+                closest_dir_vector = np.array([delta_y, delta_x])
                 closest_dir_vector /= np.linalg.norm(closest_dir_vector)
                 break
 
-        # create a perpendicular section to the closest way segment
-        perpendicular_dir_vector = np.array([-closest_dir_vector[1], closest_dir_vector[0]])
-        s_box_center_arr = np.array(s_box_center)
-        section_p1 = s_box_center_arr - meters_to_lat(BOX_VALID_MAX_CENTER_DISTANCE) * perpendicular_dir_vector
-        section_p2 = s_box_center_arr + meters_to_lat(BOX_VALID_MAX_CENTER_DISTANCE) * perpendicular_dir_vector
+        # create a perpendicular direction to the closest way segment
+        perpendicular_dir_vector = (-closest_dir_vector[1], closest_dir_vector[0])
+
+        # convert the perpendicular direction back to latitude-longitude scale
+        lat_adjustment = meters_to_lat(BOX_VALID_MAX_CENTER_DISTANCE) * perpendicular_dir_vector[0]
+        lon_adjustment = meters_to_lon(BOX_VALID_MAX_CENTER_DISTANCE, s_box_center[0]) * perpendicular_dir_vector[1]
+
+        section_p1 = (s_box_center[0] - lat_adjustment, s_box_center[1] - lon_adjustment)
+        section_p2 = (s_box_center[0] + lat_adjustment, s_box_center[1] + lon_adjustment)
         section_line = LineString([section_p1, section_p2])
 
         # find all perpendicular positions
@@ -100,7 +107,9 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
             def make_position(p: Point) -> PerpendicularPosition:
                 for p1, p2 in zip(way_geom, way_geom[1:]):
                     if isclose(LineString([p1, p2]).distance(p), 0, abs_tol=1e-8):
-                        way_direction_vector = np.array(p2) - np.array(p1)
+                        delta_y = lat_to_meters(p2[0] - p1[0])
+                        delta_x = lon_to_meters(p2[1] - p1[1], (p2[0] + p1[0]) / 2)
+                        way_direction_vector = np.array([delta_y, delta_x])
                         way_direction_vector /= np.linalg.norm(way_direction_vector)
                         return PerpendicularPosition(p, way['id'], way, way_geom, p1, p2, way_direction_vector)
 
@@ -136,14 +145,19 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
             for rac_h in rac:
                 for crossing_node in rac_h.crossings:
                     crossing_position = rac_h.nodes[crossing_node['id']]
-                    crossing_vector = np.array(crossing_position) - np.array(pp.position)
-                    crossing_distance = np.linalg.norm(crossing_vector)
-                    if crossing_distance < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE):
+                    crossing_distance = haversine_distance(crossing_position, pp.position)
+                    if crossing_distance < BOX_VALID_MIN_CROSSING_DISTANCE:
                         return True
 
-                    if crossing_distance < meters_to_lat(BOX_VALID_MIN_CROSSING_DISTANCE_CONE):
+                    if crossing_distance < BOX_VALID_MIN_CROSSING_DISTANCE_CONE:
                         # calculate the angle between the crossing vector and the road direction
-                        crossing_vector /= crossing_distance
+                        delta_y = lat_to_meters(crossing_position[0] - pp.position[0])
+                        delta_x = lon_to_meters(crossing_position[1] - pp.position[1],
+                                                (crossing_position[0] + pp.position[0]) / 2)
+
+                        crossing_vector = np.array([delta_y, delta_x])
+                        crossing_vector /= np.linalg.norm(crossing_vector)
+
                         crossing_angle = np.arccos(np.clip(np.dot(pp.way_direction_vector, crossing_vector), -1.0, 1.0))
                         crossing_angle = degrees(crossing_angle)
 
