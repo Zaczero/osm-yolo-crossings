@@ -54,7 +54,7 @@ DEFAULT_CHANGESET_TAGS = {
     'import': 'yes',
     'source': 'aerial imagery',
     'website': WEBSITE,
-    # TODO: 'website:import': 'https://wiki.openstreetmap.org/wiki/BDOT10k_buildings_import',
+    'website:import': 'https://wiki.openstreetmap.org/wiki/YOLO_crossings_import',
 }
 
 DATA_DIR = Path('data')
