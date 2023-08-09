@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from pymongo import ASCENDING, GEOSPHERE, MongoClient
+from pymongo import ASCENDING, GEOSPHERE, IndexModel, MongoClient
 from tinydb import TinyDB
 
 from orjson_storage import ORJSONStorage
@@ -138,8 +138,8 @@ MONGO_DB = MONGO[NAME]
 MONGO_ADDED = MONGO_DB['added']
 
 if MONGO_URL != 'IGNORE':
-    MONGO_ADDED.create_index([
-        ('scorer_version', ASCENDING),
-        ('reason', ASCENDING),
-        ('position', GEOSPHERE)
+    MONGO_ADDED.create_indexes([
+        IndexModel([('scorer_version', ASCENDING)]),
+        IndexModel([('reason', ASCENDING)]),
+        IndexModel([('position', GEOSPHERE)]),
     ])
