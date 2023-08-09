@@ -20,6 +20,7 @@ COPY LICENSE Makefile *.py ./
 COPY model ./model/
 
 RUN nix-shell --run "make version"
+RUN nix-shell --run "MONGO_URL=IGNORE pipenv run python preload.py"
 
 ENTRYPOINT [ "nix-shell", "--run" ]
 CMD [ "pipenv run python main.py" ]

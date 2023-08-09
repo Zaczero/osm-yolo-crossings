@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from pymongo import GEOSPHERE, MongoClient
+from pymongo import ASCENDING, GEOSPHERE, MongoClient
 from tinydb import TinyDB
 
 from orjson_storage import ORJSONStorage
@@ -30,7 +30,9 @@ OVERPASS_API_INTERPRETER = os.getenv('OVERPASS_API_INTERPRETER', 'https://overpa
 
 OSM_USERNAME = os.getenv('OSM_USERNAME')
 OSM_PASSWORD = os.getenv('OSM_PASSWORD')
-assert OSM_USERNAME and OSM_PASSWORD, 'OSM credentials not set'
+
+if not OSM_PASSWORD or not OSM_PASSWORD:
+    print('⚠️ OpenStreetMap credentials are not set')
 
 SEARCH_RELATION = 49715  # Poland
 
@@ -134,6 +136,10 @@ MONGO_URL = os.getenv('MONGO_URL', 'mongodb://localhost:27017')
 MONGO = MongoClient(MONGO_URL)
 MONGO_DB = MONGO[NAME]
 MONGO_ADDED = MONGO_DB['added']
-MONGO_ADDED.create_index('scorer_version')
-MONGO_ADDED.create_index('reason')
-MONGO_ADDED.create_index([('position', GEOSPHERE)])
+
+if MONGO_URL != 'IGNORE':
+    MONGO_ADDED.create_index([
+        ('scorer_version', ASCENDING),
+        ('reason', ASCENDING),
+        ('position', GEOSPHERE)
+    ])

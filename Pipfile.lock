@@ -955,6 +955,7 @@
         "opencv-python-headless": {
             "hashes": [
                 "sha256:220d2e292fa45ef0582aab730460bbc15cfe61f2089208167a372ccf76f01e21",
+                "sha256:8ee3bf1c9086493c340c6a87899f1c7778d729de92bce8560b8c31ab8a9cdf79",
                 "sha256:9c094faf6ec7bd360244647b26ebdf8f54edec1d9292cb9179fff9badcca7be8",
                 "sha256:bc15726187dae26d8a08777faf6bc71d38f20c785c102677f58ba0e935003afb",
                 "sha256:df0608de207ae9b094ad9eaf1a475cf6e9a069fb12cd289d4a18cefdab2f8aa8",
