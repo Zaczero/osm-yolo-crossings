@@ -16,8 +16,8 @@ RUN nix-shell --run "true"
 RUN mkdir /app/data
 VOLUME [ "/app/data" ]
 
-COPY LICENSE Makefile *.py ./
 COPY model ./model/
+COPY LICENSE Makefile *.py ./
 
 RUN nix-shell --run "make version"
 RUN nix-shell --run "MONGO_URL=IGNORE pipenv run python preload.py"
