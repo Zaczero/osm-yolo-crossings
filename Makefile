@@ -1,4 +1,4 @@
-.PHONY: update version start-dev stop-dev logs-dev
+.PHONY: update version dev-start dev-stop dev-logs
 
 IMAGE_NAME=docker.monicz.pl/osm-budynki-orto-import
 
@@ -8,11 +8,11 @@ update:
 version:
 	sed -i -r "s|VERSION = '([0-9.]+)'|VERSION = '\1.$$(date +%y%m%d)'|g" config.py
 
-start-dev:
+dev-start:
 	docker compose -f docker-compose.dev.yml up -d
 
-stop-dev:
+dev-stop:
 	docker compose -f docker-compose.dev.yml down
 
-logs-dev:
+dev-logs:
 	docker compose -f docker-compose.dev.yml logs -f

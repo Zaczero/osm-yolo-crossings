@@ -15,9 +15,9 @@ from attrib_dataset import create_attrib_dataset
 from attrib_model import create_attrib_model
 from attrib_tuned_model import AttribTunedModel
 from box import Box
-from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND, CPU_COUNT,
-                    CROSSING_BOX_EXTEND, DRY_RUN, MIN_IMPORT_SIZE,
-                    PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER,
+from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND,
+                    BACKLOG_FACTOR, CPU_COUNT, CROSSING_BOX_EXTEND, DRY_RUN,
+                    MIN_IMPORT_SIZE, PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER,
                     YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
@@ -288,7 +288,15 @@ async def main() -> None:
                             heappush(processed_heap, (key, result))
 
                 # submit processes
-                for cell_ in islice(cells_gen, CPU_COUNT - len(process_futures)):
+                process_futures_size = CPU_COUNT - len(process_futures)
+
+                if processed_heap:
+                    heap_size_limit = BACKLOG_FACTOR * CPU_COUNT
+                    heap_size_potential = len(processed_heap) + len(process_futures)
+                    process_futures_size = min(heap_size_limit - heap_size_potential, process_futures_size)
+                    process_futures_size = max(0, process_futures_size)
+
+                for cell_ in islice(cells_gen, process_futures_size):
                     executor_ = executor if CPU_COUNT > 1 else None
                     future = loop.run_in_executor(executor_, _process_cell, cell_)
                     process_futures[cell_.index] = future
@@ -312,8 +320,7 @@ async def main() -> None:
                         processed.clear()
 
                 # check if we are done
-                if not process_futures:
-                    assert not processed_heap
+                if not process_futures and not processed_heap:
                     break
 
             submit_size = _submit_processed(osm, processed, force=True)
