@@ -14,11 +14,8 @@ from grid_filter import is_grid_valid
 from latlon import LatLon
 from utils import format_eta, meters_to_lat, meters_to_lon
 
-# _COUNTRY_BB = Box(LatLon(49.0, 14.0),
-#                   LatLon(55.0, 24.25) - LatLon(49.0, 14.0))
-
-_COUNTRY_BB = Box(LatLon(51.5, 16.0),
-                  LatLon(55.0, 24.25) - LatLon(51.5, 16.0))
+_COUNTRY_BB = Box(LatLon(49.0, 14.0),
+                  LatLon(55.0, 24.25) - LatLon(49.0, 14.0))
 
 _DENSITY_Y = meters_to_lat(0.1)
 _DENSITY_X = meters_to_lon(0.1, _COUNTRY_BB.center().lat)
