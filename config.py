@@ -10,7 +10,6 @@ SEED = 42
 
 SAVE_IMG = os.getenv('SAVE_IMG', '0') == '1'
 DRY_RUN = os.getenv('DRY_RUN', '0') == '1'
-SKIP_CONSTRUCTION = os.getenv('SKIP_CONSTRUCTION', '1') == '1'
 
 DAILY_IMPORT_SPEED = float(os.getenv('DAILY_IMPORT_SPEED', '300'))
 MIN_IMPORT_SIZE = int(os.getenv('MIN_IMPORT_SIZE', '30'))
