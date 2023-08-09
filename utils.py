@@ -72,6 +72,16 @@ def meters_to_lon(meters: float, lat: float) -> float:
 
 
 @njit(fastmath=True)
+def lat_to_meters(lat: float) -> float:
+    return lat * (CIRCUMFERENCE / 360)
+
+
+@njit(fastmath=True)
+def lon_to_meters(lon: float, lat: float) -> float:
+    return lon * ((CIRCUMFERENCE / 360) * cos(radians(lat)))
+
+
+@njit(fastmath=True)
 def radians_tuple(p: tuple[float, float]) -> tuple[float, float]:
     return (radians(p[0]), radians(p[1]))
 
