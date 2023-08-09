@@ -17,8 +17,8 @@ from attrib_tuned_model import AttribTunedModel
 from box import Box
 from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND,
                     BACKLOG_FACTOR, CPU_COUNT, CROSSING_BOX_EXTEND, DRY_RUN,
-                    MIN_IMPORT_SIZE, PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER,
-                    YOLO_MODEL_RESOLUTION)
+                    MAX_TASKS_PER_CHILD, MIN_IMPORT_SIZE, PROCESS_NICE, SEED,
+                    SLEEP_AFTER_GRID_ITER, YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
 from db_added import mark_added, mask_not_added
@@ -268,7 +268,7 @@ async def main() -> None:
         print(f'👤 Welcome, {display_name}!')
         # changeset_max_size = osm.get_changeset_max_size()
 
-    with ProcessPoolExecutor(CPU_COUNT) as executor:
+    with ProcessPoolExecutor(CPU_COUNT, max_tasks_per_child=MAX_TASKS_PER_CHILD) as executor:
         while True:
             processed: list[CrossingMergeInstructions] = []
 

@@ -3,7 +3,7 @@ from typing import Sequence
 import numpy as np
 import tensorflow as tf
 
-from config import CPU_COUNT, YOLO_CONFIDENCE, YOLO_MODEL_PATH
+from config import YOLO_CONFIDENCE, YOLO_MODEL_PATH
 
 
 class YoloTunedModel:
