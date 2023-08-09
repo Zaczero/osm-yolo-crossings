@@ -1,4 +1,4 @@
-from typing import NamedTuple, Sequence
+from typing import NamedTuple
 
 import numpy as np
 import tensorflow as tf
