@@ -12,7 +12,7 @@ SAVE_IMG = os.getenv('SAVE_IMG', '0') == '1'
 DRY_RUN = os.getenv('DRY_RUN', '0') == '1'
 
 DAILY_IMPORT_SPEED = float(os.getenv('DAILY_IMPORT_SPEED', '300'))
-MIN_IMPORT_SIZE = int(os.getenv('MIN_IMPORT_SIZE', '30'))
+MIN_IMPORT_SIZE = int(os.getenv('MIN_IMPORT_SIZE', '40'))
 MIN_SLEEP_AFTER_IMPORT = float(os.getenv('MIN_SLEEP_AFTER_IMPORT', '300'))  # let overpass-api update
 SLEEP_AFTER_GRID_ITER = float(os.getenv('SLEEP_DAYS_AFTER_GRID_ITER', '30')) * 24 * 3600
 PROCESS_NICE = int(os.getenv('PROCESS_NICE', '15'))
