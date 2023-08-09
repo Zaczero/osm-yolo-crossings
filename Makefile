@@ -1,6 +1,6 @@
 .PHONY: update version dev-start dev-stop dev-logs
 
-IMAGE_NAME=docker.monicz.pl/osm-budynki-orto-import
+IMAGE_NAME=docker.monicz.pl/osm-yolo-crossings
 
 update:
 	docker buildx build -t $(IMAGE_NAME) --push .
