@@ -97,7 +97,7 @@ class OpenStreetMap:
 
         return r.json()['user']
 
-    @retry(wait=wait_exponential(), stop=stop_after_attempt(3))
+    @retry(wait=wait_exponential(), stop=stop_after_attempt(2))
     def upload_osm_change(self, osm_change: str) -> str:
         changeset = xmltodict.unparse({'osm': {'changeset': {'tag': [
             {'@k': k, '@v': v}

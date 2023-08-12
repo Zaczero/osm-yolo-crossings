@@ -10,6 +10,7 @@ from typing import Sequence
 
 import numpy as np
 from skimage import draw
+from tenacity import retry, stop_after_attempt, wait_exponential
 
 from attrib_dataset import create_attrib_dataset
 from attrib_model import create_attrib_model
@@ -234,6 +235,7 @@ def _process_cell(cell: Cell) -> Sequence[CrossingMergeInstructions]:
     return valid_instructions
 
 
+@retry(wait=wait_exponential(), stop=stop_after_attempt(3))
 def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeInstructions], *, force: bool = False) -> int:
     if not (
         len(instructions) >= MIN_IMPORT_SIZE or

@@ -1,5 +1,6 @@
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 from itertools import pairwise
+from time import time
 from typing import Iterable, NamedTuple, Sequence
 
 import httpx
@@ -237,7 +238,7 @@ def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[
 
 
 @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
-def query_roads_and_crossings_historical(boxes: Sequence[Box]) -> Sequence[Sequence[QueriedRoadsAndCrossings]]:
+def query_roads_and_crossings_historical(boxes: Sequence[Box], max_age: float) -> Sequence[Sequence[QueriedRoadsAndCrossings]]:
     result = tuple([] for _ in boxes)
 
     for years_ago in (0, 0.3, 1, 2):
@@ -254,7 +255,17 @@ def query_roads_and_crossings_historical(boxes: Sequence[Box]) -> Sequence[Seque
         r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
         r.raise_for_status()
 
-        elements = r.json()['elements']
+        data = r.json()
+        data_timestamp = datetime \
+            .strptime(data['osm3s']['timestamp_osm_base'], '%Y-%m-%dT%H:%M:%SZ') \
+            .replace(tzinfo=UTC) \
+            .timestamp()
+
+        data_age = time() - data_timestamp
+        if data_age > max_age:
+            raise Exception(f'Overpass data is too old: {data_age} > {max_age}')
+
+        elements = data['elements']
         _extract_center(elements)
 
         parts = _split_by_count(elements)

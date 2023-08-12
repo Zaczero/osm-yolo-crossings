@@ -10,7 +10,8 @@ from config import (BOX_VALID_MAX_CENTER_DISTANCE, BOX_VALID_MAX_ROAD_ANGLE,
                     BOX_VALID_MAX_ROAD_COUNT, BOX_VALID_MIN_CROSSING_DISTANCE,
                     BOX_VALID_MIN_CROSSING_DISTANCE_CONE,
                     BOX_VALID_MIN_CROSSING_DISTANCE_CONE_ANGLE,
-                    NODE_MERGE_THRESHOLD, NODE_MERGE_THRESHOLD_PRIORITY)
+                    MIN_SLEEP_AFTER_IMPORT, NODE_MERGE_THRESHOLD,
+                    NODE_MERGE_THRESHOLD_PRIORITY)
 from crossing_suggestion import CrossingSuggestion
 from crossing_type import CrossingType
 from latlon import LatLon
@@ -46,7 +47,7 @@ class PerpendicularPosition(NamedTuple):
 
 
 def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[CrossingMergeInstructions]:
-    queried = query_roads_and_crossings_historical(tuple(s.box for s in suggestions))
+    queried = query_roads_and_crossings_historical(tuple(s.box for s in suggestions), max_age=MIN_SLEEP_AFTER_IMPORT)
     result = tuple(CrossingMergeInstructions(s.box.center(), s.crossing_type, [], []) for s in suggestions)
 
     for i, (rac, s) in enumerate(zip(queried, suggestions)):
