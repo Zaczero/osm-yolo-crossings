@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>33</id>
+      <size>32</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-08-14 13:23:18.952339+00:00</created>
+      <updated>2023-08-14 13:23:44.160874+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>31</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>33</id>
+          <start>0</start>
+          <stop>31</stop>
+          <url>https://label.monicz.pl/api/jobs/33</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>admin</username>
+        <email>admin@localhost.invalid</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>valid</name>
+          <color>#24b353</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>signals</name>
+          <color>#b83df5</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>raised</name>
+          <color>#ff6a4d</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>invalid</name>
+          <color>#fa3253</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2023-08-14 13:23:47.568071+00:00</dumped>
+  </meta>
+  <image id="0" name="difficult/49_29674080,19_98464590.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="difficult/49_30480310,19_99389240.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="difficult/49_31007930,19_96393750.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="difficult/49_34603300,19_95020390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="difficult/49_37793030,19_89148510.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="difficult/49_40484810,20_33692250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="difficult/49_41515020,22_34350900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="difficult/49_44342120,20_43075260.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="8" name="difficult/49_44564890,19_95713880.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="9" name="difficult/49_45893460,20_29103930.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="10" name="difficult/49_47015610,19_63725400.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="11" name="difficult/49_49909880,20_39790360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="12" name="difficult/49_51916500,19_98576310.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="13" name="difficult/49_52264060,19_94536990.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="14" name="difficult/49_54707670,19_01432940.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="15" name="difficult/49_55775590,18_95217380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="16" name="difficult/49_56338890,19_88451720.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="17" name="difficult/49_61306960,20_12076220.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="18" name="difficult/49_61399560,20_09992580.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="19" name="difficult/49_61447640,19_95399110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="20" name="difficult/49_61746140,20_16921670.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="21" name="difficult/49_64153330,20_38639070.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="22" name="difficult/49_65162710,19_25444730.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="23" name="difficult/49_66510420,19_26795740.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="24" name="difficult/49_67991210,19_18296960.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="25" name="difficult/49_69364010,19_14253550.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="26" name="difficult/49_70211800,19_27442130.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="27" name="difficult/49_70526970,20_02504020.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="28" name="difficult/49_70802500,19_26703060.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="29" name="difficult/49_71365600,19_97543170.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="30" name="difficult/49_72704950,19_25065900.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="31" name="difficult/49_74889960,19_07598380.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+</annotations>
