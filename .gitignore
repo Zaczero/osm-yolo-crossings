@@ -304,5 +304,6 @@ poetry.toml
 .history
 .ionide
 
+result
 data/*
 images/*
