@@ -24,7 +24,7 @@ from config import (ATTRIB_MODEL_PATH, ATTRIB_MODEL_RESOLUTION,
                     ATTRIB_PRECISION, DATA_DIR, SEED)
 
 _BATCH_SIZE = 32
-_EPOCHS = 30
+_EPOCHS = 40
 
 
 def _split_x_y(dataset: Sequence[AttribDatasetEntry]) -> tuple[np.ndarray, np.ndarray]:
@@ -39,10 +39,10 @@ def get_attrib_model(imagenet_weights: bool = True) -> Model:
     image_model = MobileNetV3Large(include_top=False,
                                    weights='imagenet' if imagenet_weights else None,
                                    input_tensor=image_inputs,
-                                   dropout_rate=0.2,
+                                   dropout_rate=0.3,
                                    include_preprocessing=False)
 
-    freeze_ratio = 0.6
+    freeze_ratio = 0.65
     for layer in image_model.layers[:int(len(image_model.layers) * freeze_ratio)]:
         layer.trainable = False
 
@@ -95,6 +95,8 @@ def create_attrib_model():
         rotation_range=180,
         shear_range=20,
         zoom_range=0.2,
+        width_shift_range=0.05,
+        height_shift_range=0.05,
         channel_shift_range=0.1,
         fill_mode='reflect',
         horizontal_flip=True,
