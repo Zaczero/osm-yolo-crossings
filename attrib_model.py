@@ -42,7 +42,7 @@ def get_attrib_model(imagenet_weights: bool = True) -> Model:
                                    dropout_rate=0.3,
                                    include_preprocessing=False)
 
-    freeze_ratio = 0.65
+    freeze_ratio = 0.6
     for layer in image_model.layers[:int(len(image_model.layers) * freeze_ratio)]:
         layer.trainable = False
 
@@ -93,8 +93,8 @@ def create_attrib_model():
 
     datagen = ImageDataGenerator(
         rotation_range=180,
-        shear_range=20,
-        zoom_range=0.2,
+        shear_range=30,
+        zoom_range=0.3,
         width_shift_range=0.05,
         height_shift_range=0.05,
         channel_shift_range=0.1,
