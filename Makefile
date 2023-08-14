@@ -1,9 +1,7 @@
 .PHONY: update version dev-start dev-stop dev-logs
 
-IMAGE_NAME=docker.monicz.pl/osm-yolo-crossings
-
 update:
-	docker buildx build -t $(IMAGE_NAME) --push .
+	docker push $$(docker load < $$(nix-build --no-out-link) | sed -En 's/Loaded image: (\S+)/\1/p')
 
 version:
 	sed -i -r "s|VERSION = '([0-9.]+)'|VERSION = '\1.$$(date +%y%m%d)'|g" config.py

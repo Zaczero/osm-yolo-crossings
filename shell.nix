@@ -1,23 +1,39 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> { }
+, isDocker ? false
+}:
 
-pkgs.mkShell rec {
-  buildInputs = with pkgs; [
+with pkgs; let
+  commonBuildInputs = [
+    busybox
     stdenv.cc.cc.lib
     gnumake
     gnused
     python311
-    pipenv
-    zlib
+    zlib.out
     util-linux # lscpu
+    cacert
+  ];
+
+  devBuildInputs = [
+    pipenv
     xorg.libX11
   ];
 
-  shellHook = with pkgs; ''
-    export LD_LIBRARY_PATH="${lib.makeLibraryPath buildInputs}:$LD_LIBRARY_PATH"
+  commonShellHook = ''
+  '';
+
+  devShellHook = ''
     export PIPENV_VENV_IN_PROJECT=1
     export PIPENV_VERBOSITY=-1
-    [ -v DOCKER ] && [ ! -f ".venv/bin/activate" ] && pipenv sync
-    [ ! -v DOCKER ] && [ ! -f ".venv/bin/activate" ] && pipenv sync --dev
-    [ ! -v DOCKER ] && exec pipenv shell --fancy
+    [ ! -f .venv/bin/activate ] && pipenv sync --dev
+    case $- in *i*) exec pipenv shell --fancy;; esac
   '';
+
+  dockerShellHook = ''
+    make version
+  '';
+in
+pkgs.mkShell {
+  buildInputs = commonBuildInputs ++ (if isDocker then [ ] else devBuildInputs);
+  shellHook = commonShellHook + (if isDocker then dockerShellHook else devShellHook);
 }
