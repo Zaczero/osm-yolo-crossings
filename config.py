@@ -41,7 +41,7 @@ MAX_TASKS_PER_CHILD = int(os.getenv('MAX_TASKS_PER_CHILD', '300'))
 
 SCORER_VERSION = 1  # changing this will invalidate previous results
 
-VERSION = '1.4'
+VERSION = '1.4.1'
 NAME = 'osm-yolo-crossings'
 CREATED_BY = f'{NAME} {VERSION}'
 WEBSITE = 'https://github.com/Zaczero/osm-yolo-crossings'
