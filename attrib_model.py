@@ -108,7 +108,7 @@ def create_attrib_model():
         optimizer=AdamW(
             CosineDecay(initial_learning_rate=2e-5,
                         decay_steps=steps_per_epoch * _EPOCHS - 5,
-                        alpha=0.3,
+                        alpha=0.4,
                         warmup_target=2e-4,
                         warmup_steps=steps_per_epoch * 5)),
         loss=BinaryCrossentropy(),
