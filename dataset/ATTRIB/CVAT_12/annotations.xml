@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>34</id>
+      <size>8</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-08-15 04:56:36.408736+00:00</created>
+      <updated>2023-08-15 04:57:02.075323+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>7</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>34</id>
+          <start>0</start>
+          <stop>7</stop>
+          <url>https://label.monicz.pl/api/jobs/34</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>admin</username>
+        <email>admin@localhost.invalid</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>valid</name>
+          <color>#24b353</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>signals</name>
+          <color>#b83df5</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>raised</name>
+          <color>#ff6a4d</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>invalid</name>
+          <color>#fa3253</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2023-08-15 04:57:04.398364+00:00</dumped>
+  </meta>
+  <image id="0" name="difficult/49_67078790,20_40239390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="1" name="difficult/49_70386300,20_23192250.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="2" name="difficult/49_71499640,20_37081390.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="3" name="difficult/49_71910240,20_04167450.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="4" name="difficult/49_73568500,20_28972760.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="5" name="difficult/49_73620820,20_38963660.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="6" name="difficult/49_74536020,20_18103110.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+  <image id="7" name="difficult/49_75390540,20_34947360.png" width="224" height="224">
+    <tag label="invalid" source="manual">
+    </tag>
+  </image>
+</annotations>
