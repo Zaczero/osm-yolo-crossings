@@ -4,10 +4,7 @@
 
 with pkgs; let
   commonBuildInputs = [
-    busybox
     stdenv.cc.cc.lib
-    gnumake
-    gnused
     python311
     zlib.out
     util-linux # lscpu
@@ -15,6 +12,8 @@ with pkgs; let
   ];
 
   devBuildInputs = [
+    gnumake
+    gnused
     pipenv
     xorg.libX11
   ];
@@ -23,6 +22,7 @@ with pkgs; let
   '';
 
   devShellHook = ''
+    export LD_LIBRARY_PATH="${lib.makeLibraryPath commonBuildInputs}"
     export PIPENV_VENV_IN_PROJECT=1
     export PIPENV_VERBOSITY=-1
     [ ! -f .venv/bin/activate ] && pipenv sync --dev
