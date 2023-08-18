@@ -1,27 +1,24 @@
 import json
 import pickle
-from functools import partial
-from itertools import chain
-from multiprocessing import Pool
+import random
 from pathlib import Path
 from typing import Iterable, NamedTuple, Sequence
 
 import numpy as np
 import xmltodict
-from skimage import draw, img_as_float
+from skimage import img_as_float
 from skimage.io import imread
 
 from box import Box
-from config import (CACHE_DIR, CPU_COUNT, IMAGES_DIR, YOLO_DATASET_DIR,
+from config import (CACHE_DIR, IMAGES_DIR, YOLO_DATASET_DIR,
                     YOLO_MODEL_RESOLUTION)
-from db_grid import random_grid
+from db_grid import _GRID_SIZE_Y
 from latlon import LatLon
 from orto import fetch_orto
-from overpass import query_specific_crossings
+from overpass import query_elements_position
 from polygon import Polygon
 from processor import normalize_yolo_image
-from transform_geo_px import transform_rad_to_px
-from utils import save_image
+from utils import lat_to_meters, save_image
 
 
 class YoloDatasetLabel(NamedTuple):
@@ -106,63 +103,38 @@ class ProcessCellResult(NamedTuple):
     overlay: np.ndarray
 
 
-def _process_cell(cell: Box, *, must_contain_crossings: bool) -> Sequence[ProcessCellResult]:
-    crossings = query_specific_crossings(cell, "~'^(uncontrolled|marked|traffic_signals)$'")
-    if len(crossings) < 2:
-        return []
+def _process(size: int) -> Sequence[ProcessCellResult]:
+    crossings = query_elements_position('node[highway=crossing][!bicycle]')
+    crossings = list(crossings)
+    random.shuffle(crossings)
 
-    orto_img = fetch_orto(cell, YOLO_MODEL_RESOLUTION * 18)
-    if orto_img is None:
-        return []
+    if crossings:
+        print(f'[DATASET] 🦓 Processing {len(crossings)} elements')
 
-    save_image(orto_img, '1')
-    print(f'[DATASET] 🦓 Processing {len(crossings)} crossings')
-
-    assert orto_img.shape[0] == orto_img.shape[1]
-    num_subcells = int(orto_img.shape[0] / YOLO_MODEL_RESOLUTION)
-    subcell_size_lat = cell.size.lat / num_subcells
-    subcell_size_lon = cell.size.lon / num_subcells
     result = []
 
-    for y in range(int(num_subcells)):
-        subcell_lat = cell.point.lat + cell.size.lat - subcell_size_lat * (y + 1)
-        for x in range(int(num_subcells)):
-            subcell_lon = cell.point.lon + subcell_size_lon * x
+    for crossing_position in crossings:
+        crossing_box = Box(crossing_position, LatLon(0, 0))
+        crossing_box = crossing_box.extend(meters=lat_to_meters(_GRID_SIZE_Y) / 2)
 
-            subcell = Box(LatLon(subcell_lat, subcell_lon), LatLon(subcell_size_lat, subcell_size_lon))
-            subcell_crossings = tuple(c for c in crossings if c.position in subcell)
+        orto_img = fetch_orto(crossing_box, YOLO_MODEL_RESOLUTION)
+        if orto_img is None:
+            continue
 
-            if must_contain_crossings and not subcell_crossings:
-                continue
+        overlay_img = orto_img.copy()
+        overlay_img = normalize_yolo_image(overlay_img)
 
-            subcell_orto_img = orto_img[
-                y * YOLO_MODEL_RESOLUTION:(y + 1) * YOLO_MODEL_RESOLUTION,
-                x * YOLO_MODEL_RESOLUTION:(x + 1) * YOLO_MODEL_RESOLUTION,
-                :
-            ]
+        save_image(orto_img, 'dataset_yolo_1')
+        save_image(overlay_img, 'dataset_yolo_2')
 
-            subcell_crossings_px = transform_rad_to_px(
-                (c.position for c in subcell_crossings),
-                img_box=subcell,
-                img_shape=subcell_orto_img.shape)
+        result.append(ProcessCellResult(
+            box=crossing_box,
+            image=orto_img,
+            overlay=overlay_img,
+        ))
 
-            subcell_overlay_img = subcell_orto_img.copy()
-            subcell_overlay_img = normalize_yolo_image(subcell_overlay_img)
-
-            for crossing, crossing_px in zip(subcell_crossings, subcell_crossings_px):
-                rr, cc = draw.disk(crossing_px, radius=6, shape=subcell_orto_img.shape[:2])
-                subcell_overlay_img[rr, cc] = (0, 0, 0)
-                rr, cc = draw.disk(crossing_px, radius=5, shape=subcell_orto_img.shape[:2])
-                subcell_overlay_img[rr, cc] = (1, 0, 1) if crossing.bicycle else (1, 0, 0)
-
-            save_image(subcell_orto_img, 'dataset_yolo_1')
-            save_image(subcell_overlay_img, 'dataset_yolo_2')
-
-            result.append(ProcessCellResult(
-                box=subcell,
-                image=subcell_orto_img,
-                overlay=subcell_overlay_img,
-            ))
+        if len(result) >= size:
+            break
 
     return tuple(result)
 
@@ -177,39 +149,25 @@ def create_yolo_dataset(size: int) -> None:
 
     cvat_image_annotations: list[dict] = cvat_annotations['annotations']['image']
 
-    with Pool(CPU_COUNT) as pool:
-        process_func = partial(_process_cell, must_contain_crossings=True)
-        cells = random_grid()
-        for i in range(0, len(cells), CPU_COUNT):
-            process_cells = cells[i:i+CPU_COUNT]
+    for result in _process(size):
+        unique_id = str(result.box).replace('.', '_')
 
-            if CPU_COUNT == 1:
-                iterator = map(process_func, process_cells)
-            else:
-                iterator = pool.imap_unordered(process_func, process_cells)
+        raw_path = save_image(result.image, f'CVAT/images/{unique_id}', force=True)
+        raw_name = raw_path.name
+        raw_name_safe = raw_name.replace('.', '_')
 
-            for result in chain.from_iterable(iterator):
-                unique_id = str(result.box).replace('.', '_')
+        save_image(result.overlay, f'CVAT/images/related_images/{raw_name_safe}/overlay', force=True)
 
-                raw_path = save_image(result.image, f'CVAT/images/{unique_id}', force=True)
-                raw_name = raw_path.name
-                raw_name_safe = raw_name.replace('.', '_')
+        with open(IMAGES_DIR / f'CVAT/images/related_images/{raw_name_safe}/box.json', 'w') as f:
+            json.dump(result.box, f)
 
-                save_image(result.overlay, f'CVAT/images/related_images/{raw_name_safe}/overlay', force=True)
+        annotation = {
+            '@name': f'images/{raw_name}',
+            '@height': result.image.shape[0],
+            '@width': result.image.shape[1],
+        }
 
-                with open(IMAGES_DIR / f'CVAT/images/related_images/{raw_name_safe}/box.json', 'w') as f:
-                    json.dump(result.box, f)
-
-                annotation = {
-                    '@name': f'images/{raw_name}',
-                    '@height': result.image.shape[0],
-                    '@width': result.image.shape[1],
-                }
-
-                cvat_image_annotations.append(annotation)
-
-            if len(cvat_image_annotations) >= size:
-                break
+        cvat_image_annotations.append(annotation)
 
     # sort in lexical order
     cvat_image_annotations.sort(key=lambda x: x['@name'])
