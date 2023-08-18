@@ -235,7 +235,7 @@ def _process_cell(cell: Cell) -> Sequence[CrossingMergeInstructions]:
     return valid_instructions
 
 
-@retry(wait=wait_exponential(), stop=stop_after_attempt(3))
+@retry(wait=wait_exponential(60), stop=stop_after_attempt(3))
 def _submit_processed(osm: OpenStreetMap, instructions: Sequence[CrossingMergeInstructions], *, force: bool = False) -> int:
     if not (
         len(instructions) >= MIN_IMPORT_SIZE or
