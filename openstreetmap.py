@@ -48,7 +48,7 @@ class OpenStreetMap:
         return self._get_elements('nodes', node_ids)
 
     @cached(TTLCache(1024, ttl=60))
-    @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
+    @retry(wait=wait_exponential(max=1800), stop=stop_after_delay(RETRY_TIME_LIMIT))
     def _get_elements(self, elements_type: str, element_ids: Sequence[str]) -> list[dict]:
         batch_size = 500
         results = []
@@ -75,7 +75,7 @@ class OpenStreetMap:
 
         return results
 
-    @retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
+    @retry(wait=wait_exponential(max=1800), stop=stop_after_delay(RETRY_TIME_LIMIT))
     def get_way_full(self, way_id: str | int,) -> dict:
         with self._get_http_client() as http:
             r = http.get(f'/0.6/way/{way_id}/full')

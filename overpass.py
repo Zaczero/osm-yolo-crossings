@@ -26,6 +26,9 @@ class QueriedRoadsAndCrossings(NamedTuple):
     nodes: dict[int, LatLon]
 
 
+_http = httpx.Client(OVERPASS_API_INTERPRETER)
+
+
 def _build_elements_query(timeout: int, query: str) -> str:
     return (
         f'[out:json][timeout:{timeout}];'
@@ -145,12 +148,12 @@ def _is_crossing(element: dict) -> bool:
     return tags.get('highway', '') == 'crossing'
 
 
-@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
+@retry(wait=wait_exponential(max=1800), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def query_elements_position(query: str) -> Sequence[LatLon]:
     timeout = 180
     query = _build_elements_query(timeout, query)
 
-    r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
+    r = _http.post('', data={'data': query}, headers=http_headers(), timeout=timeout * 2)
     r.raise_for_status()
 
     elements = r.json()['elements']
@@ -161,12 +164,12 @@ def query_elements_position(query: str) -> Sequence[LatLon]:
     return result
 
 
-@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
+@retry(wait=wait_exponential(max=1800), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossing]:
     timeout = 180
     query = _build_specific_crossings_query(box, timeout, specific)
 
-    r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
+    r = _http.post('', data={'data': query}, headers=http_headers(), timeout=timeout * 2)
     r.raise_for_status()
 
     elements = r.json()['elements']
@@ -184,12 +187,12 @@ def query_specific_crossings(box: Box, specific: str) -> Sequence[QueriedCrossin
     return tuple(result)
 
 
-@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
+@retry(wait=wait_exponential(max=1800), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[Sequence[LatLon], Sequence[LatLon]]:
     timeout = 180
     query = _build_buildings_roads_query(box, timeout)
 
-    r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
+    r = _http.post('', data={'data': query}, headers=http_headers(), timeout=timeout * 2)
     r.raise_for_status()
 
     elements = r.json()['elements']
@@ -237,7 +240,7 @@ def query_buildings_roads(box: Box, *, interpolate_roads: bool = True) -> tuple[
     return buildings, tuple(roads)
 
 
-@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
+@retry(wait=wait_exponential(max=1800), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def query_roads_and_crossings_historical(boxes: Sequence[Box], max_age: float) -> Sequence[Sequence[QueriedRoadsAndCrossings]]:
     result = tuple([] for _ in boxes)
 
@@ -252,7 +255,7 @@ def query_roads_and_crossings_historical(boxes: Sequence[Box], max_age: float) -
             date_fmt = date.strftime('%Y-%m-%dT%H:%M:%SZ')
             query = f'[date:"{date_fmt}"]{query}'
 
-        r = httpx.post(OVERPASS_API_INTERPRETER, data={'data': query}, headers=http_headers(), timeout=timeout * 2)
+        r = _http.post('', data={'data': query}, headers=http_headers(), timeout=timeout * 2)
         r.raise_for_status()
 
         data = r.json()
