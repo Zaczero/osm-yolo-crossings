@@ -13,6 +13,7 @@ from latlon import LatLon
 from utils import http_headers
 
 _ZOOM = 19
+_http = httpx.Client()
 
 
 def _position_to_tile(p: LatLon) -> tuple[int, int]:
@@ -50,9 +51,9 @@ def _crop_stitched_image(stitched_img: np.ndarray, stitched_p1: LatLon, stitched
 
 
 @cached(TTLCache(maxsize=32, ttl=3600))
-@retry(wait=wait_exponential(), stop=stop_after_delay(RETRY_TIME_LIMIT))
+@retry(wait=wait_exponential(max=1800), stop=stop_after_delay(RETRY_TIME_LIMIT))
 def _fetch_wmts(x: int, y: int) -> np.ndarray | None:
-    r = httpx.get('https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/WMTS/StandardResolution', params={
+    r = _http.get('https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/WMTS/StandardResolution', params={
         'SERVICE': 'WMTS',
         'REQUEST': 'GetTile',
         'VERSION': '1.0.0',
