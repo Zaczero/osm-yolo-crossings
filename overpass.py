@@ -26,7 +26,7 @@ class QueriedRoadsAndCrossings(NamedTuple):
     nodes: dict[int, LatLon]
 
 
-_http = httpx.Client(OVERPASS_API_INTERPRETER)
+_http = httpx.Client(base_url=OVERPASS_API_INTERPRETER)
 
 
 def _build_elements_query(timeout: int, query: str) -> str:
