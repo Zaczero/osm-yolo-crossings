@@ -73,6 +73,9 @@ def _fetch_wmts(x: int, y: int) -> np.ndarray | None:
 
     img = imread(r.content, plugin='imageio')
 
+    if len(img.shape) != 3 or img.shape[2] != 3 or not all(img.shape):
+        return None
+
     if img.min() == img.max():
         return None
 
