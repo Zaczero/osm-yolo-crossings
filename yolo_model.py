@@ -24,7 +24,7 @@ from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
 _EPOCHS_0 = 50
-_EPOCHS = 100
+_EPOCHS = 200
 _BATCH_SIZE = 32
 _BOXES_COUNT = 4
 
@@ -32,11 +32,11 @@ _BOXES_COUNT = 4
 def _data_gen(dataset: Sequence[YoloDatasetEntry], batch_size: int = _BATCH_SIZE, *, transform: bool = True) -> Generator[tuple[np.ndarray, dict], None, None]:
     if transform:
         datagen = ImageDataGenerator(
+            rotation_range=180,
+            shear_range=10,
+            zoom_range=0.1,
             width_shift_range=0.15,
             height_shift_range=0.15,
-            rotation_range=180,
-            shear_range=20,
-            zoom_range=0.1,
             channel_shift_range=0.1,
             fill_mode='constant',
             cval=0,
@@ -153,7 +153,7 @@ def create_yolo_model():
         optimizer=AdamW(
             CosineDecay(initial_learning_rate=5e-4,
                         decay_steps=steps_per_epoch * (_EPOCHS - _EPOCHS_0),
-                        alpha=0.2,
+                        alpha=0.1,
                         warmup_target=5e-5,
                         warmup_steps=steps_per_epoch * _EPOCHS_0)),
         box_loss='ciou',
