@@ -1,0 +1,2136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>35</id>
+      <size>500</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-08-18 03:36:10.763161+00:00</created>
+      <updated>2023-09-14 10:24:22.399510+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>499</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>35</id>
+          <start>0</start>
+          <stop>499</stop>
+          <url>http://label.monicz.dev/api/jobs/35</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>admin</username>
+        <email>admin@localhost.invalid</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>crossing</name>
+          <color>#3df53d</color>
+          <type>polygon</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2023-09-14 10:24:56.010436+00:00</dumped>
+  </meta>
+  <image id="0" name="images/49_46073309,20_26521545,49_46095531,20_26555735.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="110.42,95.57;101.40,129.99;158.30,145.10;167.88,109.87" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="28.05,9.78;63.27,21.20;70.29,0.00;31.12,0.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="1" name="images/49_69795379,21_16531392,49_69817601,21_16565748.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="112.83,82.71;97.58,133.04;131.50,142.20;147.10,91.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="2" name="images/49_71397319,21_70703366,49_71419541,21_70737734.png" width="224" height="224">
+  </image>
+  <image id="3" name="images/49_73784669,21_48806228,49_73806891,21_48840612.png" width="224" height="224">
+  </image>
+  <image id="4" name="images/49_74631659,21_47326535,49_74653881,21_47360925.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="98.10,79.96;83.27,139.01;119.28,149.07;135.10,88.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="5" name="images/49_77317599,22_78209255,49_77339821,22_78243665.png" width="224" height="224">
+  </image>
+  <image id="6" name="images/49_79284539,19_02735388,49_79306761,19_02769812.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="102.60,81.55;86.45,130.80;120.10,143.20;136.80,93.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="7" name="images/49_80437119,22_92242834,49_80459341,22_92277266.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="71.09,99.82;101.54,142.72;139.94,115.18;109.80,73.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="8" name="images/49_81312989,22_23282831,49_81335211,22_23317269.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="162.44,8.74;224.00,2.83;224.00,-0.00;161.51,-0.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="9" name="images/49_85055389,18_94040878,49_85077611,18_94075342.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.10,71.00;62.09,116.24;93.10,131.90;117.20,86.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="10" name="images/49_85288629,19_04930817,49_85310851,19_04965283.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="84.30,100.60;92.50,135.80;141.26,123.12;133.32,88.44" z_order="0">
+    </polygon>
+  </image>
+  <image id="11" name="images/49_88350519,19_22950556,49_88372741,19_22985044.png" width="224" height="224">
+  </image>
+  <image id="12" name="images/49_89426309,18_81452972,49_89448531,18_81487468.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="122.46,72.02;149.70,98.20;95.72,152.51;68.45,126.56" z_order="0">
+    </polygon>
+  </image>
+  <image id="13" name="images/49_89428959,21_05076922,49_89451181,21_05111418.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="88.30,110.15;136.20,145.40;158.20,115.20;110.28,78.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="14" name="images/49_90019099,22_81638390,49_90041321,22_81672890.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="95.02,90.49;119.53,92.76;115.76,131.22;90.49,128.58" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="185.53,139.90;190.10,100.70;215.32,103.32;211.17,142.54" z_order="0">
+    </polygon>
+  </image>
+  <image id="15" name="images/49_92363369,20_94627272,49_92385591,20_94661788.png" width="224" height="224">
+  </image>
+  <image id="16" name="images/49_96251059,20_32179888,49_96273281,20_32214432.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="224.00,209.21;215.32,209.21;210.79,145.85;224.00,145.85" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="83.70,72.30;74.66,37.25;125.19,22.16;134.62,57.61" z_order="0">
+    </polygon>
+  </image>
+  <image id="17" name="images/49_97159449,20_42725674,49_97181671,20_42760226.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="88.99,29.33;82.58,9.34;118.50,0.00;124.80,17.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="87.10,121.70;112.20,77.30;145.00,93.40;120.30,140.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="161.80,70.10;156.86,31.97;224.00,23.34;224.00,60.74" z_order="0">
+    </polygon>
+  </image>
+  <image id="18" name="images/49_97435739,19_94669093,49_97457961,19_94703647.png" width="224" height="224">
+  </image>
+  <image id="19" name="images/49_97634069,18_95757723,49_97656291,18_95792277.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.10,155.60;93.38,68.58;136.90,72.50;128.80,160.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="20" name="images/49_98336079,22_11403680,49_98358301,22_11438240.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="80.30,122.90;78.40,86.70;130.00,84.80;132.20,120.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="21" name="images/49_98843749,18_62266538,49_98865971,18_62301102.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="97.50,147.90;88.80,95.50;125.60,90.10;134.20,142.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="22" name="images/49_99888999,19_98849585,49_99911221,19_98884155.png" width="224" height="224">
+  </image>
+  <image id="23" name="images/50_00375119,18_46609693,50_00397341,18_46644267.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="87.00,136.90;83.90,99.30;134.55,95.28;138.63,132.84" z_order="0">
+    </polygon>
+  </image>
+  <image id="24" name="images/50_01138709,22_46229530,50_01160931,22_46264110.png" width="224" height="224">
+  </image>
+  <image id="25" name="images/50_01425739,22_69311439,50_01447961,22_69346021.png" width="224" height="224">
+  </image>
+  <image id="26" name="images/50_01483009,18_36727369,50_01505231,18_36761951.png" width="224" height="224">
+  </image>
+  <image id="27" name="images/50_01958609,22_00392007,50_01980831,22_00426593.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="89.60,137.30;105.50,73.60;142.25,83.06;125.96,146.41" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="114.60,38.70;124.57,0.00;161.47,0.00;149.94,47.76" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="77.54,186.69;133.20,208.41;116.05,224.00;60.56,224.00;46.31,215.65" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,203.82;31.38,202.98;28.70,167.70;0.00,167.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="28" name="images/50_02542939,19_91588215,50_02565161,19_91622805.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="106.05,152.75;77.54,119.71;107.40,93.47;136.82,126.05" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="188.00,224.00;187.95,189.85;224.00,190.65;224.00,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="29" name="images/50_03051629,21_99942443,50_03073851,21_99977037.png" width="224" height="224">
+  </image>
+  <image id="30" name="images/50_03746609,21_99431121,50_03768831,21_99465719.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.70,130.60;118.26,67.67;154.01,85.77;121.43,149.13" z_order="0">
+    </polygon>
+  </image>
+  <image id="31" name="images/50_03962449,21_39534740,50_03984671,21_39569340.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="105.59,135.55;80.30,105.20;120.53,73.10;145.87,102.97" z_order="0">
+    </polygon>
+  </image>
+  <image id="32" name="images/50_04198359,18_58883569,50_04220581,18_58918171.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="133.17,132.61;117.24,64.52;109.68,66.11;93.35,79.65;94.54,141.77" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="78.00,223.70;80.10,183.90;114.64,187.59;96.70,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="33" name="images/50_06029089,21_39577092,50_06051311,21_39611708.png" width="224" height="224">
+  </image>
+  <image id="34" name="images/50_07076899,21_96381859,50_07099121,21_96416481.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.70,185.40;80.30,158.70;116.91,158.67;116.60,185.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="79.20,133.70;74.60,101.30;109.50,96.50;114.00,130.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="35" name="images/50_07160219,18_11380768,50_07182441,18_11415392.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="72.90,127.80;82.60,73.50;121.00,80.90;108.70,135.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="36" name="images/50_07197149,21_39361108,50_07219371,21_39395732.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="89.10,120.40;101.60,99.10;133.30,117.90;121.60,140.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="37" name="images/50_08175199,18_00818115,50_08197421,18_00852745.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="75.46,120.66;89.50,83.60;146.95,106.63;132.02,143.74" z_order="0">
+    </polygon>
+  </image>
+  <image id="38" name="images/50_08605389,18_21915593,50_08627611,18_21950227.png" width="224" height="224">
+  </image>
+  <image id="39" name="images/50_08894579,19_96515572,50_08916801,19_96550208.png" width="224" height="224">
+  </image>
+  <image id="40" name="images/50_09346109,19_09202260,50_09368331,19_09236900.png" width="224" height="224">
+  </image>
+  <image id="41" name="images/50_09652989,19_90669589,50_09675211,19_90704231.png" width="224" height="224">
+  </image>
+  <image id="42" name="images/50_10704659,18_97254596,50_10726881,18_97289244.png" width="224" height="224">
+  </image>
+  <image id="43" name="images/50_13866739,20_11613524,50_13888961,20_11648196.png" width="224" height="224">
+  </image>
+  <image id="44" name="images/50_14040179,19_40529503,50_14062401,19_40564177.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="198.99,85.82;209.40,33.33;224.00,36.43;224.00,90.74" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="70.02,127.90;63.69,111.16;64.14,90.34;135.19,94.87;132.00,131.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="13.01,26.54;23.45,0.00;0.00,0.00;0.00,20.78" z_order="0">
+    </polygon>
+  </image>
+  <image id="45" name="images/50_14306409,18_77481122,50_14328631,18_77515798.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="101.25,138.81;81.30,110.80;116.20,85.90;136.10,114.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="132.02,182.25;113.01,154.65;147.86,130.21;167.77,157.36" z_order="0">
+    </polygon>
+  </image>
+  <image id="46" name="images/50_14713269,23_10983641,50_14735491,23_11018319.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="78.20,113.50;95.82,80.89;148.31,108.49;130.70,141.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="47" name="images/50_14901269,22_55743670,50_14923491,22_55778350.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="105.77,132.93;88.58,98.08;119.80,81.79;137.00,117.54" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="52.83,164.15;32.01,130.21;65.00,111.70;85.00,146.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="48" name="images/50_17014979,23_02979053,50_17037201,23_03013747.png" width="224" height="224">
+  </image>
+  <image id="49" name="images/50_18105499,18_97443309,50_18127721,18_97478011.png" width="224" height="224">
+  </image>
+  <image id="50" name="images/50_18258849,18_95952918,50_18281071,18_95987622.png" width="224" height="224">
+  </image>
+  <image id="51" name="images/50_19309059,18_99169894,50_19331281,18_99204606.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="67.90,127.70;68.50,91.70;144.60,96.90;142.10,133.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="52" name="images/50_19857679,19_26778712,50_19879901,19_26813428.png" width="224" height="224">
+  </image>
+  <image id="53" name="images/50_20214039,19_44405171,50_20236261,19_44439889.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="128.80,107.10;129.59,138.98;92.15,139.78;88.57,130.22;92.15,117.08;100.91,107.13" z_order="0">
+    </polygon>
+  </image>
+  <image id="54" name="images/50_20740469,18_97404569,50_20762691,18_97439291.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="96.80,128.60;90.20,88.80;115.70,84.50;121.90,124.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="55" name="images/50_21507989,18_97184336,50_21530211,18_97219064.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="123.30,162.20;98.70,107.50;111.20,69.50;135.70,123.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="56" name="images/50_22045389,18_67490264,50_22067611,18_67524996.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="72.74,103.96;84.96,69.12;136.10,89.00;122.52,123.88" z_order="0">
+    </polygon>
+  </image>
+  <image id="57" name="images/50_23070149,18_97206231,50_23092371,18_97240969.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="80.40,130.70;104.42,75.91;140.62,91.75;117.09,146.95" z_order="0">
+    </polygon>
+  </image>
+  <image id="58" name="images/50_24197839,21_76825647,50_24220061,21_76860393.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="104.00,146.50;89.40,87.70;127.60,77.20;143.00,136.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="59" name="images/50_24436759,21_77467876,50_24458981,21_77502624.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="103.60,149.90;75.91,84.51;113.20,68.60;141.20,134.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="60" name="images/50_24911719,19_01523704,50_24933941,19_01558456.png" width="224" height="224">
+  </image>
+  <image id="61" name="images/50_25283339,19_00239093,50_25305561,19_00273847.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="118.00,0.00;153.20,29.00;178.60,0.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="62" name="images/50_25361769,18_99521172,50_25383991,18_99555928.png" width="224" height="224">
+  </image>
+  <image id="63" name="images/50_25588889,19_02496561,50_25611111,19_02531319.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="89.00,148.90;98.50,75.80;132.10,79.90;123.00,153.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="64" name="images/50_25870949,22_41497420,50_25893171,22_41532180.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="106.00,130.80;95.82,97.18;120.10,90.40;129.90,124.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="65" name="images/50_25993499,19_07118690,50_26015721,19_07153450.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.91,137.45;88.13,100.34;130.21,90.84;141.07,109.85;144.69,126.59" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="48.80,151.90;8.03,145.14;12.55,108.94;53.73,114.37" z_order="0">
+    </polygon>
+  </image>
+  <image id="66" name="images/50_26307109,19_45277919,50_26329331,19_45312681.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="127.60,86.40;123.61,138.19;110.87,137.79;86.58,117.08;89.37,83.23" z_order="0">
+    </polygon>
+  </image>
+  <image id="67" name="images/50_26632529,21_77779278,50_26654751,21_77814042.png" width="224" height="224">
+  </image>
+  <image id="68" name="images/50_26915439,18_99651207,50_26937661,18_99685973.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="82.50,112.70;91.70,91.60;139.40,112.10;131.20,133.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="69" name="images/50_28121139,21_38843462,50_28143361,21_38878238.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="115.10,143.00;84.30,100.40;114.30,78.90;145.50,121.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="70" name="images/50_28243739,19_10209552,50_28265961,19_10244328.png" width="224" height="224">
+  </image>
+  <image id="71" name="images/50_28372289,18_66862451,50_28394511,18_66897229.png" width="224" height="224">
+  </image>
+  <image id="72" name="images/50_28693609,21_42345440,50_28715831,21_42380220.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="100.90,154.90;117.20,149.30;139.90,131.40;118.00,63.30;76.20,76.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="73" name="images/50_29123369,18_66172519,50_29145591,18_66207301.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="83.40,122.80;117.00,84.90;144.30,109.20;111.70,148.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="74" name="images/50_29632639,18_78385067,50_29654861,18_78419853.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="103.50,152.50;81.70,77.60;118.70,66.60;139.50,141.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="203.41,224.00;196.28,202.61;224.00,193.37;224.00,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="75" name="images/50_29931839,18_94685936,50_29954061,18_94720724.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="116.60,163.00;88.80,107.90;123.00,92.30;150.70,145.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="76" name="images/50_29970469,18_91266925,50_29992691,18_91301715.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="68.70,150.60;112.10,72.30;145.60,90.39;102.15,168.22" z_order="0">
+    </polygon>
+  </image>
+  <image id="77" name="images/50_30048219,19_02562865,50_30070441,19_02597655.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="72.70,122.90;117.90,84.00;141.40,112.10;96.20,150.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="78" name="images/50_30122739,18_87956475,50_30144961,18_87991265.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="75.50,117.50;91.30,83.50;140.70,106.70;124.20,141.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="79" name="images/50_30208939,18_78109725,50_30231161,18_78144515.png" width="224" height="224">
+  </image>
+  <image id="80" name="images/50_31297119,18_61649211,50_31319341,18_61684009.png" width="224" height="224">
+  </image>
+  <image id="81" name="images/50_31627879,17_56985769,50_31650101,17_57020571.png" width="224" height="224">
+  </image>
+  <image id="82" name="images/50_32389729,18_83270307,50_32411951,18_83305113.png" width="224" height="224">
+  </image>
+  <image id="83" name="images/50_32404569,19_19073517,50_32426791,19_19108323.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="117.60,145.40;88.90,114.90;115.30,89.30;143.60,119.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="84" name="images/50_32807489,19_15689925,50_32829711,19_15724735.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="88.20,137.50;83.10,87.20;119.50,82.50;125.40,133.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="85" name="images/50_33337479,19_12754353,50_33359701,19_12789167.png" width="224" height="224">
+  </image>
+  <image id="86" name="images/50_33549459,18_89356522,50_33571681,18_89391338.png" width="224" height="224">
+  </image>
+  <image id="87" name="images/50_33887989,18_63823921,50_33910211,18_63858739.png" width="224" height="224">
+  </image>
+  <image id="88" name="images/50_34091319,19_24222260,50_34113541,19_24257080.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="127.30,33.90;137.50,3.40;170.50,15.30;160.70,45.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="109.77,224.00;105.77,206.23;132.20,199.70;138.60,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="87.70,132.90;112.60,50.10;147.10,61.40;121.40,143.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="89" name="images/50_34251149,19_26557210,50_34273371,19_26592030.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="106.80,162.20;82.30,41.60;117.50,35.00;141.90,155.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="90" name="images/50_35243009,20_67428856,50_35265231,20_67463684.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="114.80,159.50;101.30,136.10;134.30,118.10;146.50,141.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="86.30,105.70;74.10,83.15;105.70,65.20;117.50,87.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="91" name="images/50_35823999,18_85185344,50_35846221,18_85220176.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="98.99,136.09;89.90,99.10;133.80,88.20;143.30,125.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="92" name="images/50_35997549,18_93513293,50_36019771,18_93548127.png" width="224" height="224">
+  </image>
+  <image id="93" name="images/50_36432579,19_03771462,50_36454801,19_03806298.png" width="224" height="224">
+  </image>
+  <image id="94" name="images/50_36718489,18_97964011,50_36740711,18_97998849.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.00,134.20;106.60,76.80;140.50,90.10;119.60,147.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="95" name="images/50_36828089,18_97658790,50_36850311,18_97693630.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,148.02;20.25,99.89;56.90,114.50;29.50,180.00;0.00,168.65" z_order="0">
+    </polygon>
+  </image>
+  <image id="96" name="images/50_37296959,19_14992499,50_37319181,19_15027341.png" width="224" height="224">
+  </image>
+  <image id="97" name="images/50_37625669,19_31215317,50_37647891,19_31250163.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="99.50,122.40;107.20,106.20;123.80,106.30;115.80,121.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="131.10,96.30;162.90,33.80;198.10,52.90;169.60,106.80;148.90,104.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="98" name="images/50_39707419,18_62738810,50_39729641,18_62773670.png" width="224" height="224">
+  </image>
+  <image id="99" name="images/50_40735409,16_50685896,50_40757631,16_50720764.png" width="224" height="224">
+  </image>
+  <image id="100" name="images/50_42700419,18_12177229,50_42722641,18_12212111.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="73.30,101.00;101.30,74.80;144.00,119.20;115.20,146.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="101" name="images/50_43035379,20_70548318,50_43057601,20_70583202.png" width="224" height="224">
+  </image>
+  <image id="102" name="images/50_43594509,16_65911915,50_43616731,16_65946805.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="84.20,116.20;120.60,80.20;145.70,106.80;108.80,143.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="103" name="images/50_43860339,18_83796054,50_43882561,18_83830946.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="87.10,103.80;104.30,80.10;150.80,116.80;138.20,134.30;128.20,134.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="104" name="images/50_44232089,18_83299543,50_44254311,18_83334437.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="93.90,159.30;98.60,63.80;135.20,65.30;131.40,160.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="105" name="images/50_45975339,17_34243307,50_45997561,17_34278213.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="96.27,151.48;68.67,107.58;99.70,89.20;126.00,132.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="106" name="images/50_47056569,19_07387203,50_47078791,19_07422117.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="91.00,152.67;129.44,152.67;135.24,81.04;123.35,69.43;116.16,57.81;112.57,47.86;97.91,46.75" z_order="0">
+    </polygon>
+  </image>
+  <image id="107" name="images/50_47406419,19_23446531,50_47428641,19_23481449.png" width="224" height="224">
+  </image>
+  <image id="108" name="images/50_47718609,19_23770940,50_47740831,19_23805860.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="103.70,125.50;124.90,96.10;184.50,141.80;163.00,171.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="109" name="images/50_48646879,19_41611247,50_48669101,19_41646173.png" width="224" height="224">
+  </image>
+  <image id="110" name="images/50_48786519,17_59519996,50_48808741,17_59554924.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,88.50;49.10,69.00;60.80,105.60;0.00,130.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="83.10,117.60;103.00,83.40;141.10,106.40;120.70,140.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="111" name="images/50_48915219,18_01314366,50_48937441,18_01349294.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="132.30,224.00;142.10,213.10;153.00,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="75.91,116.63;84.51,103.96;98.70,88.20;143.20,118.20;125.20,148.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="11.60,95.80;38.80,120.30;0.00,164.80;0.00,110.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="112" name="images/50_55371169,21_65660752,50_55393391,21_65695728.png" width="224" height="224">
+  </image>
+  <image id="113" name="images/50_56422019,21_16663348,50_56444241,21_16698332.png" width="224" height="224">
+  </image>
+  <image id="114" name="images/50_61213639,23_70532200,50_61235861,23_70567220.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="80.90,113.30;120.70,79.50;144.10,108.70;102.90,142.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="115" name="images/50_62734239,19_83744595,50_62756461,19_83779625.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="101.20,152.20;94.80,127.60;132.70,117.80;137.80,143.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="91.60,102.90;85.40,78.30;121.90,68.70;128.20,94.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="116" name="images/50_63783349,18_84685781,50_63805571,18_84720819.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="110.20,138.90;77.80,98.30;105.60,75.90;138.40,115.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="117" name="images/50_64136979,20_30300699,50_64159201,20_30335741.png" width="224" height="224">
+  </image>
+  <image id="118" name="images/50_64852999,23_37011167,50_64875221,23_37046213.png" width="224" height="224">
+  </image>
+  <image id="119" name="images/50_67976829,16_61595005,50_67999051,16_61630075.png" width="224" height="224">
+  </image>
+  <image id="120" name="images/50_73072819,16_65626926,50_73095041,16_65662034.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="65.80,122.70;54.60,132.70;72.90,161.30;86.60,153.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="110.60,136.30;85.00,109.40;111.80,90.30;137.60,115.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="143.80,22.40;138.70,8.20;154.70,3.00;174.30,0.00;177.90,11.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="121" name="images/50_73909479,16_63009133,50_73931701,16_63044247.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="77.94,134.42;97.40,86.90;131.80,99.70;111.40,147.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="122" name="images/50_74217159,23_24941862,50_74239381,23_24976978.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="78.85,128.99;81.56,91.43;133.15,94.14;130.89,132.16" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="141.20,33.40;142.90,0.00;177.90,0.00;175.80,34.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="123" name="images/50_74567349,23_28135220,50_74589571,23_28170340.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="159.50,107.90;111.90,87.90;99.90,124.20;144.70,143.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="124" name="images/50_74924709,22_83049209,50_74946931,22_83084331.png" width="224" height="224">
+  </image>
+  <image id="125" name="images/50_75511969,17_61555137,50_75534191,17_61590263.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.30,123.70;101.70,89.90;138.60,101.00;129.50,135.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="109.50,61.70;116.50,28.40;153.90,32.50;147.10,67.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="126" name="images/50_76763389,20_63065622,50_76785611,20_63100758.png" width="224" height="224">
+  </image>
+  <image id="127" name="images/50_77598219,15_72661209,50_77620441,15_72696351.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="87.80,133.80;83.90,95.70;136.50,90.40;139.40,128.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="128" name="images/50_82420149,19_10474911,50_82442371,19_10510089.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="201.48,118.13;200.13,80.12;224.00,78.33;224.00,116.78" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="60.30,128.54;62.56,112.25;62.56,92.33;168.45,83.74;168.80,120.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="129" name="images/50_85015119,19_98985111,50_85037341,19_99020309.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="136.90,153.90;128.17,167.45;124.55,179.67;110.70,185.20;83.90,124.60;120.60,115.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="130" name="images/50_85040119,20_53987741,50_85062341,20_54022939.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="91.80,145.30;100.80,85.50;154.80,92.80;146.60,152.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="131" name="images/50_85115369,19_10890841,50_85137591,19_10926039.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="86.30,130.90;88.50,94.00;139.60,96.80;136.90,133.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="132" name="images/50_85220019,20_51998700,50_85242241,20_52033900.png" width="224" height="224">
+  </image>
+  <image id="133" name="images/50_85835399,15_68126638,50_85857621,15_68161842.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="27.20,103.50;7.40,70.90;59.90,39.90;79.50,72.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="134" name="images/50_86912419,18_22710594,50_86934641,18_22745806.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="129.50,181.30;147.80,141.10;180.50,156.30;161.60,197.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="135" name="images/50_87737829,20_59393281,50_87760051,20_59428499.png" width="224" height="224">
+  </image>
+  <image id="136" name="images/50_88174879,20_65313889,50_88197101,20_65349111.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="96.53,136.90;84.64,123.88;136.80,71.10;162.10,99.30;117.52,142.13" z_order="0">
+    </polygon>
+  </image>
+  <image id="137" name="images/50_88862619,20_64935636,50_88884841,20_64970864.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="80.66,110.44;100.40,79.60;143.90,107.70;125.00,138.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="138" name="images/50_88883739,22_66575066,50_88905961,22_66610294.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="95.00,65.90;94.30,24.30;111.70,23.20;111.80,14.00;131.30,13.50;132.90,64.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="97.40,137.20;97.20,94.00;135.00,94.30;134.70,145.70;118.20,145.40;118.10,137.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="139" name="images/50_88972849,20_66551946,50_88995071,20_66587174.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="65.20,26.40;45.01,0.00;134.80,0.00;135.00,20.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="86.09,133.97;85.64,102.29;139.49,80.57;145.37,109.08" z_order="0">
+    </polygon>
+  </image>
+  <image id="140" name="images/50_89046299,20_65440646,50_89068521,20_65475874.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="58.40,127.60;63.50,88.30;126.50,95.60;121.50,135.40" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="170.30,141.70;174.70,104.30;205.40,107.70;201.00,145.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="141" name="images/50_89078059,20_65369216,50_89100281,20_65404444.png" width="224" height="224">
+  </image>
+  <image id="142" name="images/50_89216479,20_65488165,50_89238701,20_65523395.png" width="224" height="224">
+  </image>
+  <image id="143" name="images/50_89449599,20_62134174,50_89471821,20_62169406.png" width="224" height="224">
+  </image>
+  <image id="144" name="images/50_90391719,20_44751421,50_90413941,20_44786659.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="82.80,129.60;101.30,96.30;156.20,127.90;137.00,160.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="145" name="images/50_90903739,15_33220809,50_90925961,15_33256051.png" width="224" height="224">
+  </image>
+  <image id="146" name="images/50_91169079,18_90354208,50_91191301,18_90389452.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="66.20,157.50;116.30,64.30;148.50,81.30;98.40,174.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="147" name="images/50_92315989,22_22674683,50_92338211,22_22709937.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="134.40,108.20;109.50,92.00;90.10,121.10;114.10,137.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="161.10,165.90;132.00,149.60;152.80,118.80;181.40,135.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="148" name="images/50_93656329,21_37035248,50_93678551,21_37070512.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="81.20,135.20;109.70,79.10;143.20,96.40;114.60,152.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="149" name="images/50_94825449,22_19688314,50_94847671,22_19723586.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="88.50,144.80;65.10,117.20;132.10,63.00;154.50,91.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="150" name="images/50_94866789,17_27126984,50_94889011,17_27162256.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="60.20,98.70;82.30,45.80;114.80,58.30;94.40,111.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="151" name="images/50_95785359,22_17821800,50_95807581,22_17857080.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="170.70,224.00;172.00,194.40;224.00,196.79;224.00,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="132.80,224.00;134.60,186.90;150.70,187.30;149.00,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="95.30,142.00;97.80,80.30;133.60,81.00;130.50,144.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="152" name="images/51_01487089,22_53473609,51_01509311,22_53508931.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="66.63,144.38;115.80,74.40;144.90,95.00;96.50,165.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="153" name="images/51_02834549,15_41493003,51_02856771,15_41528337.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="77.50,109.50;82.90,73.30;143.40,80.90;137.10,117.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="154" name="images/51_03982469,17_35000499,51_04004691,17_35035841.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="78.20,123.20;110.80,71.30;142.10,91.20;110.10,143.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="155" name="images/51_05148069,17_00852495,51_05170291,17_00887845.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.40,125.60;100.20,87.00;134.50,99.80;119.70,139.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="156" name="images/51_06594679,19_44850039,51_06616901,19_44885401.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="65.30,107.50;78.40,79.90;33.00,57.60;19.80,86.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="87.90,120.80;101.48,90.52;132.30,104.60;119.10,134.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="157" name="images/51_06877349,19_43845498,51_06899571,19_43880862.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="121.60,143.40;128.39,104.74;112.26,80.02;95.78,77.87;85.75,137.35" z_order="0">
+    </polygon>
+  </image>
+  <image id="158" name="images/51_07371179,20_25880046,51_07393401,20_25915414.png" width="224" height="224">
+  </image>
+  <image id="159" name="images/51_07940699,16_99187144,51_07962921,16_99222516.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="90.20,134.90;77.04,99.57;123.65,81.93;136.77,116.77" z_order="0">
+    </polygon>
+  </image>
+  <image id="160" name="images/51_08178109,16_95606733,51_08200331,16_95642107.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="110.50,156.70;123.00,149.90;139.14,135.20;120.51,78.22;96.80,87.50;93.99,80.02;83.60,84.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="161" name="images/51_08381069,19_42298642,51_08403291,19_42334018.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="125.10,79.70;80.80,124.40;105.80,149.40;150.20,104.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="162" name="images/51_08513309,17_72621952,51_08535531,17_72657328.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="106.60,146.80;85.00,111.30;116.90,91.40;137.60,128.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="163" name="images/51_08981409,17_03371440,51_09003631,17_03406820.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="156.90,84.50;87.30,90.50;93.60,143.20;161.90,138.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="224.00,80.87;209.40,84.50;217.50,117.50;224.00,115.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="164" name="images/51_09651319,17_05638507,51_09673541,17_05673893.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="121.58,178.55;136.27,177.12;153.83,155.98;154.19,145.95;118.36,81.09;71.42,85.75" z_order="0">
+    </polygon>
+  </image>
+  <image id="165" name="images/51_09767279,20_83581287,51_09789501,20_83616673.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="128.80,142.30;74.90,118.20;90.90,84.80;144.80,109.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="166" name="images/51_10799479,17_07358923,51_10821701,17_07394317.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="95.40,148.00;95.20,52.20;168.60,91.60;170.20,184.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="167" name="images/51_11087789,15_58620312,51_11110011,15_58655708.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="93.60,127.70;96.10,94.10;132.40,96.90;129.50,130.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="168" name="images/51_12118899,16_92582738,51_12141121,16_92618142.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.90,86.90;131.20,89.70;126.50,139.50;90.10,136.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="169" name="images/51_12530979,17_05597286,51_12553201,17_05632694.png" width="224" height="224">
+  </image>
+  <image id="170" name="images/51_13143679,23_46504594,51_13165901,23_46540006.png" width="224" height="224">
+  </image>
+  <image id="171" name="images/51_13308949,23_47070423,51_13331171,23_47105837.png" width="224" height="224">
+  </image>
+  <image id="172" name="images/51_13579319,23_49970512,51_13601541,23_50005928.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="157.20,173.60;213.70,172.30;214.10,206.30;157.60,207.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="154.80,40.00;153.50,1.80;191.98,0.00;204.30,0.00;205.40,37.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="93.70,132.20;92.70,89.60;129.10,88.90;130.80,131.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="173" name="images/51_13745999,16_94113282,51_13768221,16_94148698.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="84.20,153.20;91.10,67.20;145.10,70.90;138.60,157.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="77.90,224.00;80.40,194.50;134.96,198.68;133.07,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="174" name="images/51_13989619,16_95885421,51_14011841,16_95920839.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="133.00,126.70;138.00,114.80;129.98,108.81;95.13,95.53;89.49,109.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,61.40;2.80,25.50;79.70,40.10;65.40,52.40;57.00,64.30;46.60,71.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="141.40,33.10;165.60,0.00;215.90,0.00;224.00,5.72;224.00,11.44;184.30,62.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="175" name="images/51_14299529,23_44587410,51_14321751,23_44622830.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="105.10,97.20;128.30,109.10;129.00,122.40;112.39,156.26;100.44,154.60;94.47,150.95;86.84,135.35" z_order="0">
+    </polygon>
+  </image>
+  <image id="176" name="images/51_14445369,23_45559079,51_14467591,23_45594501.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="95.70,133.40;99.30,108.60;132.30,120.80;119.50,140.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="208.00,174.50;200.30,157.90;204.20,131.10;224.00,134.70;224.00,177.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="91.20,59.70;100.13,0.00;64.41,0.00;57.00,55.40" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="54.30,75.30;51.33,91.22;87.50,98.50;90.80,82.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="177" name="images/51_14525669,16_94484669,51_14547891,16_94520091.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="142.30,172.00;172.00,126.40;184.60,134.80;154.20,180.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="98.40,76.70;148.30,110.70;119.40,156.60;69.20,123.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="39.20,103.60;0.00,76.60;0.00,56.30;19.10,25.20;68.80,57.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="178" name="images/51_15239339,17_04326736,51_15261561,17_04362164.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="91.60,64.20;98.40,58.10;109.50,53.20;106.40,66.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="184.50,20.80;187.60,0.00;210.33,0.00;206.91,22.65" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="140.50,18.60;143.60,0.00;166.30,0.00;162.80,20.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="100.60,14.10;103.20,0.00;117.30,0.00;115.10,15.40" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="81.50,159.80;82.50,141.20;96.10,141.50;95.70,160.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="179" name="images/51_15344689,17_02742856,51_15366911,17_02778284.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="70.00,132.90;125.30,76.10;151.50,102.30;95.70,158.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="180" name="images/51_15617969,17_02905225,51_15640191,17_02940655.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,187.65;37.30,189.20;36.70,224.00;0.00,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="78.00,196.30;51.50,169.50;63.00,159.80;87.90,186.01" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="97.40,132.61;98.60,90.60;133.40,96.50;132.40,138.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="135.20,218.10;111.43,194.15;139.94,171.98;163.00,196.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="181" name="images/51_18904139,22_58538902,51_18926361,22_58574358.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,91.43;10.97,91.43;10.80,129.80;0.00,129.74" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="224.00,125.11;215.96,121.75;206.10,158.20;224.00,166.05" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="39.20,129.90;40.70,80.00;100.80,80.80;99.50,131.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="127.60,83.80;188.50,84.60;186.10,133.60;126.80,132.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="189.40,78.90;190.62,53.42;217.80,54.50;217.50,79.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="182" name="images/51_19234179,22_06894681,51_19256401,22_06930139.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,141.21;4.18,138.49;35.10,190.00;0.30,212.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="183" name="images/51_20423109,17_37921416,51_20445331,17_37956884.png" width="224" height="224">
+  </image>
+  <image id="184" name="images/51_20525919,22_58685626,51_20548141,22_58721094.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="2.30,212.90;57.50,224.00;0.00,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="185" name="images/51_20563689,17_38333366,51_20585911,17_38368834.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="84.60,131.30;108.00,75.80;143.40,89.00;119.30,146.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="175.50,42.20;190.50,10.30;224.00,24.98;224.00,65.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="110.50,224.00;112.30,198.30;165.73,222.21;164.84,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="186" name="images/51_20950419,16_16104324,51_20972641,16_16139796.png" width="224" height="224">
+  </image>
+  <image id="187" name="images/51_21722499,18_57885511,51_21744721,18_57920989.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="195.30,38.10;209.50,0.00;224.00,0.00;224.00,42.26;209.40,38.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="62.40,114.70;72.40,82.10;129.70,97.90;120.03,131.25" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="39.80,109.20;8.50,100.90;18.80,67.40;49.70,75.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="188" name="images/51_22013589,18_57230290,51_22035811,18_57265770.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,125.80;26.60,129.60;30.40,80.90;0.00,76.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="171.62,186.01;224.00,200.60;224.00,224.00;175.90,224.00;175.50,208.10;174.20,197.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="189" name="images/51_22115969,22_57150610,51_22138191,22_57186090.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="105.55,128.54;106.20,91.00;122.50,91.30;122.10,129.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="129.30,213.80;130.30,171.90;167.00,174.00;166.60,215.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="29.70,91.00;86.10,91.60;85.60,127.90;29.40,126.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="190" name="images/51_22193229,18_56973309,51_22215451,18_57008791.png" width="224" height="224">
+  </image>
+  <image id="191" name="images/51_23150519,22_59403416,51_23172741,22_59438904.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="87.30,123.10;110.10,85.30;141.40,103.50;118.90,141.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="192" name="images/51_24024859,22_48934552,51_24047081,22_48970048.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="207.60,80.50;224.00,64.50;224.00,98.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="193" name="images/51_26117239,15_57339194,51_26139461,15_57374706.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.50,102.30;88.40,61.10;123.90,56.00;129.80,97.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="109.20,198.30;98.90,130.00;134.00,124.20;143.10,184.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="194" name="images/51_26739089,22_55948212,51_26761311,22_55983728.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="57.20,98.90;154.30,87.20;152.70,123.70;66.70,134.30;57.70,117.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="195" name="images/51_28029299,17_98471337,51_28051521,17_98506863.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="92.90,136.10;100.30,100.30;149.70,110.50;142.66,147.09" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="177.30,77.40;182.90,27.10;211.10,29.00;205.60,79.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="196" name="images/51_28555579,22_21868185,51_28577801,22_21903715.png" width="224" height="224">
+  </image>
+  <image id="197" name="images/51_29641349,16_93040430,51_29663571,16_93075970.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="78.50,116.40;115.40,70.20;146.20,97.90;110.70,144.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="198" name="images/51_30551599,17_05149957,51_30573821,17_05185503.png" width="224" height="224">
+  </image>
+  <image id="199" name="images/51_30564529,22_88000617,51_30586751,22_88036163.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="144.92,108.62;103.40,85.10;85.40,119.60;125.70,142.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="200" name="images/51_32381419,23_62498720,51_32403641,23_62534280.png" width="224" height="224">
+  </image>
+  <image id="201" name="images/51_33644359,22_37614445,51_33666581,22_37650015.png" width="224" height="224">
+  </image>
+  <image id="202" name="images/51_37848289,21_37835299,51_37870511,21_37870901.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="73.80,127.40;74.80,92.80;144.50,96.50;141.30,131.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="203" name="images/51_38091809,20_27853598,51_38114031,20_27889202.png" width="224" height="224">
+  </image>
+  <image id="204" name="images/51_39156469,21_15384874,51_39178691,21_15420486.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="91.90,158.90;63.10,105.30;114.90,79.50;142.80,133.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="122.29,224.00;103.30,185.30;155.78,158.40;182.30,214.20;161.90,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="205" name="images/51_39602179,21_16054822,51_39624401,21_16090438.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="29.07,109.53;39.70,75.50;141.80,107.30;131.30,143.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="206" name="images/51_39770519,16_17067051,51_39792741,16_17102669.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="42.60,77.80;66.40,51.10;20.90,12.30;0.00,36.70;0.00,42.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="65.40,98.80;89.40,70.60;155.20,128.50;130.90,156.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="158.00,212.50;152.20,180.70;187.40,172.10;194.20,204.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="207" name="images/51_40121589,16_17459200,51_40143811,16_17494820.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="224.00,159.00;206.60,148.80;222.30,118.58;224.00,119.24" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="75.80,75.10;92.00,45.30;167.90,89.60;150.80,118.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="208" name="images/51_44980769,20_47245301,51_45002991,20_47280959.png" width="224" height="224">
+  </image>
+  <image id="209" name="images/51_48088659,21_43489689,51_48110881,21_43525371.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="43.40,117.10;103.00,87.20;118.40,120.30;58.50,149.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="210" name="images/51_48354329,17_32628988,51_48376551,17_32664672.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.30,136.20;93.20,79.90;128.30,88.30;115.60,144.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="211" name="images/51_52102629,20_00334043,51_52124851,20_00369757.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="90.00,119.00;94.70,85.40;129.50,92.50;125.50,123.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="81.80,182.60;86.70,150.20;121.00,148.50;116.30,181.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="99.10,34.80;99.20,20.10;133.90,34.00;135.00,48.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="212" name="images/51_52315359,17_27046992,51_52337581,17_27082708.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="208.20,187.40;192.10,140.80;209.30,135.00;224.00,140.10;224.00,182.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="79.30,144.90;75.90,135.50;74.30,108.20;133.10,87.40;146.40,107.40;151.30,118.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="213" name="images/51_55368559,23_55384480,51_55390781,23_55420220.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="101.40,125.00;98.20,90.60;134.10,90.60;136.60,124.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="214" name="images/51_55416249,16_66371010,51_55438471,16_66406750.png" width="224" height="224">
+  </image>
+  <image id="215" name="images/51_56134249,23_39290797,51_56156471,23_39326543.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="82.90,132.70;92.60,80.40;143.40,89.60;134.50,141.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="216" name="images/51_57058449,18_70964694,51_57080671,18_71000446.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="95.10,144.90;95.60,84.40;132.30,84.80;132.00,145.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="217" name="images/51_57141369,17_68824353,51_57163591,17_68860107.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="93.70,121.30;93.33,96.86;111.20,96.50;120.70,120.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="96.10,175.30;96.20,141.10;131.80,139.30;132.00,172.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="218" name="images/51_57673559,21_56484681,51_57695781,21_56520439.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="127.90,147.30;159.00,144.60;162.00,138.70;112.40,74.70;88.60,69.70;72.80,70.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="147.50,208.40;125.90,224.00;158.80,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="219" name="images/51_59349359,18_73394084,51_59371581,18_73429856.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="176.40,138.90;183.50,115.70;218.80,127.40;211.80,150.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="80.50,83.70;91.90,49.60;158.20,71.30;146.60,105.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="220" name="images/51_59517509,19_12861874,51_59539731,19_12897646.png" width="224" height="224">
+  </image>
+  <image id="221" name="images/51_60879739,19_50865588,51_60901961,19_50901372.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="129.98,182.84;190.44,224.00;128.40,224.00;122.80,220.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="87.20,109.60;114.30,75.80;143.60,98.90;115.80,134.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="224.00,71.88;218.70,70.60;224.00,47.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="222" name="images/51_61583149,16_86672346,51_61605371,16_86708134.png" width="224" height="224">
+  </image>
+  <image id="223" name="images/51_62176819,21_93131173,51_62199041,21_93166967.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="106.30,151.20;124.90,74.20;164.70,83.60;146.10,159.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="224" name="images/51_63157709,15_12220339,51_63179931,15_12256141.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.50,125.20;93.80,90.80;138.80,111.10;125.20,144.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="225" name="images/51_63374959,22_91354709,51_63397181,22_91390511.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="108.70,131.30;99.00,76.00;116.30,88.40;127.50,145.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="226" name="images/51_63932719,22_43121186,51_63954941,22_43156994.png" width="224" height="224">
+  </image>
+  <image id="227" name="images/51_64119279,22_89883186,51_64141501,22_89918994.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="38.60,224.00;59.10,210.30;69.70,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="14.00,213.90;8.50,199.30;39.60,179.40;42.60,196.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="53.30,152.50;43.55,117.22;125.80,81.70;134.90,117.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="228" name="images/51_64590329,17_78494914,51_64612551,17_78530726.png" width="224" height="224">
+  </image>
+  <image id="229" name="images/51_65264229,16_06434651,51_65286451,16_06470469.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="51.00,117.70;48.30,107.10;152.10,88.10;153.30,98.30;138.80,128.30;73.00,139.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="230" name="images/51_65633719,19_37007750,51_65655941,19_37043570.png" width="224" height="224">
+  </image>
+  <image id="231" name="images/51_65755129,19_37490239,51_65777351,19_37526061.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="58.20,140.80;69.70,82.00;93.80,87.00;82.10,144.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="101.90,54.30;109.10,17.80;123.00,20.90;116.00,57.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="156.20,63.00;160.70,42.40;171.10,29.20;224.00,38.70;224.00,75.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="232" name="images/51_65886809,16_09673109,51_65909031,16_09708931.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="72.30,101.00;107.40,89.10;127.72,146.64;92.50,158.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="233" name="images/51_66358269,16_54020827,51_66380491,16_54056653.png" width="224" height="224">
+  </image>
+  <image id="234" name="images/51_67737459,19_39975291,51_67759681,19_40011129.png" width="224" height="224">
+  </image>
+  <image id="235" name="images/51_69567669,16_20268364,51_69589891,16_20304216.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.10,152.10;74.40,85.90;112.90,73.50;132.00,141.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="236" name="images/51_70868859,19_62418289,51_70891081,19_62454151.png" width="224" height="224">
+  </image>
+  <image id="237" name="images/51_72387279,19_44422103,51_72409501,19_44457977.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="82.50,139.30;123.30,84.90;135.20,93.40;148.00,113.90;116.70,153.60;93.00,147.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="238" name="images/51_72394979,19_72628013,51_72417201,19_72663887.png" width="224" height="224">
+  </image>
+  <image id="239" name="images/51_72553909,19_63403422,51_72576131,19_63439298.png" width="224" height="224">
+  </image>
+  <image id="240" name="images/51_74092279,19_56693666,51_74114501,19_56729554.png" width="224" height="224">
+  </image>
+  <image id="241" name="images/51_74456519,18_06814885,51_74478741,18_06850775.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="104.60,140.70;113.60,153.70;143.40,133.50;134.50,120.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="71.80,17.00;117.90,90.90;85.70,111.60;46.80,44.10;55.50,27.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="242" name="images/51_74745779,19_38404444,51_74768001,19_38440336.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="53.30,135.30;95.80,107.70;86.50,87.40;44.10,114.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="102.50,110.30;108.60,122.90;127.90,110.60;121.20,98.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="243" name="images/51_74775549,19_49683053,51_74797771,19_49718947.png" width="224" height="224">
+  </image>
+  <image id="244" name="images/51_74793049,19_41671933,51_74815271,19_41707827.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="110.00,162.80;65.30,48.50;103.70,38.70;148.90,151.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="245" name="images/51_75900999,19_45984659,51_75923221,19_46020561.png" width="224" height="224">
+  </image>
+  <image id="246" name="images/51_76314869,19_50763257,51_76337091,19_50799163.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="74.50,44.30;127.50,39.40;141.10,156.60;88.50,160.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="247" name="images/51_76838189,19_45186475,51_76860411,19_45222385.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.30,96.10;148.40,86.80;154.20,131.60;85.70,139.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="248" name="images/51_76918479,19_44236925,51_76940701,19_44272835.png" width="224" height="224">
+  </image>
+  <image id="249" name="images/51_77005949,22_62026045,51_77028171,22_62061955.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="84.70,114.90;88.40,79.20;147.40,85.00;143.60,121.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="250" name="images/51_77699299,19_42428142,51_77721521,19_42464058.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="83.20,114.50;99.00,83.70;144.30,109.20;129.40,140.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="251" name="images/51_77746389,15_64600932,51_77768611,15_64636848.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="116.60,133.00;131.10,98.70;153.80,108.10;139.40,142.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="87.60,78.60;111.30,89.50;96.30,124.40;71.90,113.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="252" name="images/51_78398259,19_49123519,51_78420481,19_49159441.png" width="224" height="224">
+  </image>
+  <image id="253" name="images/51_78418239,19_45423119,51_78440461,19_45459041.png" width="224" height="224">
+  </image>
+  <image id="254" name="images/51_79725099,19_52775474,51_79747321,19_52811406.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="103.60,90.70;137.20,98.10;125.10,139.20;91.50,129.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="255" name="images/51_80916999,15_71249849,51_80939221,15_71285791.png" width="224" height="224">
+  </image>
+  <image id="256" name="images/51_81180819,19_38004028,51_81203041,19_38039972.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="87.60,108.50;94.20,94.90;133.30,114.60;127.40,128.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="257" name="images/51_81690199,19_45288516,51_81712421,19_45324464.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="64.50,105.50;68.30,89.50;81.70,72.30;167.90,120.70;139.20,147.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="258" name="images/51_84842639,19_45777253,51_84864861,19_45813227.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="91.90,142.80;91.00,83.70;131.30,83.20;131.60,142.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="89.40,58.60;88.90,22.70;129.70,18.60;129.70,58.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="259" name="images/51_85396769,20_87016201,51_85418991,20_87052179.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.90,138.70;91.90,84.70;128.60,81.60;132.40,136.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="260" name="images/51_86482559,18_56190217,51_86504781,18_56226203.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.40,103.60;136.00,91.90;145.40,130.30;94.40,142.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="261" name="images/51_86983619,20_87225625,51_87005841,20_87261615.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="10.70,31.90;51.60,17.10;52.40,0.00;0.27,0.00;0.00,9.48" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="95.30,132.60;97.80,77.40;135.00,82.20;132.20,137.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="262" name="images/51_89170709,17_81220106,51_89192931,17_81256114.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="72.00,110.40;95.90,71.70;124.50,89.10;100.90,128.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="204.20,224.00;224.00,173.82;224.00,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="174.33,57.04;187.91,21.74;224.00,35.70;224.00,75.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="263" name="images/51_89580819,17_00263834,51_89603041,17_00299846.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="199.30,4.90;199.30,0.00;224.00,0.00;224.00,5.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="86.40,126.70;87.45,88.71;148.70,91.00;146.80,128.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="264" name="images/51_89967389,21_60768803,51_89989611,21_60804817.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.30,130.60;77.70,71.30;112.20,61.20;129.00,121.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="265" name="images/51_93587919,15_47409568,51_93610141,15_47445612.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="84.10,134.80;106.70,81.00;137.50,93.70;114.80,145.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="19.20,180.70;0.00,167.70;0.00,127.80;38.10,152.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="266" name="images/51_94418939,15_46997875,51_94441161,15_47033925.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="107.10,142.60;129.64,143.72;131.43,74.21;125.34,74.56;93.80,84.60;92.73,130.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="167.60,35.80;167.90,8.50;213.70,0.00;217.37,0.00;217.40,26.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="267" name="images/51_95420939,14_72710561,51_95443161,14_72746619.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="81.50,153.60;94.00,75.50;130.30,78.20;118.40,154.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="268" name="images/51_95670849,19_27798550,51_95693071,19_27834610.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="84.30,128.50;91.97,90.98;144.92,101.38;137.22,139.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="269" name="images/51_96097809,16_81932618,51_96120031,16_81968682.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="60.00,69.80;73.20,56.80;161.60,143.00;148.20,158.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="270" name="images/51_97439349,18_66324383,51_97461571,18_66360457.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="98.80,139.90;94.80,88.80;110.50,77.20;128.00,74.50;134.40,136.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="163.70,23.10;165.60,0.00;224.00,0.00;224.00,22.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="194.90,166.10;224.00,161.10;224.00,198.80;211.60,201.30;197.10,180.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="271" name="images/51_99983899,17_14595063,52_00006121,17_14631157.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="90.80,126.70;97.60,86.30;133.60,91.50;126.20,133.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="272" name="images/52_01292539,18_50630347,52_01314761,18_50666453.png" width="224" height="224">
+  </image>
+  <image id="273" name="images/52_02318499,23_12057293,52_02340721,23_12093407.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="119.00,52.10;141.80,19.60;172.20,38.10;148.10,73.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="75.00,95.70;109.20,62.40;134.50,85.50;94.70,122.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="274" name="images/52_05690709,19_19809130,52_05712931,19_19845270.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="9.70,97.00;2.30,67.10;50.30,55.10;57.10,85.40" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="104.40,157.30;84.70,89.70;118.40,79.90;138.10,147.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="275" name="images/52_06090929,17_18441928,52_06113151,17_18478072.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="83.50,117.00;118.80,77.70;145.70,102.30;111.80,142.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="276" name="images/52_06740729,21_02220245,52_06762951,21_02256395.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="83.30,118.20;159.30,42.80;183.90,66.10;100.40,145.20;87.60,132.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="277" name="images/52_07786269,21_07706141,52_07808491,21_07742299.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="96.95,143.47;96.00,84.20;132.70,83.70;133.60,142.11" z_order="0">
+    </polygon>
+  </image>
+  <image id="278" name="images/52_07885119,18_29820071,52_07907341,18_29856229.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="122.30,93.90;162.30,87.00;168.90,122.60;127.70,128.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="67.50,101.60;100.10,96.80;105.50,133.70;72.50,138.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="279" name="images/52_08311819,15_62476529,52_08334041,15_62512691.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="112.40,52.20;122.90,19.50;157.90,27.30;147.40,61.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="92.10,114.90;101.93,84.64;135.41,100.93;124.70,133.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="280" name="images/52_08578989,20_55205688,52_08601211,20_55241852.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="100.60,141.50;85.90,63.80;121.70,57.70;135.60,136.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="107.00,181.00;104.10,166.20;140.80,160.00;143.70,175.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="281" name="images/52_09393779,17_02305105,52_09416001,17_02341275.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="76.59,97.31;104.70,75.50;165.28,153.43;136.70,176.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="146.70,27.70;181.20,0.00;122.60,0.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="282" name="images/52_10416849,19_92275620,52_10439071,19_92311800.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.16,138.34;168.30,116.80;157.59,82.09;65.14,108.60;71.20,130.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="283" name="images/52_10712459,19_93327899,52_10734681,19_93364081.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="88.40,108.60;125.01,86.00;137.20,121.10;108.30,139.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="284" name="images/52_13119149,21_09932609,52_13141371,21_09968811.png" width="224" height="224">
+  </image>
+  <image id="285" name="images/52_14786049,20_71997623,52_14808271,20_72033837.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="72.50,110.70;97.40,79.20;126.10,100.20;101.70,132.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="286" name="images/52_16612399,21_80451775,52_16634621,21_80488005.png" width="224" height="224">
+  </image>
+  <image id="287" name="images/52_16933589,21_20444284,52_16955811,21_20480516.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="68.80,100.10;37.99,74.78;60.16,45.81;90.00,71.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="87.70,115.00;105.90,86.50;137.30,111.00;119.50,142.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="16.40,55.50;0.00,41.25;0.00,28.30;16.60,10.30;40.90,29.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="288" name="images/52_17052259,20_79885153,52_17074481,20_79921387.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="59.40,108.80;76.30,76.90;90.00,83.60;73.90,115.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="116.70,136.00;132.80,105.50;148.70,113.60;132.50,144.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="289" name="images/52_17465099,21_01011012,52_17487321,21_01047248.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="103.50,84.90;114.50,65.10;145.30,82.70;134.40,102.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="77.40,134.10;89.80,113.10;120.50,131.40;108.70,152.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="290" name="images/52_17575949,20_99505511,52_17598171,20_99541749.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,70.88;7.70,46.90;65.14,67.99;55.40,105.20;0.00,83.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="76.50,113.70;93.00,78.80;149.30,102.70;132.30,137.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="291" name="images/52_17611749,21_02675241,52_17633971,21_02711479.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="165.10,139.50;173.40,104.20;188.20,107.70;180.98,143.56" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="80.00,119.60;88.20,82.50;146.20,97.60;137.90,134.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,61.50;67.10,77.80;57.70,114.30;0.00,99.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="292" name="images/52_17818299,21_57086310,52_17840521,21_57122550.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="71.40,114.30;86.00,81.10;107.60,92.40;92.60,125.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="118.50,135.80;134.10,104.50;156.70,115.50;140.50,147.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="293" name="images/52_18021589,16_71070759,52_18043811,16_71107001.png" width="224" height="224">
+  </image>
+  <image id="294" name="images/52_18186559,21_05559749,52_18208781,21_05595991.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,205.53;9.10,198.40;25.80,224.00;0.00,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="61.40,149.00;131.00,21.40;143.20,41.50;155.80,44.40;167.50,60.90;90.00,197.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="164.69,39.03;181.50,25.70;168.30,0.00;140.30,0.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="295" name="images/52_18680169,21_55312307,52_18702391,21_55348553.png" width="224" height="224">
+  </image>
+  <image id="296" name="images/52_18871689,20_99276056,52_18893911,20_99312304.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="96.00,184.70;92.30,53.10;128.80,51.70;132.00,166.20;124.40,174.80;105.40,184.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="297" name="images/52_18932379,18_65470666,52_18954601,18_65506914.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="88.90,113.30;122.90,85.80;143.30,115.30;105.60,146.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="298" name="images/52_19173209,21_56866025,52_19195431,21_56902275.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.50,88.80;137.40,98.80;128.00,136.60;84.70,125.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,154.42;12.00,154.40;0.00,204.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="299" name="images/52_19189409,20_96153395,52_19211631,20_96189645.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="74.00,123.00;90.80,90.90;137.30,116.30;120.30,149.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="300" name="images/52_19397579,21_00335274,52_19419801,21_00371526.png" width="224" height="224">
+  </image>
+  <image id="301" name="images/52_19696879,20_85979123,52_19719101,20_86015377.png" width="224" height="224">
+  </image>
+  <image id="302" name="images/52_19821759,18_23682932,52_19843981,18_23719188.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="83.70,167.70;103.40,48.80;140.40,54.70;119.40,175.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="211.40,32.70;224.00,34.60;224.00,8.71;211.08,23.48" z_order="0">
+    </polygon>
+  </image>
+  <image id="303" name="images/52_20425279,20_94362340,52_20447501,20_94398600.png" width="224" height="224">
+  </image>
+  <image id="304" name="images/52_20610359,18_62680369,52_20632581,18_62716631.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="75.80,122.50;86.60,88.60;145.40,110.30;134.10,143.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="305" name="images/52_20931279,18_25669288,52_20953501,18_25705552.png" width="224" height="224">
+  </image>
+  <image id="306" name="images/52_21015019,21_10621557,52_21037241,21_10657823.png" width="224" height="224">
+  </image>
+  <image id="307" name="images/52_21045259,20_98692707,52_21067481,20_98728973.png" width="224" height="224">
+  </image>
+  <image id="308" name="images/52_21361419,20_78987656,52_21383641,20_79023924.png" width="224" height="224">
+  </image>
+  <image id="309" name="images/52_21593619,20_85952585,52_21615841,20_85988855.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="75.40,137.40;81.90,109.50;80.70,97.90;145.40,92.70;150.70,109.40;159.30,118.70;160.90,128.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="310" name="images/52_21664309,21_23637805,52_21686531,21_23674075.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="86.80,129.00;88.60,92.60;141.70,95.30;139.80,131.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="311" name="images/52_22062549,20_91122203,52_22084771,20_91158477.png" width="224" height="224">
+  </image>
+  <image id="312" name="images/52_22097989,19_36570123,52_22120211,19_36606397.png" width="224" height="224">
+  </image>
+  <image id="313" name="images/52_22602309,16_36962061,52_22624531,16_36998339.png" width="224" height="224">
+  </image>
+  <image id="314" name="images/52_22633429,20_99518291,52_22655651,20_99554569.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="97.70,196.20;171.00,169.30;191.10,224.00;105.80,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="87.70,161.00;60.70,78.30;132.80,52.80;159.80,136.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="315" name="images/52_22852819,19_37329750,52_22875041,19_37366030.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="90.80,139.00;100.00,71.80;137.00,77.20;128.20,146.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="316" name="images/52_23095139,21_08899259,52_23117361,21_08935541.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="75.60,112.80;73.00,97.50;78.70,75.00;129.50,66.20;133.10,88.10;141.50,86.80;143.50,101.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,162.00;0.00,224.00;10.40,224.00;1.50,161.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="317" name="images/52_24385989,21_29927733,52_24408211,21_29964027.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,192.07;20.80,189.70;24.26,224.00;0.00,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="318" name="images/52_24432009,21_00983893,52_24454231,21_01020187.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="97.40,138.10;77.80,110.30;122.50,77.10;143.30,105.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="56.30,77.40;25.70,35.60;71.02,1.92;102.40,44.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="319" name="images/52_24575359,20_98004863,52_24597581,20_98041157.png" width="224" height="224">
+  </image>
+  <image id="320" name="images/52_24630789,20_97833002,52_24653011,20_97869298.png" width="224" height="224">
+  </image>
+  <image id="321" name="images/52_25176549,20_88065420,52_25198771,20_88101720.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="92.60,94.90;98.00,70.30;134.00,77.00;128.20,102.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="79.90,147.00;87.90,114.80;124.50,121.70;115.90,154.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="322" name="images/52_25243859,21_07884000,52_25266081,21_07920300.png" width="224" height="224">
+  </image>
+  <image id="323" name="images/52_25486979,15_52483099,52_25509201,15_52519401.png" width="224" height="224">
+  </image>
+  <image id="324" name="images/52_25712109,21_04670358,52_25734331,21_04706662.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="123.40,157.20;104.80,131.80;131.10,111.60;149.60,136.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="94.00,115.20;75.60,91.00;102.80,70.90;120.40,95.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="325" name="images/52_25751539,20_93261098,52_25773761,20_93297402.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="112.10,144.80;87.90,110.90;116.80,90.30;141.40,123.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="326" name="images/52_26028009,20_96163007,52_26050231,20_96199313.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="136.70,140.40;107.80,87.70;86.00,88.90;73.40,99.00;97.50,142.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="327" name="images/52_26366449,21_03874505,52_26388671,21_03910815.png" width="224" height="224">
+  </image>
+  <image id="328" name="images/52_26788989,20_99120094,52_26811211,20_99156406.png" width="224" height="224">
+  </image>
+  <image id="329" name="images/52_26849149,21_17828783,52_26871371,21_17865097.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="127.77,143.50;132.82,135.71;126.86,96.27;95.00,73.30;72.50,103.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="330" name="images/52_26934469,20_98276443,52_26956691,20_98312757.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="88.20,85.30;137.00,99.00;127.30,131.60;87.50,120.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="215.10,81.30;224.00,61.70;224.00,85.49" z_order="0">
+    </polygon>
+  </image>
+  <image id="331" name="images/52_26950239,21_04752723,52_26972461,21_04789037.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="133.20,224.00;142.50,204.10;175.60,220.50;174.32,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="66.30,108.60;82.10,76.80;154.80,111.80;137.90,143.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,123.40;17.70,131.30;3.14,157.59;0.00,156.41" z_order="0">
+    </polygon>
+  </image>
+  <image id="332" name="images/52_27660719,21_16896440,52_27682941,21_16932760.png" width="224" height="224">
+  </image>
+  <image id="333" name="images/52_28249669,20_94685388,52_28271891,20_94721712.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="39.90,19.60;55.72,0.00;101.70,0.00;69.21,41.74" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="106.00,92.90;147.80,123.20;139.20,133.90;118.10,146.50;91.70,126.20;96.70,103.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="334" name="images/52_28354719,21_17171227,52_28376941,21_17207553.png" width="224" height="224">
+  </image>
+  <image id="335" name="images/52_28381389,21_11800167,52_28403611,21_11836493.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,43.50;24.40,41.60;31.00,90.70;0.00,93.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="336" name="images/52_28664329,21_07490976,52_28686551,21_07527304.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="62.30,112.00;86.70,64.60;163.80,105.60;139.30,153.40" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="158.60,165.20;184.00,115.90;224.00,137.80;224.00,199.53" z_order="0">
+    </polygon>
+  </image>
+  <image id="337" name="images/52_29873429,20_93412271,52_29895651,20_93448609.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="117.20,149.00;76.60,105.20;104.00,78.00;144.80,121.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="62.20,76.90;51.00,64.90;71.10,45.60;82.90,58.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="338" name="images/52_30029079,21_01173270,52_30051301,21_01209610.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="127.30,139.00;106.40,80.60;128.50,71.50;146.80,120.70;134.50,126.20;133.40,136.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="339" name="images/52_30269919,21_08126739,52_30292141,21_08163081.png" width="224" height="224">
+  </image>
+  <image id="340" name="images/52_30666559,16_12547928,52_30688781,16_12584272.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="81.39,148.43;98.45,148.15;136.40,123.66;131.17,109.90;117.99,82.11;87.42,81.01;82.19,127.24" z_order="0">
+    </polygon>
+  </image>
+  <image id="341" name="images/52_31083699,18_16578716,52_31105921,18_16615064.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="72.60,128.40;73.30,92.00;99.10,93.10;98.80,129.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="117.20,92.40;143.00,93.20;142.50,130.10;116.80,129.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="342" name="images/52_31265139,18_35078065,52_31287361,18_35114415.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="70.12,129.08;95.91,101.93;128.49,132.70;103.60,161.21" z_order="0">
+    </polygon>
+  </image>
+  <image id="343" name="images/52_32299089,17_56329361,52_32321311,17_56365719.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="112.70,155.40;70.90,89.10;106.30,66.30;149.00,130.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="344" name="images/52_32399389,21_06694291,52_32421611,21_06730649.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="174.60,150.70;193.50,125.60;224.00,149.60;224.00,169.00;215.30,181.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="138.40,68.40;146.60,36.70;176.10,42.80;168.80,75.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="100.89,137.22;86.40,109.90;123.50,89.40;138.30,117.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="345" name="images/52_32673789,16_86548000,52_32696011,16_86584360.png" width="224" height="224">
+  </image>
+  <image id="346" name="images/52_33575429,16_82543986,52_33597651,16_82580354.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="142.50,88.00;163.70,59.30;176.00,67.70;154.40,96.40" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="173.10,110.60;194.70,81.80;221.50,99.90;201.20,128.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="347" name="images/52_33668389,16_82824455,52_33690611,16_82860825.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="81.10,98.80;112.10,80.80;138.90,125.50;106.70,144.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="348" name="images/52_33748299,17_54007905,52_33770521,17_54044275.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="105.80,136.20;79.90,102.30;109.80,80.00;135.50,113.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="349" name="images/52_33821829,20_95165375,52_33844051,20_95201745.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="21.90,201.20;20.60,224.00;14.17,224.00;0.00,211.01;0.00,183.73" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="83.00,121.80;112.50,80.10;147.95,97.40;117.10,139.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="350" name="images/52_34457849,16_87368082,52_34480071,16_87404458.png" width="224" height="224">
+  </image>
+  <image id="351" name="images/52_34613799,16_89914862,52_34636021,16_89951238.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="71.40,11.00;75.80,0.00;33.10,0.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,149.50;29.00,155.70;17.70,191.80;0.00,186.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="103.90,123.30;120.70,83.30;153.90,98.10;137.09,137.22" z_order="0">
+    </polygon>
+  </image>
+  <image id="352" name="images/52_34645769,16_78929881,52_34667991,16_78966259.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.10,132.70;85.10,97.00;143.88,90.61;144.30,127.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="353" name="images/52_35117789,16_86795859,52_35140011,16_86832241.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="107.40,81.40;145.90,113.70;121.70,142.20;82.90,110.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="354" name="images/52_36608269,16_83092203,52_36630491,16_83128597.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.30,108.40;134.20,82.20;139.80,90.30;135.10,112.40;139.70,119.20;101.60,136.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="17.70,81.50;6.11,30.34;0.00,31.42;0.00,84.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="355" name="images/52_38778469,20_93179264,52_38800691,20_93215676.png" width="224" height="224">
+  </image>
+  <image id="356" name="images/52_38908309,17_07550984,52_38930531,17_07587396.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="131.40,72.70;150.40,20.10;184.30,35.30;165.00,86.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="108.70,132.70;120.30,101.80;155.20,111.80;143.40,144.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="357" name="images/52_39248759,16_89310762,52_39270981,16_89347178.png" width="224" height="224">
+  </image>
+  <image id="358" name="images/52_39296809,16_86701262,52_39319031,16_86737678.png" width="224" height="224">
+  </image>
+  <image id="359" name="images/52_39424119,16_95572462,52_39446341,16_95608878.png" width="224" height="224">
+  </image>
+  <image id="360" name="images/52_40077889,16_86429399,52_40100111,16_86465821.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="179.00,118.40;192.90,123.60;179.00,177.30;165.40,171.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,36.80;37.10,53.50;15.50,103.10;0.00,96.95" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="68.60,67.60;146.90,103.90;126.10,153.60;47.50,117.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="361" name="images/52_40247839,17_07393588,52_40270061,17_07430012.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="72.10,121.80;63.40,133.80;45.90,146.80;57.50,204.60;77.40,209.90;89.30,217.30;98.60,216.00;78.70,120.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="76.40,91.10;69.70,54.70;118.70,45.20;126.40,80.40" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="43.60,139.70;35.90,127.30;62.40,104.70;72.40,114.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="362" name="images/52_40439279,16_76763758,52_40461501,16_76800182.png" width="224" height="224">
+  </image>
+  <image id="363" name="images/52_40492959,22_21997227,52_40515181,22_22033653.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="93.70,145.30;94.10,82.90;130.40,82.60;128.90,145.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="364" name="images/52_40559159,16_91658897,52_40581381,16_91695323.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="86.90,118.90;102.70,40.30;115.80,38.00;150.60,35.40;128.40,142.60;115.90,143.10;111.10,134.50;101.20,126.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="365" name="images/52_40920159,17_08748056,52_40942381,17_08784484.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="92.30,153.50;96.10,70.90;131.30,71.70;127.70,153.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="366" name="images/52_41210859,20_93283834,52_41233081,20_93320266.png" width="224" height="224">
+  </image>
+  <image id="367" name="images/52_41248759,16_83820774,52_41270981,16_83857206.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="69.60,91.60;153.40,96.40;148.80,106.00;143.88,118.67;140.50,132.10;82.40,129.20;75.50,101.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="368" name="images/52_42266049,16_78057400,52_42288271,16_78093840.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="15.80,81.70;3.20,33.90;0.00,34.65;0.00,85.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="95.90,134.80;87.40,99.00;128.40,87.40;136.80,123.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="369" name="images/52_42364199,16_91168000,52_42386421,16_91204440.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="86.60,104.00;88.90,65.70;148.30,69.20;160.17,92.42;170.70,109.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="370" name="images/52_42592569,17_48847479,52_42614791,17_48883921.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="104.20,41.20;112.90,0.00;147.90,0.00;147.60,3.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="93.19,66.18;156.50,141.10;132.00,161.20;68.60,86.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="371" name="images/52_43794119,17_77775654,52_43816341,17_77812106.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="103.50,140.90;97.60,90.20;135.70,80.90;141.60,131.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="372" name="images/52_43980729,17_76652393,52_44002951,17_76688847.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="66.80,67.10;64.40,39.90;116.10,38.80;119.40,61.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="11.00,165.10;9.00,140.20;35.00,117.90;38.90,161.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="187.40,107.80;215.80,105.70;222.30,164.00;194.80,168.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="373" name="images/52_44043999,16_94664293,52_44066221,16_94700747.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="224.00,17.50;224.00,2.60;215.50,5.40;218.50,18.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="76.40,198.60;66.30,145.20;116.10,135.90;125.80,189.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="374" name="images/52_44083829,16_40958882,52_44106051,16_40995338.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.10,119.90;97.20,87.80;142.60,112.80;124.10,145.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="375" name="images/52_44421879,21_11978641,52_44444101,21_12015099.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="97.20,140.00;83.30,90.60;119.10,78.90;133.60,129.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="376" name="images/52_44565129,16_94025180,52_44587351,16_94061640.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.05,139.94;92.30,80.10;137.50,85.60;130.60,145.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,12.40;42.30,16.90;46.20,28.80;52.70,40.40;61.60,49.20;60.80,57.90;0.00,49.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="377" name="images/52_45463979,14_87988607,52_45486201,14_88025073.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="86.00,120.00;146.50,57.40;175.10,81.11;110.60,145.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="378" name="images/52_45486429,21_01389967,52_45508651,21_01426433.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="89.30,134.70;79.00,104.80;128.40,86.10;133.90,99.20;142.90,99.00;148.90,112.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="379" name="images/52_45705479,16_76527006,52_45727701,16_76563474.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="91.40,110.30;71.50,83.20;99.00,59.60;119.90,86.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="109.50,132.90;139.40,112.10;158.80,138.60;127.80,160.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="380" name="images/52_50932569,16_98675464,52_50954791,16_98711976.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="100.10,79.20;139.10,88.20;114.70,115.60;95.70,101.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="381" name="images/52_55267039,19_69272956,52_55289261,19_69309504.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="57.60,126.70;77.10,72.50;135.70,87.20;116.10,143.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,52.30;43.10,64.00;17.80,117.80;0.00,112.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="382" name="images/52_55709459,19_66986964,52_55731681,19_67023516.png" width="224" height="224">
+  </image>
+  <image id="383" name="images/52_56185919,19_65781432,52_56208141,19_65817988.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="86.00,116.50;123.10,78.70;148.10,103.50;110.90,143.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="384" name="images/52_59435139,14_64081239,52_59457361,14_64117821.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.90,159.00;107.10,145.70;126.20,176.40;104.05,191.08" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="143.80,166.00;126.10,135.80;147.50,123.30;165.10,153.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="385" name="images/52_59610849,15_88465328,52_59633071,15_88501912.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="82.10,138.30;100.30,89.00;127.40,98.90;109.80,149.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="386" name="images/52_67195179,19_06742986,52_67217401,19_06779634.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="96.10,108.40;106.00,92.60;147.40,117.80;139.10,134.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="387" name="images/52_67753299,18_32940604,52_67775521,18_32977256.png" width="224" height="224">
+  </image>
+  <image id="388" name="images/52_70140289,15_26001884,52_70162511,15_26038556.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="89.40,115.10;104.20,84.90;134.50,93.60;134.80,117.00;128.80,129.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="26.40,97.10;33.91,61.20;74.00,72.00;64.20,106.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="389" name="images/52_71110769,16_39655140,52_71132991,16_39691820.png" width="224" height="224">
+  </image>
+  <image id="390" name="images/52_71782829,16_37180577,52_71805051,16_37217263.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="92.00,135.80;85.40,101.30;127.20,92.70;133.80,127.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="391" name="images/52_72076359,21_70930536,52_72098581,21_70967224.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="68.30,119.90;90.90,94.20;127.80,125.60;105.30,152.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="392" name="images/52_75516029,15_11332521,52_75538251,15_11369239.png" width="224" height="224">
+  </image>
+  <image id="393" name="images/52_75612469,23_19007551,52_75634691,23_19044269.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="104.60,138.00;92.80,70.70;106.80,68.00;119.50,59.10;126.10,61.60;139.60,140.50;112.80,137.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="394" name="images/52_79781899,17_21704313,52_79804121,17_21741067.png" width="224" height="224">
+  </image>
+  <image id="395" name="images/52_80285029,17_22300701,52_80307251,17_22337459.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="109.90,145.10;88.10,102.60;116.20,88.10;138.60,130.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="396" name="images/52_83195989,15_82963969,52_83218211,15_83000751.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="224.00,189.00;199.00,188.60;199.80,146.30;224.00,146.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="80.40,129.20;80.60,111.70;90.80,94.90;141.61,94.69;141.00,109.20;149.70,118.20;149.80,130.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="397" name="images/52_83413279,15_83918458,52_83435501,15_83955242.png" width="224" height="224">
+  </image>
+  <image id="398" name="images/52_84958799,17_71626661,52_84981021,17_71663459.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="51.20,133.50;49.34,96.09;142.90,89.80;145.50,127.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="399" name="images/52_88147579,20_63331728,52_88169801,20_63368552.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="125.30,100.00;130.70,73.90;108.40,73.30;94.60,100.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="95.00,140.10;95.20,124.00;131.50,123.70;131.50,139.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="400" name="images/52_90678229,16_56022417,52_90700451,16_56059263.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="92.80,139.20;97.20,88.70;133.40,90.20;129.10,140.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="401" name="images/52_93470099,18_94481705,52_93492321,18_94518575.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="82.10,128.20;104.30,81.90;140.00,98.60;117.10,145.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,11.32;55.20,26.90;63.70,0.00;0.00,0.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,126.93;34.60,138.80;24.80,174.40;0.00,165.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="402" name="images/52_98920039,18_62815742,52_98942261,18_62852658.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.40,83.20;94.50,58.50;129.00,60.90;128.30,85.10" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="94.40,107.30;128.50,104.90;127.70,136.20;94.50,140.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="403" name="images/52_99192229,18_62646341,52_99214451,18_62683259.png" width="224" height="224">
+  </image>
+  <image id="404" name="images/53_05375699,16_46827994,53_05397921,16_46864966.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="84.60,122.80;85.80,85.80;132.60,88.10;127.90,124.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="405" name="images/53_07423069,21_58185495,53_07445291,21_58222485.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="183.70,137.70;223.70,166.20;195.10,204.70;155.80,175.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="120.50,146.10;150.80,110.20;103.30,72.80;72.80,107.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="406" name="images/53_08623079,16_11869740,53_08645301,16_11906740.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="59.50,151.00;127.20,70.20;149.50,96.20;97.30,164.20;68.00,159.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="407" name="images/53_09049159,21_58303078,53_09071381,21_58340082.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="155.70,99.00;224.00,66.80;224.00,107.42;171.20,130.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="28.10,199.30;18.70,179.00;31.30,172.80;40.30,193.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="99.30,168.20;87.50,145.30;119.50,121.00;135.00,107.30;151.10,141.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="408" name="images/53_10888449,20_37916041,53_10910671,20_37953059.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="141.20,0.00;153.20,17.10;176.90,0.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="116.50,144.90;84.70,103.10;114.00,79.90;147.10,122.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="409" name="images/53_11063039,23_13841830,53_11085261,23_13878850.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="197.00,141.10;207.50,163.80;220.00,161.15;224.00,159.64;224.00,129.51" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="106.40,138.70;91.70,98.40;119.00,87.80;133.50,128.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="410" name="images/53_11164179,19_04841239,53_11186401,19_04878261.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="68.90,93.80;84.80,83.90;145.30,129.80;135.90,145.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="411" name="images/53_12046969,18_03510846,53_12069191,18_03547874.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="198.60,141.90;215.80,98.10;224.00,106.50;224.00,112.70;213.10,144.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="64.20,127.40;79.20,84.30;196.10,96.30;181.00,139.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="412" name="images/53_12581509,17_99330783,53_12603731,17_99367817.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="93.70,105.00;132.10,88.10;153.60,109.90;151.50,118.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="413" name="images/53_12615849,18_04786863,53_12638071,18_04823897.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="67.40,83.10;161.90,103.60;173.60,135.10;171.10,147.20;43.80,116.10;46.00,107.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="414" name="images/53_12851939,18_04579882,53_12874161,18_04616918.png" width="224" height="224">
+  </image>
+  <image id="415" name="images/53_12916679,18_09723892,53_12938901,18_09760928.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="133.40,224.00;129.60,212.30;164.10,199.80;172.70,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="106.00,142.20;79.50,69.20;114.20,56.90;141.20,129.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="416" name="images/53_13448819,23_18180830,53_13471041,23_18217870.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="74.90,117.30;90.80,85.10;144.20,110.80;128.80,142.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="417" name="images/53_13596289,23_25723229,53_13618511,23_25760271.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.90,139.30;78.10,102.30;137.20,90.30;144.65,127.86" z_order="0">
+    </polygon>
+  </image>
+  <image id="418" name="images/53_13854479,23_17874828,53_13876701,23_17911872.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="108.90,140.08;83.90,98.80;115.30,80.20;140.40,121.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="419" name="images/53_14373849,23_10725396,53_14396071,23_10762444.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="129.40,55.90;160.10,12.50;191.70,34.90;160.80,78.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="141.64,224.00;151.43,209.31;171.58,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="80.20,121.60;113.50,77.80;144.00,101.70;111.80,145.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="420" name="images/53_15027099,23_11221833,53_15049321,23_11258887.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="138.20,59.10;174.06,19.70;200.30,42.40;163.60,82.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="78.90,124.20;116.10,83.50;143.80,109.80;106.20,150.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="421" name="images/53_15047679,23_12458653,53_15069901,23_12495707.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="102.90,141.80;79.20,113.40;121.70,78.30;145.10,106.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="422" name="images/53_15305169,16_75595002,53_15327391,16_75632058.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="11.30,45.20;70.70,53.50;64.10,90.00;6.30,81.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="94.40,93.50;94.70,58.50;147.20,66.20;145.10,101.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="423" name="images/53_15330239,23_09361691,53_15352461,23_09398749.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="209.36,102.06;224.00,86.26;224.00,115.51" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="53.60,110.10;93.06,66.77;120.66,90.30;81.00,134.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="424" name="images/53_15646869,16_76370330,53_15669091,16_76407390.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="62.40,187.00;112.90,35.50;127.10,21.60;151.90,2.00;161.50,4.40;88.90,224.00;72.20,221.10;70.70,209.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="425" name="images/53_15851049,23_09624419,53_15873271,23_09661481.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="95.32,152.29;69.53,92.11;122.47,69.93;148.72,128.76" z_order="0">
+    </polygon>
+  </image>
+  <image id="426" name="images/53_16256239,17_91702867,53_16278461,17_91739933.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="76.00,121.50;94.40,91.00;127.50,99.00;106.50,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="427" name="images/53_17370869,22_03881013,53_17393091,22_03918087.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="121.90,127.10;110.70,75.80;138.10,70.30;150.00,121.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="428" name="images/53_25164129,19_39527369,53_25186351,19_39564511.png" width="224" height="224">
+  </image>
+  <image id="429" name="images/53_25441079,14_48383528,53_25463301,14_48420672.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.20,156.40;90.70,96.70;127.10,99.10;122.60,149.70;98.10,148.80;97.00,156.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="430" name="images/53_27116379,19_41094930,53_27138601,19_41132090.png" width="224" height="224">
+  </image>
+  <image id="431" name="images/53_27727379,18_93258818,53_27749601,18_93295982.png" width="224" height="224">
+  </image>
+  <image id="432" name="images/53_34390049,15_01280119,53_34412271,15_01317341.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="77.60,97.40;94.50,87.10;109.90,79.60;141.00,127.10;130.60,143.10;125.50,160.10;121.40,163.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,89.80;35.10,71.40;14.20,40.90;0.00,49.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="433" name="images/53_35670489,14_58327763,53_35692711,14_58364997.png" width="224" height="224">
+  </image>
+  <image id="434" name="images/53_35851589,20_42207082,53_35873811,20_42244318.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="82.50,136.10;79.40,99.80;139.22,97.09;143.30,133.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="0.00,190.50;26.20,189.20;29.30,224.00;0.00,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="224.00,181.40;207.00,181.70;208.20,223.60;224.00,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="435" name="images/53_36207859,17_50311341,53_36230081,17_50348579.png" width="224" height="224">
+  </image>
+  <image id="436" name="images/53_40212009,14_52113263,53_40234231,14_52150537.png" width="224" height="224">
+  </image>
+  <image id="437" name="images/53_41437719,14_56864368,53_41459941,14_56901652.png" width="224" height="224">
+  </image>
+  <image id="438" name="images/53_41446129,18_44684508,53_41468351,18_44721792.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="92.60,138.80;84.90,103.00;134.70,92.50;143.74,129.67" z_order="0">
+    </polygon>
+  </image>
+  <image id="439" name="images/53_42013419,14_49008755,53_42035641,14_49046045.png" width="224" height="224">
+  </image>
+  <image id="440" name="images/53_42163559,14_50023715,53_42185781,14_50061005.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="12.70,82.90;30.00,51.90;59.00,61.00;51.60,97.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="154.60,141.89;161.80,125.10;177.50,148.80;170.10,164.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="92.98,79.93;78.64,115.16;89.00,122.10;116.57,132.18;136.10,113.00;137.40,109.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="441" name="images/53_43040789,14_55039511,53_43063011,14_55076809.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="158.30,12.60;150.00,0.00;176.80,0.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="88.50,186.10;34.20,104.50;126.10,43.80;178.90,125.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="442" name="images/53_43048739,14_55433371,53_43070961,14_55470669.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="97.40,132.10;111.40,84.30;164.20,99.40;150.00,148.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="443" name="images/53_44383599,14_54743895,53_44405821,14_54781205.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="70.70,121.10;99.50,75.50;146.60,99.60;118.10,145.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="142.84,159.99;164.50,110.50;201.50,129.40;177.80,178.60" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="22.80,34.60;76.60,62.00;45.40,106.60;0.00,84.49;0.00,70.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="444" name="images/53_45318729,14_57941991,53_45340951,14_57979309.png" width="224" height="224">
+  </image>
+  <image id="445" name="images/53_46793289,15_33669054,53_46815511,15_33706386.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="89.80,105.90;78.50,85.80;111.80,67.20;122.90,87.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="114.10,151.60;102.30,129.30;134.60,112.00;146.70,133.50" z_order="0">
+    </polygon>
+  </image>
+  <image id="446" name="images/53_47808869,14_54076930,53_47831091,14_54114270.png" width="224" height="224">
+  </image>
+  <image id="447" name="images/53_49315529,18_75120543,53_49337751,18_75157897.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="74.80,115.40;88.90,82.20;152.20,110.10;137.50,143.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="448" name="images/53_56137559,21_00558843,53_56159781,21_00596257.png" width="224" height="224">
+  </image>
+  <image id="449" name="images/53_59738119,19_56876367,53_59760341,19_56913813.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.80,125.80;93.50,90.30;142.10,100.10;134.60,135.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="450" name="images/53_69157349,20_09283675,53_69179571,20_09321205.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="81.70,141.40;78.70,124.80;82.50,100.40;122.00,91.30;165.00,116.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="451" name="images/53_69531969,19_95877674,53_69554191,19_95915206.png" width="224" height="224">
+  </image>
+  <image id="452" name="images/53_71036069,17_55035137,53_71058291,17_55072683.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="80.70,111.90;75.40,80.30;124.80,70.50;130.60,101.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="453" name="images/53_71773409,16_67561944,53_71795631,16_67599496.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="86.00,114.00;121.50,76.60;147.70,101.60;112.60,140.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="454" name="images/53_72562449,18_94368540,53_72584671,18_94406100.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="96.30,125.90;123.00,81.80;141.40,102.90;120.30,139.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="455" name="images/53_75473539,20_46055297,53_75495761,20_46092883.png" width="224" height="224">
+  </image>
+  <image id="456" name="images/53_77175599,20_44592100,53_77197821,20_44629700.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="57.70,18.50;52.56,3.55;62.44,0.00;90.00,0.00;92.38,6.72" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="104.10,159.30;76.90,77.80;110.60,66.80;136.80,147.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="125.80,224.00;113.10,184.60;145.80,172.30;163.00,223.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="457" name="images/53_77435509,20_48587988,53_77457731,20_48625592.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="102.10,124.90;100.20,103.70;124.50,103.30;126.40,128.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="186.00,125.70;172.00,91.30;224.00,70.00;224.00,110.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="14.70,107.00;41.00,77.00;71.50,104.60;45.60,132.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="71.40,190.40;62.80,147.30;97.60,140.30;103.10,188.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="458" name="images/53_77967329,20_51213536,53_77989551,20_51251144.png" width="224" height="224">
+  </image>
+  <image id="459" name="images/53_81882129,15_25414508,53_81904351,15_25452152.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.26,115.32;91.93,79.57;141.70,97.70;129.49,132.97" z_order="0">
+    </polygon>
+  </image>
+  <image id="460" name="images/53_84099239,22_36020978,53_84121461,22_36058642.png" width="224" height="224">
+  </image>
+  <image id="461" name="images/53_90311169,14_28486740,53_90333391,14_28524460.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="87.40,130.26;103.69,80.03;137.63,90.43;122.40,140.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="462" name="images/53_91931979,14_22364133,53_91954201,14_22401867.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="76.70,105.20;82.80,95.80;95.50,95.60;106.60,80.80;146.90,110.10;138.70,121.60;139.50,135.90;133.10,145.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="463" name="images/53_91941619,19_03672423,53_91963841,19_03710157.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="125.80,63.10;137.50,43.30;171.70,52.70;160.70,72.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="94.00,112.00;109.40,87.10;139.10,108.70;123.40,133.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="464" name="images/53_96023799,18_52891945,53_96046021,18_52929715.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="109.60,111.70;111.80,79.60;148.10,76.30;145.80,108.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="107.00,161.70;107.60,138.70;144.00,138.90;143.70,162.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="465" name="images/54_00889459,15_98444523,54_00911681,15_98482337.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.10,114.10;127.40,80.80;148.60,112.00;98.60,144.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="466" name="images/54_05616419,17_16218771,54_05638641,17_16256629.png" width="224" height="224">
+  </image>
+  <image id="467" name="images/54_05623599,19_20873151,54_05645821,19_20911009.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="51.00,151.40;163.30,57.20;168.30,64.00;165.00,92.00;80.00,160.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="468" name="images/54_07552909,22_92966942,54_07575131,22_93004818.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="97.50,126.80;83.50,77.70;95.80,74.30;100.70,80.90;120.40,75.90;132.10,116.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="75.80,76.10;73.80,68.00;62.10,59.10;47.80,44.70;0.30,58.20;0.00,98.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="469" name="images/54_12197499,22_93320681,54_12219721,22_93358599.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="95.70,142.90;99.80,89.10;136.70,91.30;133.60,145.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="93.40,184.10;94.60,166.80;131.30,169.00;130.40,186.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="470" name="images/54_16603929,15_49821711,54_16626151,15_49859669.png" width="224" height="224">
+  </image>
+  <image id="471" name="images/54_16712359,17_48647860,54_16734581,17_48685820.png" width="224" height="224">
+  </image>
+  <image id="472" name="images/54_17251609,18_70003748,54_17273831,18_70041712.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="85.60,145.60;96.40,76.60;132.20,82.40;122.10,151.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="473" name="images/54_17884019,19_41334595,54_17906241,19_41372565.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="115.10,136.00;117.70,98.30;150.30,100.00;147.70,137.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="165.70,138.60;168.00,102.90;200.50,105.40;197.80,140.40" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="67.60,49.00;71.70,8.40;100.40,9.70;95.30,61.20;86.50,60.40;83.00,50.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="474" name="images/54_18152079,17_49125424,54_18174301,17_49163396.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="64.38,82.82;63.80,115.80;87.50,143.36;96.31,143.36;97.41,83.37" z_order="0">
+    </polygon>
+  </image>
+  <image id="475" name="images/54_18786459,19_39207201,54_18808681,19_39245179.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="80.00,162.80;86.80,164.80;116.70,161.80;124.62,152.26;148.10,79.90;111.08,66.07" z_order="0">
+    </polygon>
+  </image>
+  <image id="476" name="images/54_19049419,16_20180190,54_19071641,16_20218170.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.20,54.60;93.80,39.40;128.90,36.00;130.10,50.50" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="95.30,177.70;94.80,151.80;131.30,150.70;131.60,176.90" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="93.20,125.70;93.00,110.80;130.10,110.20;130.20,125.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="477" name="images/54_20673059,18_76758962,54_20695281,18_76796958.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="80.70,127.90;83.40,90.90;136.70,95.50;134.00,132.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="478" name="images/54_21338749,15_76560369,54_21360971,15_76598371.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="92.30,140.50;93.40,82.10;129.60,81.90;129.40,141.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="479" name="images/54_24999399,22_03311522,54_25021621,22_03349558.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.60,138.30;77.80,105.50;117.60,84.80;133.40,117.40" z_order="0">
+    </polygon>
+  </image>
+  <image id="480" name="images/54_26708539,18_62797014,54_26730761,18_62835066.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="89.10,112.00;107.20,82.10;134.00,98.60;114.80,130.30" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="60.20,54.20;86.70,69.80;65.30,101.60;39.30,87.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="481" name="images/54_29313479,18_59345892,54_29335701,18_59383968.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="90.40,133.40;91.60,96.00;133.30,97.70;132.60,134.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="482" name="images/54_34417039,19_11523779,54_34439261,19_11561901.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="106.20,134.70;90.40,102.70;129.90,85.90;145.60,117.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="483" name="images/54_34542709,18_67832798,54_34564931,18_67870922.png" width="224" height="224">
+  </image>
+  <image id="484" name="images/54_34754209,18_64320487,54_34776431,18_64358613.png" width="224" height="224">
+  </image>
+  <image id="485" name="images/54_34886559,18_58807296,54_34908781,18_58845424.png" width="224" height="224">
+  </image>
+  <image id="486" name="images/54_35992159,17_90256181,54_36014381,17_90294319.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="94.20,132.50;92.40,90.00;127.40,88.00;129.20,130.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="487" name="images/54_36140929,18_71888941,54_36163151,18_71927079.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="103.90,148.10;95.80,105.50;147.30,98.90;152.20,141.20" z_order="0">
+    </polygon>
+  </image>
+  <image id="488" name="images/54_38005109,18_60172792,54_38027331,18_60210948.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="86.30,114.70;108.80,85.40;148.60,119.30;138.70,131.40;129.10,127.30;117.80,140.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="489" name="images/54_38583719,18_60435119,54_38605941,18_60473281.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="198.60,78.90;192.40,65.80;224.00,50.80;224.00,66.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="490" name="images/54_40309339,18_60492571,54_40331561,18_60530749.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="79.90,118.00;107.30,85.00;135.10,107.90;108.40,141.10" z_order="0">
+    </polygon>
+  </image>
+  <image id="491" name="images/54_43001549,18_56170429,54_43023771,18_56208631.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="191.10,106.80;187.50,62.40;220.00,58.10;224.00,103.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="80.80,120.90;72.80,80.00;131.20,71.30;140.50,112.30" z_order="0">
+    </polygon>
+  </image>
+  <image id="492" name="images/54_45259449,17_01675028,54_45281671,17_01713252.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="138.40,62.70;182.80,20.80;208.20,47.70;163.90,89.80" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="74.00,123.60;117.72,81.38;143.06,108.53;98.70,150.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="53.80,164.40;49.70,127.50;63.80,123.70;68.30,160.70" z_order="0">
+    </polygon>
+  </image>
+  <image id="493" name="images/54_46909779,17_04089921,54_46932001,17_04128159.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="169.34,224.00;185.30,206.30;204.90,224.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="494" name="images/54_47153259,16_58179699,54_47175481,16_58217941.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="92.20,132.80;90.40,97.30;125.60,95.00;127.00,130.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="13.30,141.80;11.30,105.80;71.70,99.40;73.50,135.60" z_order="0">
+    </polygon>
+  </image>
+  <image id="495" name="images/54_47735599,16_97806087,54_47757821,16_97844333.png" width="224" height="224">
+  </image>
+  <image id="496" name="images/54_50022229,18_44572536,54_50044451,18_44610804.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="25.20,8.20;29.70,0.00;70.00,0.00;59.50,22.70" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="13.24,224.00;15.90,212.16;32.60,207.20;53.80,209.40;51.20,224.00" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="78.20,128.60;84.40,92.80;135.40,99.20;129.70,136.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="497" name="images/54_52201929,18_53442846,54_52224151,18_53481134.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="88.30,163.00;80.60,73.80;138.80,71.60;145.00,160.90" z_order="0">
+    </polygon>
+  </image>
+  <image id="498" name="images/54_54314389,18_45619266,54_54336611,18_45657574.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="38.50,171.00;94.00,69.60;143.50,95.70;86.40,196.80" z_order="0">
+    </polygon>
+  </image>
+  <image id="499" name="images/54_57105359,18_38714093,54_57127581,18_38752427.png" width="224" height="224">
+    <polygon label="crossing" source="manual" occluded="0" points="132.80,43.40;122.00,0.00;160.80,0.00;168.40,34.20" z_order="0">
+    </polygon>
+    <polygon label="crossing" source="manual" occluded="0" points="75.50,123.20;120.00,81.40;144.50,107.50;100.50,150.20" z_order="0">
+    </polygon>
+  </image>
+</annotations>
