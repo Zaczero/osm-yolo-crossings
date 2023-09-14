@@ -145,7 +145,10 @@ def _is_path(element: dict) -> bool:
 def _is_crossing(element: dict) -> bool:
     tags = element.get('tags', {})
 
-    return tags.get('highway', '') == 'crossing'
+    return (
+        tags.get('highway', '') == 'crossing' or
+        tags.get('crossing:markings', '')
+    )
 
 
 @retry(wait=wait_exponential(max=1800), stop=stop_after_delay(RETRY_TIME_LIMIT))
