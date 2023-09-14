@@ -18,7 +18,9 @@
 5. Checks historical OSM data to identify previously deleted crossings and avoid duplicates.
 6. Imports new crossings into OSM.
 
-![](https://github.com/Zaczero/osm-yolo-crossings/blob/main/resources/diagram-en.png?raw=true)
+<img src="https://github.com/Zaczero/osm-yolo-crossings/blob/main/resources/diagram-en.png?raw=true" width="80%">
+
+🌟 Special thanks to [syntex](https://www.openstreetmap.org/user/syntex) for helping out with the dataset.
 
 ## Reference
 
