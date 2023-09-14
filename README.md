@@ -48,4 +48,4 @@ https://monicz.dev/#support-my-work
 
 This project is licensed under the GNU Affero General Public License v3.0.
 
-The complete license text can be accessed in the repository at [LICENSE](https://github.com/Zaczero/osm-budynki-orto-import/blob/main/LICENSE).
+The complete license text can be accessed in the repository at [LICENSE](https://github.com/Zaczero/osm-yolo-crossings/blob/main/LICENSE).
