@@ -23,8 +23,8 @@ from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
-_EPOCHS_0 = 50
-_EPOCHS = 200
+_EPOCHS_0 = 100
+_EPOCHS = 1000
 _BATCH_SIZE = 32
 _BOXES_COUNT = 4
 
@@ -153,7 +153,7 @@ def create_yolo_model():
         optimizer=AdamW(
             CosineDecay(initial_learning_rate=5e-4,
                         decay_steps=steps_per_epoch * (_EPOCHS - _EPOCHS_0),
-                        alpha=0.1,
+                        alpha=0.01,
                         warmup_target=5e-5,
                         warmup_steps=steps_per_epoch * _EPOCHS_0)),
         box_loss='ciou',
