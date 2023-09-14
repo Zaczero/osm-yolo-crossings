@@ -23,7 +23,8 @@ from processor import normalize_yolo_image
 from utils import draw_predictions, save_image
 from yolo_dataset import YoloDatasetEntry, iter_yolo_dataset
 
-_EPOCHS = 250
+_EPOCHS_0 = 50
+_EPOCHS = 100
 _BATCH_SIZE = 32
 _BOXES_COUNT = 4
 
@@ -150,11 +151,11 @@ def create_yolo_model():
     model_save_fix(model)
     model.compile(
         optimizer=AdamW(
-            CosineDecay(initial_learning_rate=3e-5,
-                        decay_steps=steps_per_epoch * (_EPOCHS - 10),
-                        alpha=0.01,
-                        warmup_target=3e-4,
-                        warmup_steps=steps_per_epoch * 10)),
+            CosineDecay(initial_learning_rate=5e-4,
+                        decay_steps=steps_per_epoch * (_EPOCHS - _EPOCHS_0),
+                        alpha=0.2,
+                        warmup_target=5e-5,
+                        warmup_steps=steps_per_epoch * _EPOCHS_0)),
         box_loss='ciou',
         classification_loss=BinaryFocalCrossentropy(apply_class_balancing=True),
     )
@@ -178,7 +179,7 @@ def create_yolo_model():
         X_batch, y_batch,
         batch_size=_BATCH_SIZE,
         steps_per_epoch=steps_per_epoch,
-        epochs=10,
+        epochs=_EPOCHS_0,
         shuffle=False,
     )
 
@@ -186,7 +187,7 @@ def create_yolo_model():
         X_batch, y_batch,
         batch_size=_BATCH_SIZE,
         steps_per_epoch=steps_per_epoch,
-        epochs=_EPOCHS - 10,
+        epochs=_EPOCHS - _EPOCHS_0,
         shuffle=False,
         validation_data=(X_test, y_test),
         callbacks=callbacks,
