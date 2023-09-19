@@ -139,8 +139,16 @@ MONGO_DB = MONGO[NAME]
 MONGO_ADDED = MONGO_DB['added']
 
 if MONGO_URL != 'IGNORE':
+    try:
+        MONGO_ADDED.drop_index([('scorer_version', ASCENDING)])
+    except Exception:
+        pass
+
+    try:
+        MONGO_ADDED.drop_index([('reason', ASCENDING)])
+    except Exception:
+        pass
+
     MONGO_ADDED.create_indexes([
-        IndexModel([('scorer_version', ASCENDING)]),
-        IndexModel([('reason', ASCENDING)]),
         IndexModel([('position', GEOSPHERE)]),
     ])
