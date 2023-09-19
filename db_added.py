@@ -1,8 +1,36 @@
 from time import time
 from typing import Iterable, Sequence
 
+from box import Box
 from config import ADDED_SEARCH_RADIUS, MONGO_ADDED, SCORER_VERSION, VERSION
 from latlon import LatLon
+
+
+def contains_added(box: Box) -> bool:
+    p1 = box.point
+    p2 = box.point + box.size
+
+    return MONGO_ADDED.find_one({
+        "$and": [
+            {"position": {
+                "$geoIntersects": {
+                    "$geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [p1.lon, p1.lat],
+                                [p1.lon, p2.lat],
+                                [p2.lon, p2.lat],
+                                [p2.lon, p1.lat],
+                                [p1.lon, p1.lat]
+                            ]
+                        ]
+                    }
+                }
+            }},
+            {"scorer_version": {"$gte": SCORER_VERSION}}
+        ]
+    }) is not None
 
 
 def mask_not_added(positions: Iterable[LatLon]) -> Sequence[bool]:
@@ -11,10 +39,6 @@ def mask_not_added(positions: Iterable[LatLon]) -> Sequence[bool]:
     for p in positions:
         doc = MONGO_ADDED.find_one({
             "$and": [
-                {"$or": [
-                    {"scorer_version": {"$gte": SCORER_VERSION}},
-                    {"reason": "added"}
-                ]},
                 {"position": {
                     "$nearSphere": {
                         "$geometry": {
@@ -23,7 +47,11 @@ def mask_not_added(positions: Iterable[LatLon]) -> Sequence[bool]:
                         },
                         "$maxDistance": ADDED_SEARCH_RADIUS
                     }
-                }}
+                }},
+                {"$or": [
+                    {"scorer_version": {"$gte": SCORER_VERSION}},
+                    {"reason": "added"}
+                ]}
             ]
         })
 

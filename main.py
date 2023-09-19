@@ -22,7 +22,7 @@ from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND,
                     SLEEP_AFTER_GRID_ITER, YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
-from db_added import mark_added, mask_not_added
+from db_added import contains_added, mark_added, mask_not_added
 from db_grid import Cell, iter_grid, set_last_cell_index
 from import_speed_limit import ImportSpeedLimit
 from latlon import LatLon
@@ -190,6 +190,9 @@ def _process_interesting_box(box: Box) -> CrossingSuggestion | None:
 
 
 def _process_cell(cell: Cell) -> Sequence[CrossingMergeInstructions]:
+    if contains_added(cell.box):  # fast resume
+        return ()
+
     # with print_run_time('Fetching ortophoto'):
     orto_img = fetch_orto(cell.box, YOLO_MODEL_RESOLUTION)
 
