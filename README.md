@@ -5,24 +5,102 @@
 [![Support my work](https://shields.monicz.dev/badge/%E2%99%A5%EF%B8%8F%20Support%20my%20work-purple)](https://monicz.dev/#support-my-work)
 [![GitHub repo stars](https://shields.monicz.dev/github/stars/Zaczero/osm-yolo-crossings?style=social)](https://github.com/Zaczero/osm-yolo-crossings)
 
-<img src="https://github.com/Zaczero/osm-yolo-crossings/raw/main/resources/card.png" width="40%">
+🦓 AI-powered OpenStreetMap tool for importing zebra crossings.
 
-🦓 OpenStreetMap, AI import tool for zebra crossings
+<img src="https://github.com/Zaczero/osm-yolo-crossings/raw/main/resources/card.png" alt="Project logo with YOLO text" width="40%">
 
 ## 💡 How it works
 
-1. Queries OpenStreetMap (OSM) to find populated areas.
-2. Retrieves [orthophoto imagery](https://www.geoportal.gov.pl/dane/ortofotomapa) for every road in the area.
-3. Utilizes a [YOLOv8 model](https://ultralytics.com/yolov8) to detect regions of interest.
-4. Performs binary classification on each region with a MobileNetV3Large model.
-5. Checks historical OSM data to identify previously deleted crossings and avoid duplicates.
-6. Imports new crossings into OSM.
+1. **Query OSM**: Finds populated areas on OpenStreetMap (OSM).
+2. **Fetch Imagery**: Downloads [orthophoto imagery](https://www.geoportal.gov.pl/dane/ortofotomapa) for all roads in the query area.
+3. **YOLOv8 Model**: Utilizes YOLOv8 for regions of interest detection.
+4. **MobileNetV3Large**: Applies binary classification to validate detected regions.
+5. **Data Integrity**: Checks against historical OSM data to avoid duplicates.
+6. **OSM Import**: Automatically imports new crossings to OSM.
 
 <img src="https://github.com/Zaczero/osm-yolo-crossings/blob/main/resources/diagram-en.png?raw=true" width="80%">
 
-🌟 Special thanks to [syntex](https://www.openstreetmap.org/user/syntex) for helping out with the dataset.
+## 🛠️ Local Development
 
-## Reference
+### Prerequisites
+
+Before diving into development, make sure you have installed the [❄️ Nix](https://nixos.org/download) package manager.
+Nix ensures seamless dependency management and a reproducible environment.
+
+### ⠿ CUDA (NVIDIA GPU-mode)
+
+Ideal for model development and training.
+The application's primary functionality is optimized for CPU-mode.
+
+TensorRT, a proprietary high-performance deep learning inference library by NVIDIA, is used by default. It can be safely disabled by commenting out **cudaPackages.tensorrt** in **cuda-shell.nix**.
+
+```sh
+# Install dependencies and packages
+nix-shell cuda-shell.nix
+
+# Configure .env file
+mv .env.example .env
+
+# Start up the database
+make dev-start
+
+# Done, now you can run the application
+python main.py
+```
+
+### ⊡ CPU-mode
+
+This mode is recommended for typical usage and production runs.
+
+```sh
+# Install dependencies and packages
+nix-shell
+
+# Configure .env file
+mv .env.example .env
+
+# Start up the database
+make dev-start
+
+# Done, now you can run the application
+python main.py
+```
+
+## 📦 Deployment
+
+Here is an example Docker Compose configuration. Note that you will need to build the Docker image first with **nix-build** _(see default.nix for options)_.
+
+```yaml
+version: "3"
+services:
+  db:
+    image: mongo
+    command: mongod --bind_ip_all
+
+    volumes:
+      - ./data/db:/data/db
+
+  app:
+    image: osm-yolo-crossings
+    restart: unless-stopped
+
+    environment:
+      CPU_COUNT: 16
+      MAX_TASKS_PER_CHILD: 300
+      OSM_USERNAME: CHANGEME
+      OSM_PASSWORD: CHANGEME
+      MONGO_URL: mongodb://db:27017
+
+    volumes:
+      - ./data/app:/app/data
+      - ./data/keras:/.keras
+```
+
+## 🌟 Special Thanks
+
+Special thanks to [syntex](https://www.openstreetmap.org/user/syntex) for contributing to the dataset.
+
+## ⚓ References
 
 ### Community discussion
 
