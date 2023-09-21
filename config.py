@@ -19,6 +19,8 @@ PROCESS_NICE = int(os.getenv('PROCESS_NICE', '15'))
 RETRY_TIME_LIMIT = float(os.getenv('RETRY_TIME_LIMIT', '28800'))  # 8h
 BACKLOG_FACTOR = int(os.getenv('BACKLOG_FACTOR', '4'))
 
+GRID_OVERLAP = 0.1
+
 if DRY_RUN:
     print('🦺 TEST MODE 🦺')
 else:
