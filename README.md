@@ -39,7 +39,7 @@ TensorRT, a proprietary high-performance deep learning inference library by NVID
 nix-shell cuda-shell.nix
 
 # Configure .env file
-mv .env.example .env
+cp .env.example .env
 
 # Start up the database
 make dev-start
@@ -57,7 +57,7 @@ This mode is recommended for typical usage and production runs.
 nix-shell
 
 # Configure .env file
-mv .env.example .env
+cp .env.example .env
 
 # Start up the database
 make dev-start
