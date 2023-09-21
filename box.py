@@ -17,9 +17,15 @@ class Box(NamedTuple):
             self.point.lon <= point.lon <= self.point.lon + self.size.lon
         )
 
-    def extend(self, *, meters: float) -> Self:
-        extend_lat = meters_to_lat(meters)
-        extend_lon = meters_to_lon(meters, self.point.lat)
+    def extend(self, *, meters: float = None, scale: float = None) -> Self:
+        if meters is not None:
+            extend_lat = meters_to_lat(meters)
+            extend_lon = meters_to_lon(meters, self.point.lat)
+        elif scale is not None:
+            extend_lat = self.size.lat * scale
+            extend_lon = self.size.lon * scale
+        else:
+            raise ValueError('No extend unit specified')
 
         return Box(
             point=LatLon(self.point.lat - extend_lat, self.point.lon - extend_lon),

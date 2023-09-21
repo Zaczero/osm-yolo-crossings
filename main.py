@@ -18,8 +18,9 @@ from attrib_tuned_model import AttribTunedModel
 from box import Box
 from config import (ATTRIB_MODEL_RESOLUTION, ATTRIB_POSITION_EXTEND,
                     BACKLOG_FACTOR, CPU_COUNT, CROSSING_BOX_EXTEND, DRY_RUN,
-                    MAX_TASKS_PER_CHILD, MIN_IMPORT_SIZE, PROCESS_NICE, SEED,
-                    SLEEP_AFTER_GRID_ITER, YOLO_MODEL_RESOLUTION)
+                    GRID_OVERLAP, MAX_TASKS_PER_CHILD, MIN_IMPORT_SIZE,
+                    PROCESS_NICE, SEED, SLEEP_AFTER_GRID_ITER,
+                    YOLO_MODEL_RESOLUTION)
 from crossing_merger import CrossingMergeInstructions, merge_crossings
 from crossing_suggestion import CrossingSuggestion
 from db_added import contains_added, mark_added, mask_not_added
@@ -190,7 +191,7 @@ def _process_interesting_box(box: Box) -> CrossingSuggestion | None:
 
 
 def _process_cell(cell: Cell) -> Sequence[CrossingMergeInstructions]:
-    if contains_added(cell.box):  # fast resume
+    if contains_added(cell.box.extend(scale=GRID_OVERLAP * -1.5)):  # fast resume
         return ()
 
     # with print_run_time('Fetching ortophoto'):

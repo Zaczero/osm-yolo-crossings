@@ -9,7 +9,7 @@ from typing import Generator, NamedTuple, Sequence
 from numpy import arange
 
 from box import Box
-from config import CACHE_DIR, DB_GRID
+from config import CACHE_DIR, DB_GRID, GRID_OVERLAP
 from grid_filter import is_grid_valid
 from latlon import LatLon
 from utils import format_eta, meters_to_lat, meters_to_lon
@@ -25,9 +25,8 @@ _GRID_SIZE_Y = 0.004 / 18
 _GRID_SIZE_X = 0.004 / 18 * _RATIO
 _GRID_FACTORS = (4, 4, 4, 4, 4, 1)
 
-_OVERLAP_PERCENT = 0.1
-_OVERLAP_Y = _GRID_SIZE_Y * _OVERLAP_PERCENT
-_OVERLAP_X = _GRID_SIZE_X * _OVERLAP_PERCENT
+_OVERLAP_Y = _GRID_SIZE_Y * GRID_OVERLAP
+_OVERLAP_X = _GRID_SIZE_X * GRID_OVERLAP
 
 
 class Cell(NamedTuple):
@@ -57,8 +56,8 @@ def _get_grid() -> Sequence[Cell]:
     p2 = _COUNTRY_BB.point + _COUNTRY_BB.size
     result = []
 
-    for y in arange(p1.lat, p2.lat, _GRID_SIZE_Y * (1 - _OVERLAP_PERCENT)):
-        for x in arange(p1.lon, p2.lon, _GRID_SIZE_X * (1 - _OVERLAP_PERCENT)):
+    for y in arange(p1.lat, p2.lat, _GRID_SIZE_Y * (1 - GRID_OVERLAP)):
+        for x in arange(p1.lon, p2.lon, _GRID_SIZE_X * (1 - GRID_OVERLAP)):
             box = Box(LatLon(y, x), LatLon(_GRID_SIZE_Y, _GRID_SIZE_X))
             result.append(box)
 
