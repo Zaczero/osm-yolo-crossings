@@ -14,7 +14,7 @@
 1. **Query OSM**: Finds populated areas on OpenStreetMap (OSM).
 2. **Fetch Imagery**: Downloads [orthophoto imagery](https://www.geoportal.gov.pl/dane/ortofotomapa) for all roads in the query area.
 3. **YOLOv8 Model**: Utilizes YOLOv8 for regions of interest detection.
-4. **MobileNetV3Large**: Applies binary classification to validate detected regions.
+4. **MobileNetV3 Model**: Applies binary classification to validate detected regions.
 5. **Data Integrity**: Checks against historical OSM data to avoid duplicates.
 6. **OSM Import**: Automatically imports new crossings to OSM.
 
