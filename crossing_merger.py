@@ -118,7 +118,7 @@ def merge_crossings(suggestions: Sequence[CrossingSuggestion]) -> Sequence[Cross
             if intersection.geom_type == 'Point':  # single intersection point
                 perpendicular_positions.append(make_position(intersection))
             elif intersection.geom_type == 'MultiPoint':  # multiple intersection points
-                perpendicular_positions.extend(make_position(point) for point in intersection)
+                perpendicular_positions.extend(make_position(point) for point in intersection.geoms)
 
         # check for maximum count
         if len(perpendicular_positions) > BOX_VALID_MAX_ROAD_COUNT:
