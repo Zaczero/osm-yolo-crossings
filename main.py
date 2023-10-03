@@ -181,7 +181,7 @@ def _process_interesting_box(box: Box) -> CrossingSuggestion | None:
     classification = attrib_model.predict_single(image)
 
     if not classification.is_valid:
-        mark_added((position,), reason='invalid')
+        mark_added((position,), reason='invalid', confidence=classification.confidence)
         return None
 
     return CrossingSuggestion(

@@ -10,6 +10,7 @@ from crossing_type import CrossingType
 class AttribClassification(NamedTuple):
     is_valid: bool
     crossing_type: CrossingType
+    confidence: float
 
 
 class AttribTunedModel:
@@ -24,7 +25,8 @@ class AttribTunedModel:
 
         assert len(pred_proba) == 1
 
-        is_valid = pred_proba[0] > min_confidence
+        confidence = pred_proba[0]
+        is_valid = confidence > min_confidence
         crossing_type = CrossingType.UNKNOWN
 
         # if (not is_uncontrolled and not is_traffic_signals) or (is_uncontrolled and is_traffic_signals):
@@ -34,4 +36,4 @@ class AttribTunedModel:
         # elif is_traffic_signals:
         #     crossing_type = CrossingType.TRAFFIC_SIGNALS
 
-        return AttribClassification(is_valid, crossing_type)
+        return AttribClassification(is_valid, crossing_type, confidence)
