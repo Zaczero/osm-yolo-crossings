@@ -41,9 +41,9 @@ SEARCH_RELATION = 49715  # Poland
 CPU_COUNT = min(int(os.getenv('CPU_COUNT', '1')), len(os.sched_getaffinity(0)))
 MAX_TASKS_PER_CHILD = int(os.getenv('MAX_TASKS_PER_CHILD', '300'))
 
-SCORER_VERSION = 2  # changing this will invalidate previous results
+SCORER_VERSION = 3  # changing this will invalidate previous results
 
-VERSION = '1.5'
+VERSION = '1.6'
 NAME = 'osm-yolo-crossings'
 CREATED_BY = f'{NAME} {VERSION}'
 WEBSITE = 'https://github.com/Zaczero/osm-yolo-crossings'
@@ -89,7 +89,7 @@ ATTRIB_POSITION_EXTEND = 9  # meters
 ATTRIB_MODEL_PATH = MODEL_DIR / 'attrib.h5'
 ATTRIB_MODEL_RESOLUTION = 224
 ATTRIB_PRECISION = 0.998
-ATTRIB_CONFIDENCE = 0.995
+ATTRIB_CONFIDENCE = 0.99
 
 ATTRIB_NUM_CLASSES = 2
 # ATTRIB_PRECISION = (
