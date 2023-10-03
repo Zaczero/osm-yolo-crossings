@@ -71,3 +71,11 @@ def mark_added(positions: Sequence[LatLon], **kwargs) -> Sequence[int]:
         'scorer_version': SCORER_VERSION,
         **kwargs,
     } for p in positions]).inserted_ids
+
+
+def get_added(*, reason: str, limit: int) -> Sequence[LatLon]:
+    docs = MONGO_ADDED.aggregate([
+        {"$match": {"reason": reason}},
+        {"$sample": {"size": limit}},
+    ])
+    return tuple(LatLon(*reversed(doc['position'])) for doc in docs)
