@@ -25,7 +25,7 @@ class AttribTunedModel:
 
         assert len(pred_proba) == 1
 
-        confidence = pred_proba[0]
+        confidence = float(pred_proba[0])
         is_valid = confidence > min_confidence
         crossing_type = CrossingType.UNKNOWN
 
