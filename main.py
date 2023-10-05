@@ -130,6 +130,9 @@ def _process_object_detection(cell_box: Box, orto_img: np.ndarray) -> Sequence[B
                     box_cell = Box(box_cell.point + box_cell_translate, box_cell.size)
 
                     box_img = fetch_orto(box_cell, YOLO_MODEL_RESOLUTION)
+                    if box_img is None:
+                        break
+
                     box_img = normalize_yolo_image(box_img)
 
                     subcell_pred = yolo_model.predict_single(box_img)
@@ -196,7 +199,6 @@ def _process_cell(cell: Cell) -> Sequence[CrossingMergeInstructions]:
 
     # with print_run_time('Fetching ortophoto'):
     orto_img = fetch_orto(cell.box, YOLO_MODEL_RESOLUTION)
-
     if orto_img is None:
         print('[CELL] ⏭️ Nothing to do: missing ortophoto')
         return ()
