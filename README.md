@@ -42,7 +42,7 @@ nix-shell cuda-shell.nix
 cp .env.example .env
 
 # Start up the database
-make dev-start
+dev-start
 
 # Done, now you can run the application
 python main.py
@@ -60,7 +60,7 @@ nix-shell
 cp .env.example .env
 
 # Start up the database
-make dev-start
+dev-start
 
 # Done, now you can run the application
 python main.py
@@ -76,6 +76,7 @@ services:
   db:
     image: mongo
     command: mongod --bind_ip_all
+    restart: unless-stopped
 
     volumes:
       - ./data/db:/data/db
