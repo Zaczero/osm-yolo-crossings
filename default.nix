@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { }, ... }:
 
-with pkgs; let
+let
   shell = import ./shell.nix {
     isDevelopment = false;
   };
