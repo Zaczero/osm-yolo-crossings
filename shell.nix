@@ -41,17 +41,6 @@ let
       rm -rf data/db
     '')
 
-    # -- Misc
-    (writeShellScriptBin "docker-build-push" ''
-      set -e
-      # Some data files require elevated permissions
-      if [ -d "$PROJECT_DIR/data" ]; then
-        image_path=$(sudo nix-build --no-out-link)
-      else
-        image_path=$(nix-build --no-out-link)
-      fi
-      docker push $(docker load < "$image_path" | sed -En 's/Loaded image: (\S+)/\1/p')
-    '')
   ];
 
   shell' = with pkgs; ''
